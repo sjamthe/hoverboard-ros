@@ -1,0 +1,863 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"stm32f1xx_it.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.NMI_Handler,"ax",%progbits
+  17              		.align	1
+  18              		.global	NMI_Handler
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	NMI_Handler:
+  25              	.LFB126:
+  26              		.file 1 "Src/stm32f1xx_it.c"
+   1:Src/stm32f1xx_it.c **** /**
+   2:Src/stm32f1xx_it.c ****  **************************************************************************
+   3:Src/stm32f1xx_it.c ****  * File Name    : at32f4xx_it.c
+   4:Src/stm32f1xx_it.c ****  * Description  : at32f4xx interrupt service routines.
+   5:Src/stm32f1xx_it.c ****  * Date         : 2018-02-12
+   6:Src/stm32f1xx_it.c ****  * Version      : V1.0.4
+   7:Src/stm32f1xx_it.c ****  **************************************************************************
+   8:Src/stm32f1xx_it.c ****  */
+   9:Src/stm32f1xx_it.c **** 
+  10:Src/stm32f1xx_it.c **** 
+  11:Src/stm32f1xx_it.c **** /* Includes ------------------------------------------------------------------*/
+  12:Src/stm32f1xx_it.c **** #include "../Inc/stm32f1xx_it.h"
+  13:Src/stm32f1xx_it.c **** #include "config.h"
+  14:Src/stm32f1xx_it.c **** #include "setup.h"
+  15:Src/stm32f1xx_it.c **** #include "hallinterrupts.h"
+  16:Src/stm32f1xx_it.c **** 
+  17:Src/stm32f1xx_it.c **** #ifdef CONTROL_NUNCHUCK
+  18:Src/stm32f1xx_it.c **** 	extern DMA_HandleTypeDef hdma_i2c2_rx;
+  19:Src/stm32f1xx_it.c **** 	extern DMA_HandleTypeDef hdma_i2c2_tx;
+  20:Src/stm32f1xx_it.c **** 	extern I2C_HandleTypeDef hi2c2;
+  21:Src/stm32f1xx_it.c **** #endif
+  22:Src/stm32f1xx_it.c **** 
+  23:Src/stm32f1xx_it.c **** #ifdef CONTROL_SERIAL_USART2
+  24:Src/stm32f1xx_it.c **** 	extern DMA_HandleTypeDef hdma_usart2_rx;
+  25:Src/stm32f1xx_it.c **** 	extern DMA_HandleTypeDef hdma_usart2_tx;
+  26:Src/stm32f1xx_it.c **** #endif
+  27:Src/stm32f1xx_it.c **** 
+  28:Src/stm32f1xx_it.c **** /**
+  29:Src/stm32f1xx_it.c ****   * @brief  This function handles NMI exception.
+  30:Src/stm32f1xx_it.c ****   * @param  None
+  31:Src/stm32f1xx_it.c ****   * @retval None
+  32:Src/stm32f1xx_it.c ****   */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 2
+
+
+  33:Src/stm32f1xx_it.c **** void NMI_Handler(void)
+  34:Src/stm32f1xx_it.c **** {
+  27              		.loc 1 34 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  35:Src/stm32f1xx_it.c **** }
+  32              		.loc 1 35 0
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE126:
+  37              		.section	.text.HardFault_Handler,"ax",%progbits
+  38              		.align	1
+  39              		.global	HardFault_Handler
+  40              		.syntax unified
+  41              		.thumb
+  42              		.thumb_func
+  43              		.fpu fpv4-sp-d16
+  45              	HardFault_Handler:
+  46              	.LFB127:
+  36:Src/stm32f1xx_it.c **** 
+  37:Src/stm32f1xx_it.c **** /**
+  38:Src/stm32f1xx_it.c ****   * @brief  This function handles Hard Fault exception.
+  39:Src/stm32f1xx_it.c ****   * @param  None
+  40:Src/stm32f1xx_it.c ****   * @retval None
+  41:Src/stm32f1xx_it.c ****   */
+  42:Src/stm32f1xx_it.c **** void HardFault_Handler(void)
+  43:Src/stm32f1xx_it.c **** {
+  47              		.loc 1 43 0
+  48              		.cfi_startproc
+  49              		@ Volatile: function does not return.
+  50              		@ args = 0, pretend = 0, frame = 0
+  51              		@ frame_needed = 0, uses_anonymous_args = 0
+  52              		@ link register save eliminated.
+  53              	.L3:
+  54 0000 FEE7     		b	.L3
+  55              		.cfi_endproc
+  56              	.LFE127:
+  58              		.section	.text.MemManage_Handler,"ax",%progbits
+  59              		.align	1
+  60              		.global	MemManage_Handler
+  61              		.syntax unified
+  62              		.thumb
+  63              		.thumb_func
+  64              		.fpu fpv4-sp-d16
+  66              	MemManage_Handler:
+  67              	.LFB128:
+  44:Src/stm32f1xx_it.c ****     /* Go to infinite loop when Hard Fault exception occurs */
+  45:Src/stm32f1xx_it.c ****     while (1)
+  46:Src/stm32f1xx_it.c ****     {
+  47:Src/stm32f1xx_it.c ****     }
+  48:Src/stm32f1xx_it.c **** }
+  49:Src/stm32f1xx_it.c **** 
+  50:Src/stm32f1xx_it.c **** /**
+  51:Src/stm32f1xx_it.c ****   * @brief  This function handles Memory Manage exception.
+  52:Src/stm32f1xx_it.c ****   * @param  None
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 3
+
+
+  53:Src/stm32f1xx_it.c ****   * @retval None
+  54:Src/stm32f1xx_it.c ****   */
+  55:Src/stm32f1xx_it.c **** void MemManage_Handler(void)
+  56:Src/stm32f1xx_it.c **** {
+  68              		.loc 1 56 0
+  69              		.cfi_startproc
+  70              		@ Volatile: function does not return.
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73              		@ link register save eliminated.
+  74              	.L5:
+  75 0000 FEE7     		b	.L5
+  76              		.cfi_endproc
+  77              	.LFE128:
+  79              		.section	.text.BusFault_Handler,"ax",%progbits
+  80              		.align	1
+  81              		.global	BusFault_Handler
+  82              		.syntax unified
+  83              		.thumb
+  84              		.thumb_func
+  85              		.fpu fpv4-sp-d16
+  87              	BusFault_Handler:
+  88              	.LFB129:
+  57:Src/stm32f1xx_it.c ****     /* Go to infinite loop when Memory Manage exception occurs */
+  58:Src/stm32f1xx_it.c ****     while (1)
+  59:Src/stm32f1xx_it.c ****     {
+  60:Src/stm32f1xx_it.c ****     }
+  61:Src/stm32f1xx_it.c **** }
+  62:Src/stm32f1xx_it.c **** 
+  63:Src/stm32f1xx_it.c **** /**
+  64:Src/stm32f1xx_it.c ****   * @brief  This function handles Bus Fault exception.
+  65:Src/stm32f1xx_it.c ****   * @param  None
+  66:Src/stm32f1xx_it.c ****   * @retval None
+  67:Src/stm32f1xx_it.c ****   */
+  68:Src/stm32f1xx_it.c **** void BusFault_Handler(void)
+  69:Src/stm32f1xx_it.c **** {
+  89              		.loc 1 69 0
+  90              		.cfi_startproc
+  91              		@ Volatile: function does not return.
+  92              		@ args = 0, pretend = 0, frame = 0
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94              		@ link register save eliminated.
+  95              	.L7:
+  96 0000 FEE7     		b	.L7
+  97              		.cfi_endproc
+  98              	.LFE129:
+ 100              		.section	.text.UsageFault_Handler,"ax",%progbits
+ 101              		.align	1
+ 102              		.global	UsageFault_Handler
+ 103              		.syntax unified
+ 104              		.thumb
+ 105              		.thumb_func
+ 106              		.fpu fpv4-sp-d16
+ 108              	UsageFault_Handler:
+ 109              	.LFB130:
+  70:Src/stm32f1xx_it.c ****     /* Go to infinite loop when Bus Fault exception occurs */
+  71:Src/stm32f1xx_it.c ****     while (1)
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 4
+
+
+  72:Src/stm32f1xx_it.c ****     {
+  73:Src/stm32f1xx_it.c ****     }
+  74:Src/stm32f1xx_it.c **** }
+  75:Src/stm32f1xx_it.c **** 
+  76:Src/stm32f1xx_it.c **** /**
+  77:Src/stm32f1xx_it.c ****   * @brief  This function handles Usage Fault exception.
+  78:Src/stm32f1xx_it.c ****   * @param  None
+  79:Src/stm32f1xx_it.c ****   * @retval None
+  80:Src/stm32f1xx_it.c ****   */
+  81:Src/stm32f1xx_it.c **** void UsageFault_Handler(void)
+  82:Src/stm32f1xx_it.c **** {
+ 110              		.loc 1 82 0
+ 111              		.cfi_startproc
+ 112              		@ Volatile: function does not return.
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		@ link register save eliminated.
+ 116              	.L9:
+ 117 0000 FEE7     		b	.L9
+ 118              		.cfi_endproc
+ 119              	.LFE130:
+ 121              		.section	.text.SVC_Handler,"ax",%progbits
+ 122              		.align	1
+ 123              		.global	SVC_Handler
+ 124              		.syntax unified
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.fpu fpv4-sp-d16
+ 129              	SVC_Handler:
+ 130              	.LFB131:
+  83:Src/stm32f1xx_it.c ****     /* Go to infinite loop when Usage Fault exception occurs */
+  84:Src/stm32f1xx_it.c ****     while (1)
+  85:Src/stm32f1xx_it.c ****     {
+  86:Src/stm32f1xx_it.c ****     }
+  87:Src/stm32f1xx_it.c **** }
+  88:Src/stm32f1xx_it.c **** 
+  89:Src/stm32f1xx_it.c **** /**
+  90:Src/stm32f1xx_it.c ****   * @brief  This function handles SVCall exception.
+  91:Src/stm32f1xx_it.c ****   * @param  None
+  92:Src/stm32f1xx_it.c ****   * @retval None
+  93:Src/stm32f1xx_it.c ****   */
+  94:Src/stm32f1xx_it.c **** void SVC_Handler(void)
+  95:Src/stm32f1xx_it.c **** {
+ 131              		.loc 1 95 0
+ 132              		.cfi_startproc
+ 133              		@ args = 0, pretend = 0, frame = 0
+ 134              		@ frame_needed = 0, uses_anonymous_args = 0
+ 135              		@ link register save eliminated.
+  96:Src/stm32f1xx_it.c **** }
+ 136              		.loc 1 96 0
+ 137 0000 7047     		bx	lr
+ 138              		.cfi_endproc
+ 139              	.LFE131:
+ 141              		.section	.text.DebugMon_Handler,"ax",%progbits
+ 142              		.align	1
+ 143              		.global	DebugMon_Handler
+ 144              		.syntax unified
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 5
+
+
+ 145              		.thumb
+ 146              		.thumb_func
+ 147              		.fpu fpv4-sp-d16
+ 149              	DebugMon_Handler:
+ 150              	.LFB132:
+  97:Src/stm32f1xx_it.c **** 
+  98:Src/stm32f1xx_it.c **** /**
+  99:Src/stm32f1xx_it.c ****   * @brief  This function handles Debug Monitor exception.
+ 100:Src/stm32f1xx_it.c ****   * @param  None
+ 101:Src/stm32f1xx_it.c ****   * @retval None
+ 102:Src/stm32f1xx_it.c ****   */
+ 103:Src/stm32f1xx_it.c **** void DebugMon_Handler(void)
+ 104:Src/stm32f1xx_it.c **** {
+ 151              		.loc 1 104 0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155              		@ link register save eliminated.
+ 105:Src/stm32f1xx_it.c **** }
+ 156              		.loc 1 105 0
+ 157 0000 7047     		bx	lr
+ 158              		.cfi_endproc
+ 159              	.LFE132:
+ 161              		.section	.text.PendSV_Handler,"ax",%progbits
+ 162              		.align	1
+ 163              		.global	PendSV_Handler
+ 164              		.syntax unified
+ 165              		.thumb
+ 166              		.thumb_func
+ 167              		.fpu fpv4-sp-d16
+ 169              	PendSV_Handler:
+ 170              	.LFB133:
+ 106:Src/stm32f1xx_it.c **** 
+ 107:Src/stm32f1xx_it.c **** /**
+ 108:Src/stm32f1xx_it.c ****   * @brief  This function handles PendSV_Handler exception.
+ 109:Src/stm32f1xx_it.c ****   * @param  None
+ 110:Src/stm32f1xx_it.c ****   * @retval None
+ 111:Src/stm32f1xx_it.c ****   */
+ 112:Src/stm32f1xx_it.c **** void PendSV_Handler(void)
+ 113:Src/stm32f1xx_it.c **** {
+ 171              		.loc 1 113 0
+ 172              		.cfi_startproc
+ 173              		@ args = 0, pretend = 0, frame = 0
+ 174              		@ frame_needed = 0, uses_anonymous_args = 0
+ 175              		@ link register save eliminated.
+ 114:Src/stm32f1xx_it.c **** }
+ 176              		.loc 1 114 0
+ 177 0000 7047     		bx	lr
+ 178              		.cfi_endproc
+ 179              	.LFE133:
+ 181              		.section	.text.SysTick_Handler,"ax",%progbits
+ 182              		.align	1
+ 183              		.global	SysTick_Handler
+ 184              		.syntax unified
+ 185              		.thumb
+ 186              		.thumb_func
+ 187              		.fpu fpv4-sp-d16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 6
+
+
+ 189              	SysTick_Handler:
+ 190              	.LFB134:
+ 115:Src/stm32f1xx_it.c **** 
+ 116:Src/stm32f1xx_it.c **** /**
+ 117:Src/stm32f1xx_it.c ****   * @brief  This function handles SysTick Handler.
+ 118:Src/stm32f1xx_it.c ****   * @param  None
+ 119:Src/stm32f1xx_it.c ****   * @retval None
+ 120:Src/stm32f1xx_it.c ****   */
+ 121:Src/stm32f1xx_it.c **** // void SysTick_Handler(void)
+ 122:Src/stm32f1xx_it.c **** // {
+ 123:Src/stm32f1xx_it.c **** 
+ 124:Src/stm32f1xx_it.c **** // }
+ 125:Src/stm32f1xx_it.c **** 
+ 126:Src/stm32f1xx_it.c **** /**
+ 127:Src/stm32f1xx_it.c **** * @brief This function handles System tick timer.
+ 128:Src/stm32f1xx_it.c **** */
+ 129:Src/stm32f1xx_it.c **** // #ifdef CONTROL_PPM
+ 130:Src/stm32f1xx_it.c **** // void PPM_SysTick_Callback(void);
+ 131:Src/stm32f1xx_it.c **** // #endif
+ 132:Src/stm32f1xx_it.c **** void SysTick_Handler(void) {
+ 191              		.loc 1 132 0
+ 192              		.cfi_startproc
+ 193              		@ args = 0, pretend = 0, frame = 0
+ 194              		@ frame_needed = 0, uses_anonymous_args = 0
+ 195 0000 08B5     		push	{r3, lr}
+ 196              	.LCFI0:
+ 197              		.cfi_def_cfa_offset 8
+ 198              		.cfi_offset 3, -8
+ 199              		.cfi_offset 14, -4
+ 133:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
+ 134:Src/stm32f1xx_it.c **** 
+ 135:Src/stm32f1xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
+ 136:Src/stm32f1xx_it.c ****   HAL_IncTick();
+ 200              		.loc 1 136 0
+ 201 0002 FFF7FEFF 		bl	HAL_IncTick
+ 202              	.LVL0:
+ 137:Src/stm32f1xx_it.c ****   HAL_SYSTICK_IRQHandler();
+ 203              		.loc 1 137 0
+ 204 0006 FFF7FEFF 		bl	HAL_SYSTICK_IRQHandler
+ 205              	.LVL1:
+ 138:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
+ 139:Src/stm32f1xx_it.c **** #ifdef CONTROL_PPM
+ 140:Src/stm32f1xx_it.c ****   PPM_SysTick_Callback();
+ 141:Src/stm32f1xx_it.c **** #endif
+ 142:Src/stm32f1xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
+ 143:Src/stm32f1xx_it.c **** }
+ 206              		.loc 1 143 0
+ 207 000a 08BD     		pop	{r3, pc}
+ 208              		.cfi_endproc
+ 209              	.LFE134:
+ 211              		.section	.text.EXTI9_5_IRQHandler,"ax",%progbits
+ 212              		.align	1
+ 213              		.global	EXTI9_5_IRQHandler
+ 214              		.syntax unified
+ 215              		.thumb
+ 216              		.thumb_func
+ 217              		.fpu fpv4-sp-d16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 7
+
+
+ 219              	EXTI9_5_IRQHandler:
+ 220              	.LFB135:
+ 144:Src/stm32f1xx_it.c **** 
+ 145:Src/stm32f1xx_it.c **** #ifdef CONTROL_NUNCHUCK
+ 146:Src/stm32f1xx_it.c **** extern I2C_HandleTypeDef hi2c2;
+ 147:Src/stm32f1xx_it.c **** void I2C1_EV_IRQHandler(void)
+ 148:Src/stm32f1xx_it.c **** {
+ 149:Src/stm32f1xx_it.c ****   HAL_I2C_EV_IRQHandler(&hi2c2);
+ 150:Src/stm32f1xx_it.c **** }
+ 151:Src/stm32f1xx_it.c **** 
+ 152:Src/stm32f1xx_it.c **** void I2C1_ER_IRQHandler(void)
+ 153:Src/stm32f1xx_it.c **** {
+ 154:Src/stm32f1xx_it.c ****   HAL_I2C_ER_IRQHandler(&hi2c2);
+ 155:Src/stm32f1xx_it.c **** }
+ 156:Src/stm32f1xx_it.c **** 
+ 157:Src/stm32f1xx_it.c **** /**
+ 158:Src/stm32f1xx_it.c **** * @brief This function handles DMA1 channel4 global interrupt.
+ 159:Src/stm32f1xx_it.c **** */
+ 160:Src/stm32f1xx_it.c **** void DMA1_Channel4_IRQHandler(void)
+ 161:Src/stm32f1xx_it.c **** {
+ 162:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN DMA1_Channel4_IRQn 0 */
+ 163:Src/stm32f1xx_it.c **** 
+ 164:Src/stm32f1xx_it.c ****   /* USER CODE END DMA1_Channel4_IRQn 0 */
+ 165:Src/stm32f1xx_it.c ****   HAL_DMA_IRQHandler(&hdma_i2c2_tx);
+ 166:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN DMA1_Channel4_IRQn 1 */
+ 167:Src/stm32f1xx_it.c **** 
+ 168:Src/stm32f1xx_it.c ****   /* USER CODE END DMA1_Channel4_IRQn 1 */
+ 169:Src/stm32f1xx_it.c **** }
+ 170:Src/stm32f1xx_it.c **** 
+ 171:Src/stm32f1xx_it.c **** /**
+ 172:Src/stm32f1xx_it.c **** * @brief This function handles DMA1 channel5 global interrupt.
+ 173:Src/stm32f1xx_it.c **** */
+ 174:Src/stm32f1xx_it.c **** void DMA1_Channel5_IRQHandler(void)
+ 175:Src/stm32f1xx_it.c **** {
+ 176:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN DMA1_Channel5_IRQn 0 */
+ 177:Src/stm32f1xx_it.c **** 
+ 178:Src/stm32f1xx_it.c ****   /* USER CODE END DMA1_Channel5_IRQn 0 */
+ 179:Src/stm32f1xx_it.c ****   HAL_DMA_IRQHandler(&hdma_i2c2_rx);
+ 180:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN DMA1_Channel5_IRQn 1 */
+ 181:Src/stm32f1xx_it.c **** 
+ 182:Src/stm32f1xx_it.c ****   /* USER CODE END DMA1_Channel5_IRQn 1 */
+ 183:Src/stm32f1xx_it.c **** }
+ 184:Src/stm32f1xx_it.c **** #endif
+ 185:Src/stm32f1xx_it.c **** 
+ 186:Src/stm32f1xx_it.c **** #ifdef CONTROL_PPM
+ 187:Src/stm32f1xx_it.c **** void EXTI3_IRQHandler(void)
+ 188:Src/stm32f1xx_it.c **** {
+ 189:Src/stm32f1xx_it.c ****     PPM_ISR_Callback();
+ 190:Src/stm32f1xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_3);
+ 191:Src/stm32f1xx_it.c **** }
+ 192:Src/stm32f1xx_it.c **** #endif
+ 193:Src/stm32f1xx_it.c **** 
+ 194:Src/stm32f1xx_it.c **** ////////////////////////////////////////////////////////////////////
+ 195:Src/stm32f1xx_it.c **** // actual IRQ for LEFT pins 5,6,7
+ 196:Src/stm32f1xx_it.c **** void EXTI9_5_IRQHandler(void)
+ 197:Src/stm32f1xx_it.c **** {
+ 221              		.loc 1 197 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 8
+
+
+ 222              		.cfi_startproc
+ 223              		@ args = 0, pretend = 0, frame = 0
+ 224              		@ frame_needed = 0, uses_anonymous_args = 0
+ 225 0000 08B5     		push	{r3, lr}
+ 226              	.LCFI1:
+ 227              		.cfi_def_cfa_offset 8
+ 228              		.cfi_offset 3, -8
+ 229              		.cfi_offset 14, -4
+ 230              	.LVL2:
+ 198:Src/stm32f1xx_it.c ****   unsigned long triggered = 0;
+ 199:Src/stm32f1xx_it.c ****   if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_9) != RESET)
+ 231              		.loc 1 199 0
+ 232 0002 1B4B     		ldr	r3, .L24
+ 233 0004 5B69     		ldr	r3, [r3, #20]
+ 234 0006 13F40073 		ands	r3, r3, #512
+ 235 000a 03D0     		beq	.L16
+ 200:Src/stm32f1xx_it.c ****   {
+ 201:Src/stm32f1xx_it.c ****     /* Clear the EXTI line 8 pending bit */
+ 202:Src/stm32f1xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_9);
+ 236              		.loc 1 202 0
+ 237 000c 4FF40073 		mov	r3, #512
+ 238 0010 174A     		ldr	r2, .L24
+ 239 0012 5361     		str	r3, [r2, #20]
+ 240              	.LVL3:
+ 241              	.L16:
+ 203:Src/stm32f1xx_it.c ****     triggered |= GPIO_PIN_9;
+ 204:Src/stm32f1xx_it.c ****   }
+ 205:Src/stm32f1xx_it.c ****   
+ 206:Src/stm32f1xx_it.c ****   if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_8) != RESET)
+ 242              		.loc 1 206 0
+ 243 0014 164A     		ldr	r2, .L24
+ 244 0016 5269     		ldr	r2, [r2, #20]
+ 245 0018 12F4807F 		tst	r2, #256
+ 246 001c 05D0     		beq	.L17
+ 207:Src/stm32f1xx_it.c ****   {
+ 208:Src/stm32f1xx_it.c ****     /* Clear the EXTI line 9 pending bit */
+ 209:Src/stm32f1xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_8);
+ 247              		.loc 1 209 0
+ 248 001e 144A     		ldr	r2, .L24
+ 249 0020 4FF48071 		mov	r1, #256
+ 250 0024 5161     		str	r1, [r2, #20]
+ 210:Src/stm32f1xx_it.c ****     triggered |= GPIO_PIN_9;
+ 251              		.loc 1 210 0
+ 252 0026 43F40073 		orr	r3, r3, #512
+ 253              	.LVL4:
+ 254              	.L17:
+ 211:Src/stm32f1xx_it.c ****   }
+ 212:Src/stm32f1xx_it.c **** 
+ 213:Src/stm32f1xx_it.c ****   if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_7) != RESET)
+ 255              		.loc 1 213 0
+ 256 002a 114A     		ldr	r2, .L24
+ 257 002c 5269     		ldr	r2, [r2, #20]
+ 258 002e 12F0800F 		tst	r2, #128
+ 259 0032 03D0     		beq	.L18
+ 214:Src/stm32f1xx_it.c ****   {
+ 215:Src/stm32f1xx_it.c ****     /* Clear the EXTI line 13 pending bit */
+ 216:Src/stm32f1xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_7);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 9
+
+
+ 260              		.loc 1 216 0
+ 261 0034 0E4A     		ldr	r2, .L24
+ 262 0036 8021     		movs	r1, #128
+ 263 0038 5161     		str	r1, [r2, #20]
+ 217:Src/stm32f1xx_it.c ****     triggered |= GPIO_PIN_7;
+ 264              		.loc 1 217 0
+ 265 003a 0B43     		orrs	r3, r3, r1
+ 266              	.LVL5:
+ 267              	.L18:
+ 218:Src/stm32f1xx_it.c ****   }
+ 219:Src/stm32f1xx_it.c **** 
+ 220:Src/stm32f1xx_it.c ****   if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_6) != RESET)
+ 268              		.loc 1 220 0
+ 269 003c 0C4A     		ldr	r2, .L24
+ 270 003e 5269     		ldr	r2, [r2, #20]
+ 271 0040 12F0400F 		tst	r2, #64
+ 272 0044 03D0     		beq	.L19
+ 221:Src/stm32f1xx_it.c ****   {
+ 222:Src/stm32f1xx_it.c ****     /* Clear the EXTI line 13 pending bit */
+ 223:Src/stm32f1xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_6);
+ 273              		.loc 1 223 0
+ 274 0046 0A4A     		ldr	r2, .L24
+ 275 0048 4021     		movs	r1, #64
+ 276 004a 5161     		str	r1, [r2, #20]
+ 224:Src/stm32f1xx_it.c ****     triggered |= GPIO_PIN_6;
+ 277              		.loc 1 224 0
+ 278 004c 0B43     		orrs	r3, r3, r1
+ 279              	.LVL6:
+ 280              	.L19:
+ 225:Src/stm32f1xx_it.c ****   }
+ 226:Src/stm32f1xx_it.c ****   if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_5) != RESET)
+ 281              		.loc 1 226 0
+ 282 004e 084A     		ldr	r2, .L24
+ 283 0050 5269     		ldr	r2, [r2, #20]
+ 284 0052 12F0200F 		tst	r2, #32
+ 285 0056 03D0     		beq	.L20
+ 227:Src/stm32f1xx_it.c ****   {
+ 228:Src/stm32f1xx_it.c ****     /* Clear the EXTI line 13 pending bit */
+ 229:Src/stm32f1xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_5);
+ 286              		.loc 1 229 0
+ 287 0058 054A     		ldr	r2, .L24
+ 288 005a 2021     		movs	r1, #32
+ 289 005c 5161     		str	r1, [r2, #20]
+ 230:Src/stm32f1xx_it.c ****     triggered |= GPIO_PIN_5;
+ 290              		.loc 1 230 0
+ 291 005e 0B43     		orrs	r3, r3, r1
+ 292              	.LVL7:
+ 293              	.L20:
+ 231:Src/stm32f1xx_it.c ****   }
+ 232:Src/stm32f1xx_it.c ****  
+ 233:Src/stm32f1xx_it.c **** #ifdef HALL_INTERRUPTS
+ 234:Src/stm32f1xx_it.c ****   if (triggered & HALL_PIN_MASK)
+ 294              		.loc 1 234 0
+ 295 0060 13F4E75F 		tst	r3, #7392
+ 296 0064 00D1     		bne	.L23
+ 297              	.LVL8:
+ 298              	.L15:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 10
+
+
+ 235:Src/stm32f1xx_it.c ****     HallInterruptsInterrupt();
+ 236:Src/stm32f1xx_it.c **** #endif
+ 237:Src/stm32f1xx_it.c **** 
+ 238:Src/stm32f1xx_it.c **** // shared interrupt for these pins, depending on where the sfotware serial pin is
+ 239:Src/stm32f1xx_it.c **** #ifdef SOFTWARE_SERIAL
+ 240:Src/stm32f1xx_it.c ****   if (triggered & SOFTWARE_SERIAL_RX_PIN){
+ 241:Src/stm32f1xx_it.c ****       softwareserialRXInterrupt();
+ 242:Src/stm32f1xx_it.c ****   }
+ 243:Src/stm32f1xx_it.c **** #endif
+ 244:Src/stm32f1xx_it.c **** } 
+ 299              		.loc 1 244 0
+ 300 0066 08BD     		pop	{r3, pc}
+ 301              	.LVL9:
+ 302              	.L23:
+ 235:Src/stm32f1xx_it.c ****     HallInterruptsInterrupt();
+ 303              		.loc 1 235 0
+ 304 0068 FFF7FEFF 		bl	HallInterruptsInterrupt
+ 305              	.LVL10:
+ 306              		.loc 1 244 0
+ 307 006c FBE7     		b	.L15
+ 308              	.L25:
+ 309 006e 00BF     		.align	2
+ 310              	.L24:
+ 311 0070 00040140 		.word	1073808384
+ 312              		.cfi_endproc
+ 313              	.LFE135:
+ 315              		.section	.text.EXTI15_10_IRQHandler,"ax",%progbits
+ 316              		.align	1
+ 317              		.global	EXTI15_10_IRQHandler
+ 318              		.syntax unified
+ 319              		.thumb
+ 320              		.thumb_func
+ 321              		.fpu fpv4-sp-d16
+ 323              	EXTI15_10_IRQHandler:
+ 324              	.LFB136:
+ 245:Src/stm32f1xx_it.c **** 
+ 246:Src/stm32f1xx_it.c **** /////////////////////////////////////////////////////////////////////
+ 247:Src/stm32f1xx_it.c **** // actual IRQ for RIGHT pins 10, 11, 12
+ 248:Src/stm32f1xx_it.c **** void EXTI15_10_IRQHandler(void)
+ 249:Src/stm32f1xx_it.c **** {
+ 325              		.loc 1 249 0
+ 326              		.cfi_startproc
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329              		@ link register save eliminated.
+ 330              	.LVL11:
+ 250:Src/stm32f1xx_it.c ****   unsigned long triggered = 0;
+ 251:Src/stm32f1xx_it.c ****   if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_15) != RESET)
+ 331              		.loc 1 251 0
+ 332 0000 1B4B     		ldr	r3, .L33
+ 333 0002 5B69     		ldr	r3, [r3, #20]
+ 334 0004 13F4004F 		tst	r3, #32768
+ 335 0008 03D0     		beq	.L27
+ 252:Src/stm32f1xx_it.c ****   {
+ 253:Src/stm32f1xx_it.c ****     /* Clear the EXTI line 8 pending bit */
+ 254:Src/stm32f1xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_15);
+ 336              		.loc 1 254 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 11
+
+
+ 337 000a 194B     		ldr	r3, .L33
+ 338 000c 4FF40042 		mov	r2, #32768
+ 339 0010 5A61     		str	r2, [r3, #20]
+ 340              	.LVL12:
+ 341              	.L27:
+ 255:Src/stm32f1xx_it.c ****     triggered |= GPIO_PIN_15;
+ 256:Src/stm32f1xx_it.c ****   }
+ 257:Src/stm32f1xx_it.c ****   
+ 258:Src/stm32f1xx_it.c ****   if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_14) != RESET)
+ 342              		.loc 1 258 0
+ 343 0012 174B     		ldr	r3, .L33
+ 344 0014 5B69     		ldr	r3, [r3, #20]
+ 345 0016 13F4804F 		tst	r3, #16384
+ 346 001a 03D0     		beq	.L28
+ 259:Src/stm32f1xx_it.c ****   {
+ 260:Src/stm32f1xx_it.c ****     /* Clear the EXTI line 9 pending bit */
+ 261:Src/stm32f1xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_14);
+ 347              		.loc 1 261 0
+ 348 001c 144B     		ldr	r3, .L33
+ 349 001e 4FF48042 		mov	r2, #16384
+ 350 0022 5A61     		str	r2, [r3, #20]
+ 351              	.L28:
+ 262:Src/stm32f1xx_it.c ****     triggered |= GPIO_PIN_14;
+ 263:Src/stm32f1xx_it.c ****   }
+ 264:Src/stm32f1xx_it.c **** 
+ 265:Src/stm32f1xx_it.c ****   if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_13) != RESET)
+ 352              		.loc 1 265 0
+ 353 0024 124B     		ldr	r3, .L33
+ 354 0026 5B69     		ldr	r3, [r3, #20]
+ 355 0028 13F4005F 		tst	r3, #8192
+ 356 002c 03D0     		beq	.L29
+ 266:Src/stm32f1xx_it.c ****   {
+ 267:Src/stm32f1xx_it.c ****     /* Clear the EXTI line 13 pending bit */
+ 268:Src/stm32f1xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_13);
+ 357              		.loc 1 268 0
+ 358 002e 104B     		ldr	r3, .L33
+ 359 0030 4FF40052 		mov	r2, #8192
+ 360 0034 5A61     		str	r2, [r3, #20]
+ 361              	.L29:
+ 269:Src/stm32f1xx_it.c ****     triggered |= GPIO_PIN_13;
+ 270:Src/stm32f1xx_it.c ****   }
+ 271:Src/stm32f1xx_it.c ****   if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_12) != RESET)
+ 362              		.loc 1 271 0
+ 363 0036 0E4B     		ldr	r3, .L33
+ 364 0038 5B69     		ldr	r3, [r3, #20]
+ 365 003a 13F4805F 		tst	r3, #4096
+ 366 003e 03D0     		beq	.L30
+ 272:Src/stm32f1xx_it.c ****   {
+ 273:Src/stm32f1xx_it.c ****     /* Clear the EXTI line 13 pending bit */
+ 274:Src/stm32f1xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_12);
+ 367              		.loc 1 274 0
+ 368 0040 0B4B     		ldr	r3, .L33
+ 369 0042 4FF48052 		mov	r2, #4096
+ 370 0046 5A61     		str	r2, [r3, #20]
+ 371              	.L30:
+ 275:Src/stm32f1xx_it.c ****     triggered |= GPIO_PIN_12;
+ 276:Src/stm32f1xx_it.c ****   }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 12
+
+
+ 277:Src/stm32f1xx_it.c ****   if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_11) != RESET)
+ 372              		.loc 1 277 0
+ 373 0048 094B     		ldr	r3, .L33
+ 374 004a 5B69     		ldr	r3, [r3, #20]
+ 375 004c 13F4006F 		tst	r3, #2048
+ 376 0050 03D0     		beq	.L31
+ 278:Src/stm32f1xx_it.c ****   {
+ 279:Src/stm32f1xx_it.c ****     /* Clear the EXTI line 13 pending bit */
+ 280:Src/stm32f1xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_11);
+ 377              		.loc 1 280 0
+ 378 0052 074B     		ldr	r3, .L33
+ 379 0054 4FF40062 		mov	r2, #2048
+ 380 0058 5A61     		str	r2, [r3, #20]
+ 381              	.L31:
+ 281:Src/stm32f1xx_it.c ****     triggered |= GPIO_PIN_11;
+ 282:Src/stm32f1xx_it.c ****   }
+ 283:Src/stm32f1xx_it.c ****   if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_10) != RESET)
+ 382              		.loc 1 283 0
+ 383 005a 054B     		ldr	r3, .L33
+ 384 005c 5B69     		ldr	r3, [r3, #20]
+ 385 005e 13F4806F 		tst	r3, #1024
+ 386 0062 03D0     		beq	.L26
+ 284:Src/stm32f1xx_it.c ****   {
+ 285:Src/stm32f1xx_it.c ****     /* Clear the EXTI line 13 pending bit */
+ 286:Src/stm32f1xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_10);
+ 387              		.loc 1 286 0
+ 388 0064 024B     		ldr	r3, .L33
+ 389 0066 4FF48062 		mov	r2, #1024
+ 390 006a 5A61     		str	r2, [r3, #20]
+ 391              	.L26:
+ 287:Src/stm32f1xx_it.c ****     triggered |= GPIO_PIN_10;
+ 288:Src/stm32f1xx_it.c ****   }
+ 289:Src/stm32f1xx_it.c **** 
+ 290:Src/stm32f1xx_it.c **** //#ifdef HALL_INTERRUPTS
+ 291:Src/stm32f1xx_it.c **** //  if (triggered & HALL_PIN_MASK)
+ 292:Src/stm32f1xx_it.c **** //    HallInterruptsInterrupt();
+ 293:Src/stm32f1xx_it.c **** //#endif
+ 294:Src/stm32f1xx_it.c **** 
+ 295:Src/stm32f1xx_it.c **** } 
+ 392              		.loc 1 295 0
+ 393 006c 7047     		bx	lr
+ 394              	.L34:
+ 395 006e 00BF     		.align	2
+ 396              	.L33:
+ 397 0070 00040140 		.word	1073808384
+ 398              		.cfi_endproc
+ 399              	.LFE136:
+ 401              		.section	.text.DMA1_Channel6_IRQHandler,"ax",%progbits
+ 402              		.align	1
+ 403              		.global	DMA1_Channel6_IRQHandler
+ 404              		.syntax unified
+ 405              		.thumb
+ 406              		.thumb_func
+ 407              		.fpu fpv4-sp-d16
+ 409              	DMA1_Channel6_IRQHandler:
+ 410              	.LFB137:
+ 296:Src/stm32f1xx_it.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 13
+
+
+ 297:Src/stm32f1xx_it.c **** #ifdef CONTROL_SERIAL_USART2
+ 298:Src/stm32f1xx_it.c **** void DMA1_Channel6_IRQHandler(void)
+ 299:Src/stm32f1xx_it.c **** {
+ 411              		.loc 1 299 0
+ 412              		.cfi_startproc
+ 413              		@ args = 0, pretend = 0, frame = 0
+ 414              		@ frame_needed = 0, uses_anonymous_args = 0
+ 415 0000 08B5     		push	{r3, lr}
+ 416              	.LCFI2:
+ 417              		.cfi_def_cfa_offset 8
+ 418              		.cfi_offset 3, -8
+ 419              		.cfi_offset 14, -4
+ 300:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN DMA1_Channel4_IRQn 0 */
+ 301:Src/stm32f1xx_it.c **** 
+ 302:Src/stm32f1xx_it.c ****   /* USER CODE END DMA1_Channel4_IRQn 0 */
+ 303:Src/stm32f1xx_it.c ****   HAL_DMA_IRQHandler(&hdma_usart2_rx);
+ 420              		.loc 1 303 0
+ 421 0002 0248     		ldr	r0, .L37
+ 422 0004 FFF7FEFF 		bl	HAL_DMA_IRQHandler
+ 423              	.LVL13:
+ 304:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN DMA1_Channel4_IRQn 1 */
+ 305:Src/stm32f1xx_it.c **** 
+ 306:Src/stm32f1xx_it.c ****   /* USER CODE END DMA1_Channel4_IRQn 1 */
+ 307:Src/stm32f1xx_it.c **** }
+ 424              		.loc 1 307 0
+ 425 0008 08BD     		pop	{r3, pc}
+ 426              	.L38:
+ 427 000a 00BF     		.align	2
+ 428              	.L37:
+ 429 000c 00000000 		.word	hdma_usart2_rx
+ 430              		.cfi_endproc
+ 431              	.LFE137:
+ 433              		.section	.text.DMA1_Channel7_IRQHandler,"ax",%progbits
+ 434              		.align	1
+ 435              		.global	DMA1_Channel7_IRQHandler
+ 436              		.syntax unified
+ 437              		.thumb
+ 438              		.thumb_func
+ 439              		.fpu fpv4-sp-d16
+ 441              	DMA1_Channel7_IRQHandler:
+ 442              	.LFB138:
+ 308:Src/stm32f1xx_it.c **** 
+ 309:Src/stm32f1xx_it.c **** /**
+ 310:Src/stm32f1xx_it.c **** * @brief This function handles DMA1 channel5 global interrupt.
+ 311:Src/stm32f1xx_it.c **** */
+ 312:Src/stm32f1xx_it.c **** void DMA1_Channel7_IRQHandler(void)
+ 313:Src/stm32f1xx_it.c **** {
+ 443              		.loc 1 313 0
+ 444              		.cfi_startproc
+ 445              		@ args = 0, pretend = 0, frame = 0
+ 446              		@ frame_needed = 0, uses_anonymous_args = 0
+ 447 0000 08B5     		push	{r3, lr}
+ 448              	.LCFI3:
+ 449              		.cfi_def_cfa_offset 8
+ 450              		.cfi_offset 3, -8
+ 451              		.cfi_offset 14, -4
+ 314:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN DMA1_Channel5_IRQn 0 */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 14
+
+
+ 315:Src/stm32f1xx_it.c **** 
+ 316:Src/stm32f1xx_it.c ****   /* USER CODE END DMA1_Channel5_IRQn 0 */
+ 317:Src/stm32f1xx_it.c ****   HAL_DMA_IRQHandler(&hdma_usart2_tx);
+ 452              		.loc 1 317 0
+ 453 0002 0248     		ldr	r0, .L41
+ 454 0004 FFF7FEFF 		bl	HAL_DMA_IRQHandler
+ 455              	.LVL14:
+ 318:Src/stm32f1xx_it.c ****   /* USER CODE BEGIN DMA1_Channel5_IRQn 1 */
+ 319:Src/stm32f1xx_it.c **** 
+ 320:Src/stm32f1xx_it.c ****   /* USER CODE END DMA1_Channel5_IRQn 1 */
+ 321:Src/stm32f1xx_it.c **** }
+ 456              		.loc 1 321 0
+ 457 0008 08BD     		pop	{r3, pc}
+ 458              	.L42:
+ 459 000a 00BF     		.align	2
+ 460              	.L41:
+ 461 000c 00000000 		.word	hdma_usart2_tx
+ 462              		.cfi_endproc
+ 463              	.LFE138:
+ 465              		.text
+ 466              	.Letext0:
+ 467              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 468              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 469              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 470              		.file 5 "Inc/system_at32f4xx.h"
+ 471              		.file 6 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 472              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 473              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 474              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 475              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 476              		.file 11 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 477              		.file 12 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 478              		.file 13 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 479              		.file 14 "Inc/control_structures.h"
+ 480              		.file 15 "Inc/hallinterrupts.h"
+ 481              		.file 16 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 482              		.file 17 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f1xx_it.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:17     .text.NMI_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:24     .text.NMI_Handler:0000000000000000 NMI_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:38     .text.HardFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:45     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:59     .text.MemManage_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:66     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:80     .text.BusFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:87     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:101    .text.UsageFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:108    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:122    .text.SVC_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:129    .text.SVC_Handler:0000000000000000 SVC_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:142    .text.DebugMon_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:149    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:162    .text.PendSV_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:169    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:182    .text.SysTick_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:189    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:212    .text.EXTI9_5_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:219    .text.EXTI9_5_IRQHandler:0000000000000000 EXTI9_5_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:311    .text.EXTI9_5_IRQHandler:0000000000000070 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:316    .text.EXTI15_10_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:323    .text.EXTI15_10_IRQHandler:0000000000000000 EXTI15_10_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:397    .text.EXTI15_10_IRQHandler:0000000000000070 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:402    .text.DMA1_Channel6_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:409    .text.DMA1_Channel6_IRQHandler:0000000000000000 DMA1_Channel6_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:429    .text.DMA1_Channel6_IRQHandler:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:434    .text.DMA1_Channel7_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:441    .text.DMA1_Channel7_IRQHandler:0000000000000000 DMA1_Channel7_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2IHVKZ.s:461    .text.DMA1_Channel7_IRQHandler:000000000000000c $d
+
+UNDEFINED SYMBOLS
+HAL_IncTick
+HAL_SYSTICK_IRQHandler
+HallInterruptsInterrupt
+HAL_DMA_IRQHandler
+hdma_usart2_rx
+hdma_usart2_tx

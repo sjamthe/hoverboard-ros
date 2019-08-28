@@ -1,0 +1,360 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHqIXZW.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"BLDC_controller_data.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.global	rtP
+  17              		.global	rtConstP
+  18              		.section	.data.rtP,"aw",%progbits
+  19              		.align	2
+  22              	rtP:
+  23 0000 AB290000 		.word	10667
+  24 0004 0A000000 		.word	10
+  25 0008 0F000000 		.word	15
+  26 000c 1E000000 		.word	30
+  27 0010 90010000 		.word	400
+  28 0014 46000000 		.word	70
+  29 0018 00000000 		.word	0
+  30 001c 64000000 		.word	100
+  31 0020 C8000000 		.word	200
+  32 0024 2C010000 		.word	300
+  33 0028 90010000 		.word	400
+  34 002c F4010000 		.word	500
+  35 0030 58020000 		.word	600
+  36 0034 BC020000 		.word	700
+  37 0038 20030000 		.word	800
+  38 003c 84030000 		.word	900
+  39 0040 E8030000 		.word	1000
+  40 0044 0000     		.short	0
+  41 0046 0000     		.short	0
+  42 0048 0000     		.short	0
+  43 004a 0000     		.short	0
+  44 004c 0000     		.short	0
+  45 004e 0200     		.short	2
+  46 0050 0300     		.short	3
+  47 0052 0500     		.short	5
+  48 0054 0900     		.short	9
+  49 0056 1000     		.short	16
+  50 0058 1900     		.short	25
+  51 005a 3200     		.short	50
+  52 005c 1400     		.short	20
+  53 005e DC05     		.short	1500
+  54 0060 03       		.byte	3
+  55 0061 01       		.byte	1
+  56 0062 0000     		.space	2
+  57              		.section	.rodata.rtConstP,"a",%progbits
+  58              		.align	2
+  61              	rtConstP:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHqIXZW.s 			page 2
+
+
+  62 0000 E803     		.short	1000
+  63 0002 E803     		.short	1000
+  64 0004 E803     		.short	1000
+  65 0006 18FC     		.short	-1000
+  66 0008 18FC     		.short	-1000
+  67 000a 18FC     		.short	-1000
+  68 000c E803     		.short	1000
+  69 000e 18FC     		.short	-1000
+  70 0010 18FC     		.short	-1000
+  71 0012 E803     		.short	1000
+  72 0014 E803     		.short	1000
+  73 0016 E803     		.short	1000
+  74 0018 18FC     		.short	-1000
+  75 001a 18FC     		.short	-1000
+  76 001c E803     		.short	1000
+  77 001e 18FC     		.short	-1000
+  78 0020 18FC     		.short	-1000
+  79 0022 18FC     		.short	-1000
+  80 0024 E803     		.short	1000
+  81 0026 E803     		.short	1000
+  82 0028 E803     		.short	1000
+  83 002a F401     		.short	500
+  84 002c 8302     		.short	643
+  85 002e FE02     		.short	766
+  86 0030 6203     		.short	866
+  87 0032 AC03     		.short	940
+  88 0034 D903     		.short	985
+  89 0036 E803     		.short	1000
+  90 0038 D903     		.short	985
+  91 003a AC03     		.short	940
+  92 003c 6203     		.short	866
+  93 003e FE02     		.short	766
+  94 0040 8302     		.short	643
+  95 0042 F401     		.short	500
+  96 0044 5601     		.short	342
+  97 0046 AE00     		.short	174
+  98 0048 0000     		.short	0
+  99 004a 52FF     		.short	-174
+ 100 004c AAFE     		.short	-342
+ 101 004e 0CFE     		.short	-500
+ 102 0050 7DFD     		.short	-643
+ 103 0052 02FD     		.short	-766
+ 104 0054 9EFC     		.short	-866
+ 105 0056 54FC     		.short	-940
+ 106 0058 27FC     		.short	-985
+ 107 005a 18FC     		.short	-1000
+ 108 005c 27FC     		.short	-985
+ 109 005e 54FC     		.short	-940
+ 110 0060 9EFC     		.short	-866
+ 111 0062 02FD     		.short	-766
+ 112 0064 7DFD     		.short	-643
+ 113 0066 0CFE     		.short	-500
+ 114 0068 AAFE     		.short	-342
+ 115 006a 52FF     		.short	-174
+ 116 006c 0000     		.short	0
+ 117 006e AE00     		.short	174
+ 118 0070 5601     		.short	342
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHqIXZW.s 			page 3
+
+
+ 119 0072 F401     		.short	500
+ 120 0074 18FC     		.short	-1000
+ 121 0076 27FC     		.short	-985
+ 122 0078 54FC     		.short	-940
+ 123 007a 9EFC     		.short	-866
+ 124 007c 02FD     		.short	-766
+ 125 007e 7DFD     		.short	-643
+ 126 0080 0CFE     		.short	-500
+ 127 0082 AAFE     		.short	-342
+ 128 0084 52FF     		.short	-174
+ 129 0086 0000     		.short	0
+ 130 0088 AE00     		.short	174
+ 131 008a 5601     		.short	342
+ 132 008c F401     		.short	500
+ 133 008e 8302     		.short	643
+ 134 0090 FE02     		.short	766
+ 135 0092 6203     		.short	866
+ 136 0094 AC03     		.short	940
+ 137 0096 D903     		.short	985
+ 138 0098 E803     		.short	1000
+ 139 009a D903     		.short	985
+ 140 009c AC03     		.short	940
+ 141 009e 6203     		.short	866
+ 142 00a0 FE02     		.short	766
+ 143 00a2 8302     		.short	643
+ 144 00a4 F401     		.short	500
+ 145 00a6 5601     		.short	342
+ 146 00a8 AE00     		.short	174
+ 147 00aa 0000     		.short	0
+ 148 00ac 52FF     		.short	-174
+ 149 00ae AAFE     		.short	-342
+ 150 00b0 0CFE     		.short	-500
+ 151 00b2 7DFD     		.short	-643
+ 152 00b4 02FD     		.short	-766
+ 153 00b6 9EFC     		.short	-866
+ 154 00b8 54FC     		.short	-940
+ 155 00ba 27FC     		.short	-985
+ 156 00bc 18FC     		.short	-1000
+ 157 00be F401     		.short	500
+ 158 00c0 5601     		.short	342
+ 159 00c2 AE00     		.short	174
+ 160 00c4 0000     		.short	0
+ 161 00c6 52FF     		.short	-174
+ 162 00c8 AAFE     		.short	-342
+ 163 00ca 0CFE     		.short	-500
+ 164 00cc 7DFD     		.short	-643
+ 165 00ce 02FD     		.short	-766
+ 166 00d0 9EFC     		.short	-866
+ 167 00d2 54FC     		.short	-940
+ 168 00d4 27FC     		.short	-985
+ 169 00d6 18FC     		.short	-1000
+ 170 00d8 27FC     		.short	-985
+ 171 00da 54FC     		.short	-940
+ 172 00dc 9EFC     		.short	-866
+ 173 00de 02FD     		.short	-766
+ 174 00e0 7DFD     		.short	-643
+ 175 00e2 0CFE     		.short	-500
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHqIXZW.s 			page 4
+
+
+ 176 00e4 AAFE     		.short	-342
+ 177 00e6 52FF     		.short	-174
+ 178 00e8 0000     		.short	0
+ 179 00ea AE00     		.short	174
+ 180 00ec 5601     		.short	342
+ 181 00ee F401     		.short	500
+ 182 00f0 8302     		.short	643
+ 183 00f2 FE02     		.short	766
+ 184 00f4 6203     		.short	866
+ 185 00f6 AC03     		.short	940
+ 186 00f8 D903     		.short	985
+ 187 00fa E803     		.short	1000
+ 188 00fc D903     		.short	985
+ 189 00fe AC03     		.short	940
+ 190 0100 6203     		.short	866
+ 191 0102 FE02     		.short	766
+ 192 0104 8302     		.short	643
+ 193 0106 F401     		.short	500
+ 194 0108 2D03     		.short	813
+ 195 010a B103     		.short	945
+ 196 010c E803     		.short	1000
+ 197 010e E403     		.short	996
+ 198 0110 C203     		.short	962
+ 199 0112 9E03     		.short	926
+ 200 0114 9003     		.short	912
+ 201 0116 9E03     		.short	926
+ 202 0118 C203     		.short	962
+ 203 011a E403     		.short	996
+ 204 011c E803     		.short	1000
+ 205 011e B103     		.short	945
+ 206 0120 2D03     		.short	813
+ 207 0122 5702     		.short	599
+ 208 0124 3F01     		.short	319
+ 209 0126 0000     		.short	0
+ 210 0128 C1FE     		.short	-319
+ 211 012a A9FD     		.short	-599
+ 212 012c D3FC     		.short	-813
+ 213 012e 4FFC     		.short	-945
+ 214 0130 18FC     		.short	-1000
+ 215 0132 1CFC     		.short	-996
+ 216 0134 3EFC     		.short	-962
+ 217 0136 62FC     		.short	-926
+ 218 0138 70FC     		.short	-912
+ 219 013a 62FC     		.short	-926
+ 220 013c 3EFC     		.short	-962
+ 221 013e 1CFC     		.short	-996
+ 222 0140 18FC     		.short	-1000
+ 223 0142 4FFC     		.short	-945
+ 224 0144 D3FC     		.short	-813
+ 225 0146 A9FD     		.short	-599
+ 226 0148 C1FE     		.short	-319
+ 227 014a 0000     		.short	0
+ 228 014c 3F01     		.short	319
+ 229 014e 5702     		.short	599
+ 230 0150 2D03     		.short	813
+ 231 0152 70FC     		.short	-912
+ 232 0154 62FC     		.short	-926
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHqIXZW.s 			page 5
+
+
+ 233 0156 3EFC     		.short	-962
+ 234 0158 1CFC     		.short	-996
+ 235 015a 18FC     		.short	-1000
+ 236 015c 4FFC     		.short	-945
+ 237 015e D3FC     		.short	-813
+ 238 0160 A9FD     		.short	-599
+ 239 0162 C1FE     		.short	-319
+ 240 0164 0000     		.short	0
+ 241 0166 3F01     		.short	319
+ 242 0168 5702     		.short	599
+ 243 016a 2D03     		.short	813
+ 244 016c B103     		.short	945
+ 245 016e E803     		.short	1000
+ 246 0170 E403     		.short	996
+ 247 0172 C203     		.short	962
+ 248 0174 9E03     		.short	926
+ 249 0176 9003     		.short	912
+ 250 0178 9E03     		.short	926
+ 251 017a C203     		.short	962
+ 252 017c E403     		.short	996
+ 253 017e E803     		.short	1000
+ 254 0180 B103     		.short	945
+ 255 0182 2D03     		.short	813
+ 256 0184 5702     		.short	599
+ 257 0186 3F01     		.short	319
+ 258 0188 0000     		.short	0
+ 259 018a C1FE     		.short	-319
+ 260 018c A9FD     		.short	-599
+ 261 018e D3FC     		.short	-813
+ 262 0190 4FFC     		.short	-945
+ 263 0192 18FC     		.short	-1000
+ 264 0194 1CFC     		.short	-996
+ 265 0196 3EFC     		.short	-962
+ 266 0198 62FC     		.short	-926
+ 267 019a 70FC     		.short	-912
+ 268 019c 2D03     		.short	813
+ 269 019e 5702     		.short	599
+ 270 01a0 3F01     		.short	319
+ 271 01a2 0000     		.short	0
+ 272 01a4 C1FE     		.short	-319
+ 273 01a6 A9FD     		.short	-599
+ 274 01a8 D3FC     		.short	-813
+ 275 01aa 4FFC     		.short	-945
+ 276 01ac 18FC     		.short	-1000
+ 277 01ae 1CFC     		.short	-996
+ 278 01b0 3EFC     		.short	-962
+ 279 01b2 62FC     		.short	-926
+ 280 01b4 70FC     		.short	-912
+ 281 01b6 62FC     		.short	-926
+ 282 01b8 3EFC     		.short	-962
+ 283 01ba 1CFC     		.short	-996
+ 284 01bc 18FC     		.short	-1000
+ 285 01be 4FFC     		.short	-945
+ 286 01c0 D3FC     		.short	-813
+ 287 01c2 A9FD     		.short	-599
+ 288 01c4 C1FE     		.short	-319
+ 289 01c6 0000     		.short	0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHqIXZW.s 			page 6
+
+
+ 290 01c8 3F01     		.short	319
+ 291 01ca 5702     		.short	599
+ 292 01cc 2D03     		.short	813
+ 293 01ce B103     		.short	945
+ 294 01d0 E803     		.short	1000
+ 295 01d2 E403     		.short	996
+ 296 01d4 C203     		.short	962
+ 297 01d6 9E03     		.short	926
+ 298 01d8 9003     		.short	912
+ 299 01da 9E03     		.short	926
+ 300 01dc C203     		.short	962
+ 301 01de E403     		.short	996
+ 302 01e0 E803     		.short	1000
+ 303 01e2 B103     		.short	945
+ 304 01e4 2D03     		.short	813
+ 305 01e6 E803     		.short	1000
+ 306 01e8 18FC     		.short	-1000
+ 307 01ea 0000     		.short	0
+ 308 01ec E803     		.short	1000
+ 309 01ee 0000     		.short	0
+ 310 01f0 18FC     		.short	-1000
+ 311 01f2 0000     		.short	0
+ 312 01f4 E803     		.short	1000
+ 313 01f6 18FC     		.short	-1000
+ 314 01f8 18FC     		.short	-1000
+ 315 01fa E803     		.short	1000
+ 316 01fc 0000     		.short	0
+ 317 01fe 18FC     		.short	-1000
+ 318 0200 0000     		.short	0
+ 319 0202 E803     		.short	1000
+ 320 0204 0000     		.short	0
+ 321 0206 18FC     		.short	-1000
+ 322 0208 E803     		.short	1000
+ 323 020a 00       		.byte	0
+ 324 020b 05       		.byte	5
+ 325 020c 03       		.byte	3
+ 326 020d 04       		.byte	4
+ 327 020e 01       		.byte	1
+ 328 020f 00       		.byte	0
+ 329 0210 02       		.byte	2
+ 330 0211 00       		.byte	0
+ 331              		.text
+ 332              	.Letext0:
+ 333              		.file 1 "Inc/rtwtypes.h"
+ 334              		.file 2 "Inc/BLDC_controller.h"
+ 335              		.file 3 "Src/BLDC_controller_data.c"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHqIXZW.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 BLDC_controller_data.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHqIXZW.s:22     .data.rtP:0000000000000000 rtP
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHqIXZW.s:61     .rodata.rtConstP:0000000000000000 rtConstP
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHqIXZW.s:19     .data.rtP:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHqIXZW.s:58     .rodata.rtConstP:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

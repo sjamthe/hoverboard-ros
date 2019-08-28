@@ -1,0 +1,2650 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"system_at32f4xx.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.SetSysClockTo72MHSI,"ax",%progbits
+  17              		.align	1
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu fpv4-sp-d16
+  23              	SetSysClockTo72MHSI:
+  24              	.LFB127:
+  25              		.file 1 "Src/system_at32f4xx.c"
+   1:Src/system_at32f4xx.c **** /**
+   2:Src/system_at32f4xx.c ****  **************************************************************************
+   3:Src/system_at32f4xx.c ****  * File Name    : system_at32f4xx.c
+   4:Src/system_at32f4xx.c ****  * Description  : CMSIS Cortex-M4 system source file.
+   5:Src/system_at32f4xx.c ****  * Date         : 2018-02-26
+   6:Src/system_at32f4xx.c ****  * Version      : V1.0.4
+   7:Src/system_at32f4xx.c ****  **************************************************************************
+   8:Src/system_at32f4xx.c ****  */
+   9:Src/system_at32f4xx.c **** 
+  10:Src/system_at32f4xx.c **** 
+  11:Src/system_at32f4xx.c **** /** @addtogroup CMSIS
+  12:Src/system_at32f4xx.c ****   * @{
+  13:Src/system_at32f4xx.c ****   */
+  14:Src/system_at32f4xx.c **** 
+  15:Src/system_at32f4xx.c **** /** @addtogroup at32f4xx_system
+  16:Src/system_at32f4xx.c ****   * @{
+  17:Src/system_at32f4xx.c ****   */
+  18:Src/system_at32f4xx.c **** 
+  19:Src/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_Includes
+  20:Src/system_at32f4xx.c ****   * @{
+  21:Src/system_at32f4xx.c ****   */
+  22:Src/system_at32f4xx.c **** 
+  23:Src/system_at32f4xx.c **** #include "at32f4xx.h"
+  24:Src/system_at32f4xx.c **** 
+  25:Src/system_at32f4xx.c **** /**
+  26:Src/system_at32f4xx.c ****   * @}
+  27:Src/system_at32f4xx.c ****   */
+  28:Src/system_at32f4xx.c **** 
+  29:Src/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_TypesDefinitions
+  30:Src/system_at32f4xx.c ****   * @{
+  31:Src/system_at32f4xx.c ****   */
+  32:Src/system_at32f4xx.c **** 
+  33:Src/system_at32f4xx.c **** /**
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 2
+
+
+  34:Src/system_at32f4xx.c ****   * @}
+  35:Src/system_at32f4xx.c ****   */
+  36:Src/system_at32f4xx.c **** 
+  37:Src/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_Defines
+  38:Src/system_at32f4xx.c ****   * @{
+  39:Src/system_at32f4xx.c ****   */
+  40:Src/system_at32f4xx.c ****   
+  41:Src/system_at32f4xx.c ****   #define RCC_GET_PLLMULT(MULT)           ((((MULT & RCC_CFG_PLLMULT_LB_MASK) >> RCC_CFG_PLLMULT_LB
+  42:Src/system_at32f4xx.c ****                                             ((MULT & RCC_CFG_PLLMULT_HB_MASK) >> (RCC_CFG_PLLMULT_H
+  43:Src/system_at32f4xx.c ****                                           ((((MULT & RCC_CFG_PLLMULT_HB_MASK)==0) && \
+  44:Src/system_at32f4xx.c ****                                             ((MULT & RCC_CFG_PLLMULT_LB_MASK)!=RCC_CFG_PLLMULT_LB_M
+  45:Src/system_at32f4xx.c **** 
+  46:Src/system_at32f4xx.c **** /*!< Uncomment the line corresponding to the desired System clock (SYSCLK)
+  47:Src/system_at32f4xx.c ****    frequency (after reset the HSI is used as SYSCLK source)
+  48:Src/system_at32f4xx.c **** 
+  49:Src/system_at32f4xx.c ****    IMPORTANT NOTE:
+  50:Src/system_at32f4xx.c ****    ==============
+  51:Src/system_at32f4xx.c ****    1. After each device reset the HSI is used as System clock source.
+  52:Src/system_at32f4xx.c **** 
+  53:Src/system_at32f4xx.c ****    2. Please make sure that the selected System clock doesn't exceed your device's
+  54:Src/system_at32f4xx.c ****       maximum frequency.
+  55:Src/system_at32f4xx.c **** 
+  56:Src/system_at32f4xx.c ****    3. If none of the define below is enabled, the HSI is used as System clock
+  57:Src/system_at32f4xx.c ****     source.
+  58:Src/system_at32f4xx.c **** 
+  59:Src/system_at32f4xx.c ****    4. The System clock configuration functions provided within this file assume that:
+  60:Src/system_at32f4xx.c ****         - For at32f4xx devices, an external 8MHz crystal is used to drive the System clock.
+  61:Src/system_at32f4xx.c ****      If you are using different crystal you have to adapt those functions accordingly.
+  62:Src/system_at32f4xx.c **** 
+  63:Src/system_at32f4xx.c ****       Clock (MHz)
+  64:Src/system_at32f4xx.c ****           PLL from HSE or HSI
+  65:Src/system_at32f4xx.c ****           SYSCLK	    HCLK	PCLK2	PCLK1
+  66:Src/system_at32f4xx.c ****           24	        24	    24	    24
+  67:Src/system_at32f4xx.c ****           36	        36	    36	    36
+  68:Src/system_at32f4xx.c ****           48	        48	    48	    24
+  69:Src/system_at32f4xx.c ****           56	        56	    56	    28
+  70:Src/system_at32f4xx.c ****           72	        72	    72	    36
+  71:Src/system_at32f4xx.c ****           96	        96	    96	    48
+  72:Src/system_at32f4xx.c ****           108	        108	    108	    54
+  73:Src/system_at32f4xx.c ****           120	        120	    60	    60
+  74:Src/system_at32f4xx.c ****           144	        144	    72	    72
+  75:Src/system_at32f4xx.c ****           168	        168	    84	    84
+  76:Src/system_at32f4xx.c ****           176	        176	    88	    88
+  77:Src/system_at32f4xx.c ****           192	        192	    96	    96
+  78:Src/system_at32f4xx.c ****           200	        200	    100	    100
+  79:Src/system_at32f4xx.c ****     */
+  80:Src/system_at32f4xx.c **** 
+  81:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_HSE          HSE_VALUE */
+  82:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_24MHz        24000000 */
+  83:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_36MHz        36000000 */
+  84:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_48MHz        48000000 */
+  85:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_56MHz        56000000 */
+  86:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_72MHz        72000000 */
+  87:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_96MHz        96000000 */
+  88:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_108MHz       108000000 */
+  89:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_120MHz       120000000 */
+  90:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_144MHz       144000000 */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 3
+
+
+  91:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_168MHz       168000000 */
+  92:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_176MHz       176000000 */
+  93:Src/system_at32f4xx.c **** //#define SYSCLK_FREQ_192MHz       192000000 
+  94:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_200MHz       200000000 */
+  95:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_24MHz_HSI    24000000 */
+  96:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_36MHz_HSI    36000000 */
+  97:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_48MHz_HSI    48000000 */
+  98:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_56MHz_HSI    56000000 */
+  99:Src/system_at32f4xx.c ****  #define SYSCLK_FREQ_72MHz_HSI    72000000 
+ 100:Src/system_at32f4xx.c **** // #define SYSCLK_FREQ_96MHz_HSI    96000000 
+ 101:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_108MHz_HSI   108000000 */
+ 102:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_120MHz_HSI   120000000 */
+ 103:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_144MHz_HSI   144000000 */
+ 104:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_168MHz_HSI   168000000 */
+ 105:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_176MHz_HSI   176000000 */
+ 106:Src/system_at32f4xx.c **** // #define SYSCLK_FREQ_192MHz_HSI   192000000 
+ 107:Src/system_at32f4xx.c **** /* #define SYSCLK_FREQ_200MHz_HSI   200000000 */
+ 108:Src/system_at32f4xx.c **** 
+ 109:Src/system_at32f4xx.c **** /*!< Uncomment the following line if you need to use external SRAM mounted
+ 110:Src/system_at32f4xx.c ****      (AT32 High density and XL-density devices) as data memory */
+ 111:Src/system_at32f4xx.c **** 
+ 112:Src/system_at32f4xx.c **** /* #define DATA_IN_ExtSRAM */
+ 113:Src/system_at32f4xx.c **** 
+ 114:Src/system_at32f4xx.c **** /*!< Uncomment the following line if you need to relocate your vector Table in
+ 115:Src/system_at32f4xx.c ****      Internal SRAM. */
+ 116:Src/system_at32f4xx.c **** /* #define VECT_TAB_SRAM */
+ 117:Src/system_at32f4xx.c **** #define VECT_TAB_OFFSET  0x0 /*!< Vector Table base offset field. 
+ 118:Src/system_at32f4xx.c **** This value must be a multiple of 0x200. */
+ 119:Src/system_at32f4xx.c **** 
+ 120:Src/system_at32f4xx.c **** 
+ 121:Src/system_at32f4xx.c **** /**
+ 122:Src/system_at32f4xx.c ****   * @}
+ 123:Src/system_at32f4xx.c ****   */
+ 124:Src/system_at32f4xx.c **** 
+ 125:Src/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_Macros
+ 126:Src/system_at32f4xx.c ****   * @{
+ 127:Src/system_at32f4xx.c ****   */
+ 128:Src/system_at32f4xx.c **** 
+ 129:Src/system_at32f4xx.c **** /**
+ 130:Src/system_at32f4xx.c ****   * @}
+ 131:Src/system_at32f4xx.c ****   */
+ 132:Src/system_at32f4xx.c **** 
+ 133:Src/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_Variables
+ 134:Src/system_at32f4xx.c ****   * @{
+ 135:Src/system_at32f4xx.c ****   */
+ 136:Src/system_at32f4xx.c **** 
+ 137:Src/system_at32f4xx.c **** /*******************************************************************************
+ 138:Src/system_at32f4xx.c **** *  Clock Definitions
+ 139:Src/system_at32f4xx.c **** *******************************************************************************/
+ 140:Src/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
+ 141:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_HSE;        /*!< System Clock Frequency (Core Clock)
+ 142:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz
+ 143:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_24MHz;        /*!< System Clock Frequency (Core Cloc
+ 144:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz
+ 145:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_36MHz;        /*!< System Clock Frequency (Core Cloc
+ 146:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz
+ 147:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_48MHz;        /*!< System Clock Frequency (Core Cloc
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 4
+
+
+ 148:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz
+ 149:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_56MHz;        /*!< System Clock Frequency (Core Cloc
+ 150:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz
+ 151:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_72MHz;        /*!< System Clock Frequency (Core Cloc
+ 152:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz
+ 153:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_96MHz;        /*!< System Clock Frequency (Core Cloc
+ 154:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz
+ 155:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_108MHz;       /*!< System Clock Frequency (Core Cloc
+ 156:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz
+ 157:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_120MHz;       /*!< System Clock Frequency (Core Cloc
+ 158:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz
+ 159:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_144MHz;       /*!< System Clock Frequency (Core Cloc
+ 160:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz
+ 161:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_168MHz;       /*!< System Clock Frequency (Core Cloc
+ 162:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz
+ 163:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_176MHz;       /*!< System Clock Frequency (Core Cloc
+ 164:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz
+ 165:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_192MHz;       /*!< System Clock Frequency (Core Cloc
+ 166:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz
+ 167:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_200MHz;       /*!< System Clock Frequency (Core Cloc
+ 168:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz_HSI
+ 169:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_24MHz_HSI;    /*!< System Clock Frequency (Core Cloc
+ 170:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz_HSI
+ 171:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_36MHz_HSI;    /*!< System Clock Frequency (Core Cloc
+ 172:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz_HSI
+ 173:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_48MHz_HSI;    /*!< System Clock Frequency (Core Cloc
+ 174:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz_HSI
+ 175:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_56MHz_HSI;    /*!< System Clock Frequency (Core Cloc
+ 176:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz_HSI
+ 177:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_72MHz_HSI;    /*!< System Clock Frequency (Core Cloc
+ 178:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz_HSI
+ 179:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_96MHz_HSI;    /*!< System Clock Frequency (Core Cloc
+ 180:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz_HSI
+ 181:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_108MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 182:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz_HSI
+ 183:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_120MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 184:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz_HSI
+ 185:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_144MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 186:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz_HSI
+ 187:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_168MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 188:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz_HSI
+ 189:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_176MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 190:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz_HSI
+ 191:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_192MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 192:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz_HSI
+ 193:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = SYSCLK_FREQ_200MHz_HSI;    /*!< System Clock Frequency (Core Clo
+ 194:Src/system_at32f4xx.c **** 
+ 195:Src/system_at32f4xx.c **** #else /*!< HSI Selected as System Clock source */
+ 196:Src/system_at32f4xx.c **** #define SYSCLK_FREQ_HSI            HSI_VALUE
+ 197:Src/system_at32f4xx.c **** uint32_t SystemCoreClock         = HSI_VALUE;        /*!< System Clock Frequency (Core Clock) */
+ 198:Src/system_at32f4xx.c **** #endif
+ 199:Src/system_at32f4xx.c **** 
+ 200:Src/system_at32f4xx.c **** __I uint8_t AHBPscTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+ 201:Src/system_at32f4xx.c **** __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+ 202:Src/system_at32f4xx.c **** __I uint8_t APBPrescTable[8U] =  {0, 0, 0, 0, 1, 2, 3, 4};
+ 203:Src/system_at32f4xx.c **** /**
+ 204:Src/system_at32f4xx.c ****   * @}
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 5
+
+
+ 205:Src/system_at32f4xx.c ****   */
+ 206:Src/system_at32f4xx.c **** 
+ 207:Src/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_FunctionPrototypes
+ 208:Src/system_at32f4xx.c ****   * @{
+ 209:Src/system_at32f4xx.c ****   */
+ 210:Src/system_at32f4xx.c **** 
+ 211:Src/system_at32f4xx.c **** static void SetSysClock(void);
+ 212:Src/system_at32f4xx.c **** 
+ 213:Src/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
+ 214:Src/system_at32f4xx.c **** static void SetSysClockToHSE(void);
+ 215:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz
+ 216:Src/system_at32f4xx.c **** static void SetSysClockTo24M(void);
+ 217:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz
+ 218:Src/system_at32f4xx.c **** static void SetSysClockTo36M(void);
+ 219:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz
+ 220:Src/system_at32f4xx.c **** static void SetSysClockTo48M(void);
+ 221:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz
+ 222:Src/system_at32f4xx.c **** static void SetSysClockTo56M(void);
+ 223:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz
+ 224:Src/system_at32f4xx.c **** static void SetSysClockTo72M(void);
+ 225:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz
+ 226:Src/system_at32f4xx.c **** static void SetSysClockTo96M(void);
+ 227:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz
+ 228:Src/system_at32f4xx.c **** static void SetSysClockTo108M(void);
+ 229:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz
+ 230:Src/system_at32f4xx.c **** static void SetSysClockTo120M(void);
+ 231:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz
+ 232:Src/system_at32f4xx.c **** static void SetSysClockTo144M(void);
+ 233:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz
+ 234:Src/system_at32f4xx.c **** static void SetSysClockTo168M(void);
+ 235:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz
+ 236:Src/system_at32f4xx.c **** static void SetSysClockTo176M(void);
+ 237:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz
+ 238:Src/system_at32f4xx.c **** static void SetSysClockTo192M(void);
+ 239:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz
+ 240:Src/system_at32f4xx.c **** static void SetSysClockTo200M(void);
+ 241:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz_HSI
+ 242:Src/system_at32f4xx.c **** static void SetSysClockTo24MHSI(void);
+ 243:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz_HSI
+ 244:Src/system_at32f4xx.c **** static void SetSysClockTo36MHSI(void);
+ 245:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz_HSI
+ 246:Src/system_at32f4xx.c **** static void SetSysClockTo48MHSI(void);
+ 247:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz_HSI
+ 248:Src/system_at32f4xx.c **** static void SetSysClockTo56MHSI(void);
+ 249:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz_HSI
+ 250:Src/system_at32f4xx.c **** static void SetSysClockTo72MHSI(void);
+ 251:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz_HSI
+ 252:Src/system_at32f4xx.c **** static void SetSysClockTo96MHSI(void);
+ 253:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz_HSI
+ 254:Src/system_at32f4xx.c **** static void SetSysClockTo108MHSI(void);
+ 255:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz_HSI
+ 256:Src/system_at32f4xx.c **** static void SetSysClockTo120MHSI(void);
+ 257:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz_HSI
+ 258:Src/system_at32f4xx.c **** static void SetSysClockTo144MHSI(void);
+ 259:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz_HSI
+ 260:Src/system_at32f4xx.c **** static void SetSysClockTo168MHSI(void);
+ 261:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz_HSI
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 6
+
+
+ 262:Src/system_at32f4xx.c **** static void SetSysClockTo176MHSI(void);
+ 263:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz_HSI
+ 264:Src/system_at32f4xx.c **** static void SetSysClockTo192MHSI(void);
+ 265:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz_HSI
+ 266:Src/system_at32f4xx.c **** static void SetSysClockTo200MHSI(void);
+ 267:Src/system_at32f4xx.c **** #endif
+ 268:Src/system_at32f4xx.c **** 
+ 269:Src/system_at32f4xx.c **** #ifdef DATA_IN_ExtSRAM
+ 270:Src/system_at32f4xx.c **** static void SystemInit_ExtMemCtrl(void);
+ 271:Src/system_at32f4xx.c **** #endif /* DATA_IN_ExtSRAM */
+ 272:Src/system_at32f4xx.c **** 
+ 273:Src/system_at32f4xx.c **** /**
+ 274:Src/system_at32f4xx.c ****   * @}
+ 275:Src/system_at32f4xx.c ****   */
+ 276:Src/system_at32f4xx.c **** 
+ 277:Src/system_at32f4xx.c **** /** @addtogroup at32f4xx_System_Private_Functions
+ 278:Src/system_at32f4xx.c ****   * @{
+ 279:Src/system_at32f4xx.c ****   */
+ 280:Src/system_at32f4xx.c **** 
+ 281:Src/system_at32f4xx.c **** /**
+ 282:Src/system_at32f4xx.c ****   * @brief  Setup the microcontroller system
+ 283:Src/system_at32f4xx.c ****   *         Initialize the Embedded Flash Interface, the PLL and update the
+ 284:Src/system_at32f4xx.c ****   *         SystemCoreClock variable.
+ 285:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 286:Src/system_at32f4xx.c ****   * @param  None
+ 287:Src/system_at32f4xx.c ****   * @retval None
+ 288:Src/system_at32f4xx.c ****   */
+ 289:Src/system_at32f4xx.c **** void SystemInit (void)
+ 290:Src/system_at32f4xx.c **** {
+ 291:Src/system_at32f4xx.c **** #if defined (__FPU_USED) && (__FPU_USED == 1U)
+ 292:Src/system_at32f4xx.c ****   SCB->CPACR |= ((3U << 10U * 2U) |         /* set CP10 Full Access */
+ 293:Src/system_at32f4xx.c ****                  (3U << 11U * 2U)  );       /* set CP11 Full Access */
+ 294:Src/system_at32f4xx.c **** #endif
+ 295:Src/system_at32f4xx.c **** 
+ 296:Src/system_at32f4xx.c ****   /* Reset the RCC clock configuration to the default reset state(for debug purpose) */
+ 297:Src/system_at32f4xx.c ****   /* Set HSIEN bit */
+ 298:Src/system_at32f4xx.c ****   BIT_SET(RCC->CR, RCC_CTRL_HSIEN);
+ 299:Src/system_at32f4xx.c **** 
+ 300:Src/system_at32f4xx.c ****   /* Reset SW, AHBPSC, APB1PSC, APB2PSC, ADCPSC and CLKOUT bits */
+ 301:Src/system_at32f4xx.c ****   BIT_CLEAR(RCC->CFGR, RCC_CFG_SYSCLKSEL | RCC_CFG_AHBPSC | \
+ 302:Src/system_at32f4xx.c ****             RCC_CFG_APB1PSC | RCC_CFG_APB2PSC | \
+ 303:Src/system_at32f4xx.c ****             RCC_CFG_ADCPSC | RCC_CFG_CLKOUT);
+ 304:Src/system_at32f4xx.c **** 
+ 305:Src/system_at32f4xx.c ****   /* Reset HSEEN, HSECFDEN and PLLEN bits */
+ 306:Src/system_at32f4xx.c ****   BIT_CLEAR(RCC->CR, RCC_CTRL_HSEEN | RCC_CTRL_HSECFDEN | \
+ 307:Src/system_at32f4xx.c ****             RCC_CTRL_PLLEN);
+ 308:Src/system_at32f4xx.c **** 
+ 309:Src/system_at32f4xx.c ****   /* Reset HSEBYPS bit */
+ 310:Src/system_at32f4xx.c ****   BIT_CLEAR(RCC->CR, RCC_CTRL_HSEBYPS);
+ 311:Src/system_at32f4xx.c **** 
+ 312:Src/system_at32f4xx.c ****   /* Reset PLLRC, PLLHSEPSC, PLLMUL, USBPSC and PLLRANGE bits */
+ 313:Src/system_at32f4xx.c ****   BIT_CLEAR(RCC->CFGR, RCC_CFG_PLLRC | RCC_CFG_PLLHSEPSC | \
+ 314:Src/system_at32f4xx.c ****             RCC_CFG_PLLMULT | RCC_CFG_USBPSC | RCC_CFG_PLLRANGE);
+ 315:Src/system_at32f4xx.c **** 
+ 316:Src/system_at32f4xx.c ****   /* Reset USB768B, CLKOUT[3], HSICAL_KEY[7:0] */
+ 317:Src/system_at32f4xx.c ****   BIT_CLEAR(RCC->MISC, 0x010100FF);
+ 318:Src/system_at32f4xx.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 7
+
+
+ 319:Src/system_at32f4xx.c ****   /* Disable all interrupts and clear pending bits  */
+ 320:Src/system_at32f4xx.c ****   RCC->CIR = RCC_CLKINT_LSISTBLFC | RCC_CLKINT_LSESTBLFC | \
+ 321:Src/system_at32f4xx.c ****                 RCC_CLKINT_HSISTBLFC | RCC_CLKINT_HSESTBLFC | \
+ 322:Src/system_at32f4xx.c ****                 RCC_CLKINT_PLLSTBLFC | RCC_CLKINT_HSECFDFC;
+ 323:Src/system_at32f4xx.c **** 
+ 324:Src/system_at32f4xx.c **** #ifdef DATA_IN_ExtSRAM
+ 325:Src/system_at32f4xx.c ****   SystemInit_ExtMemCtrl();
+ 326:Src/system_at32f4xx.c **** #endif /* DATA_IN_ExtSRAM */
+ 327:Src/system_at32f4xx.c **** 
+ 328:Src/system_at32f4xx.c ****   /* Configure the System clock frequency, HCLK, PCLK2 and PCLK1 prescalers */
+ 329:Src/system_at32f4xx.c ****   /* Configure the Flash Latency cycles and enable prefetch buffer */
+ 330:Src/system_at32f4xx.c ****   SetSysClock();
+ 331:Src/system_at32f4xx.c **** 
+ 332:Src/system_at32f4xx.c **** #ifdef VECT_TAB_SRAM
+ 333:Src/system_at32f4xx.c ****   SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM. */
+ 334:Src/system_at32f4xx.c **** #else
+ 335:Src/system_at32f4xx.c ****   SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH. */
+ 336:Src/system_at32f4xx.c **** #endif
+ 337:Src/system_at32f4xx.c **** }
+ 338:Src/system_at32f4xx.c **** 
+ 339:Src/system_at32f4xx.c **** /**
+ 340:Src/system_at32f4xx.c ****   * @brief  Update SystemCoreClock variable according to Clock Register Values.
+ 341:Src/system_at32f4xx.c ****   *         The SystemCoreClock variable contains the core clock (HCLK), it can
+ 342:Src/system_at32f4xx.c ****   *         be used by the user application to setup the SysTick timer or configure
+ 343:Src/system_at32f4xx.c ****   *         other parameters.
+ 344:Src/system_at32f4xx.c ****   *
+ 345:Src/system_at32f4xx.c ****   * @note   Each time the core clock (HCLK) changes, this function must be called
+ 346:Src/system_at32f4xx.c ****   *         to update SystemCoreClock variable value. Otherwise, any configuration
+ 347:Src/system_at32f4xx.c ****   *         based on this variable will be incorrect.
+ 348:Src/system_at32f4xx.c ****   *
+ 349:Src/system_at32f4xx.c ****   * @note   - The system frequency computed by this function is not the real
+ 350:Src/system_at32f4xx.c ****   *           frequency in the chip. It is calculated based on the predefined
+ 351:Src/system_at32f4xx.c ****   *           constant and the selected clock source:
+ 352:Src/system_at32f4xx.c ****   *
+ 353:Src/system_at32f4xx.c ****   *           - If SYSCLK source is HSI, SystemCoreClock will contain the HSI_VALUE(*)
+ 354:Src/system_at32f4xx.c ****   *
+ 355:Src/system_at32f4xx.c ****   *           - If SYSCLK source is HSE, SystemCoreClock will contain the HSE_VALUE(**)
+ 356:Src/system_at32f4xx.c ****   *
+ 357:Src/system_at32f4xx.c ****   *           - If SYSCLK source is PLL, SystemCoreClock will contain the HSE_VALUE(**)
+ 358:Src/system_at32f4xx.c ****   *             or HSI_VALUE(*) multiplied by the PLL factors.
+ 359:Src/system_at32f4xx.c ****   *
+ 360:Src/system_at32f4xx.c ****   *         (*) HSI_VALUE is a constant defined in at32f4xx.h file (default value
+ 361:Src/system_at32f4xx.c ****   *             8 MHz) but the real value may vary depending on the variations
+ 362:Src/system_at32f4xx.c ****   *             in voltage and temperature.
+ 363:Src/system_at32f4xx.c ****   *
+ 364:Src/system_at32f4xx.c ****   *         (**) HSE_VALUE is a constant defined in at32f4xx.h file (default value
+ 365:Src/system_at32f4xx.c ****   *              8 MHz or 25 MHz, depedning on the product used), user has to ensure
+ 366:Src/system_at32f4xx.c ****   *              that HSE_VALUE is same as the real frequency of the crystal used.
+ 367:Src/system_at32f4xx.c ****   *              Otherwise, this function may have wrong result.
+ 368:Src/system_at32f4xx.c ****   *
+ 369:Src/system_at32f4xx.c ****   *         - The result of this function could be not correct when using fractional
+ 370:Src/system_at32f4xx.c ****   *           value for HSE crystal.
+ 371:Src/system_at32f4xx.c ****   * @param  None
+ 372:Src/system_at32f4xx.c ****   * @retval None
+ 373:Src/system_at32f4xx.c ****   */
+ 374:Src/system_at32f4xx.c **** void SystemCoreClockUpdate (void)
+ 375:Src/system_at32f4xx.c **** {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 8
+
+
+ 376:Src/system_at32f4xx.c ****   uint32_t tmp = 0, pllmult = 0, pllrefclk = 0;
+ 377:Src/system_at32f4xx.c **** 
+ 378:Src/system_at32f4xx.c ****   /* Get SYSCLK source -------------------------------------------------------*/
+ 379:Src/system_at32f4xx.c ****   tmp = RCC->CFGR & RCC_CFG_SYSCLKSTS;
+ 380:Src/system_at32f4xx.c **** 
+ 381:Src/system_at32f4xx.c ****   switch (tmp)
+ 382:Src/system_at32f4xx.c ****   {
+ 383:Src/system_at32f4xx.c ****   case RCC_CFG_SYSCLKSTS_HSI:  /* HSI used as system clock */
+ 384:Src/system_at32f4xx.c ****     SystemCoreClock = HSI_VALUE;
+ 385:Src/system_at32f4xx.c ****     break;
+ 386:Src/system_at32f4xx.c **** 
+ 387:Src/system_at32f4xx.c ****   case RCC_CFG_SYSCLKSTS_HSE:  /* HSE used as system clock */
+ 388:Src/system_at32f4xx.c ****     SystemCoreClock = HSE_VALUE;
+ 389:Src/system_at32f4xx.c ****     break;
+ 390:Src/system_at32f4xx.c **** 
+ 391:Src/system_at32f4xx.c ****   case RCC_CFG_SYSCLKSTS_PLL:  /* PLL used as system clock */
+ 392:Src/system_at32f4xx.c ****     /* Get PLL clock source and multiplication factor ----------------------*/
+ 393:Src/system_at32f4xx.c ****     pllrefclk = RCC->CFGR & RCC_CFG_PLLRC;
+ 394:Src/system_at32f4xx.c ****     pllmult = RCC_GET_PLLMULT(RCC->CFGR);
+ 395:Src/system_at32f4xx.c **** 
+ 396:Src/system_at32f4xx.c ****     if (pllrefclk == RCC_PLLRefClk_HSI_Div2)
+ 397:Src/system_at32f4xx.c ****     {
+ 398:Src/system_at32f4xx.c ****       /* HSI oscillator clock divided by 2 selected as PLL clock entry */
+ 399:Src/system_at32f4xx.c ****       SystemCoreClock = (HSI_VALUE >> 1) * pllmult;
+ 400:Src/system_at32f4xx.c ****     }
+ 401:Src/system_at32f4xx.c ****     else
+ 402:Src/system_at32f4xx.c ****     {
+ 403:Src/system_at32f4xx.c ****       /* HSE selected as PLL clock entry */
+ 404:Src/system_at32f4xx.c ****       if ((RCC->CFGR & RCC_CFG_PLLHSEPSC) != (uint32_t)RESET)
+ 405:Src/system_at32f4xx.c ****       {
+ 406:Src/system_at32f4xx.c ****         /* HSE oscillator clock divided by 2 */
+ 407:Src/system_at32f4xx.c ****         SystemCoreClock = (HSE_VALUE >> 1) * pllmult;
+ 408:Src/system_at32f4xx.c ****       }
+ 409:Src/system_at32f4xx.c ****       else
+ 410:Src/system_at32f4xx.c ****       {
+ 411:Src/system_at32f4xx.c ****         SystemCoreClock = HSE_VALUE * pllmult;
+ 412:Src/system_at32f4xx.c ****       }
+ 413:Src/system_at32f4xx.c ****     }
+ 414:Src/system_at32f4xx.c **** 
+ 415:Src/system_at32f4xx.c ****     break;
+ 416:Src/system_at32f4xx.c **** 
+ 417:Src/system_at32f4xx.c ****   default:
+ 418:Src/system_at32f4xx.c ****     SystemCoreClock = HSI_VALUE;
+ 419:Src/system_at32f4xx.c ****     break;
+ 420:Src/system_at32f4xx.c ****   }
+ 421:Src/system_at32f4xx.c **** 
+ 422:Src/system_at32f4xx.c ****   /* Compute HCLK clock frequency ----------------*/
+ 423:Src/system_at32f4xx.c ****   /* Get HCLK prescaler */
+ 424:Src/system_at32f4xx.c ****   tmp = AHBPscTable[((RCC->CFGR & RCC_CFG_AHBPSC) >> 4)];
+ 425:Src/system_at32f4xx.c ****   /* HCLK clock frequency */
+ 426:Src/system_at32f4xx.c ****   SystemCoreClock >>= tmp;
+ 427:Src/system_at32f4xx.c **** }
+ 428:Src/system_at32f4xx.c **** 
+ 429:Src/system_at32f4xx.c **** /**
+ 430:Src/system_at32f4xx.c ****   * @brief  Configures the System clock frequency, HCLK, PCLK2 and PCLK1 prescalers.
+ 431:Src/system_at32f4xx.c ****   * @param  None
+ 432:Src/system_at32f4xx.c ****   * @retval None
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 9
+
+
+ 433:Src/system_at32f4xx.c ****   */
+ 434:Src/system_at32f4xx.c **** static void SetSysClock(void)
+ 435:Src/system_at32f4xx.c **** {
+ 436:Src/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
+ 437:Src/system_at32f4xx.c ****   SetSysClockToHSE();
+ 438:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz
+ 439:Src/system_at32f4xx.c ****   SetSysClockTo24M();
+ 440:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz
+ 441:Src/system_at32f4xx.c ****   SetSysClockTo36M();
+ 442:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz
+ 443:Src/system_at32f4xx.c ****   SetSysClockTo48M();
+ 444:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz
+ 445:Src/system_at32f4xx.c ****   SetSysClockTo56M();
+ 446:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz
+ 447:Src/system_at32f4xx.c ****   SetSysClockTo72M();
+ 448:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz
+ 449:Src/system_at32f4xx.c ****   SetSysClockTo96M();
+ 450:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz
+ 451:Src/system_at32f4xx.c ****   SetSysClockTo108M();
+ 452:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz
+ 453:Src/system_at32f4xx.c ****   SetSysClockTo120M();
+ 454:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz
+ 455:Src/system_at32f4xx.c ****   SetSysClockTo144M();
+ 456:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz
+ 457:Src/system_at32f4xx.c ****   SetSysClockTo168M();
+ 458:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz
+ 459:Src/system_at32f4xx.c ****   SetSysClockTo176M();
+ 460:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz
+ 461:Src/system_at32f4xx.c ****   SetSysClockTo192M();
+ 462:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz
+ 463:Src/system_at32f4xx.c ****   SetSysClockTo200M();
+ 464:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz_HSI
+ 465:Src/system_at32f4xx.c ****   SetSysClockTo24MHSI();
+ 466:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz_HSI
+ 467:Src/system_at32f4xx.c ****   SetSysClockTo36MHSI();
+ 468:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz_HSI
+ 469:Src/system_at32f4xx.c ****   SetSysClockTo48MHSI();
+ 470:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz_HSI
+ 471:Src/system_at32f4xx.c ****   SetSysClockTo56MHSI();
+ 472:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz_HSI
+ 473:Src/system_at32f4xx.c ****   SetSysClockTo72MHSI();
+ 474:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz_HSI
+ 475:Src/system_at32f4xx.c ****   SetSysClockTo96MHSI();
+ 476:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz_HSI
+ 477:Src/system_at32f4xx.c ****   SetSysClockTo108MHSI();
+ 478:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz_HSI
+ 479:Src/system_at32f4xx.c ****   SetSysClockTo120MHSI();
+ 480:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz_HSI
+ 481:Src/system_at32f4xx.c ****   SetSysClockTo144MHSI();
+ 482:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz_HSI
+ 483:Src/system_at32f4xx.c ****   SetSysClockTo168MHSI();
+ 484:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz_HSI
+ 485:Src/system_at32f4xx.c ****   SetSysClockTo176MHSI();
+ 486:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz_HSI
+ 487:Src/system_at32f4xx.c ****   SetSysClockTo192MHSI();
+ 488:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz_HSI
+ 489:Src/system_at32f4xx.c ****   SetSysClockTo200MHSI();
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 10
+
+
+ 490:Src/system_at32f4xx.c **** #endif
+ 491:Src/system_at32f4xx.c **** 
+ 492:Src/system_at32f4xx.c ****   /* If none of the define above is enabled, the HSI is used as System clock
+ 493:Src/system_at32f4xx.c ****      source (default after reset) */
+ 494:Src/system_at32f4xx.c **** }
+ 495:Src/system_at32f4xx.c **** 
+ 496:Src/system_at32f4xx.c **** /**
+ 497:Src/system_at32f4xx.c ****   * @brief  Setup the external memory controller. Called in startup_at32f403.s
+ 498:Src/system_at32f4xx.c ****   *          before jump to __main
+ 499:Src/system_at32f4xx.c ****   * @param  None
+ 500:Src/system_at32f4xx.c ****   * @retval None
+ 501:Src/system_at32f4xx.c ****   */
+ 502:Src/system_at32f4xx.c **** #ifdef DATA_IN_ExtSRAM
+ 503:Src/system_at32f4xx.c **** /**
+ 504:Src/system_at32f4xx.c ****   * @brief  Setup the external memory controller.
+ 505:Src/system_at32f4xx.c ****   *         Called in startup_at32f4xx_xx.s/.c before jump to main.
+ 506:Src/system_at32f4xx.c ****   * 	      This function configures the external SRAM mounted
+ 507:Src/system_at32f4xx.c ****   *         (AT32 High density devices). This SRAM will be used as program
+ 508:Src/system_at32f4xx.c ****   *         data memory (including heap and stack).
+ 509:Src/system_at32f4xx.c ****   * @param  None
+ 510:Src/system_at32f4xx.c ****   * @retval None
+ 511:Src/system_at32f4xx.c ****   */
+ 512:Src/system_at32f4xx.c **** void SystemInit_ExtMemCtrl(void)
+ 513:Src/system_at32f4xx.c **** {
+ 514:Src/system_at32f4xx.c ****   /* Enable XMC clock */
+ 515:Src/system_at32f4xx.c ****   RCC->AHBEN = RCC_AHBEN_SRAMEN | RCC_AHBEN_FLASHEN | RCC_AHBEN_XMCEN;
+ 516:Src/system_at32f4xx.c **** 
+ 517:Src/system_at32f4xx.c ****   /* Enable GPIOD, GPIOE, GPIOF and GPIOG clocks */
+ 518:Src/system_at32f4xx.c ****   RCC->APB2EN = RCC_APB2EN_GPIODEN | RCC_APB2EN_GPIOEEN | RCC_APB2EN_GPIOFEN | RCC_APB2EN_GPIOGEN;
+ 519:Src/system_at32f4xx.c **** 
+ 520:Src/system_at32f4xx.c ****   /* ---------------  SRAM Data lines, NOE and NWE configuration ---------------*/
+ 521:Src/system_at32f4xx.c ****   /*----------------  SRAM Address lines configuration -------------------------*/
+ 522:Src/system_at32f4xx.c ****   /*----------------  NOE and NWE configuration --------------------------------*/
+ 523:Src/system_at32f4xx.c ****   /*----------------  NE3 configuration ----------------------------------------*/
+ 524:Src/system_at32f4xx.c ****   /*----------------  NBL0, NBL1 configuration ---------------------------------*/
+ 525:Src/system_at32f4xx.c **** 
+ 526:Src/system_at32f4xx.c ****   GPIOD->CTRLL = 0x44BB44BB;
+ 527:Src/system_at32f4xx.c ****   GPIOD->CTRLH = 0xBBBBBBBB;
+ 528:Src/system_at32f4xx.c **** 
+ 529:Src/system_at32f4xx.c ****   GPIOE->CTRLL = 0xB44444BB;
+ 530:Src/system_at32f4xx.c ****   GPIOE->CTRLH = 0xBBBBBBBB;
+ 531:Src/system_at32f4xx.c **** 
+ 532:Src/system_at32f4xx.c ****   GPIOF->CTRLL = 0x44BBBBBB;
+ 533:Src/system_at32f4xx.c ****   GPIOF->CTRLH = 0xBBBB4444;
+ 534:Src/system_at32f4xx.c **** 
+ 535:Src/system_at32f4xx.c ****   GPIOG->CTRLL = 0x44BBBBBB;
+ 536:Src/system_at32f4xx.c ****   GPIOG->CTRLH = 0x44444B44;
+ 537:Src/system_at32f4xx.c **** 
+ 538:Src/system_at32f4xx.c ****   /*----------------  XMC Configuration ---------------------------------------*/
+ 539:Src/system_at32f4xx.c ****   /*----------------  Enable XMC Bank1_SRAM Bank ------------------------------*/
+ 540:Src/system_at32f4xx.c **** 
+ 541:Src/system_at32f4xx.c ****   XMC_Bank1->BK1CTRLR[4] = 0x00001011;
+ 542:Src/system_at32f4xx.c ****   XMC_Bank1->BK1CTRLR[5] = 0x00000200;
+ 543:Src/system_at32f4xx.c **** }
+ 544:Src/system_at32f4xx.c **** #endif /* DATA_IN_ExtSRAM */
+ 545:Src/system_at32f4xx.c **** 
+ 546:Src/system_at32f4xx.c **** #ifndef SYSCLK_FREQ_HSI
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 11
+
+
+ 547:Src/system_at32f4xx.c **** /**
+ 548:Src/system_at32f4xx.c ****   * @brief  Delay to wait for HSE stable.
+ 549:Src/system_at32f4xx.c ****   * @note   This function should be used before reading the HSESTBL flag.
+ 550:Src/system_at32f4xx.c ****   * @param  None
+ 551:Src/system_at32f4xx.c ****   * @retval None
+ 552:Src/system_at32f4xx.c ****   */
+ 553:Src/system_at32f4xx.c **** static void WaitHseStbl(uint32_t delay)
+ 554:Src/system_at32f4xx.c **** {
+ 555:Src/system_at32f4xx.c ****   uint32_t i;
+ 556:Src/system_at32f4xx.c **** 
+ 557:Src/system_at32f4xx.c ****   for(i = 0; i < delay; i++)
+ 558:Src/system_at32f4xx.c ****     ;
+ 559:Src/system_at32f4xx.c **** }
+ 560:Src/system_at32f4xx.c **** #endif /* SYSCLK_FREQ_HSI */
+ 561:Src/system_at32f4xx.c **** 
+ 562:Src/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
+ 563:Src/system_at32f4xx.c **** /**
+ 564:Src/system_at32f4xx.c ****   * @brief  Selects HSE as System clock source and configure HCLK, PCLK2
+ 565:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+ 566:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 567:Src/system_at32f4xx.c ****   * @param  None
+ 568:Src/system_at32f4xx.c ****   * @retval None
+ 569:Src/system_at32f4xx.c ****   */
+ 570:Src/system_at32f4xx.c **** static void SetSysClockToHSE(void)
+ 571:Src/system_at32f4xx.c **** {
+ 572:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 573:Src/system_at32f4xx.c **** 
+ 574:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+ 575:Src/system_at32f4xx.c ****   /* Enable HSE */
+ 576:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+ 577:Src/system_at32f4xx.c **** 
+ 578:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 579:Src/system_at32f4xx.c ****   do
+ 580:Src/system_at32f4xx.c ****   {
+ 581:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+ 582:Src/system_at32f4xx.c ****     StartUpCounter++;
+ 583:Src/system_at32f4xx.c ****   }
+ 584:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 585:Src/system_at32f4xx.c ****   
+ 586:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+ 587:Src/system_at32f4xx.c **** 
+ 588:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+ 589:Src/system_at32f4xx.c ****   {
+ 590:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 591:Src/system_at32f4xx.c ****   }
+ 592:Src/system_at32f4xx.c ****   else
+ 593:Src/system_at32f4xx.c ****   {
+ 594:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 595:Src/system_at32f4xx.c ****   }
+ 596:Src/system_at32f4xx.c **** 
+ 597:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ 598:Src/system_at32f4xx.c ****   {
+ 599:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ 600:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+ 601:Src/system_at32f4xx.c **** 
+ 602:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ 603:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 12
+
+
+ 604:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+ 605:Src/system_at32f4xx.c **** 
+ 606:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK */
+ 607:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+ 608:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV1;
+ 609:Src/system_at32f4xx.c **** 
+ 610:Src/system_at32f4xx.c ****     /* Select HSE as system clock source */
+ 611:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ 612:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_HSE;
+ 613:Src/system_at32f4xx.c **** 
+ 614:Src/system_at32f4xx.c ****     /* Wait till HSE is used as system clock source */
+ 615:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != (uint32_t)0x04)
+ 616:Src/system_at32f4xx.c ****     {
+ 617:Src/system_at32f4xx.c ****     }
+ 618:Src/system_at32f4xx.c ****   }
+ 619:Src/system_at32f4xx.c ****   else
+ 620:Src/system_at32f4xx.c ****   {
+ 621:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+ 622:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+ 623:Src/system_at32f4xx.c ****   }
+ 624:Src/system_at32f4xx.c **** }
+ 625:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz
+ 626:Src/system_at32f4xx.c **** /**
+ 627:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 24MHz and configure HCLK, PCLK2
+ 628:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+ 629:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 630:Src/system_at32f4xx.c ****   * @param  None
+ 631:Src/system_at32f4xx.c ****   * @retval None
+ 632:Src/system_at32f4xx.c ****   */
+ 633:Src/system_at32f4xx.c **** static void SetSysClockTo24M(void)
+ 634:Src/system_at32f4xx.c **** {
+ 635:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 636:Src/system_at32f4xx.c **** 
+ 637:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+ 638:Src/system_at32f4xx.c ****   /* Enable HSE */
+ 639:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+ 640:Src/system_at32f4xx.c **** 
+ 641:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 642:Src/system_at32f4xx.c ****   do
+ 643:Src/system_at32f4xx.c ****   {
+ 644:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+ 645:Src/system_at32f4xx.c ****     StartUpCounter++;
+ 646:Src/system_at32f4xx.c ****   }
+ 647:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 648:Src/system_at32f4xx.c ****   
+ 649:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);
+ 650:Src/system_at32f4xx.c **** 
+ 651:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+ 652:Src/system_at32f4xx.c ****   {
+ 653:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 654:Src/system_at32f4xx.c ****   }
+ 655:Src/system_at32f4xx.c ****   else
+ 656:Src/system_at32f4xx.c ****   {
+ 657:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 658:Src/system_at32f4xx.c ****   }
+ 659:Src/system_at32f4xx.c **** 
+ 660:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 13
+
+
+ 661:Src/system_at32f4xx.c ****   {
+ 662:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ 663:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+ 664:Src/system_at32f4xx.c **** 
+ 665:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ 666:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+ 667:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+ 668:Src/system_at32f4xx.c **** 
+ 669:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK */
+ 670:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+ 671:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV1;
+ 672:Src/system_at32f4xx.c **** 
+ 673:Src/system_at32f4xx.c ****     /*  PLL configuration:  = (HSE / 2) * 6 = 24 MHz */
+ 674:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+ 675:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLHSEPSC_HSE_DIV2 | RCC_CFG_PLLMULT6);
+ 676:Src/system_at32f4xx.c **** 
+ 677:Src/system_at32f4xx.c ****     /* Enable PLL */
+ 678:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+ 679:Src/system_at32f4xx.c **** 
+ 680:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+ 681:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+ 682:Src/system_at32f4xx.c ****     {
+ 683:Src/system_at32f4xx.c ****     }
+ 684:Src/system_at32f4xx.c **** 
+ 685:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+ 686:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ 687:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ 688:Src/system_at32f4xx.c **** 
+ 689:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+ 690:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+ 691:Src/system_at32f4xx.c ****     {
+ 692:Src/system_at32f4xx.c ****     }
+ 693:Src/system_at32f4xx.c ****     
+ 694:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+ 695:Src/system_at32f4xx.c ****   }
+ 696:Src/system_at32f4xx.c ****   else
+ 697:Src/system_at32f4xx.c ****   {
+ 698:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+ 699:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+ 700:Src/system_at32f4xx.c ****   }
+ 701:Src/system_at32f4xx.c **** }
+ 702:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz
+ 703:Src/system_at32f4xx.c **** /**
+ 704:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 36MHz and configure HCLK, PCLK2
+ 705:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+ 706:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 707:Src/system_at32f4xx.c ****   * @param  None
+ 708:Src/system_at32f4xx.c ****   * @retval None
+ 709:Src/system_at32f4xx.c ****   */
+ 710:Src/system_at32f4xx.c **** static void SetSysClockTo36M(void)
+ 711:Src/system_at32f4xx.c **** {
+ 712:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 713:Src/system_at32f4xx.c **** 
+ 714:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+ 715:Src/system_at32f4xx.c ****   /* Enable HSE */
+ 716:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+ 717:Src/system_at32f4xx.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 14
+
+
+ 718:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 719:Src/system_at32f4xx.c ****   do
+ 720:Src/system_at32f4xx.c ****   {
+ 721:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+ 722:Src/system_at32f4xx.c ****     StartUpCounter++;
+ 723:Src/system_at32f4xx.c ****   }
+ 724:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 725:Src/system_at32f4xx.c ****   
+ 726:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);  
+ 727:Src/system_at32f4xx.c **** 
+ 728:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+ 729:Src/system_at32f4xx.c ****   {
+ 730:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 731:Src/system_at32f4xx.c ****   }
+ 732:Src/system_at32f4xx.c ****   else
+ 733:Src/system_at32f4xx.c ****   {
+ 734:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 735:Src/system_at32f4xx.c ****   }
+ 736:Src/system_at32f4xx.c **** 
+ 737:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ 738:Src/system_at32f4xx.c ****   {
+ 739:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ 740:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+ 741:Src/system_at32f4xx.c **** 
+ 742:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ 743:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+ 744:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+ 745:Src/system_at32f4xx.c **** 
+ 746:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK */
+ 747:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+ 748:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV1;
+ 749:Src/system_at32f4xx.c **** 
+ 750:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = (HSE / 2) * 9 = 36 MHz */
+ 751:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+ 752:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLHSEPSC_HSE_DIV2 | RCC_CFG_PLLMULT9);
+ 753:Src/system_at32f4xx.c **** 
+ 754:Src/system_at32f4xx.c ****     /* Enable PLL */
+ 755:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+ 756:Src/system_at32f4xx.c **** 
+ 757:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+ 758:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+ 759:Src/system_at32f4xx.c ****     {
+ 760:Src/system_at32f4xx.c ****     }
+ 761:Src/system_at32f4xx.c **** 
+ 762:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+ 763:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ 764:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ 765:Src/system_at32f4xx.c **** 
+ 766:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+ 767:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+ 768:Src/system_at32f4xx.c ****     {
+ 769:Src/system_at32f4xx.c ****     }
+ 770:Src/system_at32f4xx.c ****         
+ 771:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+ 772:Src/system_at32f4xx.c ****   }
+ 773:Src/system_at32f4xx.c ****   else
+ 774:Src/system_at32f4xx.c ****   {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 15
+
+
+ 775:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+ 776:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+ 777:Src/system_at32f4xx.c ****   }
+ 778:Src/system_at32f4xx.c **** }
+ 779:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz
+ 780:Src/system_at32f4xx.c **** /**
+ 781:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 48MHz and configure HCLK, PCLK2
+ 782:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+ 783:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 784:Src/system_at32f4xx.c ****   * @param  None
+ 785:Src/system_at32f4xx.c ****   * @retval None
+ 786:Src/system_at32f4xx.c ****   */
+ 787:Src/system_at32f4xx.c **** static void SetSysClockTo48M(void)
+ 788:Src/system_at32f4xx.c **** {
+ 789:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 790:Src/system_at32f4xx.c **** 
+ 791:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+ 792:Src/system_at32f4xx.c ****   /* Enable HSE */
+ 793:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+ 794:Src/system_at32f4xx.c **** 
+ 795:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 796:Src/system_at32f4xx.c ****   do
+ 797:Src/system_at32f4xx.c ****   {
+ 798:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+ 799:Src/system_at32f4xx.c ****     StartUpCounter++;
+ 800:Src/system_at32f4xx.c ****   }
+ 801:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 802:Src/system_at32f4xx.c ****   
+ 803:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);  
+ 804:Src/system_at32f4xx.c **** 
+ 805:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+ 806:Src/system_at32f4xx.c ****   {
+ 807:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 808:Src/system_at32f4xx.c ****   }
+ 809:Src/system_at32f4xx.c ****   else
+ 810:Src/system_at32f4xx.c ****   {
+ 811:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 812:Src/system_at32f4xx.c ****   }
+ 813:Src/system_at32f4xx.c **** 
+ 814:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ 815:Src/system_at32f4xx.c ****   {
+ 816:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ 817:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+ 818:Src/system_at32f4xx.c **** 
+ 819:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ 820:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+ 821:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+ 822:Src/system_at32f4xx.c **** 
+ 823:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+ 824:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+ 825:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+ 826:Src/system_at32f4xx.c **** 
+ 827:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 6 = 48 MHz */
+ 828:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+ 829:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT6);
+ 830:Src/system_at32f4xx.c **** 
+ 831:Src/system_at32f4xx.c ****     /* Enable PLL */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 16
+
+
+ 832:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+ 833:Src/system_at32f4xx.c **** 
+ 834:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+ 835:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+ 836:Src/system_at32f4xx.c ****     {
+ 837:Src/system_at32f4xx.c ****     }
+ 838:Src/system_at32f4xx.c **** 
+ 839:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+ 840:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ 841:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ 842:Src/system_at32f4xx.c **** 
+ 843:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+ 844:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+ 845:Src/system_at32f4xx.c ****     {
+ 846:Src/system_at32f4xx.c ****     }
+ 847:Src/system_at32f4xx.c ****     
+ 848:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+ 849:Src/system_at32f4xx.c ****   }
+ 850:Src/system_at32f4xx.c ****   else
+ 851:Src/system_at32f4xx.c ****   {
+ 852:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+ 853:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+ 854:Src/system_at32f4xx.c ****   }
+ 855:Src/system_at32f4xx.c **** }
+ 856:Src/system_at32f4xx.c **** 
+ 857:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz
+ 858:Src/system_at32f4xx.c **** /**
+ 859:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 56MHz and configure HCLK, PCLK2
+ 860:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+ 861:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 862:Src/system_at32f4xx.c ****   * @param  None
+ 863:Src/system_at32f4xx.c ****   * @retval None
+ 864:Src/system_at32f4xx.c ****   */
+ 865:Src/system_at32f4xx.c **** static void SetSysClockTo56M(void)
+ 866:Src/system_at32f4xx.c **** {
+ 867:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ 868:Src/system_at32f4xx.c **** 
+ 869:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+ 870:Src/system_at32f4xx.c ****   /* Enable HSE */
+ 871:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+ 872:Src/system_at32f4xx.c **** 
+ 873:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 874:Src/system_at32f4xx.c ****   do
+ 875:Src/system_at32f4xx.c ****   {
+ 876:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+ 877:Src/system_at32f4xx.c ****     StartUpCounter++;
+ 878:Src/system_at32f4xx.c ****   }
+ 879:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 880:Src/system_at32f4xx.c ****   
+ 881:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);  
+ 882:Src/system_at32f4xx.c **** 
+ 883:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+ 884:Src/system_at32f4xx.c ****   {
+ 885:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 886:Src/system_at32f4xx.c ****   }
+ 887:Src/system_at32f4xx.c ****   else
+ 888:Src/system_at32f4xx.c ****   {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 17
+
+
+ 889:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 890:Src/system_at32f4xx.c ****   }
+ 891:Src/system_at32f4xx.c **** 
+ 892:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ 893:Src/system_at32f4xx.c ****   {
+ 894:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ 895:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+ 896:Src/system_at32f4xx.c **** 
+ 897:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ 898:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+ 899:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+ 900:Src/system_at32f4xx.c **** 
+ 901:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+ 902:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+ 903:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+ 904:Src/system_at32f4xx.c **** 
+ 905:Src/system_at32f4xx.c ****     /* PLL configuration: PLLCLK = HSE * 7 = 56 MHz */
+ 906:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+ 907:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT7);
+ 908:Src/system_at32f4xx.c **** 
+ 909:Src/system_at32f4xx.c ****     /* Enable PLL */
+ 910:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+ 911:Src/system_at32f4xx.c **** 
+ 912:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+ 913:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+ 914:Src/system_at32f4xx.c ****     {
+ 915:Src/system_at32f4xx.c ****     }
+ 916:Src/system_at32f4xx.c **** 
+ 917:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+ 918:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ 919:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ 920:Src/system_at32f4xx.c **** 
+ 921:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+ 922:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+ 923:Src/system_at32f4xx.c ****     {
+ 924:Src/system_at32f4xx.c ****     }
+ 925:Src/system_at32f4xx.c ****     
+ 926:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+ 927:Src/system_at32f4xx.c ****   }
+ 928:Src/system_at32f4xx.c ****   else
+ 929:Src/system_at32f4xx.c ****   {
+ 930:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+ 931:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+ 932:Src/system_at32f4xx.c ****   }
+ 933:Src/system_at32f4xx.c **** }
+ 934:Src/system_at32f4xx.c **** 
+ 935:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz
+ 936:Src/system_at32f4xx.c **** /**
+ 937:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 72MHz and configure HCLK, PCLK2
+ 938:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+ 939:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ 940:Src/system_at32f4xx.c ****   * @param  None
+ 941:Src/system_at32f4xx.c ****   * @retval None
+ 942:Src/system_at32f4xx.c ****   */
+ 943:Src/system_at32f4xx.c **** static void SetSysClockTo72M(void)
+ 944:Src/system_at32f4xx.c **** {
+ 945:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 18
+
+
+ 946:Src/system_at32f4xx.c **** 
+ 947:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+ 948:Src/system_at32f4xx.c ****   /* Enable HSE */
+ 949:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+ 950:Src/system_at32f4xx.c **** 
+ 951:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+ 952:Src/system_at32f4xx.c ****   do
+ 953:Src/system_at32f4xx.c ****   {
+ 954:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+ 955:Src/system_at32f4xx.c ****     StartUpCounter++;
+ 956:Src/system_at32f4xx.c ****   }
+ 957:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+ 958:Src/system_at32f4xx.c ****   
+ 959:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);  
+ 960:Src/system_at32f4xx.c **** 
+ 961:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+ 962:Src/system_at32f4xx.c ****   {
+ 963:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+ 964:Src/system_at32f4xx.c ****   }
+ 965:Src/system_at32f4xx.c ****   else
+ 966:Src/system_at32f4xx.c ****   {
+ 967:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+ 968:Src/system_at32f4xx.c ****   }
+ 969:Src/system_at32f4xx.c **** 
+ 970:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+ 971:Src/system_at32f4xx.c ****   {
+ 972:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ 973:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+ 974:Src/system_at32f4xx.c **** 
+ 975:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+ 976:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+ 977:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+ 978:Src/system_at32f4xx.c **** 
+ 979:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+ 980:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+ 981:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+ 982:Src/system_at32f4xx.c **** 
+ 983:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 9 = 72 MHz */
+ 984:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+ 985:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT9);
+ 986:Src/system_at32f4xx.c **** 
+ 987:Src/system_at32f4xx.c ****     /* Enable PLL */
+ 988:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+ 989:Src/system_at32f4xx.c **** 
+ 990:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+ 991:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+ 992:Src/system_at32f4xx.c ****     {
+ 993:Src/system_at32f4xx.c ****     }
+ 994:Src/system_at32f4xx.c **** 
+ 995:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+ 996:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ 997:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ 998:Src/system_at32f4xx.c **** 
+ 999:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1000:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1001:Src/system_at32f4xx.c ****     {
+1002:Src/system_at32f4xx.c ****     }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 19
+
+
+1003:Src/system_at32f4xx.c ****     
+1004:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1005:Src/system_at32f4xx.c ****   }
+1006:Src/system_at32f4xx.c ****   else
+1007:Src/system_at32f4xx.c ****   {
+1008:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1009:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1010:Src/system_at32f4xx.c ****   }
+1011:Src/system_at32f4xx.c **** }
+1012:Src/system_at32f4xx.c **** 
+1013:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz
+1014:Src/system_at32f4xx.c **** /**
+1015:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 96MHz and configure HCLK, PCLK2
+1016:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1017:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1018:Src/system_at32f4xx.c ****   * @param  None
+1019:Src/system_at32f4xx.c ****   * @retval None
+1020:Src/system_at32f4xx.c ****   */
+1021:Src/system_at32f4xx.c **** static void SetSysClockTo96M(void)
+1022:Src/system_at32f4xx.c **** {
+1023:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1024:Src/system_at32f4xx.c **** 
+1025:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1026:Src/system_at32f4xx.c ****   /* Enable HSE */
+1027:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+1028:Src/system_at32f4xx.c **** 
+1029:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1030:Src/system_at32f4xx.c ****   do
+1031:Src/system_at32f4xx.c ****   {
+1032:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+1033:Src/system_at32f4xx.c ****     StartUpCounter++;
+1034:Src/system_at32f4xx.c ****   }
+1035:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1036:Src/system_at32f4xx.c ****   
+1037:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);  
+1038:Src/system_at32f4xx.c **** 
+1039:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+1040:Src/system_at32f4xx.c ****   {
+1041:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1042:Src/system_at32f4xx.c ****   }
+1043:Src/system_at32f4xx.c ****   else
+1044:Src/system_at32f4xx.c ****   {
+1045:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1046:Src/system_at32f4xx.c ****   }
+1047:Src/system_at32f4xx.c **** 
+1048:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1049:Src/system_at32f4xx.c ****   {
+1050:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1051:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1052:Src/system_at32f4xx.c **** 
+1053:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+1054:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1055:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+1056:Src/system_at32f4xx.c **** 
+1057:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1058:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1059:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 20
+
+
+1060:Src/system_at32f4xx.c **** 
+1061:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 12 = 96 MHz */
+1062:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1063:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT12 | RCC_CFG_PLLRANGE_GT72MHZ);
+1064:Src/system_at32f4xx.c **** 
+1065:Src/system_at32f4xx.c ****     /* Enable PLL */
+1066:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1067:Src/system_at32f4xx.c **** 
+1068:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1069:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1070:Src/system_at32f4xx.c ****     {
+1071:Src/system_at32f4xx.c ****     }
+1072:Src/system_at32f4xx.c **** 
+1073:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1074:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1075:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1076:Src/system_at32f4xx.c **** 
+1077:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1078:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1079:Src/system_at32f4xx.c ****     {
+1080:Src/system_at32f4xx.c ****     }
+1081:Src/system_at32f4xx.c ****     
+1082:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1083:Src/system_at32f4xx.c ****   }
+1084:Src/system_at32f4xx.c ****   else
+1085:Src/system_at32f4xx.c ****   {
+1086:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1087:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1088:Src/system_at32f4xx.c ****   }
+1089:Src/system_at32f4xx.c **** }
+1090:Src/system_at32f4xx.c **** 
+1091:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_108MHz
+1092:Src/system_at32f4xx.c **** /**
+1093:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 108MHz and configure HCLK, PCLK2
+1094:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1095:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1096:Src/system_at32f4xx.c ****   * @param  None
+1097:Src/system_at32f4xx.c ****   * @retval None
+1098:Src/system_at32f4xx.c ****   */
+1099:Src/system_at32f4xx.c **** static void SetSysClockTo108M(void)
+1100:Src/system_at32f4xx.c **** {
+1101:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1102:Src/system_at32f4xx.c **** 
+1103:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1104:Src/system_at32f4xx.c ****   /* Enable HSE */
+1105:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+1106:Src/system_at32f4xx.c **** 
+1107:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1108:Src/system_at32f4xx.c ****   do
+1109:Src/system_at32f4xx.c ****   {
+1110:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+1111:Src/system_at32f4xx.c ****     StartUpCounter++;
+1112:Src/system_at32f4xx.c ****   }
+1113:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1114:Src/system_at32f4xx.c ****   
+1115:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);  
+1116:Src/system_at32f4xx.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 21
+
+
+1117:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+1118:Src/system_at32f4xx.c ****   {
+1119:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1120:Src/system_at32f4xx.c ****   }
+1121:Src/system_at32f4xx.c ****   else
+1122:Src/system_at32f4xx.c ****   {
+1123:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1124:Src/system_at32f4xx.c ****   }
+1125:Src/system_at32f4xx.c **** 
+1126:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1127:Src/system_at32f4xx.c ****   {
+1128:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1129:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1130:Src/system_at32f4xx.c **** 
+1131:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+1132:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1133:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+1134:Src/system_at32f4xx.c **** 
+1135:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1136:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1137:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1138:Src/system_at32f4xx.c **** 
+1139:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = (HSE/2) * 27 = 108 MHz */
+1140:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1141:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLHSEPSC_HSE_DIV2 | RCC_CFG_PLLMULT27 | RC
+1142:Src/system_at32f4xx.c **** 
+1143:Src/system_at32f4xx.c ****     /* Enable PLL */
+1144:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1145:Src/system_at32f4xx.c **** 
+1146:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1147:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1148:Src/system_at32f4xx.c ****     {
+1149:Src/system_at32f4xx.c ****     }
+1150:Src/system_at32f4xx.c **** 
+1151:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1152:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1153:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1154:Src/system_at32f4xx.c **** 
+1155:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1156:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1157:Src/system_at32f4xx.c ****     {
+1158:Src/system_at32f4xx.c ****     }
+1159:Src/system_at32f4xx.c ****     
+1160:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1161:Src/system_at32f4xx.c ****   }
+1162:Src/system_at32f4xx.c ****   else
+1163:Src/system_at32f4xx.c ****   {
+1164:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1165:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1166:Src/system_at32f4xx.c ****   }
+1167:Src/system_at32f4xx.c **** }
+1168:Src/system_at32f4xx.c **** 
+1169:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_120MHz
+1170:Src/system_at32f4xx.c **** /**
+1171:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 120MHz and configure HCLK, PCLK2
+1172:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1173:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 22
+
+
+1174:Src/system_at32f4xx.c ****   * @param  None
+1175:Src/system_at32f4xx.c ****   * @retval None
+1176:Src/system_at32f4xx.c ****   */
+1177:Src/system_at32f4xx.c **** static void SetSysClockTo120M(void)
+1178:Src/system_at32f4xx.c **** {
+1179:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1180:Src/system_at32f4xx.c **** 
+1181:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1182:Src/system_at32f4xx.c ****   /* Enable HSE */
+1183:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+1184:Src/system_at32f4xx.c **** 
+1185:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1186:Src/system_at32f4xx.c ****   do
+1187:Src/system_at32f4xx.c ****   {
+1188:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+1189:Src/system_at32f4xx.c ****     StartUpCounter++;
+1190:Src/system_at32f4xx.c ****   }
+1191:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1192:Src/system_at32f4xx.c ****   
+1193:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);  
+1194:Src/system_at32f4xx.c **** 
+1195:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+1196:Src/system_at32f4xx.c ****   {
+1197:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1198:Src/system_at32f4xx.c ****   }
+1199:Src/system_at32f4xx.c ****   else
+1200:Src/system_at32f4xx.c ****   {
+1201:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1202:Src/system_at32f4xx.c ****   }
+1203:Src/system_at32f4xx.c **** 
+1204:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1205:Src/system_at32f4xx.c ****   {
+1206:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1207:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1208:Src/system_at32f4xx.c **** 
+1209:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK/2 */
+1210:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1211:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
+1212:Src/system_at32f4xx.c **** 
+1213:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1214:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1215:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1216:Src/system_at32f4xx.c **** 
+1217:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 15 = 120 MHz */
+1218:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1219:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT15 | RCC_CFG_PLLRANGE_GT72MHZ);
+1220:Src/system_at32f4xx.c **** 
+1221:Src/system_at32f4xx.c ****     /* Enable PLL */
+1222:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1223:Src/system_at32f4xx.c **** 
+1224:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1225:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1226:Src/system_at32f4xx.c ****     {
+1227:Src/system_at32f4xx.c ****     }
+1228:Src/system_at32f4xx.c **** 
+1229:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1230:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 23
+
+
+1231:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1232:Src/system_at32f4xx.c **** 
+1233:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1234:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1235:Src/system_at32f4xx.c ****     {
+1236:Src/system_at32f4xx.c ****     }
+1237:Src/system_at32f4xx.c ****     
+1238:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1239:Src/system_at32f4xx.c ****   }
+1240:Src/system_at32f4xx.c ****   else
+1241:Src/system_at32f4xx.c ****   {
+1242:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1243:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1244:Src/system_at32f4xx.c ****   }
+1245:Src/system_at32f4xx.c **** }
+1246:Src/system_at32f4xx.c **** 
+1247:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_144MHz
+1248:Src/system_at32f4xx.c **** /**
+1249:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 144MHz and configure HCLK, PCLK2
+1250:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1251:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1252:Src/system_at32f4xx.c ****   * @param  None
+1253:Src/system_at32f4xx.c ****   * @retval None
+1254:Src/system_at32f4xx.c ****   */
+1255:Src/system_at32f4xx.c **** static void SetSysClockTo144M(void)
+1256:Src/system_at32f4xx.c **** {
+1257:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1258:Src/system_at32f4xx.c **** 
+1259:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1260:Src/system_at32f4xx.c ****   /* Enable HSE */
+1261:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+1262:Src/system_at32f4xx.c **** 
+1263:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1264:Src/system_at32f4xx.c ****   do
+1265:Src/system_at32f4xx.c ****   {
+1266:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+1267:Src/system_at32f4xx.c ****     StartUpCounter++;
+1268:Src/system_at32f4xx.c ****   }
+1269:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1270:Src/system_at32f4xx.c ****   
+1271:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);  
+1272:Src/system_at32f4xx.c **** 
+1273:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+1274:Src/system_at32f4xx.c ****   {
+1275:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1276:Src/system_at32f4xx.c ****   }
+1277:Src/system_at32f4xx.c ****   else
+1278:Src/system_at32f4xx.c ****   {
+1279:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1280:Src/system_at32f4xx.c ****   }
+1281:Src/system_at32f4xx.c **** 
+1282:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1283:Src/system_at32f4xx.c ****   {
+1284:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1285:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1286:Src/system_at32f4xx.c **** 
+1287:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK/2 */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 24
+
+
+1288:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1289:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
+1290:Src/system_at32f4xx.c **** 
+1291:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1292:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1293:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1294:Src/system_at32f4xx.c **** 
+1295:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 18 = 144 MHz */
+1296:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1297:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT18 | RCC_CFG_PLLRANGE_GT72MHZ);
+1298:Src/system_at32f4xx.c **** 
+1299:Src/system_at32f4xx.c ****     /* Enable PLL */
+1300:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1301:Src/system_at32f4xx.c **** 
+1302:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1303:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1304:Src/system_at32f4xx.c ****     {
+1305:Src/system_at32f4xx.c ****     }
+1306:Src/system_at32f4xx.c **** 
+1307:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1308:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1309:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1310:Src/system_at32f4xx.c **** 
+1311:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1312:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1313:Src/system_at32f4xx.c ****     {
+1314:Src/system_at32f4xx.c ****     }
+1315:Src/system_at32f4xx.c ****     
+1316:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1317:Src/system_at32f4xx.c ****   }
+1318:Src/system_at32f4xx.c ****   else
+1319:Src/system_at32f4xx.c ****   {
+1320:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1321:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1322:Src/system_at32f4xx.c ****   }
+1323:Src/system_at32f4xx.c **** }
+1324:Src/system_at32f4xx.c **** 
+1325:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_168MHz
+1326:Src/system_at32f4xx.c **** /**
+1327:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 168MHz and configure HCLK, PCLK2
+1328:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1329:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1330:Src/system_at32f4xx.c ****   * @param  None
+1331:Src/system_at32f4xx.c ****   * @retval None
+1332:Src/system_at32f4xx.c ****   */
+1333:Src/system_at32f4xx.c **** static void SetSysClockTo168M(void)
+1334:Src/system_at32f4xx.c **** {
+1335:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1336:Src/system_at32f4xx.c **** 
+1337:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1338:Src/system_at32f4xx.c ****   /* Enable HSE */
+1339:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+1340:Src/system_at32f4xx.c **** 
+1341:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1342:Src/system_at32f4xx.c ****   do
+1343:Src/system_at32f4xx.c ****   {
+1344:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 25
+
+
+1345:Src/system_at32f4xx.c ****     StartUpCounter++;
+1346:Src/system_at32f4xx.c ****   }
+1347:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1348:Src/system_at32f4xx.c ****   
+1349:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);  
+1350:Src/system_at32f4xx.c **** 
+1351:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+1352:Src/system_at32f4xx.c ****   {
+1353:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1354:Src/system_at32f4xx.c ****   }
+1355:Src/system_at32f4xx.c ****   else
+1356:Src/system_at32f4xx.c ****   {
+1357:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1358:Src/system_at32f4xx.c ****   }
+1359:Src/system_at32f4xx.c **** 
+1360:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1361:Src/system_at32f4xx.c ****   {
+1362:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1363:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1364:Src/system_at32f4xx.c **** 
+1365:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK/2 */
+1366:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1367:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
+1368:Src/system_at32f4xx.c **** 
+1369:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1370:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1371:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1372:Src/system_at32f4xx.c **** 
+1373:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 21 = 168 MHz */
+1374:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1375:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT21 | RCC_CFG_PLLRANGE_GT72MHZ);
+1376:Src/system_at32f4xx.c **** 
+1377:Src/system_at32f4xx.c ****     /* Enable PLL */
+1378:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1379:Src/system_at32f4xx.c **** 
+1380:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1381:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1382:Src/system_at32f4xx.c ****     {
+1383:Src/system_at32f4xx.c ****     }
+1384:Src/system_at32f4xx.c **** 
+1385:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1386:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1387:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1388:Src/system_at32f4xx.c **** 
+1389:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1390:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1391:Src/system_at32f4xx.c ****     {
+1392:Src/system_at32f4xx.c ****     }
+1393:Src/system_at32f4xx.c ****     
+1394:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1395:Src/system_at32f4xx.c ****   }
+1396:Src/system_at32f4xx.c ****   else
+1397:Src/system_at32f4xx.c ****   {
+1398:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1399:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1400:Src/system_at32f4xx.c ****   }
+1401:Src/system_at32f4xx.c **** }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 26
+
+
+1402:Src/system_at32f4xx.c **** 
+1403:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_176MHz
+1404:Src/system_at32f4xx.c **** /**
+1405:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 176MHz and configure HCLK, PCLK2
+1406:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1407:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1408:Src/system_at32f4xx.c ****   * @param  None
+1409:Src/system_at32f4xx.c ****   * @retval None
+1410:Src/system_at32f4xx.c ****   */
+1411:Src/system_at32f4xx.c **** static void SetSysClockTo176M(void)
+1412:Src/system_at32f4xx.c **** {
+1413:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1414:Src/system_at32f4xx.c **** 
+1415:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1416:Src/system_at32f4xx.c ****   /* Enable HSE */
+1417:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+1418:Src/system_at32f4xx.c **** 
+1419:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1420:Src/system_at32f4xx.c ****   do
+1421:Src/system_at32f4xx.c ****   {
+1422:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+1423:Src/system_at32f4xx.c ****     StartUpCounter++;
+1424:Src/system_at32f4xx.c ****   }
+1425:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1426:Src/system_at32f4xx.c ****   
+1427:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);  
+1428:Src/system_at32f4xx.c **** 
+1429:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+1430:Src/system_at32f4xx.c ****   {
+1431:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1432:Src/system_at32f4xx.c ****   }
+1433:Src/system_at32f4xx.c ****   else
+1434:Src/system_at32f4xx.c ****   {
+1435:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1436:Src/system_at32f4xx.c ****   }
+1437:Src/system_at32f4xx.c **** 
+1438:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1439:Src/system_at32f4xx.c ****   {
+1440:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1441:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1442:Src/system_at32f4xx.c **** 
+1443:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK/2 */
+1444:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1445:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
+1446:Src/system_at32f4xx.c **** 
+1447:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1448:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1449:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1450:Src/system_at32f4xx.c **** 
+1451:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 22 = 176 MHz */
+1452:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1453:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT22 | RCC_CFG_PLLRANGE_GT72MHZ);
+1454:Src/system_at32f4xx.c **** 
+1455:Src/system_at32f4xx.c ****     /* Enable PLL */
+1456:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1457:Src/system_at32f4xx.c **** 
+1458:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 27
+
+
+1459:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1460:Src/system_at32f4xx.c ****     {
+1461:Src/system_at32f4xx.c ****     }
+1462:Src/system_at32f4xx.c **** 
+1463:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1464:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1465:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1466:Src/system_at32f4xx.c **** 
+1467:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1468:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1469:Src/system_at32f4xx.c ****     {
+1470:Src/system_at32f4xx.c ****     }
+1471:Src/system_at32f4xx.c ****     
+1472:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1473:Src/system_at32f4xx.c ****   }
+1474:Src/system_at32f4xx.c ****   else
+1475:Src/system_at32f4xx.c ****   {
+1476:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1477:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1478:Src/system_at32f4xx.c ****   }
+1479:Src/system_at32f4xx.c **** }
+1480:Src/system_at32f4xx.c **** 
+1481:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_192MHz
+1482:Src/system_at32f4xx.c **** /**
+1483:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 192MHz and configure HCLK, PCLK2
+1484:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1485:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1486:Src/system_at32f4xx.c ****   * @param  None
+1487:Src/system_at32f4xx.c ****   * @retval None
+1488:Src/system_at32f4xx.c ****   */
+1489:Src/system_at32f4xx.c **** static void SetSysClockTo192M(void)
+1490:Src/system_at32f4xx.c **** {
+1491:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1492:Src/system_at32f4xx.c **** 
+1493:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1494:Src/system_at32f4xx.c ****   /* Enable HSE */
+1495:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+1496:Src/system_at32f4xx.c **** 
+1497:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1498:Src/system_at32f4xx.c ****   do
+1499:Src/system_at32f4xx.c ****   {
+1500:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+1501:Src/system_at32f4xx.c ****     StartUpCounter++;
+1502:Src/system_at32f4xx.c ****   }
+1503:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1504:Src/system_at32f4xx.c ****   
+1505:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);  
+1506:Src/system_at32f4xx.c **** 
+1507:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+1508:Src/system_at32f4xx.c ****   {
+1509:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1510:Src/system_at32f4xx.c ****   }
+1511:Src/system_at32f4xx.c ****   else
+1512:Src/system_at32f4xx.c ****   {
+1513:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1514:Src/system_at32f4xx.c ****   }
+1515:Src/system_at32f4xx.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 28
+
+
+1516:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1517:Src/system_at32f4xx.c ****   {
+1518:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1519:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1520:Src/system_at32f4xx.c **** 
+1521:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK/2 */
+1522:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1523:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
+1524:Src/system_at32f4xx.c **** 
+1525:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1526:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1527:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1528:Src/system_at32f4xx.c **** 
+1529:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 24 = 192 MHz */
+1530:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1531:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT24 | RCC_CFG_PLLRANGE_GT72MHZ);
+1532:Src/system_at32f4xx.c **** 
+1533:Src/system_at32f4xx.c ****     /* Enable PLL */
+1534:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1535:Src/system_at32f4xx.c **** 
+1536:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1537:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1538:Src/system_at32f4xx.c ****     {
+1539:Src/system_at32f4xx.c ****     }
+1540:Src/system_at32f4xx.c **** 
+1541:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1542:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1543:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1544:Src/system_at32f4xx.c **** 
+1545:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1546:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1547:Src/system_at32f4xx.c ****     {
+1548:Src/system_at32f4xx.c ****     }
+1549:Src/system_at32f4xx.c ****     
+1550:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1551:Src/system_at32f4xx.c ****   }
+1552:Src/system_at32f4xx.c ****   else
+1553:Src/system_at32f4xx.c ****   {
+1554:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1555:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1556:Src/system_at32f4xx.c ****   }
+1557:Src/system_at32f4xx.c **** }
+1558:Src/system_at32f4xx.c **** 
+1559:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_200MHz
+1560:Src/system_at32f4xx.c **** /**
+1561:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 200MHz and configure HCLK, PCLK2
+1562:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1563:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1564:Src/system_at32f4xx.c ****   * @param  None
+1565:Src/system_at32f4xx.c ****   * @retval None
+1566:Src/system_at32f4xx.c ****   */
+1567:Src/system_at32f4xx.c **** static void SetSysClockTo200M(void)
+1568:Src/system_at32f4xx.c **** {
+1569:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+1570:Src/system_at32f4xx.c **** 
+1571:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1572:Src/system_at32f4xx.c ****   /* Enable HSE */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 29
+
+
+1573:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSEEN);
+1574:Src/system_at32f4xx.c **** 
+1575:Src/system_at32f4xx.c ****   /* Wait till HSE is ready and if Time out is reached exit */
+1576:Src/system_at32f4xx.c ****   do
+1577:Src/system_at32f4xx.c ****   {
+1578:Src/system_at32f4xx.c ****     HSEStatus = RCC->CR & RCC_CTRL_HSESTBL;
+1579:Src/system_at32f4xx.c ****     StartUpCounter++;
+1580:Src/system_at32f4xx.c ****   }
+1581:Src/system_at32f4xx.c ****   while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+1582:Src/system_at32f4xx.c ****   
+1583:Src/system_at32f4xx.c ****   WaitHseStbl(HSE_STABLE_DELAY);  
+1584:Src/system_at32f4xx.c **** 
+1585:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSESTBL) != RESET)
+1586:Src/system_at32f4xx.c ****   {
+1587:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x01;
+1588:Src/system_at32f4xx.c ****   }
+1589:Src/system_at32f4xx.c ****   else
+1590:Src/system_at32f4xx.c ****   {
+1591:Src/system_at32f4xx.c ****     HSEStatus = (uint32_t)0x00;
+1592:Src/system_at32f4xx.c ****   }
+1593:Src/system_at32f4xx.c **** 
+1594:Src/system_at32f4xx.c ****   if (HSEStatus == (uint32_t)0x01)
+1595:Src/system_at32f4xx.c ****   {
+1596:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1597:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1598:Src/system_at32f4xx.c **** 
+1599:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK/2 */
+1600:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1601:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV2;
+1602:Src/system_at32f4xx.c **** 
+1603:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1604:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1605:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1606:Src/system_at32f4xx.c **** 
+1607:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = HSE * 25 = 200 MHz */
+1608:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1609:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSE | RCC_CFG_PLLMULT25 | RCC_CFG_PLLRANGE_GT72MHZ);
+1610:Src/system_at32f4xx.c **** 
+1611:Src/system_at32f4xx.c ****     /* Enable PLL */
+1612:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1613:Src/system_at32f4xx.c **** 
+1614:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1615:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1616:Src/system_at32f4xx.c ****     {
+1617:Src/system_at32f4xx.c ****     }
+1618:Src/system_at32f4xx.c **** 
+1619:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1620:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1621:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1622:Src/system_at32f4xx.c **** 
+1623:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1624:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1625:Src/system_at32f4xx.c ****     {
+1626:Src/system_at32f4xx.c ****     }
+1627:Src/system_at32f4xx.c ****     
+1628:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1629:Src/system_at32f4xx.c ****   }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 30
+
+
+1630:Src/system_at32f4xx.c ****   else
+1631:Src/system_at32f4xx.c ****   {
+1632:Src/system_at32f4xx.c ****     /* If HSE fails to start-up, the application will have wrong clock
+1633:Src/system_at32f4xx.c ****          configuration. User can add here some code to deal with this error */
+1634:Src/system_at32f4xx.c ****   }
+1635:Src/system_at32f4xx.c **** }
+1636:Src/system_at32f4xx.c **** 
+1637:Src/system_at32f4xx.c **** 
+1638:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_24MHz_HSI
+1639:Src/system_at32f4xx.c **** /**
+1640:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 24MHz from HSI and configure HCLK, PCLK2
+1641:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1642:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1643:Src/system_at32f4xx.c ****   * @param  None
+1644:Src/system_at32f4xx.c ****   * @retval None
+1645:Src/system_at32f4xx.c ****   */
+1646:Src/system_at32f4xx.c **** static void SetSysClockTo24MHSI(void)
+1647:Src/system_at32f4xx.c **** {
+1648:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSIStatus = 0;
+1649:Src/system_at32f4xx.c **** 
+1650:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1651:Src/system_at32f4xx.c ****   /* Enable HSI */
+1652:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSIEN);
+1653:Src/system_at32f4xx.c **** 
+1654:Src/system_at32f4xx.c ****   /* Wait till HSI is ready and if Time out is reached exit */
+1655:Src/system_at32f4xx.c ****   do
+1656:Src/system_at32f4xx.c ****   {
+1657:Src/system_at32f4xx.c ****     HSIStatus = RCC->CR & RCC_CTRL_HSISTBL;
+1658:Src/system_at32f4xx.c ****     StartUpCounter++;
+1659:Src/system_at32f4xx.c ****   }
+1660:Src/system_at32f4xx.c ****   while((HSIStatus == 0) && (StartUpCounter != 0xFFFF));
+1661:Src/system_at32f4xx.c **** 
+1662:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSISTBL) != RESET)
+1663:Src/system_at32f4xx.c ****   {
+1664:Src/system_at32f4xx.c ****     HSIStatus = (uint32_t)0x01;
+1665:Src/system_at32f4xx.c ****   }
+1666:Src/system_at32f4xx.c ****   else
+1667:Src/system_at32f4xx.c ****   {
+1668:Src/system_at32f4xx.c ****     HSIStatus = (uint32_t)0x00;
+1669:Src/system_at32f4xx.c ****   }
+1670:Src/system_at32f4xx.c **** 
+1671:Src/system_at32f4xx.c ****   if (HSIStatus == (uint32_t)0x01)
+1672:Src/system_at32f4xx.c ****   {
+1673:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1674:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1675:Src/system_at32f4xx.c **** 
+1676:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+1677:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1678:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+1679:Src/system_at32f4xx.c **** 
+1680:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK */
+1681:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1682:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV1;
+1683:Src/system_at32f4xx.c **** 
+1684:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = (HSI/2) * 6 = 24 MHz */
+1685:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1686:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSI_DIV2 | RCC_CFG_PLLMULT6);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 31
+
+
+1687:Src/system_at32f4xx.c **** 
+1688:Src/system_at32f4xx.c ****     /* Enable PLL */
+1689:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1690:Src/system_at32f4xx.c **** 
+1691:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1692:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1693:Src/system_at32f4xx.c ****     {
+1694:Src/system_at32f4xx.c ****     }
+1695:Src/system_at32f4xx.c **** 
+1696:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1697:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1698:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1699:Src/system_at32f4xx.c **** 
+1700:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1701:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1702:Src/system_at32f4xx.c ****     {
+1703:Src/system_at32f4xx.c ****     }
+1704:Src/system_at32f4xx.c ****     
+1705:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1706:Src/system_at32f4xx.c ****   }
+1707:Src/system_at32f4xx.c **** }
+1708:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_36MHz_HSI
+1709:Src/system_at32f4xx.c **** /**
+1710:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 36MHz from HSI and configure HCLK, PCLK2
+1711:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1712:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1713:Src/system_at32f4xx.c ****   * @param  None
+1714:Src/system_at32f4xx.c ****   * @retval None
+1715:Src/system_at32f4xx.c ****   */
+1716:Src/system_at32f4xx.c **** static void SetSysClockTo36MHSI(void)
+1717:Src/system_at32f4xx.c **** {
+1718:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSIStatus = 0;
+1719:Src/system_at32f4xx.c **** 
+1720:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1721:Src/system_at32f4xx.c ****   /* Enable HSI */
+1722:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSIEN);
+1723:Src/system_at32f4xx.c **** 
+1724:Src/system_at32f4xx.c ****   /* Wait till HSI is ready and if Time out is reached exit */
+1725:Src/system_at32f4xx.c ****   do
+1726:Src/system_at32f4xx.c ****   {
+1727:Src/system_at32f4xx.c ****     HSIStatus = RCC->CR & RCC_CTRL_HSISTBL;
+1728:Src/system_at32f4xx.c ****     StartUpCounter++;
+1729:Src/system_at32f4xx.c ****   }
+1730:Src/system_at32f4xx.c ****   while((HSIStatus == 0) && (StartUpCounter != 0xFFFF));
+1731:Src/system_at32f4xx.c **** 
+1732:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSISTBL) != RESET)
+1733:Src/system_at32f4xx.c ****   {
+1734:Src/system_at32f4xx.c ****     HSIStatus = (uint32_t)0x01;
+1735:Src/system_at32f4xx.c ****   }
+1736:Src/system_at32f4xx.c ****   else
+1737:Src/system_at32f4xx.c ****   {
+1738:Src/system_at32f4xx.c ****     HSIStatus = (uint32_t)0x00;
+1739:Src/system_at32f4xx.c ****   }
+1740:Src/system_at32f4xx.c **** 
+1741:Src/system_at32f4xx.c ****   if (HSIStatus == (uint32_t)0x01)
+1742:Src/system_at32f4xx.c ****   {
+1743:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 32
+
+
+1744:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1745:Src/system_at32f4xx.c **** 
+1746:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+1747:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1748:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+1749:Src/system_at32f4xx.c **** 
+1750:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK */
+1751:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1752:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV1;
+1753:Src/system_at32f4xx.c **** 
+1754:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = (HSI/2) * 9 = 36 MHz */
+1755:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1756:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSI_DIV2 | RCC_CFG_PLLMULT9);
+1757:Src/system_at32f4xx.c **** 
+1758:Src/system_at32f4xx.c ****     /* Enable PLL */
+1759:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1760:Src/system_at32f4xx.c **** 
+1761:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1762:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1763:Src/system_at32f4xx.c ****     {
+1764:Src/system_at32f4xx.c ****     }
+1765:Src/system_at32f4xx.c **** 
+1766:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1767:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1768:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1769:Src/system_at32f4xx.c **** 
+1770:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1771:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1772:Src/system_at32f4xx.c ****     {
+1773:Src/system_at32f4xx.c ****     }
+1774:Src/system_at32f4xx.c ****     
+1775:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1776:Src/system_at32f4xx.c ****   }
+1777:Src/system_at32f4xx.c **** }
+1778:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_48MHz_HSI
+1779:Src/system_at32f4xx.c **** /**
+1780:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 48MHz from HSI and configure HCLK, PCLK2
+1781:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1782:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1783:Src/system_at32f4xx.c ****   * @param  None
+1784:Src/system_at32f4xx.c ****   * @retval None
+1785:Src/system_at32f4xx.c ****   */
+1786:Src/system_at32f4xx.c **** static void SetSysClockTo48MHSI(void)
+1787:Src/system_at32f4xx.c **** {
+1788:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSIStatus = 0;
+1789:Src/system_at32f4xx.c **** 
+1790:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1791:Src/system_at32f4xx.c ****   /* Enable HSI */
+1792:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSIEN);
+1793:Src/system_at32f4xx.c **** 
+1794:Src/system_at32f4xx.c ****   /* Wait till HSI is ready and if Time out is reached exit */
+1795:Src/system_at32f4xx.c ****   do
+1796:Src/system_at32f4xx.c ****   {
+1797:Src/system_at32f4xx.c ****     HSIStatus = RCC->CR & RCC_CTRL_HSISTBL;
+1798:Src/system_at32f4xx.c ****     StartUpCounter++;
+1799:Src/system_at32f4xx.c ****   }
+1800:Src/system_at32f4xx.c ****   while((HSIStatus == 0) && (StartUpCounter != 0xFFFF));
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 33
+
+
+1801:Src/system_at32f4xx.c **** 
+1802:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSISTBL) != RESET)
+1803:Src/system_at32f4xx.c ****   {
+1804:Src/system_at32f4xx.c ****     HSIStatus = (uint32_t)0x01;
+1805:Src/system_at32f4xx.c ****   }
+1806:Src/system_at32f4xx.c ****   else
+1807:Src/system_at32f4xx.c ****   {
+1808:Src/system_at32f4xx.c ****     HSIStatus = (uint32_t)0x00;
+1809:Src/system_at32f4xx.c ****   }
+1810:Src/system_at32f4xx.c **** 
+1811:Src/system_at32f4xx.c ****   if (HSIStatus == (uint32_t)0x01)
+1812:Src/system_at32f4xx.c ****   {
+1813:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1814:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1815:Src/system_at32f4xx.c **** 
+1816:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+1817:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1818:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+1819:Src/system_at32f4xx.c **** 
+1820:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1821:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1822:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1823:Src/system_at32f4xx.c **** 
+1824:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = (HSI/2) * 12 = 48 MHz */
+1825:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1826:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSI_DIV2 | RCC_CFG_PLLMULT12);
+1827:Src/system_at32f4xx.c **** 
+1828:Src/system_at32f4xx.c ****     /* Enable PLL */
+1829:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1830:Src/system_at32f4xx.c **** 
+1831:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1832:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1833:Src/system_at32f4xx.c ****     {
+1834:Src/system_at32f4xx.c ****     }
+1835:Src/system_at32f4xx.c **** 
+1836:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1837:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1838:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1839:Src/system_at32f4xx.c **** 
+1840:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1841:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1842:Src/system_at32f4xx.c ****     {
+1843:Src/system_at32f4xx.c ****     }
+1844:Src/system_at32f4xx.c ****     
+1845:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1846:Src/system_at32f4xx.c ****   }
+1847:Src/system_at32f4xx.c **** }
+1848:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_56MHz_HSI
+1849:Src/system_at32f4xx.c **** /**
+1850:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 56MHz from HSI and configure HCLK, PCLK2
+1851:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1852:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1853:Src/system_at32f4xx.c ****   * @param  None
+1854:Src/system_at32f4xx.c ****   * @retval None
+1855:Src/system_at32f4xx.c ****   */
+1856:Src/system_at32f4xx.c **** static void SetSysClockTo56MHSI(void)
+1857:Src/system_at32f4xx.c **** {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 34
+
+
+1858:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSIStatus = 0;
+1859:Src/system_at32f4xx.c **** 
+1860:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1861:Src/system_at32f4xx.c ****   /* Enable HSI */
+1862:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSIEN);
+1863:Src/system_at32f4xx.c **** 
+1864:Src/system_at32f4xx.c ****   /* Wait till HSI is ready and if Time out is reached exit */
+1865:Src/system_at32f4xx.c ****   do
+1866:Src/system_at32f4xx.c ****   {
+1867:Src/system_at32f4xx.c ****     HSIStatus = RCC->CR & RCC_CTRL_HSISTBL;
+1868:Src/system_at32f4xx.c ****     StartUpCounter++;
+1869:Src/system_at32f4xx.c ****   }
+1870:Src/system_at32f4xx.c ****   while((HSIStatus == 0) && (StartUpCounter != 0xFFFF));
+1871:Src/system_at32f4xx.c **** 
+1872:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSISTBL) != RESET)
+1873:Src/system_at32f4xx.c ****   {
+1874:Src/system_at32f4xx.c ****     HSIStatus = (uint32_t)0x01;
+1875:Src/system_at32f4xx.c ****   }
+1876:Src/system_at32f4xx.c ****   else
+1877:Src/system_at32f4xx.c ****   {
+1878:Src/system_at32f4xx.c ****     HSIStatus = (uint32_t)0x00;
+1879:Src/system_at32f4xx.c ****   }
+1880:Src/system_at32f4xx.c **** 
+1881:Src/system_at32f4xx.c ****   if (HSIStatus == (uint32_t)0x01)
+1882:Src/system_at32f4xx.c ****   {
+1883:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1884:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1885:Src/system_at32f4xx.c **** 
+1886:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+1887:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1888:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+1889:Src/system_at32f4xx.c **** 
+1890:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1891:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1892:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1893:Src/system_at32f4xx.c **** 
+1894:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = (HSI/2) * 14 = 56 MHz */
+1895:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1896:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSI_DIV2 | RCC_CFG_PLLMULT14);
+1897:Src/system_at32f4xx.c **** 
+1898:Src/system_at32f4xx.c ****     /* Enable PLL */
+1899:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1900:Src/system_at32f4xx.c **** 
+1901:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1902:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1903:Src/system_at32f4xx.c ****     {
+1904:Src/system_at32f4xx.c ****     }
+1905:Src/system_at32f4xx.c **** 
+1906:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1907:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1908:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+1909:Src/system_at32f4xx.c **** 
+1910:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1911:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1912:Src/system_at32f4xx.c ****     {
+1913:Src/system_at32f4xx.c ****     }
+1914:Src/system_at32f4xx.c ****     
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 35
+
+
+1915:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1916:Src/system_at32f4xx.c ****   }
+1917:Src/system_at32f4xx.c **** }
+1918:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_72MHz_HSI
+1919:Src/system_at32f4xx.c **** /**
+1920:Src/system_at32f4xx.c ****   * @brief  Sets System clock frequency to 72MHz from HSI and configure HCLK, PCLK2
+1921:Src/system_at32f4xx.c ****   *         and PCLK1 prescalers.
+1922:Src/system_at32f4xx.c ****   * @note   This function should be used only after reset.
+1923:Src/system_at32f4xx.c ****   * @param  None
+1924:Src/system_at32f4xx.c ****   * @retval None
+1925:Src/system_at32f4xx.c ****   */
+1926:Src/system_at32f4xx.c **** static void SetSysClockTo72MHSI(void)
+1927:Src/system_at32f4xx.c **** {
+  26              		.loc 1 1927 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 8
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30              		@ link register save eliminated.
+  31 0000 82B0     		sub	sp, sp, #8
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+1928:Src/system_at32f4xx.c ****   __IO uint32_t StartUpCounter = 0, HSIStatus = 0;
+  34              		.loc 1 1928 0
+  35 0002 0023     		movs	r3, #0
+  36 0004 0193     		str	r3, [sp, #4]
+  37 0006 0093     		str	r3, [sp]
+1929:Src/system_at32f4xx.c **** 
+1930:Src/system_at32f4xx.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/
+1931:Src/system_at32f4xx.c ****   /* Enable HSI */
+1932:Src/system_at32f4xx.c ****   RCC->CR |= ((uint32_t)RCC_CTRL_HSIEN);
+  38              		.loc 1 1932 0
+  39 0008 2C4A     		ldr	r2, .L11
+  40 000a 1368     		ldr	r3, [r2]
+  41 000c 43F00103 		orr	r3, r3, #1
+  42 0010 1360     		str	r3, [r2]
+  43              	.L3:
+1933:Src/system_at32f4xx.c **** 
+1934:Src/system_at32f4xx.c ****   /* Wait till HSI is ready and if Time out is reached exit */
+1935:Src/system_at32f4xx.c ****   do
+1936:Src/system_at32f4xx.c ****   {
+1937:Src/system_at32f4xx.c ****     HSIStatus = RCC->CR & RCC_CTRL_HSISTBL;
+  44              		.loc 1 1937 0 discriminator 2
+  45 0012 2A4B     		ldr	r3, .L11
+  46 0014 1B68     		ldr	r3, [r3]
+  47 0016 03F00203 		and	r3, r3, #2
+  48 001a 0093     		str	r3, [sp]
+1938:Src/system_at32f4xx.c ****     StartUpCounter++;
+  49              		.loc 1 1938 0 discriminator 2
+  50 001c 019B     		ldr	r3, [sp, #4]
+  51 001e 0133     		adds	r3, r3, #1
+  52 0020 0193     		str	r3, [sp, #4]
+1939:Src/system_at32f4xx.c ****   }
+1940:Src/system_at32f4xx.c ****   while((HSIStatus == 0) && (StartUpCounter != 0xFFFF));
+  53              		.loc 1 1940 0 discriminator 2
+  54 0022 009B     		ldr	r3, [sp]
+  55 0024 23B9     		cbnz	r3, .L2
+  56              		.loc 1 1940 0 is_stmt 0 discriminator 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 36
+
+
+  57 0026 019A     		ldr	r2, [sp, #4]
+  58 0028 4FF6FF73 		movw	r3, #65535
+  59 002c 9A42     		cmp	r2, r3
+  60 002e F0D1     		bne	.L3
+  61              	.L2:
+1941:Src/system_at32f4xx.c **** 
+1942:Src/system_at32f4xx.c ****   if ((RCC->CR & RCC_CTRL_HSISTBL) != RESET)
+  62              		.loc 1 1942 0 is_stmt 1
+  63 0030 224B     		ldr	r3, .L11
+  64 0032 1B68     		ldr	r3, [r3]
+  65 0034 13F0020F 		tst	r3, #2
+  66 0038 06D0     		beq	.L4
+1943:Src/system_at32f4xx.c ****   {
+1944:Src/system_at32f4xx.c ****     HSIStatus = (uint32_t)0x01;
+  67              		.loc 1 1944 0
+  68 003a 0123     		movs	r3, #1
+  69 003c 0093     		str	r3, [sp]
+  70              	.L5:
+1945:Src/system_at32f4xx.c ****   }
+1946:Src/system_at32f4xx.c ****   else
+1947:Src/system_at32f4xx.c ****   {
+1948:Src/system_at32f4xx.c ****     HSIStatus = (uint32_t)0x00;
+1949:Src/system_at32f4xx.c ****   }
+1950:Src/system_at32f4xx.c **** 
+1951:Src/system_at32f4xx.c ****   if (HSIStatus == (uint32_t)0x01)
+  71              		.loc 1 1951 0
+  72 003e 009B     		ldr	r3, [sp]
+  73 0040 012B     		cmp	r3, #1
+  74 0042 04D0     		beq	.L10
+  75              	.L1:
+1952:Src/system_at32f4xx.c ****   {
+1953:Src/system_at32f4xx.c ****     /* HCLK = SYSCLK */
+1954:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_AHBPSC_DIV1;
+1955:Src/system_at32f4xx.c **** 
+1956:Src/system_at32f4xx.c ****     /* PCLK2 = HCLK */
+1957:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFC7FF;
+1958:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+1959:Src/system_at32f4xx.c **** 
+1960:Src/system_at32f4xx.c ****     /* PCLK1 = HCLK/2 */
+1961:Src/system_at32f4xx.c ****     RCC->CFGR &= 0xFFFFF8FF;
+1962:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+1963:Src/system_at32f4xx.c **** 
+1964:Src/system_at32f4xx.c ****     /*  PLL configuration: PLLCLK = (HSI/2) * 18 = 72 MHz */
+1965:Src/system_at32f4xx.c ****     RCC->CFGR &= RCC_CFG_PLLCFG_MASK;
+1966:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSI_DIV2 | RCC_CFG_PLLMULT18);
+1967:Src/system_at32f4xx.c **** 
+1968:Src/system_at32f4xx.c ****     /* Enable PLL */
+1969:Src/system_at32f4xx.c ****     RCC->CR |= RCC_CTRL_PLLEN;
+1970:Src/system_at32f4xx.c **** 
+1971:Src/system_at32f4xx.c ****     /* Wait till PLL is ready */
+1972:Src/system_at32f4xx.c ****     while((RCC->CR & RCC_CTRL_PLLSTBL) == 0)
+1973:Src/system_at32f4xx.c ****     {
+1974:Src/system_at32f4xx.c ****     }
+1975:Src/system_at32f4xx.c **** 
+1976:Src/system_at32f4xx.c ****     /* Select PLL as system clock source */
+1977:Src/system_at32f4xx.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFG_SYSCLKSEL));
+1978:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 37
+
+
+1979:Src/system_at32f4xx.c **** 
+1980:Src/system_at32f4xx.c ****     /* Wait till PLL is used as system clock source */
+1981:Src/system_at32f4xx.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFG_SYSCLKSTS) != RCC_CFG_SYSCLKSTS_PLL)
+1982:Src/system_at32f4xx.c ****     {
+1983:Src/system_at32f4xx.c ****     }
+1984:Src/system_at32f4xx.c ****     
+1985:Src/system_at32f4xx.c ****     WaitHseStbl(PLL_STABLE_DELAY);
+1986:Src/system_at32f4xx.c ****   }
+1987:Src/system_at32f4xx.c **** }
+  76              		.loc 1 1987 0
+  77 0044 02B0     		add	sp, sp, #8
+  78              	.LCFI1:
+  79              		.cfi_remember_state
+  80              		.cfi_def_cfa_offset 0
+  81              		@ sp needed
+  82 0046 7047     		bx	lr
+  83              	.L4:
+  84              	.LCFI2:
+  85              		.cfi_restore_state
+1948:Src/system_at32f4xx.c ****   }
+  86              		.loc 1 1948 0
+  87 0048 0023     		movs	r3, #0
+  88 004a 0093     		str	r3, [sp]
+  89 004c F7E7     		b	.L5
+  90              	.L10:
+1954:Src/system_at32f4xx.c **** 
+  91              		.loc 1 1954 0
+  92 004e 1B4B     		ldr	r3, .L11
+  93 0050 5A68     		ldr	r2, [r3, #4]
+  94 0052 5A60     		str	r2, [r3, #4]
+1957:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB2PSC_DIV1;
+  95              		.loc 1 1957 0
+  96 0054 5A68     		ldr	r2, [r3, #4]
+  97 0056 22F46052 		bic	r2, r2, #14336
+  98 005a 5A60     		str	r2, [r3, #4]
+1958:Src/system_at32f4xx.c **** 
+  99              		.loc 1 1958 0
+ 100 005c 5A68     		ldr	r2, [r3, #4]
+ 101 005e 5A60     		str	r2, [r3, #4]
+1961:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_APB1PSC_DIV2;
+ 102              		.loc 1 1961 0
+ 103 0060 5A68     		ldr	r2, [r3, #4]
+ 104 0062 22F4E062 		bic	r2, r2, #1792
+ 105 0066 5A60     		str	r2, [r3, #4]
+1962:Src/system_at32f4xx.c **** 
+ 106              		.loc 1 1962 0
+ 107 0068 5A68     		ldr	r2, [r3, #4]
+ 108 006a 42F48062 		orr	r2, r2, #1024
+ 109 006e 5A60     		str	r2, [r3, #4]
+1965:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)(RCC_CFG_PLLRC_HSI_DIV2 | RCC_CFG_PLLMULT18);
+ 110              		.loc 1 1965 0
+ 111 0070 5A68     		ldr	r2, [r3, #4]
+ 112 0072 22F06042 		bic	r2, r2, #-536870912
+ 113 0076 22F47C12 		bic	r2, r2, #4128768
+ 114 007a 5A60     		str	r2, [r3, #4]
+1966:Src/system_at32f4xx.c **** 
+ 115              		.loc 1 1966 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 38
+
+
+ 116 007c 5A68     		ldr	r2, [r3, #4]
+ 117 007e 42F00052 		orr	r2, r2, #536870912
+ 118 0082 42F48022 		orr	r2, r2, #262144
+ 119 0086 5A60     		str	r2, [r3, #4]
+1969:Src/system_at32f4xx.c **** 
+ 120              		.loc 1 1969 0
+ 121 0088 1A68     		ldr	r2, [r3]
+ 122 008a 42F08072 		orr	r2, r2, #16777216
+ 123 008e 1A60     		str	r2, [r3]
+ 124              	.L7:
+1972:Src/system_at32f4xx.c ****     {
+ 125              		.loc 1 1972 0 discriminator 1
+ 126 0090 0A4B     		ldr	r3, .L11
+ 127 0092 1B68     		ldr	r3, [r3]
+ 128 0094 13F0007F 		tst	r3, #33554432
+ 129 0098 FAD0     		beq	.L7
+1977:Src/system_at32f4xx.c ****     RCC->CFGR |= (uint32_t)RCC_CFG_SYSCLKSEL_PLL;
+ 130              		.loc 1 1977 0
+ 131 009a 084B     		ldr	r3, .L11
+ 132 009c 5A68     		ldr	r2, [r3, #4]
+ 133 009e 22F00302 		bic	r2, r2, #3
+ 134 00a2 5A60     		str	r2, [r3, #4]
+1978:Src/system_at32f4xx.c **** 
+ 135              		.loc 1 1978 0
+ 136 00a4 5A68     		ldr	r2, [r3, #4]
+ 137 00a6 42F00202 		orr	r2, r2, #2
+ 138 00aa 5A60     		str	r2, [r3, #4]
+ 139              	.L8:
+1981:Src/system_at32f4xx.c ****     {
+ 140              		.loc 1 1981 0 discriminator 1
+ 141 00ac 034B     		ldr	r3, .L11
+ 142 00ae 5B68     		ldr	r3, [r3, #4]
+ 143 00b0 03F00C03 		and	r3, r3, #12
+ 144 00b4 082B     		cmp	r3, #8
+ 145 00b6 F9D1     		bne	.L8
+ 146 00b8 C4E7     		b	.L1
+ 147              	.L12:
+ 148 00ba 00BF     		.align	2
+ 149              	.L11:
+ 150 00bc 00100240 		.word	1073876992
+ 151              		.cfi_endproc
+ 152              	.LFE127:
+ 154              		.section	.text.SetSysClock,"ax",%progbits
+ 155              		.align	1
+ 156              		.syntax unified
+ 157              		.thumb
+ 158              		.thumb_func
+ 159              		.fpu fpv4-sp-d16
+ 161              	SetSysClock:
+ 162              	.LFB125:
+ 435:Src/system_at32f4xx.c **** #ifdef SYSCLK_FREQ_HSE
+ 163              		.loc 1 435 0
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 0, uses_anonymous_args = 0
+ 167 0000 08B5     		push	{r3, lr}
+ 168              	.LCFI3:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 39
+
+
+ 169              		.cfi_def_cfa_offset 8
+ 170              		.cfi_offset 3, -8
+ 171              		.cfi_offset 14, -4
+ 473:Src/system_at32f4xx.c **** #elif defined SYSCLK_FREQ_96MHz_HSI
+ 172              		.loc 1 473 0
+ 173 0002 FFF7FEFF 		bl	SetSysClockTo72MHSI
+ 174              	.LVL0:
+ 494:Src/system_at32f4xx.c **** 
+ 175              		.loc 1 494 0
+ 176 0006 08BD     		pop	{r3, pc}
+ 177              		.cfi_endproc
+ 178              	.LFE125:
+ 180              		.section	.text.SystemInit,"ax",%progbits
+ 181              		.align	1
+ 182              		.global	SystemInit
+ 183              		.syntax unified
+ 184              		.thumb
+ 185              		.thumb_func
+ 186              		.fpu fpv4-sp-d16
+ 188              	SystemInit:
+ 189              	.LFB123:
+ 290:Src/system_at32f4xx.c **** #if defined (__FPU_USED) && (__FPU_USED == 1U)
+ 190              		.loc 1 290 0
+ 191              		.cfi_startproc
+ 192              		@ args = 0, pretend = 0, frame = 0
+ 193              		@ frame_needed = 0, uses_anonymous_args = 0
+ 194 0000 10B5     		push	{r4, lr}
+ 195              	.LCFI4:
+ 196              		.cfi_def_cfa_offset 8
+ 197              		.cfi_offset 4, -8
+ 198              		.cfi_offset 14, -4
+ 292:Src/system_at32f4xx.c ****                  (3U << 11U * 2U)  );       /* set CP11 Full Access */
+ 199              		.loc 1 292 0
+ 200 0002 164C     		ldr	r4, .L17
+ 201 0004 D4F88830 		ldr	r3, [r4, #136]
+ 202 0008 43F47003 		orr	r3, r3, #15728640
+ 203 000c C4F88830 		str	r3, [r4, #136]
+ 298:Src/system_at32f4xx.c **** 
+ 204              		.loc 1 298 0
+ 205 0010 134B     		ldr	r3, .L17+4
+ 206 0012 1A68     		ldr	r2, [r3]
+ 207 0014 42F00102 		orr	r2, r2, #1
+ 208 0018 1A60     		str	r2, [r3]
+ 301:Src/system_at32f4xx.c ****             RCC_CFG_APB1PSC | RCC_CFG_APB2PSC | \
+ 209              		.loc 1 301 0
+ 210 001a 5968     		ldr	r1, [r3, #4]
+ 211 001c 114A     		ldr	r2, .L17+8
+ 212 001e 0A40     		ands	r2, r2, r1
+ 213 0020 5A60     		str	r2, [r3, #4]
+ 306:Src/system_at32f4xx.c ****             RCC_CTRL_PLLEN);
+ 214              		.loc 1 306 0
+ 215 0022 1A68     		ldr	r2, [r3]
+ 216 0024 22F08472 		bic	r2, r2, #17301504
+ 217 0028 22F48032 		bic	r2, r2, #65536
+ 218 002c 1A60     		str	r2, [r3]
+ 310:Src/system_at32f4xx.c **** 
+ 219              		.loc 1 310 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 40
+
+
+ 220 002e 1A68     		ldr	r2, [r3]
+ 221 0030 22F48022 		bic	r2, r2, #262144
+ 222 0034 1A60     		str	r2, [r3]
+ 313:Src/system_at32f4xx.c ****             RCC_CFG_PLLMULT | RCC_CFG_USBPSC | RCC_CFG_PLLRANGE);
+ 223              		.loc 1 313 0
+ 224 0036 5A68     		ldr	r2, [r3, #4]
+ 225 0038 22F06842 		bic	r2, r2, #-402653184
+ 226 003c 22F47F02 		bic	r2, r2, #16711680
+ 227 0040 5A60     		str	r2, [r3, #4]
+ 317:Src/system_at32f4xx.c **** 
+ 228              		.loc 1 317 0
+ 229 0042 196B     		ldr	r1, [r3, #48]
+ 230 0044 084A     		ldr	r2, .L17+12
+ 231 0046 0A40     		ands	r2, r2, r1
+ 232 0048 1A63     		str	r2, [r3, #48]
+ 320:Src/system_at32f4xx.c ****                 RCC_CLKINT_HSISTBLFC | RCC_CLKINT_HSESTBLFC | \
+ 233              		.loc 1 320 0
+ 234 004a 4FF41F02 		mov	r2, #10420224
+ 235 004e 9A60     		str	r2, [r3, #8]
+ 330:Src/system_at32f4xx.c **** 
+ 236              		.loc 1 330 0
+ 237 0050 FFF7FEFF 		bl	SetSysClock
+ 238              	.LVL1:
+ 335:Src/system_at32f4xx.c **** #endif
+ 239              		.loc 1 335 0
+ 240 0054 4FF00063 		mov	r3, #134217728
+ 241 0058 A360     		str	r3, [r4, #8]
+ 337:Src/system_at32f4xx.c **** 
+ 242              		.loc 1 337 0
+ 243 005a 10BD     		pop	{r4, pc}
+ 244              	.L18:
+ 245              		.align	2
+ 246              	.L17:
+ 247 005c 00ED00E0 		.word	-536810240
+ 248 0060 00100240 		.word	1073876992
+ 249 0064 0C00FFE8 		.word	-385941492
+ 250 0068 00FFFEFE 		.word	-16843008
+ 251              		.cfi_endproc
+ 252              	.LFE123:
+ 254              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
+ 255              		.align	1
+ 256              		.global	SystemCoreClockUpdate
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 260              		.fpu fpv4-sp-d16
+ 262              	SystemCoreClockUpdate:
+ 263              	.LFB124:
+ 375:Src/system_at32f4xx.c ****   uint32_t tmp = 0, pllmult = 0, pllrefclk = 0;
+ 264              		.loc 1 375 0
+ 265              		.cfi_startproc
+ 266              		@ args = 0, pretend = 0, frame = 0
+ 267              		@ frame_needed = 0, uses_anonymous_args = 0
+ 268              		@ link register save eliminated.
+ 269              	.LVL2:
+ 379:Src/system_at32f4xx.c **** 
+ 270              		.loc 1 379 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 41
+
+
+ 271 0000 294B     		ldr	r3, .L34
+ 272 0002 5B68     		ldr	r3, [r3, #4]
+ 273 0004 03F00C03 		and	r3, r3, #12
+ 274              	.LVL3:
+ 381:Src/system_at32f4xx.c ****   {
+ 275              		.loc 1 381 0
+ 276 0008 042B     		cmp	r3, #4
+ 277 000a 15D0     		beq	.L21
+ 278 000c 082B     		cmp	r3, #8
+ 279 000e 17D0     		beq	.L22
+ 280 0010 1BB1     		cbz	r3, .L31
+ 418:Src/system_at32f4xx.c ****     break;
+ 281              		.loc 1 418 0
+ 282 0012 264B     		ldr	r3, .L34+4
+ 283              	.LVL4:
+ 284 0014 264A     		ldr	r2, .L34+8
+ 285 0016 1A60     		str	r2, [r3]
+ 419:Src/system_at32f4xx.c ****   }
+ 286              		.loc 1 419 0
+ 287 0018 02E0     		b	.L24
+ 288              	.LVL5:
+ 289              	.L31:
+ 384:Src/system_at32f4xx.c ****     break;
+ 290              		.loc 1 384 0
+ 291 001a 244B     		ldr	r3, .L34+4
+ 292              	.LVL6:
+ 293 001c 244A     		ldr	r2, .L34+8
+ 294 001e 1A60     		str	r2, [r3]
+ 295              	.LVL7:
+ 296              	.L24:
+ 424:Src/system_at32f4xx.c ****   /* HCLK clock frequency */
+ 297              		.loc 1 424 0
+ 298 0020 214B     		ldr	r3, .L34
+ 299 0022 5B68     		ldr	r3, [r3, #4]
+ 300 0024 C3F30313 		ubfx	r3, r3, #4, #4
+ 301 0028 224A     		ldr	r2, .L34+12
+ 302 002a D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 303 002c DAB2     		uxtb	r2, r3
+ 304              	.LVL8:
+ 426:Src/system_at32f4xx.c **** }
+ 305              		.loc 1 426 0
+ 306 002e 1F49     		ldr	r1, .L34+4
+ 307 0030 0B68     		ldr	r3, [r1]
+ 308 0032 D340     		lsrs	r3, r3, r2
+ 309 0034 0B60     		str	r3, [r1]
+ 427:Src/system_at32f4xx.c **** 
+ 310              		.loc 1 427 0
+ 311 0036 7047     		bx	lr
+ 312              	.LVL9:
+ 313              	.L21:
+ 388:Src/system_at32f4xx.c ****     break;
+ 314              		.loc 1 388 0
+ 315 0038 1C4B     		ldr	r3, .L34+4
+ 316              	.LVL10:
+ 317 003a 1D4A     		ldr	r2, .L34+8
+ 318 003c 1A60     		str	r2, [r3]
+ 389:Src/system_at32f4xx.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 42
+
+
+ 319              		.loc 1 389 0
+ 320 003e EFE7     		b	.L24
+ 321              	.LVL11:
+ 322              	.L22:
+ 393:Src/system_at32f4xx.c ****     pllmult = RCC_GET_PLLMULT(RCC->CFGR);
+ 323              		.loc 1 393 0
+ 324 0040 1949     		ldr	r1, .L34
+ 325 0042 4868     		ldr	r0, [r1, #4]
+ 326 0044 00F48030 		and	r0, r0, #65536
+ 327              	.LVL12:
+ 394:Src/system_at32f4xx.c **** 
+ 328              		.loc 1 394 0
+ 329 0048 4B68     		ldr	r3, [r1, #4]
+ 330              	.LVL13:
+ 331 004a C3F38343 		ubfx	r3, r3, #18, #4
+ 332 004e 4A68     		ldr	r2, [r1, #4]
+ 333 0050 520E     		lsrs	r2, r2, #25
+ 334 0052 02F03002 		and	r2, r2, #48
+ 335 0056 1343     		orrs	r3, r3, r2
+ 336 0058 4A68     		ldr	r2, [r1, #4]
+ 337 005a 12F0C04F 		tst	r2, #1610612736
+ 338 005e 09D1     		bne	.L28
+ 394:Src/system_at32f4xx.c **** 
+ 339              		.loc 1 394 0 is_stmt 0 discriminator 1
+ 340 0060 4A68     		ldr	r2, [r1, #4]
+ 341 0062 02F47012 		and	r2, r2, #3932160
+ 342 0066 B2F5701F 		cmp	r2, #3932160
+ 343 006a 01D0     		beq	.L32
+ 394:Src/system_at32f4xx.c **** 
+ 344              		.loc 1 394 0
+ 345 006c 0222     		movs	r2, #2
+ 346 006e 02E0     		b	.L25
+ 347              	.L32:
+ 348 0070 0122     		movs	r2, #1
+ 349 0072 00E0     		b	.L25
+ 350              	.L28:
+ 351 0074 0122     		movs	r2, #1
+ 352              	.L25:
+ 394:Src/system_at32f4xx.c **** 
+ 353              		.loc 1 394 0 discriminator 6
+ 354 0076 1344     		add	r3, r3, r2
+ 355              	.LVL14:
+ 396:Src/system_at32f4xx.c ****     {
+ 356              		.loc 1 396 0 is_stmt 1 discriminator 6
+ 357 0078 50B1     		cbz	r0, .L33
+ 404:Src/system_at32f4xx.c ****       {
+ 358              		.loc 1 404 0
+ 359 007a 0B4A     		ldr	r2, .L34
+ 360 007c 5268     		ldr	r2, [r2, #4]
+ 361 007e 12F4003F 		tst	r2, #131072
+ 362 0082 0BD0     		beq	.L27
+ 407:Src/system_at32f4xx.c ****       }
+ 363              		.loc 1 407 0
+ 364 0084 0C4A     		ldr	r2, .L34+16
+ 365 0086 02FB03F3 		mul	r3, r2, r3
+ 366              	.LVL15:
+ 367 008a 084A     		ldr	r2, .L34+4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 43
+
+
+ 368 008c 1360     		str	r3, [r2]
+ 369 008e C7E7     		b	.L24
+ 370              	.LVL16:
+ 371              	.L33:
+ 399:Src/system_at32f4xx.c ****     }
+ 372              		.loc 1 399 0
+ 373 0090 094A     		ldr	r2, .L34+16
+ 374 0092 02FB03F3 		mul	r3, r2, r3
+ 375              	.LVL17:
+ 376 0096 054A     		ldr	r2, .L34+4
+ 377 0098 1360     		str	r3, [r2]
+ 378 009a C1E7     		b	.L24
+ 379              	.LVL18:
+ 380              	.L27:
+ 411:Src/system_at32f4xx.c ****       }
+ 381              		.loc 1 411 0
+ 382 009c 044A     		ldr	r2, .L34+8
+ 383 009e 02FB03F3 		mul	r3, r2, r3
+ 384              	.LVL19:
+ 385 00a2 024A     		ldr	r2, .L34+4
+ 386 00a4 1360     		str	r3, [r2]
+ 387 00a6 BBE7     		b	.L24
+ 388              	.L35:
+ 389              		.align	2
+ 390              	.L34:
+ 391 00a8 00100240 		.word	1073876992
+ 392 00ac 00000000 		.word	.LANCHOR0
+ 393 00b0 00127A00 		.word	8000000
+ 394 00b4 00000000 		.word	.LANCHOR1
+ 395 00b8 00093D00 		.word	4000000
+ 396              		.cfi_endproc
+ 397              	.LFE124:
+ 399              		.global	APBPrescTable
+ 400              		.global	AHBPrescTable
+ 401              		.global	AHBPscTable
+ 402              		.global	SystemCoreClock
+ 403              		.section	.data.AHBPrescTable,"aw",%progbits
+ 404              		.align	2
+ 407              	AHBPrescTable:
+ 408 0000 00       		.byte	0
+ 409 0001 00       		.byte	0
+ 410 0002 00       		.byte	0
+ 411 0003 00       		.byte	0
+ 412 0004 00       		.byte	0
+ 413 0005 00       		.byte	0
+ 414 0006 00       		.byte	0
+ 415 0007 00       		.byte	0
+ 416 0008 01       		.byte	1
+ 417 0009 02       		.byte	2
+ 418 000a 03       		.byte	3
+ 419 000b 04       		.byte	4
+ 420 000c 06       		.byte	6
+ 421 000d 07       		.byte	7
+ 422 000e 08       		.byte	8
+ 423 000f 09       		.byte	9
+ 424              		.section	.data.AHBPscTable,"aw",%progbits
+ 425              		.align	2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 44
+
+
+ 426              		.set	.LANCHOR1,. + 0
+ 429              	AHBPscTable:
+ 430 0000 00       		.byte	0
+ 431 0001 00       		.byte	0
+ 432 0002 00       		.byte	0
+ 433 0003 00       		.byte	0
+ 434 0004 00       		.byte	0
+ 435 0005 00       		.byte	0
+ 436 0006 00       		.byte	0
+ 437 0007 00       		.byte	0
+ 438 0008 01       		.byte	1
+ 439 0009 02       		.byte	2
+ 440 000a 03       		.byte	3
+ 441 000b 04       		.byte	4
+ 442 000c 06       		.byte	6
+ 443 000d 07       		.byte	7
+ 444 000e 08       		.byte	8
+ 445 000f 09       		.byte	9
+ 446              		.section	.data.APBPrescTable,"aw",%progbits
+ 447              		.align	2
+ 450              	APBPrescTable:
+ 451 0000 00       		.byte	0
+ 452 0001 00       		.byte	0
+ 453 0002 00       		.byte	0
+ 454 0003 00       		.byte	0
+ 455 0004 01       		.byte	1
+ 456 0005 02       		.byte	2
+ 457 0006 03       		.byte	3
+ 458 0007 04       		.byte	4
+ 459              		.section	.data.SystemCoreClock,"aw",%progbits
+ 460              		.align	2
+ 461              		.set	.LANCHOR0,. + 0
+ 464              	SystemCoreClock:
+ 465 0000 00A24A04 		.word	72000000
+ 466              		.text
+ 467              	.Letext0:
+ 468              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 469              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 470              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 471              		.file 5 "Inc/system_at32f4xx.h"
+ 472              		.file 6 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s 			page 45
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 system_at32f4xx.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:17     .text.SetSysClockTo72MHSI:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:23     .text.SetSysClockTo72MHSI:0000000000000000 SetSysClockTo72MHSI
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:150    .text.SetSysClockTo72MHSI:00000000000000bc $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:155    .text.SetSysClock:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:161    .text.SetSysClock:0000000000000000 SetSysClock
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:181    .text.SystemInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:188    .text.SystemInit:0000000000000000 SystemInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:247    .text.SystemInit:000000000000005c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:255    .text.SystemCoreClockUpdate:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:262    .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:391    .text.SystemCoreClockUpdate:00000000000000a8 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:450    .data.APBPrescTable:0000000000000000 APBPrescTable
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:407    .data.AHBPrescTable:0000000000000000 AHBPrescTable
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:429    .data.AHBPscTable:0000000000000000 AHBPscTable
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:464    .data.SystemCoreClock:0000000000000000 SystemCoreClock
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:404    .data.AHBPrescTable:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:425    .data.AHBPscTable:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:447    .data.APBPrescTable:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHY8D1E.s:460    .data.SystemCoreClock:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

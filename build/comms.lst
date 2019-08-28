@@ -1,0 +1,367 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"comms.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.setScopeChannel,"ax",%progbits
+  17              		.align	1
+  18              		.global	setScopeChannel
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	setScopeChannel:
+  25              	.LFB126:
+  26              		.file 1 "Src/comms.c"
+   1:Src/comms.c   **** #include "stm32f1xx_hal.h"
+   2:Src/comms.c   **** #include "defines.h"
+   3:Src/comms.c   **** #include "setup.h"
+   4:Src/comms.c   **** #include "config.h"
+   5:Src/comms.c   **** #include "stdio.h"
+   6:Src/comms.c   **** #include "string.h"
+   7:Src/comms.c   **** 
+   8:Src/comms.c   **** UART_HandleTypeDef huart2;
+   9:Src/comms.c   **** 
+  10:Src/comms.c   **** #ifdef DEBUG_SERIAL_USART3
+  11:Src/comms.c   **** #define UART_DMA_CHANNEL DMA1_Channel2
+  12:Src/comms.c   **** #endif
+  13:Src/comms.c   **** 
+  14:Src/comms.c   **** #ifdef DEBUG_SERIAL_USART2
+  15:Src/comms.c   **** #define UART_DMA_CHANNEL DMA1_Channel7
+  16:Src/comms.c   **** #endif
+  17:Src/comms.c   **** 
+  18:Src/comms.c   **** extern uint8_t buzzerFreq;    // global variable for the buzzer pitch. can be 1, 2, 3, 4, 5, 6, 7..
+  19:Src/comms.c   **** extern uint8_t buzzerPattern; // global variable for the buzzer pattern. can be 1, 2, 3, 4, 5, 6, 7
+  20:Src/comms.c   **** 
+  21:Src/comms.c   **** volatile uint8_t uart_buf[100];
+  22:Src/comms.c   **** volatile int16_t ch_buf[8];
+  23:Src/comms.c   **** //volatile char char_buf[300];
+  24:Src/comms.c   **** 
+  25:Src/comms.c   **** void setScopeChannel(uint8_t ch, int16_t val) {
+  27              		.loc 1 25 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  26:Src/comms.c   ****   ch_buf[ch] = val;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s 			page 2
+
+
+  33              		.loc 1 26 0
+  34 0000 014B     		ldr	r3, .L2
+  35 0002 23F81010 		strh	r1, [r3, r0, lsl #1]	@ movhi
+  27:Src/comms.c   **** }
+  36              		.loc 1 27 0
+  37 0006 7047     		bx	lr
+  38              	.L3:
+  39              		.align	2
+  40              	.L2:
+  41 0008 00000000 		.word	ch_buf
+  42              		.cfi_endproc
+  43              	.LFE126:
+  45              		.section	.text.consoleScope,"ax",%progbits
+  46              		.align	1
+  47              		.global	consoleScope
+  48              		.syntax unified
+  49              		.thumb
+  50              		.thumb_func
+  51              		.fpu fpv4-sp-d16
+  53              	consoleScope:
+  54              	.LFB127:
+  28:Src/comms.c   **** 
+  29:Src/comms.c   **** void consoleScope() {
+  55              		.loc 1 29 0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  60              	.LCFI0:
+  61              		.cfi_def_cfa_offset 20
+  62              		.cfi_offset 4, -20
+  63              		.cfi_offset 5, -16
+  64              		.cfi_offset 6, -12
+  65              		.cfi_offset 7, -8
+  66              		.cfi_offset 14, -4
+  67 0002 87B0     		sub	sp, sp, #28
+  68              	.LCFI1:
+  69              		.cfi_def_cfa_offset 48
+  30:Src/comms.c   ****   #if defined DEBUG_SERIAL_SERVOTERM && (defined DEBUG_SERIAL_USART2 || defined DEBUG_SERIAL_USART3
+  31:Src/comms.c   ****     uart_buf[0] = 0xff;
+  32:Src/comms.c   ****     uart_buf[1] = CLAMP(ch_buf[0]+127, 0, 255);
+  33:Src/comms.c   ****     uart_buf[2] = CLAMP(ch_buf[1]+127, 0, 255);
+  34:Src/comms.c   ****     uart_buf[3] = CLAMP(ch_buf[2]+127, 0, 255);
+  35:Src/comms.c   ****     uart_buf[4] = CLAMP(ch_buf[3]+127, 0, 255);
+  36:Src/comms.c   ****     uart_buf[5] = CLAMP(ch_buf[4]+127, 0, 255);
+  37:Src/comms.c   ****     uart_buf[6] = CLAMP(ch_buf[5]+127, 0, 255);
+  38:Src/comms.c   ****     uart_buf[7] = CLAMP(ch_buf[6]+127, 0, 255);
+  39:Src/comms.c   ****     uart_buf[8] = CLAMP(ch_buf[7]+127, 0, 255);
+  40:Src/comms.c   ****     uart_buf[9] = '\n';
+  41:Src/comms.c   **** 
+  42:Src/comms.c   ****     if(UART_DMA_CHANNEL->CNDTR == 0) {
+  43:Src/comms.c   ****       UART_DMA_CHANNEL->CCR &= ~DMA_CCR_EN;
+  44:Src/comms.c   ****       UART_DMA_CHANNEL->CNDTR = 10;
+  45:Src/comms.c   ****       UART_DMA_CHANNEL->CMAR  = (uint32_t)uart_buf;
+  46:Src/comms.c   ****       UART_DMA_CHANNEL->CCR |= DMA_CCR_EN;
+  47:Src/comms.c   ****     }
+  48:Src/comms.c   ****   #endif
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s 			page 3
+
+
+  49:Src/comms.c   **** 
+  50:Src/comms.c   ****   #if defined DEBUG_SERIAL_ASCII && (defined DEBUG_SERIAL_USART2 || defined DEBUG_SERIAL_USART3)
+  51:Src/comms.c   ****     memset((void *)uart_buf, 0, sizeof(uart_buf));
+  70              		.loc 1 51 0
+  71 0004 1A4F     		ldr	r7, .L7
+  72 0006 6422     		movs	r2, #100
+  73 0008 0021     		movs	r1, #0
+  74 000a 3846     		mov	r0, r7
+  75 000c FFF7FEFF 		bl	memset
+  76              	.LVL1:
+  52:Src/comms.c   ****     sprintf((char *)uart_buf, "1:%i 2:%i 3:%i 4:%i 5:%i 6:%i 7:%i 8:%i\r\n", ch_buf[0], ch_buf[1], 
+  77              		.loc 1 52 0
+  78 0010 1849     		ldr	r1, .L7+4
+  79 0012 0A88     		ldrh	r2, [r1]
+  80 0014 B1F802C0 		ldrh	ip, [r1, #2]
+  81 0018 8888     		ldrh	r0, [r1, #4]
+  82 001a 00B2     		sxth	r0, r0
+  83 001c CC88     		ldrh	r4, [r1, #6]
+  84 001e 24B2     		sxth	r4, r4
+  85 0020 0D89     		ldrh	r5, [r1, #8]
+  86 0022 2DB2     		sxth	r5, r5
+  87 0024 4E89     		ldrh	r6, [r1, #10]
+  88 0026 36B2     		sxth	r6, r6
+  89 0028 8B89     		ldrh	r3, [r1, #12]
+  90 002a 1BB2     		sxth	r3, r3
+  91 002c C989     		ldrh	r1, [r1, #14]
+  92 002e 09B2     		sxth	r1, r1
+  93 0030 0591     		str	r1, [sp, #20]
+  94 0032 0493     		str	r3, [sp, #16]
+  95 0034 0396     		str	r6, [sp, #12]
+  96 0036 0295     		str	r5, [sp, #8]
+  97 0038 0194     		str	r4, [sp, #4]
+  98 003a 0090     		str	r0, [sp]
+  99 003c 0FFA8CF3 		sxth	r3, ip
+ 100 0040 12B2     		sxth	r2, r2
+ 101 0042 0D49     		ldr	r1, .L7+8
+ 102 0044 3846     		mov	r0, r7
+ 103 0046 FFF7FEFF 		bl	sprintf
+ 104              	.LVL2:
+  53:Src/comms.c   **** 
+  54:Src/comms.c   ****     if(UART_DMA_CHANNEL->CNDTR == 0) {
+ 105              		.loc 1 54 0
+ 106 004a 0C4B     		ldr	r3, .L7+12
+ 107 004c 5B68     		ldr	r3, [r3, #4]
+ 108 004e 6BB9     		cbnz	r3, .L4
+  55:Src/comms.c   ****       UART_DMA_CHANNEL->CCR &= ~DMA_CCR_EN;
+ 109              		.loc 1 55 0
+ 110 0050 0A4C     		ldr	r4, .L7+12
+ 111 0052 2368     		ldr	r3, [r4]
+ 112 0054 23F00103 		bic	r3, r3, #1
+ 113 0058 2360     		str	r3, [r4]
+  56:Src/comms.c   ****       UART_DMA_CHANNEL->CNDTR = strlen((char *)uart_buf);
+ 114              		.loc 1 56 0
+ 115 005a 3846     		mov	r0, r7
+ 116 005c FFF7FEFF 		bl	strlen
+ 117              	.LVL3:
+ 118 0060 6060     		str	r0, [r4, #4]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s 			page 4
+
+
+  57:Src/comms.c   ****       UART_DMA_CHANNEL->CMAR  = (uint32_t)uart_buf;
+ 119              		.loc 1 57 0
+ 120 0062 E760     		str	r7, [r4, #12]
+  58:Src/comms.c   ****       UART_DMA_CHANNEL->CCR |= DMA_CCR_EN;
+ 121              		.loc 1 58 0
+ 122 0064 2368     		ldr	r3, [r4]
+ 123 0066 43F00103 		orr	r3, r3, #1
+ 124 006a 2360     		str	r3, [r4]
+ 125              	.L4:
+  59:Src/comms.c   ****     }
+  60:Src/comms.c   ****   #endif
+  61:Src/comms.c   **** }
+ 126              		.loc 1 61 0
+ 127 006c 07B0     		add	sp, sp, #28
+ 128              	.LCFI2:
+ 129              		.cfi_def_cfa_offset 20
+ 130              		@ sp needed
+ 131 006e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 132              	.L8:
+ 133              		.align	2
+ 134              	.L7:
+ 135 0070 00000000 		.word	uart_buf
+ 136 0074 00000000 		.word	ch_buf
+ 137 0078 00000000 		.word	.LC0
+ 138 007c 1C000240 		.word	1073872924
+ 139              		.cfi_endproc
+ 140              	.LFE127:
+ 142              		.section	.text.consoleLog,"ax",%progbits
+ 143              		.align	1
+ 144              		.global	consoleLog
+ 145              		.syntax unified
+ 146              		.thumb
+ 147              		.thumb_func
+ 148              		.fpu fpv4-sp-d16
+ 150              	consoleLog:
+ 151              	.LFB128:
+  62:Src/comms.c   **** 
+  63:Src/comms.c   **** void consoleLog(char *message)
+  64:Src/comms.c   **** {
+ 152              		.loc 1 64 0
+ 153              		.cfi_startproc
+ 154              		@ args = 0, pretend = 0, frame = 0
+ 155              		@ frame_needed = 0, uses_anonymous_args = 0
+ 156              	.LVL4:
+ 157 0000 38B5     		push	{r3, r4, r5, lr}
+ 158              	.LCFI3:
+ 159              		.cfi_def_cfa_offset 16
+ 160              		.cfi_offset 3, -16
+ 161              		.cfi_offset 4, -12
+ 162              		.cfi_offset 5, -8
+ 163              		.cfi_offset 14, -4
+ 164 0002 0546     		mov	r5, r0
+  65:Src/comms.c   ****   // for (int i = 2; i >= 0; i--) {
+  66:Src/comms.c   ****   //   buzzerFreq = 4;
+  67:Src/comms.c   ****   //   buzzerPattern = 1;
+  68:Src/comms.c   ****   //   HAL_Delay(5);
+  69:Src/comms.c   ****   // }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s 			page 5
+
+
+  70:Src/comms.c   ****   // buzzerFreq = 0;
+  71:Src/comms.c   ****   #ifdef CONTROL_SERIAL_USART2
+  72:Src/comms.c   ****     // HAL_UART_Transmit_DMA(&huart2, (uint8_t *)message, strlen(message));
+  73:Src/comms.c   ****   #endif
+  74:Src/comms.c   **** 
+  75:Src/comms.c   ****   #if defined DEBUG_SERIAL_ASCII && (defined DEBUG_SERIAL_USART2 || defined DEBUG_SERIAL_USART3)
+  76:Src/comms.c   ****     memset((void *)uart_buf, 0, sizeof(uart_buf));
+ 165              		.loc 1 76 0
+ 166 0004 0E4C     		ldr	r4, .L12
+ 167 0006 6422     		movs	r2, #100
+ 168 0008 0021     		movs	r1, #0
+ 169 000a 2046     		mov	r0, r4
+ 170              	.LVL5:
+ 171 000c FFF7FEFF 		bl	memset
+ 172              	.LVL6:
+  77:Src/comms.c   ****     sprintf((char *)uart_buf, "0:%s\r\n", message);
+ 173              		.loc 1 77 0
+ 174 0010 2A46     		mov	r2, r5
+ 175 0012 0C49     		ldr	r1, .L12+4
+ 176 0014 2046     		mov	r0, r4
+ 177 0016 FFF7FEFF 		bl	sprintf
+ 178              	.LVL7:
+  78:Src/comms.c   **** 
+  79:Src/comms.c   ****     if(UART_DMA_CHANNEL->CNDTR == 0) {
+ 179              		.loc 1 79 0
+ 180 001a 0B4B     		ldr	r3, .L12+8
+ 181 001c 5B68     		ldr	r3, [r3, #4]
+ 182 001e 73B9     		cbnz	r3, .L9
+  80:Src/comms.c   ****       UART_DMA_CHANNEL->CCR &= ~DMA_CCR_EN;
+ 183              		.loc 1 80 0
+ 184 0020 094C     		ldr	r4, .L12+8
+ 185 0022 2368     		ldr	r3, [r4]
+ 186 0024 23F00103 		bic	r3, r3, #1
+ 187 0028 2360     		str	r3, [r4]
+  81:Src/comms.c   ****       UART_DMA_CHANNEL->CNDTR = strlen((char *)uart_buf);
+ 188              		.loc 1 81 0
+ 189 002a 054D     		ldr	r5, .L12
+ 190              	.LVL8:
+ 191 002c 2846     		mov	r0, r5
+ 192 002e FFF7FEFF 		bl	strlen
+ 193              	.LVL9:
+ 194 0032 6060     		str	r0, [r4, #4]
+  82:Src/comms.c   ****       UART_DMA_CHANNEL->CMAR  = (uint32_t)uart_buf;
+ 195              		.loc 1 82 0
+ 196 0034 E560     		str	r5, [r4, #12]
+  83:Src/comms.c   ****       UART_DMA_CHANNEL->CCR |= DMA_CCR_EN;
+ 197              		.loc 1 83 0
+ 198 0036 2368     		ldr	r3, [r4]
+ 199 0038 43F00103 		orr	r3, r3, #1
+ 200 003c 2360     		str	r3, [r4]
+ 201              	.L9:
+  84:Src/comms.c   ****     }
+  85:Src/comms.c   ****   #endif
+  86:Src/comms.c   **** }
+ 202              		.loc 1 86 0
+ 203 003e 38BD     		pop	{r3, r4, r5, pc}
+ 204              	.L13:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s 			page 6
+
+
+ 205              		.align	2
+ 206              	.L12:
+ 207 0040 00000000 		.word	uart_buf
+ 208 0044 00000000 		.word	.LC1
+ 209 0048 1C000240 		.word	1073872924
+ 210              		.cfi_endproc
+ 211              	.LFE128:
+ 213              		.comm	ch_buf,16,4
+ 214              		.comm	uart_buf,100,4
+ 215              		.comm	huart2,64,4
+ 216              		.section	.rodata.consoleLog.str1.4,"aMS",%progbits,1
+ 217              		.align	2
+ 218              	.LC1:
+ 219 0000 303A2573 		.ascii	"0:%s\015\012\000"
+ 219      0D0A00
+ 220              		.section	.rodata.consoleScope.str1.4,"aMS",%progbits,1
+ 221              		.align	2
+ 222              	.LC0:
+ 223 0000 313A2569 		.ascii	"1:%i 2:%i 3:%i 4:%i 5:%i 6:%i 7:%i 8:%i\015\012\000"
+ 223      20323A25 
+ 223      6920333A 
+ 223      25692034 
+ 223      3A256920 
+ 224              		.text
+ 225              	.Letext0:
+ 226              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 227              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 228              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 229              		.file 5 "Inc/system_at32f4xx.h"
+ 230              		.file 6 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 231              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 232              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 233              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 234              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 235              		.file 11 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 236              		.file 12 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 237              		.file 13 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 238              		.file 14 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
+ 239              		.file 15 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
+ 240              		.file 16 "<built-in>"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 comms.c
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s:17     .text.setScopeChannel:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s:24     .text.setScopeChannel:0000000000000000 setScopeChannel
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s:41     .text.setScopeChannel:0000000000000008 $d
+                            *COM*:0000000000000010 ch_buf
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s:46     .text.consoleScope:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s:53     .text.consoleScope:0000000000000000 consoleScope
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s:135    .text.consoleScope:0000000000000070 $d
+                            *COM*:0000000000000064 uart_buf
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s:143    .text.consoleLog:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s:150    .text.consoleLog:0000000000000000 consoleLog
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s:207    .text.consoleLog:0000000000000040 $d
+                            *COM*:0000000000000040 huart2
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s:217    .rodata.consoleLog.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccY3rTYf.s:221    .rodata.consoleScope.str1.4:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+memset
+sprintf
+strlen
