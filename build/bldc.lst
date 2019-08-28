@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -51,357 +51,291 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s 			page 1
   23:Src/bldc.c    **** */
   24:Src/bldc.c    **** 
   25:Src/bldc.c    **** #include "stm32f1xx_hal.h"
-  26:Src/bldc.c    **** #include "defines.h"
-  27:Src/bldc.c    **** #include "setup.h"
-  28:Src/bldc.c    **** #include "config.h"
-  29:Src/bldc.c    **** 
-  30:Src/bldc.c    **** // Matlab includes and defines - from auto-code generation
-  31:Src/bldc.c    **** // ###############################################################################
-  32:Src/bldc.c    **** #include "BLDC_controller.h"           /* Model's header file */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s 			page 2
+  26:Src/bldc.c    **** #include "rtwtypes.h"
+  27:Src/bldc.c    **** #include "defines.h"
+  28:Src/bldc.c    **** #include "setup.h"
+  29:Src/bldc.c    **** #include "config.h"
+  30:Src/bldc.c    **** 
+  31:Src/bldc.c    **** // Matlab includes and defines - from auto-code generation
+  32:Src/bldc.c    **** // ###############################################################################
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 2
 
 
-  33:Src/bldc.c    **** #include "rtwtypes.h"
-  34:Src/bldc.c    **** 
-  35:Src/bldc.c    **** extern RT_MODEL *const rtM_Left;
-  36:Src/bldc.c    **** extern RT_MODEL *const rtM_Right;
-  37:Src/bldc.c    **** 
-  38:Src/bldc.c    **** extern DW rtDW_Left;                    /* Observable states */
-  39:Src/bldc.c    **** extern ExtU rtU_Left;                   /* External inputs */
-  40:Src/bldc.c    **** extern ExtY rtY_Left;                   /* External outputs */
-  41:Src/bldc.c    **** 
-  42:Src/bldc.c    **** extern DW rtDW_Right;                   /* Observable states */
-  43:Src/bldc.c    **** extern ExtU rtU_Right;                  /* External inputs */
-  44:Src/bldc.c    **** extern ExtY rtY_Right;                  /* External outputs */
-  45:Src/bldc.c    **** // ###############################################################################
-  46:Src/bldc.c    **** 
+  33:Src/bldc.c    **** // #include "BLDC_controller.h"           /* Model's header file */
+  34:Src/bldc.c    **** // #include "rtwtypes.h"
+  35:Src/bldc.c    **** 
+  36:Src/bldc.c    **** // extern RT_MODEL *const rtM_Left;
+  37:Src/bldc.c    **** // extern RT_MODEL *const rtM_Right;
+  38:Src/bldc.c    **** 
+  39:Src/bldc.c    **** // extern DW rtDW_Left;                    /* Observable states */
+  40:Src/bldc.c    **** // extern ExtU rtU_Left;                   /* External inputs */
+  41:Src/bldc.c    **** // extern ExtY rtY_Left;                   /* External outputs */
+  42:Src/bldc.c    **** 
+  43:Src/bldc.c    **** // extern DW rtDW_Right;                   /* Observable states */
+  44:Src/bldc.c    **** // extern ExtU rtU_Right;                  /* External inputs */
+  45:Src/bldc.c    **** // extern ExtY rtY_Right;                  /* External outputs */
+  46:Src/bldc.c    **** // ###############################################################################
   47:Src/bldc.c    **** 
-  48:Src/bldc.c    **** volatile int pwml = 0;
-  49:Src/bldc.c    **** volatile int pwmr = 0;
-  50:Src/bldc.c    **** 
-  51:Src/bldc.c    **** const uint16_t hall_cfg_left[6][3]  =
-  52:Src/bldc.c    **** {
-  53:Src/bldc.c    **** 	{LEFT_HALL_U_PIN,LEFT_HALL_V_PIN,LEFT_HALL_W_PIN},
-  54:Src/bldc.c    **** 	{LEFT_HALL_U_PIN,LEFT_HALL_W_PIN,LEFT_HALL_V_PIN},
-  55:Src/bldc.c    **** 	{LEFT_HALL_V_PIN,LEFT_HALL_U_PIN,LEFT_HALL_W_PIN},
-  56:Src/bldc.c    **** 	{LEFT_HALL_V_PIN,LEFT_HALL_W_PIN,LEFT_HALL_U_PIN},
-  57:Src/bldc.c    **** 	{LEFT_HALL_W_PIN,LEFT_HALL_U_PIN,LEFT_HALL_V_PIN},
-  58:Src/bldc.c    **** 	{LEFT_HALL_W_PIN,LEFT_HALL_V_PIN,LEFT_HALL_U_PIN}
-  59:Src/bldc.c    **** };
+  48:Src/bldc.c    **** 
+  49:Src/bldc.c    **** // #ifdef CONTROL_DETECT_HALL
+  50:Src/bldc.c    **** // 	volatile uint8_t hall_idx_left = 0;
+  51:Src/bldc.c    **** // 	volatile uint8_t hall_idx_right = 0;
+  52:Src/bldc.c    **** // #else
+  53:Src/bldc.c    **** // 	const uint8_t hall_idx_left  = HALL_IDX_LEFT-1;
+  54:Src/bldc.c    **** // 	const uint8_t hall_idx_right = HALL_IDX_RIGHT-1;
+  55:Src/bldc.c    **** // #endif
+  56:Src/bldc.c    **** 
+  57:Src/bldc.c    **** extern volatile adc_buf_t adc_buffer;
+  58:Src/bldc.c    **** 
+  59:Src/bldc.c    **** // extern volatile uint32_t timeout;
   60:Src/bldc.c    **** 
-  61:Src/bldc.c    **** const uint16_t hall_cfg_right[6][3] =
-  62:Src/bldc.c    **** {
-  63:Src/bldc.c    **** 	{RIGHT_HALL_U_PIN,RIGHT_HALL_V_PIN,RIGHT_HALL_W_PIN},
-  64:Src/bldc.c    **** 	{RIGHT_HALL_U_PIN,RIGHT_HALL_W_PIN,RIGHT_HALL_V_PIN},
-  65:Src/bldc.c    **** 	{RIGHT_HALL_V_PIN,RIGHT_HALL_U_PIN,RIGHT_HALL_W_PIN},
-  66:Src/bldc.c    **** 	{RIGHT_HALL_V_PIN,RIGHT_HALL_W_PIN,RIGHT_HALL_U_PIN},
-  67:Src/bldc.c    **** 	{RIGHT_HALL_W_PIN,RIGHT_HALL_U_PIN,RIGHT_HALL_V_PIN},
-  68:Src/bldc.c    **** 	{RIGHT_HALL_W_PIN,RIGHT_HALL_V_PIN,RIGHT_HALL_U_PIN}
-  69:Src/bldc.c    **** };
-  70:Src/bldc.c    **** 
-  71:Src/bldc.c    **** #ifdef CONTROL_DETECT_HALL
-  72:Src/bldc.c    **** 	volatile uint8_t hall_idx_left = 0;
-  73:Src/bldc.c    **** 	volatile uint8_t hall_idx_right = 0;
-  74:Src/bldc.c    **** #else
-  75:Src/bldc.c    **** 	const uint8_t hall_idx_left  = HALL_IDX_LEFT-1;
-  76:Src/bldc.c    **** 	const uint8_t hall_idx_right = HALL_IDX_RIGHT-1;
-  77:Src/bldc.c    **** #endif
+  61:Src/bldc.c    **** uint8_t buzzerFreq          = 0;
+  62:Src/bldc.c    **** uint8_t buzzerPattern       = 0;
+  63:Src/bldc.c    **** static uint32_t buzzerTimer = 0;
+  64:Src/bldc.c    **** 
+  65:Src/bldc.c    **** // uint8_t enable          = 0;
+  66:Src/bldc.c    **** 
+  67:Src/bldc.c    **** volatile unsigned  bldc_count_per_hall_counter[2] = {0,0};
+  68:Src/bldc.c    **** 
+  69:Src/bldc.c    **** // static int offsetcount = 0;
+  70:Src/bldc.c    **** // static int offsetrl1   = 2000;
+  71:Src/bldc.c    **** // static int offsetrl2   = 2000;
+  72:Src/bldc.c    **** // static int offsetrr1   = 2000;
+  73:Src/bldc.c    **** // static int offsetrr2   = 2000;
+  74:Src/bldc.c    **** // static int offsetdcl   = 2000;
+  75:Src/bldc.c    **** // static int offsetdcr   = 2000;
+  76:Src/bldc.c    **** 
+  77:Src/bldc.c    **** float batteryVoltage = BAT_NUMBER_OF_CELLS * 4.0;
   78:Src/bldc.c    **** 
-  79:Src/bldc.c    **** extern volatile adc_buf_t adc_buffer;
-  80:Src/bldc.c    **** 
-  81:Src/bldc.c    **** extern volatile uint32_t timeout;
-  82:Src/bldc.c    **** 
-  83:Src/bldc.c    **** uint8_t buzzerFreq          = 0;
-  84:Src/bldc.c    **** uint8_t buzzerPattern       = 0;
-  85:Src/bldc.c    **** static uint32_t buzzerTimer = 0;
-  86:Src/bldc.c    **** 
-  87:Src/bldc.c    **** uint8_t enable          = 0;
-  88:Src/bldc.c    **** 
-  89:Src/bldc.c    **** volatile unsigned  bldc_count_per_hall_counter[2] = {0,0};
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s 			page 3
-
-
-  90:Src/bldc.c    **** static const uint16_t pwm_res       = 64000000 / 2 / PWM_FREQ; // = 2000
-  91:Src/bldc.c    **** 
-  92:Src/bldc.c    **** static int offsetcount = 0;
-  93:Src/bldc.c    **** static int offsetrl1   = 2000;
-  94:Src/bldc.c    **** static int offsetrl2   = 2000;
-  95:Src/bldc.c    **** static int offsetrr1   = 2000;
-  96:Src/bldc.c    **** static int offsetrr2   = 2000;
-  97:Src/bldc.c    **** static int offsetdcl   = 2000;
-  98:Src/bldc.c    **** static int offsetdcr   = 2000;
-  99:Src/bldc.c    **** 
- 100:Src/bldc.c    **** float batteryVoltage = BAT_NUMBER_OF_CELLS * 4.0;
- 101:Src/bldc.c    **** 
- 102:Src/bldc.c    **** //scan 8 channels (is it 10?) with 2ADCs @ 20 clk cycles per sample
- 103:Src/bldc.c    **** //meaning ~80 ADC clock cycles @ 8MHz until new DMA interrupt =~ 100KHz
- 104:Src/bldc.c    **** //=640 cpu cycles
- 105:Src/bldc.c    **** void DMA1_Channel1_IRQHandler(void) {
-  27              		.loc 1 105 0
+  79:Src/bldc.c    **** //scan 8 channels (is it 10?) with 2ADCs @ 20 clk cycles per sample
+  80:Src/bldc.c    **** //meaning ~80 ADC clock cycles @ 8MHz until new DMA interrupt =~ 100KHz
+  81:Src/bldc.c    **** //=640 cpu cycles
+  82:Src/bldc.c    **** void DMA1_Channel1_IRQHandler(void) {
+  27              		.loc 1 82 0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31 0000 10B5     		push	{r4, lr}
   32              	.LCFI0:
   33              		.cfi_def_cfa_offset 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 3
+
+
   34              		.cfi_offset 4, -8
   35              		.cfi_offset 14, -4
- 106:Src/bldc.c    **** 
- 107:Src/bldc.c    ****   DMA1->IFCR = DMA_IFCR_CTCIF1;
-  36              		.loc 1 107 0
-  37 0002 254B     		ldr	r3, .L6
+  83:Src/bldc.c    **** 
+  84:Src/bldc.c    ****   DMA1->IFCR = DMA_IFCR_CTCIF1;
+  36              		.loc 1 84 0
+  37 0002 2A4B     		ldr	r3, .L8
   38 0004 0222     		movs	r2, #2
   39 0006 5A60     		str	r2, [r3, #4]
- 108:Src/bldc.c    **** 
- 109:Src/bldc.c    ****   if (buzzerTimer % 1000 == 0) {  // because you get float rounding errors if it would run every ti
-  40              		.loc 1 109 0
-  41 0008 244B     		ldr	r3, .L6+4
+  85:Src/bldc.c    **** 
+  86:Src/bldc.c    ****   if (buzzerTimer % 1000 == 0) {  // because you get float rounding errors if it would run every ti
+  40              		.loc 1 86 0
+  41 0008 294B     		ldr	r3, .L8+4
   42 000a 1A68     		ldr	r2, [r3]
-  43 000c 244B     		ldr	r3, .L6+8
+  43 000c 294B     		ldr	r3, .L8+8
   44 000e A3FB0213 		umull	r1, r3, r3, r2
   45 0012 9B09     		lsrs	r3, r3, #6
   46 0014 4FF47A71 		mov	r1, #1000
   47 0018 01FB1323 		mls	r3, r1, r3, r2
   48 001c CBB9     		cbnz	r3, .L2
- 110:Src/bldc.c    ****     batteryVoltage = batteryVoltage * 0.99f + ((float)adc_buffer.batt1 * ((float)BAT_CALIB_REAL_VOL
-  49              		.loc 1 110 0
-  50 001e 2149     		ldr	r1, .L6+12
+  87:Src/bldc.c    ****     batteryVoltage = batteryVoltage * 0.99f + ((float)adc_buffer.batt1 * ((float)BAT_CALIB_REAL_VOL
+  49              		.loc 1 87 0
+  50 001e 2649     		ldr	r1, .L8+12
   51 0020 D1ED007A 		vldr.32	s15, [r1]
-  52 0024 9FED207A 		vldr.32	s14, .L6+16
+  52 0024 9FED257A 		vldr.32	s14, .L8+16
   53 0028 27EE877A 		vmul.f32	s14, s15, s14
-  54 002c 1F4B     		ldr	r3, .L6+20
+  54 002c 244B     		ldr	r3, .L8+20
   55 002e 9B89     		ldrh	r3, [r3, #12]
   56 0030 9BB2     		uxth	r3, r3
   57 0032 07EE903A 		vmov	s15, r3	@ int
   58 0036 F8EE677A 		vcvt.f32.u32	s15, s15
-  59 003a DFED1D6A 		vldr.32	s13, .L6+24
+  59 003a DFED226A 		vldr.32	s13, .L8+24
   60 003e 67EEA67A 		vmul.f32	s15, s15, s13
-  61 0042 DFED1C6A 		vldr.32	s13, .L6+28
+  61 0042 DFED216A 		vldr.32	s13, .L8+28
   62 0046 67EEA67A 		vmul.f32	s15, s15, s13
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s 			page 4
-
-
   63 004a 77EE277A 		vadd.f32	s15, s14, s15
   64 004e C1ED007A 		vstr.32	s15, [r1]
   65              	.L2:
- 111:Src/bldc.c    ****   }
- 112:Src/bldc.c    **** 
- 113:Src/bldc.c    ****   //create square wave for buzzer
- 114:Src/bldc.c    ****   buzzerTimer++;
-  66              		.loc 1 114 0
+  88:Src/bldc.c    ****   }
+  89:Src/bldc.c    **** 
+  90:Src/bldc.c    ****   //create square wave for buzzer
+  91:Src/bldc.c    ****   buzzerTimer++;
+  66              		.loc 1 91 0
   67 0052 0132     		adds	r2, r2, #1
-  68 0054 114B     		ldr	r3, .L6+4
+  68 0054 164B     		ldr	r3, .L8+4
   69 0056 1A60     		str	r2, [r3]
- 115:Src/bldc.c    ****   if (buzzerFreq != 0 && (buzzerTimer / 5000) % (buzzerPattern + 1) == 0) {
-  70              		.loc 1 115 0
-  71 0058 174B     		ldr	r3, .L6+32
+  92:Src/bldc.c    ****   if (buzzerFreq != 0 && (buzzerTimer / 5000) % (buzzerPattern + 1) == 0) {
+  70              		.loc 1 92 0
+  71 0058 1C4B     		ldr	r3, .L8+32
   72 005a 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
   73 005c ACB1     		cbz	r4, .L3
-  74              		.loc 1 115 0 is_stmt 0 discriminator 1
-  75 005e 174B     		ldr	r3, .L6+36
+  74              		.loc 1 92 0 is_stmt 0 discriminator 1
+  75 005e 1C4B     		ldr	r3, .L8+36
   76 0060 A3FB0213 		umull	r1, r3, r3, r2
   77 0064 1B0B     		lsrs	r3, r3, #12
-  78 0066 1649     		ldr	r1, .L6+40
+  78 0066 1B49     		ldr	r1, .L8+40
   79 0068 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
   80 006a 0131     		adds	r1, r1, #1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 4
+
+
   81 006c B3FBF1F0 		udiv	r0, r3, r1
   82 0070 01FB1033 		mls	r3, r1, r0, r3
   83 0074 4BB9     		cbnz	r3, .L3
- 116:Src/bldc.c    ****     if (buzzerTimer % buzzerFreq == 0) {
-  84              		.loc 1 116 0 is_stmt 1
+  93:Src/bldc.c    ****     if (buzzerTimer % buzzerFreq == 0) {
+  84              		.loc 1 93 0 is_stmt 1
   85 0076 B2FBF4F3 		udiv	r3, r2, r4
   86 007a 04FB1322 		mls	r2, r4, r3, r2
-  87 007e 4AB9     		cbnz	r2, .L1
- 117:Src/bldc.c    ****       HAL_GPIO_TogglePin(BUZZER_PORT, BUZZER_PIN);
-  88              		.loc 1 117 0
+  87 007e 4AB9     		cbnz	r2, .L4
+  94:Src/bldc.c    ****       HAL_GPIO_TogglePin(BUZZER_PORT, BUZZER_PIN);
+  88              		.loc 1 94 0
   89 0080 1021     		movs	r1, #16
-  90 0082 1048     		ldr	r0, .L6+44
+  90 0082 1548     		ldr	r0, .L8+44
   91 0084 FFF7FEFF 		bl	HAL_GPIO_TogglePin
   92              	.LVL0:
-  93 0088 04E0     		b	.L1
+  93 0088 04E0     		b	.L4
   94              	.L3:
- 118:Src/bldc.c    ****     }
- 119:Src/bldc.c    ****   } else {
- 120:Src/bldc.c    ****       HAL_GPIO_WritePin(BUZZER_PORT, BUZZER_PIN, 0);
-  95              		.loc 1 120 0
+  95:Src/bldc.c    ****     }
+  96:Src/bldc.c    ****   } else {
+  97:Src/bldc.c    ****       HAL_GPIO_WritePin(BUZZER_PORT, BUZZER_PIN, 0);
+  95              		.loc 1 97 0
   96 008a 0022     		movs	r2, #0
   97 008c 1021     		movs	r1, #16
-  98 008e 0D48     		ldr	r0, .L6+44
+  98 008e 1248     		ldr	r0, .L8+44
   99 0090 FFF7FEFF 		bl	HAL_GPIO_WritePin
  100              	.LVL1:
- 101              	.L1:
- 121:Src/bldc.c    ****   }
- 122:Src/bldc.c    **** 
- 123:Src/bldc.c    ****   
- 124:Src/bldc.c    **** }
- 102              		.loc 1 124 0
- 103 0094 10BD     		pop	{r4, pc}
- 104              	.L7:
- 105 0096 00BF     		.align	2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s 			page 5
+ 101              	.L4:
+  98:Src/bldc.c    ****   }
+  99:Src/bldc.c    **** 
+ 100:Src/bldc.c    **** 
+ 101:Src/bldc.c    ****   static boolean_T OverrunFlag = false;
+ 102:Src/bldc.c    ****   /* Check for overrun */
+ 103:Src/bldc.c    ****   if (OverrunFlag) {
+ 102              		.loc 1 103 0
+ 103 0094 114B     		ldr	r3, .L8+48
+ 104 0096 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 105 0098 03B1     		cbz	r3, .L7
+ 106              	.L1:
+ 104:Src/bldc.c    ****     return;
+ 105:Src/bldc.c    ****   }
+ 106:Src/bldc.c    ****   OverrunFlag = true;
+ 107:Src/bldc.c    ****   
+ 108:Src/bldc.c    ****   motor_run();
+ 109:Src/bldc.c    **** 
+ 110:Src/bldc.c    ****   /* Indicate task complete */
+ 111:Src/bldc.c    ****   OverrunFlag = false;
+ 112:Src/bldc.c    **** }
+ 107              		.loc 1 112 0
+ 108 009a 10BD     		pop	{r4, pc}
+ 109              	.L7:
+ 106:Src/bldc.c    ****   
+ 110              		.loc 1 106 0
+ 111 009c 0F4C     		ldr	r4, .L8+48
+ 112 009e 0123     		movs	r3, #1
+ 113 00a0 2370     		strb	r3, [r4]
+ 108:Src/bldc.c    **** 
+ 114              		.loc 1 108 0
+ 115 00a2 FFF7FEFF 		bl	motor_run
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 5
 
 
- 106              	.L6:
- 107 0098 00000240 		.word	1073872896
- 108 009c 00000000 		.word	.LANCHOR0
- 109 00a0 D34D6210 		.word	274877907
- 110 00a4 00000000 		.word	.LANCHOR1
- 111 00a8 A4707D3F 		.word	1065185444
- 112 00ac 00000000 		.word	adc_buffer
- 113 00b0 B29CD13C 		.word	1020370098
- 114 00b4 0AD7233C 		.word	1008981770
- 115 00b8 00000000 		.word	.LANCHOR2
- 116 00bc 5917B7D1 		.word	-776530087
- 117 00c0 00000000 		.word	.LANCHOR3
- 118 00c4 00080140 		.word	1073809408
- 119              		.cfi_endproc
- 120              	.LFE126:
- 122              		.global	batteryVoltage
- 123              		.global	bldc_count_per_hall_counter
- 124              		.global	enable
- 125              		.global	buzzerPattern
- 126              		.global	buzzerFreq
- 127              		.global	hall_idx_right
- 128              		.global	hall_idx_left
- 129              		.global	hall_cfg_right
- 130              		.global	hall_cfg_left
- 131              		.global	pwmr
- 132              		.global	pwml
- 133              		.section	.bss.bldc_count_per_hall_counter,"aw",%nobits
- 134              		.align	2
- 137              	bldc_count_per_hall_counter:
- 138 0000 00000000 		.space	8
- 138      00000000 
- 139              		.section	.bss.buzzerFreq,"aw",%nobits
- 140              		.set	.LANCHOR2,. + 0
- 143              	buzzerFreq:
- 144 0000 00       		.space	1
- 145              		.section	.bss.buzzerPattern,"aw",%nobits
- 146              		.set	.LANCHOR3,. + 0
- 149              	buzzerPattern:
- 150 0000 00       		.space	1
- 151              		.section	.bss.buzzerTimer,"aw",%nobits
- 152              		.align	2
- 153              		.set	.LANCHOR0,. + 0
- 156              	buzzerTimer:
- 157 0000 00000000 		.space	4
- 158              		.section	.bss.enable,"aw",%nobits
- 161              	enable:
- 162 0000 00       		.space	1
- 163              		.section	.bss.pwml,"aw",%nobits
- 164              		.align	2
- 167              	pwml:
- 168 0000 00000000 		.space	4
- 169              		.section	.bss.pwmr,"aw",%nobits
- 170              		.align	2
- 173              	pwmr:
+ 116              	.LVL2:
+ 111:Src/bldc.c    **** }
+ 117              		.loc 1 111 0
+ 118 00a6 0023     		movs	r3, #0
+ 119 00a8 2370     		strb	r3, [r4]
+ 120 00aa F6E7     		b	.L1
+ 121              	.L9:
+ 122              		.align	2
+ 123              	.L8:
+ 124 00ac 00000240 		.word	1073872896
+ 125 00b0 00000000 		.word	.LANCHOR0
+ 126 00b4 D34D6210 		.word	274877907
+ 127 00b8 00000000 		.word	.LANCHOR1
+ 128 00bc A4707D3F 		.word	1065185444
+ 129 00c0 00000000 		.word	adc_buffer
+ 130 00c4 B29CD13C 		.word	1020370098
+ 131 00c8 0AD7233C 		.word	1008981770
+ 132 00cc 00000000 		.word	.LANCHOR2
+ 133 00d0 5917B7D1 		.word	-776530087
+ 134 00d4 00000000 		.word	.LANCHOR3
+ 135 00d8 00080140 		.word	1073809408
+ 136 00dc 00000000 		.word	.LANCHOR4
+ 137              		.cfi_endproc
+ 138              	.LFE126:
+ 140              		.global	batteryVoltage
+ 141              		.global	bldc_count_per_hall_counter
+ 142              		.global	buzzerPattern
+ 143              		.global	buzzerFreq
+ 144              		.section	.bss.OverrunFlag.9194,"aw",%nobits
+ 145              		.set	.LANCHOR4,. + 0
+ 148              	OverrunFlag.9194:
+ 149 0000 00       		.space	1
+ 150              		.section	.bss.bldc_count_per_hall_counter,"aw",%nobits
+ 151              		.align	2
+ 154              	bldc_count_per_hall_counter:
+ 155 0000 00000000 		.space	8
+ 155      00000000 
+ 156              		.section	.bss.buzzerFreq,"aw",%nobits
+ 157              		.set	.LANCHOR2,. + 0
+ 160              	buzzerFreq:
+ 161 0000 00       		.space	1
+ 162              		.section	.bss.buzzerPattern,"aw",%nobits
+ 163              		.set	.LANCHOR3,. + 0
+ 166              	buzzerPattern:
+ 167 0000 00       		.space	1
+ 168              		.section	.bss.buzzerTimer,"aw",%nobits
+ 169              		.align	2
+ 170              		.set	.LANCHOR0,. + 0
+ 173              	buzzerTimer:
  174 0000 00000000 		.space	4
  175              		.section	.data.batteryVoltage,"aw",%progbits
  176              		.align	2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s 			page 6
-
-
  177              		.set	.LANCHOR1,. + 0
  180              	batteryVoltage:
  181 0000 00002042 		.word	1109393408
- 182              		.section	.rodata.hall_cfg_left,"a",%progbits
- 183              		.align	2
- 186              	hall_cfg_left:
- 187 0000 2000     		.short	32
- 188 0002 4000     		.short	64
- 189 0004 8000     		.short	128
- 190 0006 2000     		.short	32
- 191 0008 8000     		.short	128
- 192 000a 4000     		.short	64
- 193 000c 4000     		.short	64
- 194 000e 2000     		.short	32
- 195 0010 8000     		.short	128
- 196 0012 4000     		.short	64
- 197 0014 8000     		.short	128
- 198 0016 2000     		.short	32
- 199 0018 8000     		.short	128
- 200 001a 2000     		.short	32
- 201 001c 4000     		.short	64
- 202 001e 8000     		.short	128
- 203 0020 4000     		.short	64
- 204 0022 2000     		.short	32
- 205              		.section	.rodata.hall_cfg_right,"a",%progbits
- 206              		.align	2
- 209              	hall_cfg_right:
- 210 0000 0004     		.short	1024
- 211 0002 0008     		.short	2048
- 212 0004 0010     		.short	4096
- 213 0006 0004     		.short	1024
- 214 0008 0010     		.short	4096
- 215 000a 0008     		.short	2048
- 216 000c 0008     		.short	2048
- 217 000e 0004     		.short	1024
- 218 0010 0010     		.short	4096
- 219 0012 0008     		.short	2048
- 220 0014 0010     		.short	4096
- 221 0016 0004     		.short	1024
- 222 0018 0010     		.short	4096
- 223 001a 0004     		.short	1024
- 224 001c 0008     		.short	2048
- 225 001e 0010     		.short	4096
- 226 0020 0008     		.short	2048
- 227 0022 0004     		.short	1024
- 228              		.section	.rodata.hall_idx_left,"a",%progbits
- 231              	hall_idx_left:
- 232 0000 01       		.byte	1
- 233              		.section	.rodata.hall_idx_right,"a",%progbits
- 236              	hall_idx_right:
- 237 0000 04       		.byte	4
- 238              		.text
- 239              	.Letext0:
- 240              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 241              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 242              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
- 243              		.file 5 "Inc/system_at32f4xx.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s 			page 7
+ 182              		.text
+ 183              	.Letext0:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 6
 
 
- 244              		.file 6 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
- 245              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 246              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 247              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
- 248              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 249              		.file 11 "Inc/defines.h"
- 250              		.file 12 "Inc/rtwtypes.h"
- 251              		.file 13 "Inc/BLDC_controller.h"
- 252              		.file 14 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s 			page 8
+ 184              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 185              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 186              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 187              		.file 5 "Inc/system_at32f4xx.h"
+ 188              		.file 6 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 189              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 190              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 191              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 192              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 193              		.file 11 "Inc/rtwtypes.h"
+ 194              		.file 12 "Inc/defines.h"
+ 195              		.file 13 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bldc.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:17     .text.DMA1_Channel1_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:24     .text.DMA1_Channel1_IRQHandler:0000000000000000 DMA1_Channel1_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:107    .text.DMA1_Channel1_IRQHandler:0000000000000098 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:180    .data.batteryVoltage:0000000000000000 batteryVoltage
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:137    .bss.bldc_count_per_hall_counter:0000000000000000 bldc_count_per_hall_counter
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:161    .bss.enable:0000000000000000 enable
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:149    .bss.buzzerPattern:0000000000000000 buzzerPattern
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:143    .bss.buzzerFreq:0000000000000000 buzzerFreq
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:236    .rodata.hall_idx_right:0000000000000000 hall_idx_right
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:231    .rodata.hall_idx_left:0000000000000000 hall_idx_left
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:209    .rodata.hall_cfg_right:0000000000000000 hall_cfg_right
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:186    .rodata.hall_cfg_left:0000000000000000 hall_cfg_left
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:173    .bss.pwmr:0000000000000000 pwmr
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:167    .bss.pwml:0000000000000000 pwml
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:134    .bss.bldc_count_per_hall_counter:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:144    .bss.buzzerFreq:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:150    .bss.buzzerPattern:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:152    .bss.buzzerTimer:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:156    .bss.buzzerTimer:0000000000000000 buzzerTimer
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:162    .bss.enable:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:164    .bss.pwml:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:170    .bss.pwmr:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:176    .data.batteryVoltage:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:183    .rodata.hall_cfg_left:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cca9Nm4l.s:206    .rodata.hall_cfg_right:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:17     .text.DMA1_Channel1_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:24     .text.DMA1_Channel1_IRQHandler:0000000000000000 DMA1_Channel1_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:124    .text.DMA1_Channel1_IRQHandler:00000000000000ac $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:180    .data.batteryVoltage:0000000000000000 batteryVoltage
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:154    .bss.bldc_count_per_hall_counter:0000000000000000 bldc_count_per_hall_counter
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:166    .bss.buzzerPattern:0000000000000000 buzzerPattern
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:160    .bss.buzzerFreq:0000000000000000 buzzerFreq
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:148    .bss.OverrunFlag.9194:0000000000000000 OverrunFlag.9194
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:149    .bss.OverrunFlag.9194:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:151    .bss.bldc_count_per_hall_counter:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:161    .bss.buzzerFreq:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:167    .bss.buzzerPattern:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:169    .bss.buzzerTimer:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:173    .bss.buzzerTimer:0000000000000000 buzzerTimer
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:176    .data.batteryVoltage:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_TogglePin
 HAL_GPIO_WritePin
+motor_run
 adc_buffer

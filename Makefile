@@ -44,7 +44,8 @@ Src/comms.c \
 Src/stm32f1xx_it.c \
 Src/BLDC_controller_data.c \
 Src/BLDC_controller.c \
-Src/hallinterrupts.c
+Src/hallinterrupts.c \
+Src/motorcontrol.c
 
 
 

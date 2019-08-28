@@ -1,4 +1,5 @@
-build/bldc.d: Src/bldc.c Inc/stm32f1xx_conf.h \
+build/motorcontrol.d: Src/motorcontrol.c Inc/stm32f1xx_conf.h \
+ Inc/BLDC_controller.h Inc/rtwtypes.h Inc/rtwtypes.h Inc/config.h \
  Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h Inc/stm32f1xx_hal_conf.h \
  Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
  Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_def.h \
@@ -22,10 +23,17 @@ build/bldc.d: Src/bldc.c Inc/stm32f1xx_conf.h \
  Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_uart.h Inc/rtwtypes.h \
- Inc/defines.h Inc/setup.h Inc/config.h
+ Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_uart.h Inc/defines.h
 
 Inc/stm32f1xx_conf.h:
+
+Inc/BLDC_controller.h:
+
+Inc/rtwtypes.h:
+
+Inc/rtwtypes.h:
+
+Inc/config.h:
 
 Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h:
 
@@ -79,10 +87,4 @@ Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 
 Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
 
-Inc/rtwtypes.h:
-
 Inc/defines.h:
-
-Inc/setup.h:
-
-Inc/config.h:

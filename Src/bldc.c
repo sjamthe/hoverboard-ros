@@ -23,79 +23,56 @@
 */
 
 #include "stm32f1xx_hal.h"
+#include "rtwtypes.h"
 #include "defines.h"
 #include "setup.h"
 #include "config.h"
 
 // Matlab includes and defines - from auto-code generation
 // ###############################################################################
-#include "BLDC_controller.h"           /* Model's header file */
-#include "rtwtypes.h"
+// #include "BLDC_controller.h"           /* Model's header file */
+// #include "rtwtypes.h"
 
-extern RT_MODEL *const rtM_Left;
-extern RT_MODEL *const rtM_Right;
+// extern RT_MODEL *const rtM_Left;
+// extern RT_MODEL *const rtM_Right;
 
-extern DW rtDW_Left;                    /* Observable states */
-extern ExtU rtU_Left;                   /* External inputs */
-extern ExtY rtY_Left;                   /* External outputs */
+// extern DW rtDW_Left;                    /* Observable states */
+// extern ExtU rtU_Left;                   /* External inputs */
+// extern ExtY rtY_Left;                   /* External outputs */
 
-extern DW rtDW_Right;                   /* Observable states */
-extern ExtU rtU_Right;                  /* External inputs */
-extern ExtY rtY_Right;                  /* External outputs */
+// extern DW rtDW_Right;                   /* Observable states */
+// extern ExtU rtU_Right;                  /* External inputs */
+// extern ExtY rtY_Right;                  /* External outputs */
 // ###############################################################################
 
 
-volatile int pwml = 0;
-volatile int pwmr = 0;
-
-const uint16_t hall_cfg_left[6][3]  =
-{
-	{LEFT_HALL_U_PIN,LEFT_HALL_V_PIN,LEFT_HALL_W_PIN},
-	{LEFT_HALL_U_PIN,LEFT_HALL_W_PIN,LEFT_HALL_V_PIN},
-	{LEFT_HALL_V_PIN,LEFT_HALL_U_PIN,LEFT_HALL_W_PIN},
-	{LEFT_HALL_V_PIN,LEFT_HALL_W_PIN,LEFT_HALL_U_PIN},
-	{LEFT_HALL_W_PIN,LEFT_HALL_U_PIN,LEFT_HALL_V_PIN},
-	{LEFT_HALL_W_PIN,LEFT_HALL_V_PIN,LEFT_HALL_U_PIN}
-};
-
-const uint16_t hall_cfg_right[6][3] =
-{
-	{RIGHT_HALL_U_PIN,RIGHT_HALL_V_PIN,RIGHT_HALL_W_PIN},
-	{RIGHT_HALL_U_PIN,RIGHT_HALL_W_PIN,RIGHT_HALL_V_PIN},
-	{RIGHT_HALL_V_PIN,RIGHT_HALL_U_PIN,RIGHT_HALL_W_PIN},
-	{RIGHT_HALL_V_PIN,RIGHT_HALL_W_PIN,RIGHT_HALL_U_PIN},
-	{RIGHT_HALL_W_PIN,RIGHT_HALL_U_PIN,RIGHT_HALL_V_PIN},
-	{RIGHT_HALL_W_PIN,RIGHT_HALL_V_PIN,RIGHT_HALL_U_PIN}
-};
-
-#ifdef CONTROL_DETECT_HALL
-	volatile uint8_t hall_idx_left = 0;
-	volatile uint8_t hall_idx_right = 0;
-#else
-	const uint8_t hall_idx_left  = HALL_IDX_LEFT-1;
-	const uint8_t hall_idx_right = HALL_IDX_RIGHT-1;
-#endif
+// #ifdef CONTROL_DETECT_HALL
+// 	volatile uint8_t hall_idx_left = 0;
+// 	volatile uint8_t hall_idx_right = 0;
+// #else
+// 	const uint8_t hall_idx_left  = HALL_IDX_LEFT-1;
+// 	const uint8_t hall_idx_right = HALL_IDX_RIGHT-1;
+// #endif
 
 extern volatile adc_buf_t adc_buffer;
 
-extern volatile uint32_t timeout;
+// extern volatile uint32_t timeout;
 
 uint8_t buzzerFreq          = 0;
 uint8_t buzzerPattern       = 0;
 static uint32_t buzzerTimer = 0;
 
-uint8_t enable          = 0;
+// uint8_t enable          = 0;
 
 volatile unsigned  bldc_count_per_hall_counter[2] = {0,0};
-static const uint16_t pwm_res       = 64000000 / 2 / PWM_FREQ; // = 2000
 
-static int offsetcount = 0;
-static int offsetrl1   = 2000;
-static int offsetrl2   = 2000;
-static int offsetrr1   = 2000;
-static int offsetrr2   = 2000;
-static int offsetdcl   = 2000;
-static int offsetdcr   = 2000;
+// static int offsetcount = 0;
+// static int offsetrl1   = 2000;
+// static int offsetrl2   = 2000;
+// static int offsetrr1   = 2000;
+// static int offsetrr2   = 2000;
+// static int offsetdcl   = 2000;
+// static int offsetdcr   = 2000;
 
 float batteryVoltage = BAT_NUMBER_OF_CELLS * 4.0;
 
@@ -120,5 +97,16 @@ void DMA1_Channel1_IRQHandler(void) {
       HAL_GPIO_WritePin(BUZZER_PORT, BUZZER_PIN, 0);
   }
 
+
+  static boolean_T OverrunFlag = false;
+  /* Check for overrun */
+  if (OverrunFlag) {
+    return;
+  }
+  OverrunFlag = true;
   
+  motor_run();
+
+  /* Indicate task complete */
+  OverrunFlag = false;
 }

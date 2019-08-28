@@ -34,6 +34,9 @@ extern volatile adc_buf_t adc_buffer;
 extern uint8_t buzzerFreq;    // global variable for the buzzer pitch. can be 1, 2, 3, 4, 5, 6, 7...
 extern uint8_t buzzerPattern; // global variable for the buzzer pattern. can be 1, 2, 3, 4, 5, 6, 7...
 
+extern volatile int pwml;  // global variable for pwm left. -1000 to 1000
+extern volatile int pwmr;  // global variable for pwm right. -1000 to 1000
+
 uint16_t speed = 0;
 
 void poweroff() {
@@ -83,6 +86,8 @@ int main(void) {
   HAL_ADC_Start(&hadc1);
   HAL_ADC_Start(&hadc2);
 
+  motor_init();
+
   // ###### STARTUP CHIME #############
   for (int i = 8; i >= 0; i--) {
     buzzerFreq = i;
@@ -91,7 +96,21 @@ int main(void) {
   buzzerFreq = 0;
 
   HAL_GPIO_WritePin(LED_PORT, LED_PIN, 1);
+ 
+#ifdef CONTROL_MOTOR_TEST
 
+	#ifdef INVERT_R_DIRECTION
+	  pwmr = 60;
+	#else
+	  pwmr = -60;
+	#endif
+	#ifdef INVERT_L_DIRECTION
+	  pwml = -60;
+	#else
+	  pwml = 60;
+	#endif
+
+#endif
   while(1) {
     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms
 
