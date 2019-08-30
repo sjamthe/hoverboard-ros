@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
   29:Src/BLDC_controller.c **** #if ( UCHAR_MAX != (0xFFU) ) || ( SCHAR_MAX != (0x7F) )
   30:Src/BLDC_controller.c **** #error Code was generated for compiler with different sized uchar/char. \
   31:Src/BLDC_controller.c **** Consider adjusting Test hardware word size settings on the \
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 2
 
 
   32:Src/BLDC_controller.c **** Hardware Implementation pane to match your compiler word sizes as \
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
   86:Src/BLDC_controller.c **** #endif
   87:Src/BLDC_controller.c **** 
   88:Src/BLDC_controller.c **** uint8_T plook_u8s32u32n31_evenc_s(int32_T u, int32_T bp0, uint32_T bpSpace,
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 3
 
 
   89:Src/BLDC_controller.c ****   uint32_T maxIndex, uint32_T *fraction);
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
   51 0010 DCB2     		uxtb	r4, r3
   52              	.LVL3:
   53 0012 013C     		subs	r4, r4, #1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 4
 
 
   54 0014 E4B2     		uxtb	r4, r4
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  100              		.thumb
  101              		.thumb_func
  102              		.fpu fpv4-sp-d16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 5
 
 
  104              	intrp1d_s16s32s32u8u32n31l_s:
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  142 0028 7047     		bx	lr
  143              		.cfi_endproc
  144              	.LFE1:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 6
 
 
  146              		.section	.text.div_nde_s32_floor,"ax",%progbits
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  194              		.thumb_func
  195              		.fpu fpv4-sp-d16
  197              	BLDC_controller_step:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 7
 
 
  198              	.LFB3:
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  169:Src/BLDC_controller.c ****   /* Sum: '<S12>/Sum' incorporates:
  170:Src/BLDC_controller.c ****    *  Gain: '<S12>/g_Ha'
  171:Src/BLDC_controller.c ****    *  Gain: '<S12>/g_Hb'
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 8
 
 
  172:Src/BLDC_controller.c ****    *  Inport: '<Root>/b_hallA '
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  255              		.loc 1 199 0
  256 0032 257F     		ldrb	r5, [r4, #28]	@ zero_extendqisi2
  257 0034 637F     		ldrb	r3, [r4, #29]	@ zero_extendqisi2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 9
 
 
  198:Src/BLDC_controller.c ****     rtDW->UnitDelay_DSTATE ^ rtDW->UnitDelay1_DSTATE_i ^
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  281              		.loc 1 227 0
  282 0056 5B1A     		subs	r3, r3, r1
  283 0058 5BB2     		sxtb	r3, r3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 10
 
 
  284              	.LVL34:
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  253:Src/BLDC_controller.c ****     /* End of Outputs for SubSystem: '<S7>/F01_03_Direction_Detection' */
  254:Src/BLDC_controller.c ****     rtb_Abs2 = 1;
  255:Src/BLDC_controller.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 11
 
 
  256:Src/BLDC_controller.c ****     /* Outputs for IfAction SubSystem: '<S14>/Counter_Hold_and_Error_Calculation' incorporates:
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  293:Src/BLDC_controller.c ****   /* Sum: '<S14>/Sum1' */
  294:Src/BLDC_controller.c ****   rtb_Sum1_a = rtb_Abs2;
  295:Src/BLDC_controller.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 12
 
 
  296:Src/BLDC_controller.c ****   /* Switch: '<S16>/Switch1' incorporates:
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  365              	.LVL50:
  366 00c8 00E0     		b	.L22
  367              	.LVL51:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 13
 
 
  368              	.L44:
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  393 00ec F368     		ldr	r3, [r6, #12]
  394 00ee 9342     		cmp	r3, r2
  395 00f0 7ADC     		bgt	.L24
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 14
 
 
  338:Src/BLDC_controller.c ****     rtDW->n_commDeacv_Mode = true;
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  419 0110 96F86030 		ldrb	r3, [r6, #96]	@ zero_extendqisi2
  420 0114 002B     		cmp	r3, #0
  421 0116 79D1     		bne	.L47
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 15
 
 
  367:Src/BLDC_controller.c ****   rtAction = -1;
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  443 0130 0129     		cmp	r1, #1
  444 0132 6DD0     		beq	.L56
  401:Src/BLDC_controller.c ****       rtb_Sum2_h = rtConstP.vec_hallToPos_Value[rtb_Sum];
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 16
 
 
  402:Src/BLDC_controller.c ****     } else {
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  479 016e 01FB03C1 		mla	r1, r1, r3, ip
  417:Src/BLDC_controller.c ****       + rtb_Sum2_h * 60;
  480              		.loc 1 417 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 17
 
 
  481 0172 C9F81010 		str	r1, [r9, #16]
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  495 0188 022B     		cmp	r3, #2
  496 018a 00F08A80 		beq	.L36
  497 018e 032B     		cmp	r3, #3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 18
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 18
 
 
  498 0190 00F0A880 		beq	.L37
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  508:Src/BLDC_controller.c ****      */
  509:Src/BLDC_controller.c ****     /* PreLookup: '<S20>/a_sinElecAngle_XA' */
  510:Src/BLDC_controller.c ****     rtb_BitwiseOperator = plook_u8s32u32n31_evenc_s(rtDW->Switch_PhaAdv, 0, 10U,
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 19
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 19
 
 
  511:Src/BLDC_controller.c ****       36U, &rtb_r_phaAdvDC_XA_o2);
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  521 01b6 0020     		movle	r0, #0
  522 01b8 0120     		movgt	r0, #1
  523              	.LVL67:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 20
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 20
 
 
  524              	.L40:
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  581:Src/BLDC_controller.c ****        *  2-dimensional Direct Look-Up returning a Column
  582:Src/BLDC_controller.c ****        */
  583:Src/BLDC_controller.c ****       rtb_Sum2_h = 5;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 21
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 21
 
 
  584:Src/BLDC_controller.c ****     } else if (rtConstP.vec_hallToPos_Value[rtb_Sum] < 0) {
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  584              		.loc 1 369 0
  585 020c 0023     		movs	r3, #0
  586 020e 85E7     		b	.L29
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 22
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 22
 
 
  587              	.LVL75:
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  634 025e 91E7     		b	.L31
  635              	.LVL85:
  636              	.L58:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 23
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 23
 
 
  464:Src/BLDC_controller.c ****       6U, &rtb_r_phaAdvDC_XA_o2);
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  685 02ae FFF7FEFF 		bl	plook_u8s32u32n31_evenc_s
  686              	.LVL94:
  687 02b2 0390     		str	r0, [sp, #12]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 24
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 24
 
 
  688              	.LVL95:
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  736 0302 2081     		strh	r0, [r4, #8]	@ movhi
  518:Src/BLDC_controller.c ****       rtb_r_phaAdvDC_XA_o2, rtConstP.r_sin3PhaB_M1_Table);
  737              		.loc 1 518 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 25
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 25
 
 
  738 0304 0C4B     		ldr	r3, .L60+16
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  785 035a B4F90810 		ldrsh	r1, [r4, #8]
  786 035e 01FB03F1 		mul	r1, r1, r3
  787              	.LVL110:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 26
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 26
 
 
  574:Src/BLDC_controller.c ****     rtb_Abs1 = rtU->r_DC * rtDW->Merge2;
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  818 0398 02FB03F2 		mul	r2, r2, r3
  819              	.LVL118:
  612:Src/BLDC_controller.c ****     rtb_Abs1 = rtConstP.z_commutMap_M1_table[2 + rtb_Abs1] * rtU->r_DC;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 27
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 27
 
 
  820              		.loc 1 612 0
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  639:Src/BLDC_controller.c ****   /* Update for UnitDelay: '<S11>/UnitDelay2' incorporates:
  640:Src/BLDC_controller.c ****    *  Inport: '<Root>/b_hallC'
  641:Src/BLDC_controller.c ****    */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 28
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 28
 
 
  642:Src/BLDC_controller.c ****   rtDW->UnitDelay2_DSTATE_h = rtU->b_hallC;
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  881              		.align	1
  882              		.global	BLDC_controller_initialize
  883              		.syntax unified
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 29
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 29
 
 
  884              		.thumb
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  688:Src/BLDC_controller.c ****   /* End of SystemInitialize for SubSystem: '<S14>/Counter_Hold_and_Error_Calculation' */
  689:Src/BLDC_controller.c ****   /* End of SystemInitialize for SubSystem: '<Root>/BLDC_controller' */
  690:Src/BLDC_controller.c **** }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 30
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 30
 
 
  915              		.loc 1 690 0
@@ -1749,24 +1749,24 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 1
  921              	.Letext0:
  922              		.file 2 "Inc/rtwtypes.h"
  923              		.file 3 "Inc/BLDC_controller.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s 			page 31
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s 			page 31
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 BLDC_controller.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:18     .text.plook_u8s32u32n31_evenc_s:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:25     .text.plook_u8s32u32n31_evenc_s:0000000000000000 plook_u8s32u32n31_evenc_s
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:97     .text.intrp1d_s16s32s32u8u32n31l_s:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:104    .text.intrp1d_s16s32s32u8u32n31l_s:0000000000000000 intrp1d_s16s32s32u8u32n31l_s
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:147    .text.div_nde_s32_floor:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:154    .text.div_nde_s32_floor:0000000000000000 div_nde_s32_floor
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:190    .text.BLDC_controller_step:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:197    .text.BLDC_controller_step:0000000000000000 BLDC_controller_step
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:758    .text.BLDC_controller_step:0000000000000328 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:766    .text.BLDC_controller_step:000000000000033c $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:875    .text.BLDC_controller_step:00000000000003f8 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:881    .text.BLDC_controller_initialize:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccRvN8fJ.s:888    .text.BLDC_controller_initialize:0000000000000000 BLDC_controller_initialize
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:18     .text.plook_u8s32u32n31_evenc_s:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:25     .text.plook_u8s32u32n31_evenc_s:0000000000000000 plook_u8s32u32n31_evenc_s
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:97     .text.intrp1d_s16s32s32u8u32n31l_s:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:104    .text.intrp1d_s16s32s32u8u32n31l_s:0000000000000000 intrp1d_s16s32s32u8u32n31l_s
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:147    .text.div_nde_s32_floor:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:154    .text.div_nde_s32_floor:0000000000000000 div_nde_s32_floor
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:190    .text.BLDC_controller_step:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:197    .text.BLDC_controller_step:0000000000000000 BLDC_controller_step
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:758    .text.BLDC_controller_step:0000000000000328 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:766    .text.BLDC_controller_step:000000000000033c $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:875    .text.BLDC_controller_step:00000000000003f8 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:881    .text.BLDC_controller_initialize:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccE0q4EL.s:888    .text.BLDC_controller_initialize:0000000000000000 BLDC_controller_initialize
 
 UNDEFINED SYMBOLS
 __aeabi_uldivmod

@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
   30:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   *   1. Redistributions of source code must retain the above copyright notice,
   31:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   *      this list of conditions and the following disclaimer.
   32:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   *   2. Redistributions in binary form must reproduce the above copyright notice,
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 2
 
 
   33:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   *      this list of conditions and the following disclaimer in the documentation
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
   87:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c **** /**
   88:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   * @}
   89:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 3
 
 
   90:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  144:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   *         HAL function), it performs the following:
  145:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   *           Configure the Flash prefetch.
  146:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   *           Configures the SysTick to generate an interrupt each 1 millisecond,
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 4
 
 
  147:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   *           which is clocked by the HSI (at this stage, the clock is not yet
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  201:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   __HAL_RCC_AHB_FORCE_RESET();
  202:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   __HAL_RCC_AHB_RELEASE_RESET();
  203:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c **** #endif
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 5
 
 
  204:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
   54              		.cfi_endproc
   55              	.LFE129:
   57              		.section	.text.HAL_DeInit,"ax",%progbits
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 6
 
 
   58              		.align	1
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  108              	HAL_InitTick:
  109              	.LFB130:
  233:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 7
 
 
  234:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c **** /**
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  137 0020 0020     		movs	r0, #0
  138 0022 10BD     		pop	{r4, pc}
  139              	.LVL5:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 8
 
 
  140              	.L10:
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  190              		.cfi_endproc
  191              	.LFE126:
  193              		.section	.text.HAL_IncTick,"ax",%progbits
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 9
 
 
  194              		.align	1
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  209 0000 024A     		ldr	r2, .L16
  210 0002 1368     		ldr	r3, [r2]
  211 0004 0133     		adds	r3, r3, #1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 10
 
 
  212 0006 1360     		str	r3, [r2]
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  258              	.LFB133:
  313:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c **** 
  314:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c **** /**
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 11
 
 
  315:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   * @brief This function provides minimum delay (in milliseconds) based 
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  291              	.LVL14:
  292 001a 401B     		subs	r0, r0, r5
  293 001c A042     		cmp	r0, r4
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 12
 
 
  294 001e FAD3     		bcc	.L23
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  330              		.cfi_endproc
  331              	.LFE134:
  333              		.section	.text.HAL_ResumeTick,"ax",%progbits
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 13
 
 
  334              		.align	1
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  376:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   * @retval version : 0xXYZR (8bits for each decimal, R for RC)
  377:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   */
  378:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c **** uint32_t HAL_GetHalVersion(void)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 14
 
 
  379:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c **** {
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  409              		.align	2
  410              	.L35:
  411 0008 002004E0 		.word	-536600576
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 15
 
 
  412              		.cfi_endproc
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  415:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c **** /**
  416:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   * @brief  Enable the Debug Module during SLEEP mode
  417:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   * @retval None
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 16
 
 
  418:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   */
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  489 0002 5368     		ldr	r3, [r2, #4]
  490 0004 23F00103 		bic	r3, r3, #1
  491 0008 5360     		str	r3, [r2, #4]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 17
 
 
  438:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c **** }
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  518 0002 5368     		ldr	r3, [r2, #4]
  519 0004 43F00203 		orr	r3, r3, #2
  520 0008 5360     		str	r3, [r2, #4]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 18
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 18
 
 
  468:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c **** }
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  561              		.global	HAL_DBGMCU_EnableDBGStandbyMode
  562              		.syntax unified
  563              		.thumb
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 19
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 19
 
 
  564              		.thumb_func
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  508:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   *       Debug registers DBGMCU_IDCODE and DBGMCU_CR are accessible only in 
  509:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   *       debug mode (not accessible by the user software in normal mode).
  510:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   *       Refer to errata sheet of these devices for more details.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 20
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 20
 
 
  511:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   * @retval None
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  638 0006 044B     		ldr	r3, .L59+4
  639 0008 1B68     		ldr	r3, [r3]
  640 000a 4360     		str	r3, [r0, #4]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 21
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 21
 
 
  527:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal.c ****   UID[2] = (uint32_t)(READ_REG(*((uint32_t *)(UID_BASE + 8U))));
@@ -1231,72 +1231,72 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 1
  667              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
  668              		.file 11 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_def.h"
  669              		.file 12 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 22
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:17     .text.HAL_MspInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:24     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:38     .text.HAL_MspDeInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:45     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:58     .text.HAL_DeInit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:65     .text.HAL_DeInit:0000000000000000 HAL_DeInit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:96     .text.HAL_DeInit:000000000000001c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:101    .text.HAL_InitTick:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:108    .text.HAL_InitTick:0000000000000000 HAL_InitTick
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:143    .text.HAL_InitTick:0000000000000024 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:149    .text.HAL_Init:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:156    .text.HAL_Init:0000000000000000 HAL_Init
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:189    .text.HAL_Init:0000000000000020 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:194    .text.HAL_IncTick:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:201    .text.HAL_IncTick:0000000000000000 HAL_IncTick
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:218    .text.HAL_IncTick:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:17     .text.HAL_MspInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:24     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:38     .text.HAL_MspDeInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:45     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:58     .text.HAL_DeInit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:65     .text.HAL_DeInit:0000000000000000 HAL_DeInit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:96     .text.HAL_DeInit:000000000000001c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:101    .text.HAL_InitTick:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:108    .text.HAL_InitTick:0000000000000000 HAL_InitTick
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:143    .text.HAL_InitTick:0000000000000024 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:149    .text.HAL_Init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:156    .text.HAL_Init:0000000000000000 HAL_Init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:189    .text.HAL_Init:0000000000000020 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:194    .text.HAL_IncTick:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:201    .text.HAL_IncTick:0000000000000000 HAL_IncTick
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:218    .text.HAL_IncTick:000000000000000c $d
                             *COM*:0000000000000004 uwTick
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:223    .text.HAL_GetTick:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:230    .text.HAL_GetTick:0000000000000000 HAL_GetTick
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:245    .text.HAL_GetTick:0000000000000008 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:250    .text.HAL_Delay:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:257    .text.HAL_Delay:0000000000000000 HAL_Delay
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:305    .text.HAL_SuspendTick:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:312    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:329    .text.HAL_SuspendTick:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:334    .text.HAL_ResumeTick:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:341    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:358    .text.HAL_ResumeTick:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:363    .text.HAL_GetHalVersion:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:370    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:383    .text.HAL_GetHalVersion:0000000000000004 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:388    .text.HAL_GetREVID:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:395    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:411    .text.HAL_GetREVID:0000000000000008 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:416    .text.HAL_GetDEVID:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:423    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:439    .text.HAL_GetDEVID:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:444    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:451    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:468    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:473    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:480    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:497    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:502    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:509    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:526    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:531    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:538    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:555    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:560    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:567    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:584    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:589    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:596    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:613    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s 			page 23
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:223    .text.HAL_GetTick:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:230    .text.HAL_GetTick:0000000000000000 HAL_GetTick
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:245    .text.HAL_GetTick:0000000000000008 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:250    .text.HAL_Delay:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:257    .text.HAL_Delay:0000000000000000 HAL_Delay
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:305    .text.HAL_SuspendTick:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:312    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:329    .text.HAL_SuspendTick:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:334    .text.HAL_ResumeTick:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:341    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:358    .text.HAL_ResumeTick:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:363    .text.HAL_GetHalVersion:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:370    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:383    .text.HAL_GetHalVersion:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:388    .text.HAL_GetREVID:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:395    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:411    .text.HAL_GetREVID:0000000000000008 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:416    .text.HAL_GetDEVID:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:423    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:439    .text.HAL_GetDEVID:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:444    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:451    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:468    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:473    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:480    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:497    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:502    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:509    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:526    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:531    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:538    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:555    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:560    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:567    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:584    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:589    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:596    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:613    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s 			page 23
 
 
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:618    .text.HAL_GetUID:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:625    .text.HAL_GetUID:0000000000000000 HAL_GetUID
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc4bEZIv.s:650    .text.HAL_GetUID:0000000000000014 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:618    .text.HAL_GetUID:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:625    .text.HAL_GetUID:0000000000000000 HAL_GetUID
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccht5DHy.s:650    .text.HAL_GetUID:0000000000000014 $d
 
 UNDEFINED SYMBOLS
 HAL_SYSTICK_Config

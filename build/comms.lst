@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 1
   31              		@ link register save eliminated.
   32              	.LVL0:
   26:Src/comms.c   ****   ch_buf[ch] = val;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s 			page 2
 
 
   33              		.loc 1 26 0
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 1
   46:Src/comms.c   ****       UART_DMA_CHANNEL->CCR |= DMA_CCR_EN;
   47:Src/comms.c   ****     }
   48:Src/comms.c   ****   #endif
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s 			page 3
 
 
   49:Src/comms.c   **** 
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 1
  116 005c FFF7FEFF 		bl	strlen
  117              	.LVL3:
  118 0060 6060     		str	r0, [r4, #4]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s 			page 4
 
 
   57:Src/comms.c   ****       UART_DMA_CHANNEL->CMAR  = (uint32_t)uart_buf;
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 1
   67:Src/comms.c   ****   //   buzzerPattern = 1;
   68:Src/comms.c   ****   //   HAL_Delay(5);
   69:Src/comms.c   ****   // }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s 			page 5
 
 
   70:Src/comms.c   ****   // buzzerFreq = 0;
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 1
  202              		.loc 1 86 0
  203 003e 38BD     		pop	{r3, r4, r5, pc}
  204              	.L13:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s 			page 6
 
 
  205              		.align	2
@@ -341,25 +341,25 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 1
  238              		.file 14 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
  239              		.file 15 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
  240              		.file 16 "<built-in>"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 comms.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s:17     .text.setScopeChannel:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s:24     .text.setScopeChannel:0000000000000000 setScopeChannel
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s:41     .text.setScopeChannel:0000000000000008 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s:17     .text.setScopeChannel:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s:24     .text.setScopeChannel:0000000000000000 setScopeChannel
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s:41     .text.setScopeChannel:0000000000000008 $d
                             *COM*:0000000000000010 ch_buf
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s:46     .text.consoleScope:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s:53     .text.consoleScope:0000000000000000 consoleScope
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s:135    .text.consoleScope:0000000000000070 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s:46     .text.consoleScope:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s:53     .text.consoleScope:0000000000000000 consoleScope
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s:135    .text.consoleScope:0000000000000070 $d
                             *COM*:0000000000000064 uart_buf
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s:143    .text.consoleLog:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s:150    .text.consoleLog:0000000000000000 consoleLog
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s:207    .text.consoleLog:0000000000000040 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s:143    .text.consoleLog:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s:150    .text.consoleLog:0000000000000000 consoleLog
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s:207    .text.consoleLog:0000000000000040 $d
                             *COM*:0000000000000040 huart2
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s:217    .rodata.consoleLog.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVhTt8B.s:221    .rodata.consoleScope.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s:217    .rodata.consoleLog.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cczamZMG.s:221    .rodata.consoleScope.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 memset

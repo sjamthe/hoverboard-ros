@@ -54,6 +54,8 @@
 // 	const uint8_t hall_idx_right = HALL_IDX_RIGHT-1;
 // #endif
 
+void motor_run(void);
+
 extern volatile adc_buf_t adc_buffer;
 
 // extern volatile uint32_t timeout;

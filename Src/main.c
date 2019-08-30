@@ -23,9 +23,19 @@
 #include "defines.h"
 #include "setup.h"
 #include "config.h"
+#include <string.h>
 
 void SystemClock_Config(void);
 void Error_Handler(void);
+void motor_init(void);
+
+#ifdef CONTROL_SERIAL_USART2
+extern UART_HandleTypeDef huart2;
+#endif
+#ifdef CONTROL_SERIAL_USART2
+	extern DMA_HandleTypeDef hdma_usart2_rx;
+	extern DMA_HandleTypeDef hdma_usart2_tx;
+#endif
 
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
@@ -38,6 +48,8 @@ extern volatile int pwml;  // global variable for pwm left. -1000 to 1000
 extern volatile int pwmr;  // global variable for pwm right. -1000 to 1000
 
 uint16_t speed = 0;
+char message[100];
+uint16_t counter = 0;
 
 void poweroff() {
     if (ABS(speed) < 20) {
@@ -81,6 +93,14 @@ int main(void) {
   MX_ADC1_Init();
   MX_ADC2_Init();
 
+  #ifdef CONTROL_SERIAL_USART2
+    UART_Control_Init();
+    uint8_t ch_buf[10];
+    if(HAL_UART_Receive_DMA(&huart2, (uint8_t *)&ch_buf, 10)  != HAL_OK) {
+      Error_Handler();
+    }
+  #endif
+
   HAL_GPIO_WritePin(OFF_PORT, OFF_PIN, 1);
 
   HAL_ADC_Start(&hadc1);
@@ -111,9 +131,17 @@ int main(void) {
 	#endif
 
 #endif
+#ifdef CONTROL_SERIAL_USART2
+  sprintf(message,"Hello %d\n",counter++);
+#endif
+
   while(1) {
     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms
 
+    #ifdef CONTROL_SERIAL_USART2
+      sprintf(message,"Hello %d\n",counter++);
+      HAL_UART_Transmit_DMA(&huart2, (uint8_t *)message, strlen(message));
+    #endif
 
    // ####### POWEROFF BY POWER-BUTTON #######
    if (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {
@@ -122,6 +150,21 @@ int main(void) {
    }
   }
 }
+
+void DMA1_Stream6_IRQHandler(void)
+{
+  HAL_DMA_IRQHandler(&hdma_usart2_tx);
+}
+
+void USART2_IRQHandler(void)
+{
+  HAL_UART_IRQHandler(&huart2);
+}
+
+// void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+// {
+//   sprintf(message,"Hello %d\n",counter++);
+// }
 
 /** System Clock Configuration
 */

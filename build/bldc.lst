@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 1
   30:Src/bldc.c    **** 
   31:Src/bldc.c    **** // Matlab includes and defines - from auto-code generation
   32:Src/bldc.c    **** // ###############################################################################
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s 			page 2
 
 
   33:Src/bldc.c    **** // #include "BLDC_controller.h"           /* Model's header file */
@@ -85,53 +85,55 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 1
   54:Src/bldc.c    **** // 	const uint8_t hall_idx_right = HALL_IDX_RIGHT-1;
   55:Src/bldc.c    **** // #endif
   56:Src/bldc.c    **** 
-  57:Src/bldc.c    **** extern volatile adc_buf_t adc_buffer;
+  57:Src/bldc.c    **** void motor_run(void);
   58:Src/bldc.c    **** 
-  59:Src/bldc.c    **** // extern volatile uint32_t timeout;
+  59:Src/bldc.c    **** extern volatile adc_buf_t adc_buffer;
   60:Src/bldc.c    **** 
-  61:Src/bldc.c    **** uint8_t buzzerFreq          = 0;
-  62:Src/bldc.c    **** uint8_t buzzerPattern       = 0;
-  63:Src/bldc.c    **** static uint32_t buzzerTimer = 0;
-  64:Src/bldc.c    **** 
-  65:Src/bldc.c    **** // uint8_t enable          = 0;
+  61:Src/bldc.c    **** // extern volatile uint32_t timeout;
+  62:Src/bldc.c    **** 
+  63:Src/bldc.c    **** uint8_t buzzerFreq          = 0;
+  64:Src/bldc.c    **** uint8_t buzzerPattern       = 0;
+  65:Src/bldc.c    **** static uint32_t buzzerTimer = 0;
   66:Src/bldc.c    **** 
-  67:Src/bldc.c    **** volatile unsigned  bldc_count_per_hall_counter[2] = {0,0};
+  67:Src/bldc.c    **** // uint8_t enable          = 0;
   68:Src/bldc.c    **** 
-  69:Src/bldc.c    **** // static int offsetcount = 0;
-  70:Src/bldc.c    **** // static int offsetrl1   = 2000;
-  71:Src/bldc.c    **** // static int offsetrl2   = 2000;
-  72:Src/bldc.c    **** // static int offsetrr1   = 2000;
-  73:Src/bldc.c    **** // static int offsetrr2   = 2000;
-  74:Src/bldc.c    **** // static int offsetdcl   = 2000;
-  75:Src/bldc.c    **** // static int offsetdcr   = 2000;
-  76:Src/bldc.c    **** 
-  77:Src/bldc.c    **** float batteryVoltage = BAT_NUMBER_OF_CELLS * 4.0;
+  69:Src/bldc.c    **** volatile unsigned  bldc_count_per_hall_counter[2] = {0,0};
+  70:Src/bldc.c    **** 
+  71:Src/bldc.c    **** // static int offsetcount = 0;
+  72:Src/bldc.c    **** // static int offsetrl1   = 2000;
+  73:Src/bldc.c    **** // static int offsetrl2   = 2000;
+  74:Src/bldc.c    **** // static int offsetrr1   = 2000;
+  75:Src/bldc.c    **** // static int offsetrr2   = 2000;
+  76:Src/bldc.c    **** // static int offsetdcl   = 2000;
+  77:Src/bldc.c    **** // static int offsetdcr   = 2000;
   78:Src/bldc.c    **** 
-  79:Src/bldc.c    **** //scan 8 channels (is it 10?) with 2ADCs @ 20 clk cycles per sample
-  80:Src/bldc.c    **** //meaning ~80 ADC clock cycles @ 8MHz until new DMA interrupt =~ 100KHz
-  81:Src/bldc.c    **** //=640 cpu cycles
-  82:Src/bldc.c    **** void DMA1_Channel1_IRQHandler(void) {
-  27              		.loc 1 82 0
+  79:Src/bldc.c    **** float batteryVoltage = BAT_NUMBER_OF_CELLS * 4.0;
+  80:Src/bldc.c    **** 
+  81:Src/bldc.c    **** //scan 8 channels (is it 10?) with 2ADCs @ 20 clk cycles per sample
+  82:Src/bldc.c    **** //meaning ~80 ADC clock cycles @ 8MHz until new DMA interrupt =~ 100KHz
+  83:Src/bldc.c    **** //=640 cpu cycles
+  84:Src/bldc.c    **** void DMA1_Channel1_IRQHandler(void) {
+  27              		.loc 1 84 0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31 0000 10B5     		push	{r4, lr}
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s 			page 3
+
+
   32              	.LCFI0:
   33              		.cfi_def_cfa_offset 8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 3
-
-
   34              		.cfi_offset 4, -8
   35              		.cfi_offset 14, -4
-  83:Src/bldc.c    **** 
-  84:Src/bldc.c    ****   DMA1->IFCR = DMA_IFCR_CTCIF1;
-  36              		.loc 1 84 0
+  85:Src/bldc.c    **** 
+  86:Src/bldc.c    ****   DMA1->IFCR = DMA_IFCR_CTCIF1;
+  36              		.loc 1 86 0
   37 0002 2A4B     		ldr	r3, .L8
   38 0004 0222     		movs	r2, #2
   39 0006 5A60     		str	r2, [r3, #4]
-  85:Src/bldc.c    **** 
-  86:Src/bldc.c    ****   if (buzzerTimer % 1000 == 0) {  // because you get float rounding errors if it would run every ti
-  40              		.loc 1 86 0
+  87:Src/bldc.c    **** 
+  88:Src/bldc.c    ****   if (buzzerTimer % 1000 == 0) {  // because you get float rounding errors if it would run every ti
+  40              		.loc 1 88 0
   41 0008 294B     		ldr	r3, .L8+4
   42 000a 1A68     		ldr	r2, [r3]
   43 000c 294B     		ldr	r3, .L8+8
@@ -140,8 +142,8 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 1
   46 0014 4FF47A71 		mov	r1, #1000
   47 0018 01FB1323 		mls	r3, r1, r3, r2
   48 001c CBB9     		cbnz	r3, .L2
-  87:Src/bldc.c    ****     batteryVoltage = batteryVoltage * 0.99f + ((float)adc_buffer.batt1 * ((float)BAT_CALIB_REAL_VOL
-  49              		.loc 1 87 0
+  89:Src/bldc.c    ****     batteryVoltage = batteryVoltage * 0.99f + ((float)adc_buffer.batt1 * ((float)BAT_CALIB_REAL_VOL
+  49              		.loc 1 89 0
   50 001e 2649     		ldr	r1, .L8+12
   51 0020 D1ED007A 		vldr.32	s15, [r1]
   52 0024 9FED257A 		vldr.32	s14, .L8+16
@@ -158,92 +160,92 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 1
   63 004a 77EE277A 		vadd.f32	s15, s14, s15
   64 004e C1ED007A 		vstr.32	s15, [r1]
   65              	.L2:
-  88:Src/bldc.c    ****   }
-  89:Src/bldc.c    **** 
-  90:Src/bldc.c    ****   //create square wave for buzzer
-  91:Src/bldc.c    ****   buzzerTimer++;
-  66              		.loc 1 91 0
+  90:Src/bldc.c    ****   }
+  91:Src/bldc.c    **** 
+  92:Src/bldc.c    ****   //create square wave for buzzer
+  93:Src/bldc.c    ****   buzzerTimer++;
+  66              		.loc 1 93 0
   67 0052 0132     		adds	r2, r2, #1
   68 0054 164B     		ldr	r3, .L8+4
   69 0056 1A60     		str	r2, [r3]
-  92:Src/bldc.c    ****   if (buzzerFreq != 0 && (buzzerTimer / 5000) % (buzzerPattern + 1) == 0) {
-  70              		.loc 1 92 0
+  94:Src/bldc.c    ****   if (buzzerFreq != 0 && (buzzerTimer / 5000) % (buzzerPattern + 1) == 0) {
+  70              		.loc 1 94 0
   71 0058 1C4B     		ldr	r3, .L8+32
   72 005a 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
   73 005c ACB1     		cbz	r4, .L3
-  74              		.loc 1 92 0 is_stmt 0 discriminator 1
+  74              		.loc 1 94 0 is_stmt 0 discriminator 1
   75 005e 1C4B     		ldr	r3, .L8+36
   76 0060 A3FB0213 		umull	r1, r3, r3, r2
   77 0064 1B0B     		lsrs	r3, r3, #12
   78 0066 1B49     		ldr	r1, .L8+40
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s 			page 4
+
+
   79 0068 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
   80 006a 0131     		adds	r1, r1, #1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 4
-
-
   81 006c B3FBF1F0 		udiv	r0, r3, r1
   82 0070 01FB1033 		mls	r3, r1, r0, r3
   83 0074 4BB9     		cbnz	r3, .L3
-  93:Src/bldc.c    ****     if (buzzerTimer % buzzerFreq == 0) {
-  84              		.loc 1 93 0 is_stmt 1
+  95:Src/bldc.c    ****     if (buzzerTimer % buzzerFreq == 0) {
+  84              		.loc 1 95 0 is_stmt 1
   85 0076 B2FBF4F3 		udiv	r3, r2, r4
   86 007a 04FB1322 		mls	r2, r4, r3, r2
   87 007e 4AB9     		cbnz	r2, .L4
-  94:Src/bldc.c    ****       HAL_GPIO_TogglePin(BUZZER_PORT, BUZZER_PIN);
-  88              		.loc 1 94 0
+  96:Src/bldc.c    ****       HAL_GPIO_TogglePin(BUZZER_PORT, BUZZER_PIN);
+  88              		.loc 1 96 0
   89 0080 1021     		movs	r1, #16
   90 0082 1548     		ldr	r0, .L8+44
   91 0084 FFF7FEFF 		bl	HAL_GPIO_TogglePin
   92              	.LVL0:
   93 0088 04E0     		b	.L4
   94              	.L3:
-  95:Src/bldc.c    ****     }
-  96:Src/bldc.c    ****   } else {
-  97:Src/bldc.c    ****       HAL_GPIO_WritePin(BUZZER_PORT, BUZZER_PIN, 0);
-  95              		.loc 1 97 0
+  97:Src/bldc.c    ****     }
+  98:Src/bldc.c    ****   } else {
+  99:Src/bldc.c    ****       HAL_GPIO_WritePin(BUZZER_PORT, BUZZER_PIN, 0);
+  95              		.loc 1 99 0
   96 008a 0022     		movs	r2, #0
   97 008c 1021     		movs	r1, #16
   98 008e 1248     		ldr	r0, .L8+44
   99 0090 FFF7FEFF 		bl	HAL_GPIO_WritePin
  100              	.LVL1:
  101              	.L4:
-  98:Src/bldc.c    ****   }
-  99:Src/bldc.c    **** 
- 100:Src/bldc.c    **** 
- 101:Src/bldc.c    ****   static boolean_T OverrunFlag = false;
- 102:Src/bldc.c    ****   /* Check for overrun */
- 103:Src/bldc.c    ****   if (OverrunFlag) {
- 102              		.loc 1 103 0
+ 100:Src/bldc.c    ****   }
+ 101:Src/bldc.c    **** 
+ 102:Src/bldc.c    **** 
+ 103:Src/bldc.c    ****   static boolean_T OverrunFlag = false;
+ 104:Src/bldc.c    ****   /* Check for overrun */
+ 105:Src/bldc.c    ****   if (OverrunFlag) {
+ 102              		.loc 1 105 0
  103 0094 114B     		ldr	r3, .L8+48
  104 0096 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  105 0098 03B1     		cbz	r3, .L7
  106              	.L1:
- 104:Src/bldc.c    ****     return;
- 105:Src/bldc.c    ****   }
- 106:Src/bldc.c    ****   OverrunFlag = true;
- 107:Src/bldc.c    ****   
- 108:Src/bldc.c    ****   motor_run();
- 109:Src/bldc.c    **** 
- 110:Src/bldc.c    ****   /* Indicate task complete */
- 111:Src/bldc.c    ****   OverrunFlag = false;
- 112:Src/bldc.c    **** }
- 107              		.loc 1 112 0
+ 106:Src/bldc.c    ****     return;
+ 107:Src/bldc.c    ****   }
+ 108:Src/bldc.c    ****   OverrunFlag = true;
+ 109:Src/bldc.c    ****   
+ 110:Src/bldc.c    ****   motor_run();
+ 111:Src/bldc.c    **** 
+ 112:Src/bldc.c    ****   /* Indicate task complete */
+ 113:Src/bldc.c    ****   OverrunFlag = false;
+ 114:Src/bldc.c    **** }
+ 107              		.loc 1 114 0
  108 009a 10BD     		pop	{r4, pc}
  109              	.L7:
- 106:Src/bldc.c    ****   
- 110              		.loc 1 106 0
+ 108:Src/bldc.c    ****   
+ 110              		.loc 1 108 0
  111 009c 0F4C     		ldr	r4, .L8+48
  112 009e 0123     		movs	r3, #1
  113 00a0 2370     		strb	r3, [r4]
- 108:Src/bldc.c    **** 
- 114              		.loc 1 108 0
+ 110:Src/bldc.c    **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s 			page 5
+
+
+ 114              		.loc 1 110 0
  115 00a2 FFF7FEFF 		bl	motor_run
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 5
-
-
  116              	.LVL2:
- 111:Src/bldc.c    **** }
- 117              		.loc 1 111 0
+ 113:Src/bldc.c    **** }
+ 117              		.loc 1 113 0
  118 00a6 0023     		movs	r3, #0
  119 00a8 2370     		strb	r3, [r4]
  120 00aa F6E7     		b	.L1
@@ -269,9 +271,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 1
  141              		.global	bldc_count_per_hall_counter
  142              		.global	buzzerPattern
  143              		.global	buzzerFreq
- 144              		.section	.bss.OverrunFlag.9194,"aw",%nobits
+ 144              		.section	.bss.OverrunFlag.9196,"aw",%nobits
  145              		.set	.LANCHOR4,. + 0
- 148              	OverrunFlag.9194:
+ 148              	OverrunFlag.9196:
  149 0000 00       		.space	1
  150              		.section	.bss.bldc_count_per_hall_counter,"aw",%nobits
  151              		.align	2
@@ -296,11 +298,11 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 1
  177              		.set	.LANCHOR1,. + 0
  180              	batteryVoltage:
  181 0000 00002042 		.word	1109393408
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s 			page 6
+
+
  182              		.text
  183              	.Letext0:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 6
-
-
  184              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
  185              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
  186              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
@@ -313,26 +315,26 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 1
  193              		.file 11 "Inc/rtwtypes.h"
  194              		.file 12 "Inc/defines.h"
  195              		.file 13 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bldc.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:17     .text.DMA1_Channel1_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:24     .text.DMA1_Channel1_IRQHandler:0000000000000000 DMA1_Channel1_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:124    .text.DMA1_Channel1_IRQHandler:00000000000000ac $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:180    .data.batteryVoltage:0000000000000000 batteryVoltage
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:154    .bss.bldc_count_per_hall_counter:0000000000000000 bldc_count_per_hall_counter
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:166    .bss.buzzerPattern:0000000000000000 buzzerPattern
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:160    .bss.buzzerFreq:0000000000000000 buzzerFreq
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:148    .bss.OverrunFlag.9194:0000000000000000 OverrunFlag.9194
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:149    .bss.OverrunFlag.9194:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:151    .bss.bldc_count_per_hall_counter:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:161    .bss.buzzerFreq:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:167    .bss.buzzerPattern:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:169    .bss.buzzerTimer:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:173    .bss.buzzerTimer:0000000000000000 buzzerTimer
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccJjdYT8.s:176    .data.batteryVoltage:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:17     .text.DMA1_Channel1_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:24     .text.DMA1_Channel1_IRQHandler:0000000000000000 DMA1_Channel1_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:124    .text.DMA1_Channel1_IRQHandler:00000000000000ac $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:180    .data.batteryVoltage:0000000000000000 batteryVoltage
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:154    .bss.bldc_count_per_hall_counter:0000000000000000 bldc_count_per_hall_counter
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:166    .bss.buzzerPattern:0000000000000000 buzzerPattern
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:160    .bss.buzzerFreq:0000000000000000 buzzerFreq
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:148    .bss.OverrunFlag.9196:0000000000000000 OverrunFlag.9196
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:149    .bss.OverrunFlag.9196:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:151    .bss.bldc_count_per_hall_counter:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:161    .bss.buzzerFreq:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:167    .bss.buzzerPattern:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:169    .bss.buzzerTimer:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:173    .bss.buzzerTimer:0000000000000000 buzzerTimer
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccq42Esw.s:176    .data.batteryVoltage:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_TogglePin

@@ -123,7 +123,7 @@
 #define SPEED_COEFFICIENT   1.0  // higher value == stronger. 0.0 to ~2.0?
 #define STEER_COEFFICIENT   1.0  // higher value == stronger. if you do not want any steering, set it to 0.0; 0.0 to 1.0
 
-#define CONTROL_MOTOR_TEST
+//#define CONTROL_MOTOR_TEST
 //#define INVERT_R_DIRECTION
 //#define INVERT_L_DIRECTION
 
