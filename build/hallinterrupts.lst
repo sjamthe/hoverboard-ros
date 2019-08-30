@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
   26:Src/hallinterrupts.c **** 
   27:Src/hallinterrupts.c **** #ifdef HALL_INTERRUPTS
   28:Src/hallinterrupts.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 2
 
 
   29:Src/hallinterrupts.c **** //////////////////////////////////////////////////////////////
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
   83:Src/hallinterrupts.c **** static float WheelSize_mm = (DEFAULT_WHEEL_SIZE_INCHES * 25.4);
   84:Src/hallinterrupts.c **** 
   85:Src/hallinterrupts.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 3
 
 
   86:Src/hallinterrupts.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
   77 0058 84F85850 		strb	r5, [r4, #88]
   78 005c 94F85930 		ldrb	r3, [r4, #89]	@ zero_extendqisi2
   79 0060 84F85950 		strb	r5, [r4, #89]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 4
 
 
   94:Src/hallinterrupts.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  119 00a8 4FF6FF73 		movw	r3, #65535
  120 00ac E360     		str	r3, [r4, #12]
  109:Src/hallinterrupts.c ****     h_timer_hall.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 5
 
 
  121              		.loc 1 109 0
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  161 00ea 2A46     		mov	r2, r5
  162 00ec 0321     		movs	r1, #3
  163 00ee 2820     		movs	r0, #40
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 6
 
 
  164 00f0 FFF7FEFF 		bl	HAL_NVIC_SetPriority
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  212 0002 FFF7FEFF 		bl	__aeabi_f2d
  213              	.LVL15:
  214 0006 13A3     		adr	r3, .L7+20
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 7
 
 
  215 0008 D3E90023 		ldrd	r2, [r3]
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  264              		.loc 1 137 0
  265              		.cfi_startproc
  266              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 8
 
 
  267              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  144:Src/hallinterrupts.c **** // reset the whole structure.
  145:Src/hallinterrupts.c **** // note that this will then miss the first transition, as it will have no
  146:Src/hallinterrupts.c **** // 'last' information.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 9
 
 
  147:Src/hallinterrupts.c **** void HallInterruptReset(){
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
   40:Drivers/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #pragma GCC diagnostic push
   41:Drivers/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
   42:Drivers/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 10
 
 
   43:Drivers/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  353              	.LBE21:
  354              	.LBE20:
  150:Src/hallinterrupts.c ****     //HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 11
 
 
  151:Src/hallinterrupts.c ****     __enable_irq();
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  402              	.LVL32:
  403 0086 FFF7FEFF 		bl	__aeabi_d2f
  404              	.LVL33:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 12
 
 
  405 008a A860     		str	r0, [r5, #8]	@ float
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  450              	.LBB22:
  451              	.LBB23:
  452              		.loc 2 71 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 13
 
 
  453              		.syntax unified
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  500 002a 9000     		lsls	r0, r2, #2
  501 002c 2218     		adds	r2, r4, r0
  502 002e 2650     		str	r6, [r4, r0]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 14
 
 
  175:Src/hallinterrupts.c ****         p->wheel[i].HallPosn_mm = HallData[i].HallPosn_mm;
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  545              		.section	.text.HallGetuS,"ax",%progbits
  546              		.align	1
  547              		.global	HallGetuS
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 15
 
 
  548              		.syntax unified
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  573 000c D3E90045 		ldrd	r4, [r3]
  574              	.LVL44:
  218:Src/hallinterrupts.c ****     now_us = ((timerwraps_copy<<16) + time) * 10;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 16
 
 
  575              		.loc 1 218 0
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  624              		.cfi_startproc
  625              		@ args = 0, pretend = 0, frame = 0
  626              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 17
 
 
  627 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  672              	.LVL50:
  235:Src/hallinterrupts.c **** 
  236:Src/hallinterrupts.c ****     // Get hall sensors values
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 18
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 18
 
 
  237:Src/hallinterrupts.c ****     hall_ul = !(Left & LEFT_HALL_U_PIN);
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  720              	.LBB30:
   60:Drivers/CMSIS/CM4/CoreSupport/cmsis_gcc.h **** }
  721              		.loc 2 60 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 19
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 19
 
 
  722              		.syntax unified
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  282:Src/hallinterrupts.c ****                     HallData[i].HallSkipped ++;
  738              		.loc 1 282 0
  739 008a E200     		lsls	r2, r4, #3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 20
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 20
 
 
  740 008c 2244     		add	r2, r2, r4
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  784 00e4 594A     		ldr	r2, .L37+12
  785 00e6 1344     		add	r3, r3, r2
  786 00e8 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 21
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 21
 
 
  787 00ea 002B     		cmp	r3, #0
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  834 016e D3F82520 		ldr	r2, [r3, #37]	@ unaligned
  261:Src/hallinterrupts.c ****                     local_hall_params[i].direction;
  835              		.loc 1 261 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 22
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 22
 
 
  836 0172 02FB01F2 		mul	r2, r2, r1
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  882 01e8 2349     		ldr	r1, .L37+56
  883 01ea FFF7FEFF 		bl	__aeabi_ddiv
  884              	.LVL57:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 23
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 23
 
 
  272:Src/hallinterrupts.c ****                         (HALL_SPEED_CALIBRATION/(float)HallData[i].HallTimeDiff) *
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  927 0248 000C0140 		.word	1073810432
  928 024c 00000000 		.word	local_hall_params
  929 0250 00100140 		.word	1073811456
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 24
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 24
 
 
  930 0254 00000000 		.word	hall_ul
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  976 0018 D1E900BC 		ldrd	fp, [r1]
  977 001c 1BF10102 		adds	r2, fp, #1
  978 0020 4CF10003 		adc	r3, ip, #0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 25
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 25
 
 
  979 0024 C1E90023 		strd	r2, [r1]
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  1022 006a 0139     		subs	r1, r1, #1
  1023 006c C2F82110 		str	r1, [r2, #33]	@ unaligned
  1024 0070 E5E7     		b	.L43
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 26
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 26
 
 
  1025              	.L49:
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  1079              		.section	.data.WheelSize_mm,"aw",%progbits
  1080              		.align	2
  1081              		.set	.LANCHOR0,. + 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 27
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 27
 
 
  1084              	WheelSize_mm:
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  1140 00c0 00000000 		.word	0
  1141              		.text
  1142              	.Letext0:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 28
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 28
 
 
  1143              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
@@ -1637,55 +1637,55 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 1
  1156              		.file 16 "Inc/hallinterrupts.h"
  1157              		.file 17 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
  1158              		.file 18 "<built-in>"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 29
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 29
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hallinterrupts.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:21     .text.HallInterruptinit:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:28     .text.HallInterruptinit:0000000000000000 HallInterruptinit
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:179    .text.HallInterruptinit:0000000000000100 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:21     .text.HallInterruptinit:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:28     .text.HallInterruptinit:0000000000000000 HallInterruptinit
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:179    .text.HallInterruptinit:0000000000000100 $d
                             *COM*:0000000000000048 HallData
                             *COM*:0000000000000062 local_hall_params
                             *COM*:0000000000000040 h_timer_hall
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:192    .text.HallInterruptSetWheelDiameterInches:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:199    .text.HallInterruptSetWheelDiameterInches:0000000000000000 HallInterruptSetWheelDiameterInches
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:244    .text.HallInterruptSetWheelDiameterInches:0000000000000040 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:255    .text.HallInterruptSetWheelDiameterMM:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:262    .text.HallInterruptSetWheelDiameterMM:0000000000000000 HallInterruptSetWheelDiameterMM
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:299    .text.HallInterruptSetWheelDiameterMM:0000000000000028 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:308    .text.HallInterruptReset:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:315    .text.HallInterruptReset:0000000000000000 HallInterruptReset
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:417    .text.HallInterruptReset:0000000000000098 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:427    .text.HallInterruptReadPosn:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:434    .text.HallInterruptReadPosn:0000000000000000 HallInterruptReadPosn
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:541    .text.HallInterruptReadPosn:0000000000000060 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:546    .text.HallGetuS:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:553    .text.HallGetuS:0000000000000000 HallGetuS
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:606    .text.HallGetuS:000000000000004c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:614    .text.HallInterruptsInterrupt:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:621    .text.HallInterruptsInterrupt:0000000000000000 HallInterruptsInterrupt
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:925    .text.HallInterruptsInterrupt:0000000000000240 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:192    .text.HallInterruptSetWheelDiameterInches:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:199    .text.HallInterruptSetWheelDiameterInches:0000000000000000 HallInterruptSetWheelDiameterInches
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:244    .text.HallInterruptSetWheelDiameterInches:0000000000000040 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:255    .text.HallInterruptSetWheelDiameterMM:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:262    .text.HallInterruptSetWheelDiameterMM:0000000000000000 HallInterruptSetWheelDiameterMM
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:299    .text.HallInterruptSetWheelDiameterMM:0000000000000028 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:308    .text.HallInterruptReset:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:315    .text.HallInterruptReset:0000000000000000 HallInterruptReset
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:417    .text.HallInterruptReset:0000000000000098 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:427    .text.HallInterruptReadPosn:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:434    .text.HallInterruptReadPosn:0000000000000000 HallInterruptReadPosn
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:541    .text.HallInterruptReadPosn:0000000000000060 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:546    .text.HallGetuS:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:553    .text.HallGetuS:0000000000000000 HallGetuS
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:606    .text.HallGetuS:000000000000004c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:614    .text.HallInterruptsInterrupt:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:621    .text.HallInterruptsInterrupt:0000000000000000 HallInterruptsInterrupt
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:925    .text.HallInterruptsInterrupt:0000000000000240 $d
                             *COM*:0000000000000001 hall_ul
                             *COM*:0000000000000001 hall_vl
                             *COM*:0000000000000001 hall_wl
                             *COM*:0000000000000001 hall_ur
                             *COM*:0000000000000001 hall_vr
                             *COM*:0000000000000001 hall_wr
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:946    .text.TMR4_GLOBAL_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:953    .text.TMR4_GLOBAL_IRQHandler:0000000000000000 TMR4_GLOBAL_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:1039   .text.TMR4_GLOBAL_IRQHandler:000000000000007c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:946    .text.TMR4_GLOBAL_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:953    .text.TMR4_GLOBAL_IRQHandler:0000000000000000 TMR4_GLOBAL_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:1039   .text.TMR4_GLOBAL_IRQHandler:000000000000007c $d
                             *COM*:0000000000000088 timeStats
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:1077   .bss.timerwraps:0000000000000000 timerwraps
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:1063   .bss.bldc_count_per_hall:0000000000000000 bldc_count_per_hall
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:1059   .bss.bldc_count_per_hall:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:1066   .bss.now_us:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:1070   .bss.now_us:0000000000000000 now_us
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:1073   .bss.timerwraps:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:1080   .data.WheelSize_mm:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:1084   .data.WheelSize_mm:0000000000000000 WheelSize_mm
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:1087   .rodata.increments:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s:1091   .rodata.increments:0000000000000000 increments
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:1077   .bss.timerwraps:0000000000000000 timerwraps
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:1063   .bss.bldc_count_per_hall:0000000000000000 bldc_count_per_hall
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:1059   .bss.bldc_count_per_hall:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:1066   .bss.now_us:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:1070   .bss.now_us:0000000000000000 now_us
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:1073   .bss.timerwraps:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:1080   .data.WheelSize_mm:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:1084   .data.WheelSize_mm:0000000000000000 WheelSize_mm
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:1087   .rodata.increments:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s:1091   .rodata.increments:0000000000000000 increments
 
 UNDEFINED SYMBOLS
 __aeabi_f2d
@@ -1697,7 +1697,7 @@ HAL_TIM_Base_Init
 HAL_TIM_Base_Start
 HAL_NVIC_SetPriority
 HAL_NVIC_EnableIRQ
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccVVHgTs.s 			page 30
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccWt534z.s 			page 30
 
 
 HAL_NVIC_DisableIRQ

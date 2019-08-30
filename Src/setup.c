@@ -37,6 +37,7 @@ pb10 usart3 dma1 channel2/3
 
 #include "defines.h"
 #include "config.h"
+#include <stdio.h>
 
 TIM_HandleTypeDef htim_right;
 TIM_HandleTypeDef htim_left;
@@ -44,6 +45,8 @@ ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
 I2C_HandleTypeDef hi2c2;
 UART_HandleTypeDef huart2;
+UART_HandleTypeDef huart3;
+
 
 DMA_HandleTypeDef hdma_usart2_rx;
 DMA_HandleTypeDef hdma_usart2_tx;
@@ -388,7 +391,105 @@ void MX_ADC2_Init(void) {
   __HAL_ADC_ENABLE(&hadc2);
 }
 
-#ifdef CONTROL_SERIAL_USART2
+#ifdef DEBUG_SERIAL_USART3
+
+void UART_Debug_Init() {
+  __HAL_RCC_USART3_CLK_ENABLE();
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  huart3.Instance          = USART3;
+  huart3.Init.BaudRate     = DEBUG_BAUD;
+  huart3.Init.WordLength   = UART_WORDLENGTH_8B;
+  huart3.Init.StopBits     = UART_STOPBITS_1;
+  huart3.Init.Parity       = UART_PARITY_NONE;
+  huart3.Init.Mode         = UART_MODE_TX;
+  huart3.Init.HwFlowCtl    = UART_HWCONTROL_NONE;
+  huart3.Init.OverSampling = UART_OVERSAMPLING_16;
+  HAL_UART_Init(&huart3);
+
+  USART3->CR3 |= USART_CR3_DMAT;  // | USART_CR3_DMAR | USART_CR3_OVRDIS;
+
+  GPIO_InitTypeDef GPIO_InitStruct;
+  GPIO_InitStruct.Pin   = GPIO_PIN_10;
+  GPIO_InitStruct.Pull  = GPIO_PULLUP;
+  GPIO_InitStruct.Mode  = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  DMA1_Channel2->CCR   = 0;
+  DMA1_Channel2->CPAR  = (uint32_t) & (USART3->DR);
+  DMA1_Channel2->CNDTR = 0;
+  DMA1_Channel2->CCR   = DMA_CCR_MINC | DMA_CCR_DIR;
+  DMA1->IFCR           = DMA_IFCR_CTCIF2 | DMA_IFCR_CHTIF2 | DMA_IFCR_CGIF2;
+}
+
+/* consoleLog uses DMA for heavy writes */
+void debugLog(char *message, int len)
+{
+  #define UART_DMA_CHANNEL DMA1_Channel2
+
+    if(UART_DMA_CHANNEL->CNDTR == 0) {
+      UART_DMA_CHANNEL->CCR &= ~DMA_CCR_EN;
+      UART_DMA_CHANNEL->CNDTR = len;
+      UART_DMA_CHANNEL->CMAR  = (uint32_t)message;
+      UART_DMA_CHANNEL->CCR |= DMA_CCR_EN;
+    }
+}
+
+/*
+* Setting to redirect STDOUT to COM PORT
+*/
+
+#ifdef __GNUC__
+  /* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
+     set to 'Yes') calls __io_putchar() */
+  #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+  #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif /* __GNUC__ */
+
+int _write(int file, char *data, int len)
+{
+  int bytes_written;
+  char ch;
+
+  if ((file != 1) && (file != 2))
+  {
+    return -1;
+  }
+
+  if(len > 1) 
+  {
+    debugLog(data, len);
+  }
+  else 
+  {
+    __io_putchar(ch);
+  }
+  // for (bytes_written = 0; bytes_written < len; bytes_written++)
+  // {
+  //   ch = *data;
+  //   data++;
+  //   __io_putchar(ch);
+  // }
+
+  return len;
+}
+
+/**
+  * @brief  Retargets the C library printf function to the USART.
+  * @param  None
+  * @retval None
+  */
+PUTCHAR_PROTOTYPE
+{
+  HAL_UART_Transmit(&huart3, (uint8_t *) &ch, 1, 10);
+	return ch;
+}
+
+#endif //END of DEBUG_SERIAL_USART3
+
+#ifdef CONTROL_SERIAL_USART2_DMA
 
 void UART_Control_Init() {
   GPIO_InitTypeDef GPIO_InitStruct;
@@ -455,7 +556,7 @@ HAL_DMA_Init(&hdma_usart2_tx);
  __HAL_LINKDMA(&huart2,hdmatx,hdma_usart2_tx);
 
 HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);                                        
-HAL_NVIC_EnableIRQ(USART2_IRQn);
+HAL_NVIC_EnableIRQ(USART2_IRQn); //Necessary for DMA
 }
 
 #endif

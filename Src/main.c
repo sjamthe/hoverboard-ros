@@ -29,10 +29,8 @@ void SystemClock_Config(void);
 void Error_Handler(void);
 void motor_init(void);
 
-#ifdef CONTROL_SERIAL_USART2
-extern UART_HandleTypeDef huart2;
-#endif
-#ifdef CONTROL_SERIAL_USART2
+#ifdef CONTROL_SERIAL_USART2_DMA
+  extern UART_HandleTypeDef huart2; 
 	extern DMA_HandleTypeDef hdma_usart2_rx;
 	extern DMA_HandleTypeDef hdma_usart2_tx;
 #endif
@@ -93,12 +91,16 @@ int main(void) {
   MX_ADC1_Init();
   MX_ADC2_Init();
 
-  #ifdef CONTROL_SERIAL_USART2
+  #ifdef CONTROL_SERIAL_USART2_DMA
     UART_Control_Init();
     uint8_t ch_buf[10];
     if(HAL_UART_Receive_DMA(&huart2, (uint8_t *)&ch_buf, 10)  != HAL_OK) {
       Error_Handler();
     }
+  #endif
+
+  #ifdef DEBUG_SERIAL_USART3
+    UART_Debug_Init();
   #endif
 
   HAL_GPIO_WritePin(OFF_PORT, OFF_PIN, 1);
@@ -131,18 +133,20 @@ int main(void) {
 	#endif
 
 #endif
-#ifdef CONTROL_SERIAL_USART2
-  sprintf(message,"Hello %d\n",counter++);
-#endif
 
   while(1) {
     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms
 
-    #ifdef CONTROL_SERIAL_USART2
+    #ifdef CONTROL_SERIAL_USART2_DMA
       sprintf(message,"Hello %d\n",counter++);
       HAL_UART_Transmit_DMA(&huart2, (uint8_t *)message, strlen(message));
     #endif
 
+    #ifdef DEBUG_SERIAL_USART3
+      //sprintf(message,"Hello %d\n",counter++);
+      //debugLog(message, strlen((char *)message));
+      printf("Hello %d\n",counter++);
+    #endif
    // ####### POWEROFF BY POWER-BUTTON #######
    if (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {
      while (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {}
@@ -151,6 +155,7 @@ int main(void) {
   }
 }
 
+#ifdef CONTROL_SERIAL_USART2_DMA
 void DMA1_Stream6_IRQHandler(void)
 {
   HAL_DMA_IRQHandler(&hdma_usart2_tx);
@@ -160,11 +165,7 @@ void USART2_IRQHandler(void)
 {
   HAL_UART_IRQHandler(&huart2);
 }
-
-// void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
-// {
-//   sprintf(message,"Hello %d\n",counter++);
-// }
+#endif
 
 /** System Clock Configuration
 */
