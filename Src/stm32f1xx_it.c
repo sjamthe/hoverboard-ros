@@ -287,10 +287,10 @@ void EXTI15_10_IRQHandler(void)
     triggered |= GPIO_PIN_10;
   }
 
-//#ifdef HALL_INTERRUPTS
-//  if (triggered & HALL_PIN_MASK)
-//    HallInterruptsInterrupt();
-//#endif
+#ifdef HALL_INTERRUPTS
+ if (triggered & HALL_PIN_MASK)
+   HallInterruptsInterrupt();
+#endif
 
 } 
 

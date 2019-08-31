@@ -87,6 +87,9 @@ void DMA1_Channel1_IRQHandler(void) {
 
   if (buzzerTimer % 1000 == 0) {  // because you get float rounding errors if it would run every time
     batteryVoltage = batteryVoltage * 0.99f + ((float)adc_buffer.batt1 * ((float)BAT_CALIB_REAL_VOLTAGE / (float)BAT_CALIB_ADC)) * 0.01f;
+    //long l = batteryVoltage*1000;
+    //printf("BatteryVoltage (mV)= %ld reading = %ld\n", l,adc_buffer.batt1);  
+    //printf("Temp = %ld\n",adc_buffer.temp);
   }
 
   //create square wave for buzzer

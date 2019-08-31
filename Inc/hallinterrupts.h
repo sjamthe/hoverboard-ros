@@ -64,6 +64,10 @@ extern TIME_STATS timeStats;
 
 #define HALL_PIN_MASK (LEFT_HALL_U_PIN | LEFT_HALL_V_PIN | LEFT_HALL_W_PIN | RIGHT_HALL_U_PIN | RIGHT_HALL_V_PIN | RIGHT_HALL_W_PIN)
 
+// Directions used in HallPositions etc
+#define LEFT 0
+#define RIGHT 1
+
 //////////////////////////////////////////////////////////////
 // change to change speed output value
 #define HALL_SPEED_CALIBRATION 256000.0

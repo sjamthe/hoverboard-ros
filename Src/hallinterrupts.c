@@ -89,8 +89,16 @@ static float WheelSize_mm = (DEFAULT_WHEEL_SIZE_INCHES * 25.4);
 void HallInterruptinit(void){
     memset((void *)&HallData, 0, sizeof(HallData));
     memset((void *)&local_hall_params, 0, sizeof(local_hall_params));
-    local_hall_params[0].direction = -1;
-    local_hall_params[1].direction = 1;
+    #ifdef INVERT_L_DIRECTION
+        local_hall_params[LEFT].direction = -1;
+    #else
+        local_hall_params[LEFT].direction = 1;
+    #endif
+    #ifdef INVERT_R_DIRECTION
+        local_hall_params[RIGHT].direction = 1;
+    #else
+        local_hall_params[RIGHT].direction = -1;
+    #endif
 
     // overrides local fle default
     #ifdef WHEEL_SIZE_INCHES
@@ -151,13 +159,21 @@ void HallInterruptReset(){
     __enable_irq();
     memset((void *)&HallData, 0, sizeof(HallData));
     memset((void *)&local_hall_params, 0, sizeof(local_hall_params));
-    local_hall_params[0].direction = -1;
-    local_hall_params[1].direction = 1;
+    #ifdef INVERT_L_DIRECTION
+        local_hall_params[LEFT].direction = -1;
+    #else
+        local_hall_params[LEFT].direction = 1;
+    #endif
+    #ifdef INVERT_R_DIRECTION
+        local_hall_params[RIGHT].direction = 1;
+    #else
+        local_hall_params[RIGHT].direction = -1;
+    #endif
 
     HallData[0].HallPosnMultiplier = (float)((WheelSize_mm*3.14159265359)/(float)HALL_POSN_PER_REV);
     HallData[1].HallPosnMultiplier = (float)((WheelSize_mm*3.14159265359)/(float)HALL_POSN_PER_REV);
     HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
-    //HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+    HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 }
 
 
@@ -183,7 +199,7 @@ void HallInterruptReadPosn( HALL_POSN *p, int Reset ){
         }
     }
     HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
-    //HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+    HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 }
 
 
@@ -228,7 +244,7 @@ void HallInterruptsInterrupt(void){
     unsigned long time = h_timer_hall.Instance->CNT;
     long long timerwraps_copy = timerwraps;
     local_hall_params[0].hall = (~(LEFT_HALL_U_PORT->IDR & (LEFT_HALL_U_PIN | LEFT_HALL_V_PIN | LEFT_HALL_W_PIN))/LEFT_HALL_U_PIN) & 7;
-    //local_hall_params[1].hall = (~(RIGHT_HALL_U_PORT->IDR & (RIGHT_HALL_U_PIN | RIGHT_HALL_V_PIN | RIGHT_HALL_W_PIN))/RIGHT_HALL_U_PIN) & 7;
+    local_hall_params[1].hall = (~(RIGHT_HALL_U_PORT->IDR & (RIGHT_HALL_U_PIN | RIGHT_HALL_V_PIN | RIGHT_HALL_W_PIN))/RIGHT_HALL_U_PIN) & 7;
 
     unsigned short Left = LEFT_HALL_U_PORT->IDR;
     unsigned short Right = RIGHT_HALL_U_PORT->IDR;
@@ -298,6 +314,16 @@ void TMR4_GLOBAL_IRQHandler(void){
     if (__HAL_TIM_GET_FLAG(&h_timer_hall, TIM_IT_UPDATE) != RESET){
         __HAL_TIM_CLEAR_FLAG(&h_timer_hall, TIM_IT_UPDATE);
         timerwraps++;
+
+     //Test HallInterruptReadPosn
+    // HALL_POSN p;
+    // HallInterruptReadPosn(&p, 0);
+    // printf("left wheel rev %d, rpm %d, pos mm %d, speed mm/s %d timediff %ld\n",
+    //     p.wheel[0].HallPosn,p.wheel[0].HallSpeed, p.wheel[0].HallPosn_mm, p.wheel[0].HallSpeed_mm_per_s,
+    //      HallData[0].HallTimeDiff);
+    // printf("right wheel rev %d, rpm %d, pos mm %d, speed mm/s %d timediff %ld\n",
+    //     p.wheel[1].HallPosn,p.wheel[1].HallSpeed, p.wheel[1].HallPosn_mm, p.wheel[1].HallSpeed_mm_per_s,
+    //      HallData[1].HallTimeDiff);
 
         for (int i = 0; i < 2; i++){
             if (local_hall_params[i].zerospeedtimeout <= 0){

@@ -15,8 +15,8 @@
 // How to calibrate: connect GND and RX of a 3.3v uart-usb adapter to the right sensor board cable (be careful not to use the red wire of the cable. 15v will destroye verything.). if you are using nunchuck, disable it temporarily. enable DEBUG_SERIAL_USART3 and DEBUG_SERIAL_ASCII use asearial terminal.
 
 // Battery voltage calibration: connect power source. see <How to calibrate>. write value nr 5 to BAT_CALIB_ADC. make and flash firmware. then you can verify voltage on value 6 (devide it by 100.0 to get calibrated voltage).
-#define BAT_CALIB_REAL_VOLTAGE  36.59       // input voltage measured by multimeter
-#define BAT_CALIB_ADC           1430       // adc-value measured by mainboard (value nr 5 on UART debug output)
+#define BAT_CALIB_REAL_VOLTAGE  41.84 //36.59       // input voltage measured by multimeter
+#define BAT_CALIB_ADC           1662 //1430       // adc-value measured by mainboard (value nr 5 on UART debug output)
 
 #define BAT_NUMBER_OF_CELLS     10        // normal Hoverboard battery: 10s
 #define BAT_LOW_LVL1_ENABLE     0         // to beep or not to beep, 1 or 0
@@ -59,7 +59,7 @@
 // ############################### INPUT ###############################
 
 // ###### STAND-ALONE MOTOR TEST ######
-//#define CONTROL_MOTOR_TEST           //spin motors at low speed
+#define CONTROL_MOTOR_TEST           //spin motors at low speed
 //#define CONTROL_DETECT_HALL          //step through hall configurations to find right settings
 
 

@@ -68,6 +68,10 @@ void MX_GPIO_Init(void) {
   GPIO_InitStruct.Pull  = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 
+  #ifdef HALL_INTERRUPTS
+    GPIO_InitStruct.Mode  = GPIO_MODE_IT_RISING_FALLING;
+  #endif
+  
   GPIO_InitStruct.Pin = LEFT_HALL_U_PIN;
   HAL_GPIO_Init(LEFT_HALL_U_PORT, &GPIO_InitStruct);
 
@@ -458,20 +462,20 @@ int _write(int file, char *data, int len)
     return -1;
   }
 
-  if(len > 1) 
-  {
-    debugLog(data, len);
-  }
-  else 
-  {
-    __io_putchar(ch);
-  }
-  // for (bytes_written = 0; bytes_written < len; bytes_written++)
+  // if(len > 1) 
   // {
-  //   ch = *data;
-  //   data++;
+  //   debugLog(data, len);
+  // }
+  // else 
+  // {
   //   __io_putchar(ch);
   // }
+  for (bytes_written = 0; bytes_written < len; bytes_written++)
+  {
+    ch = *data;
+    data++;
+    __io_putchar(ch);
+  }
 
   return len;
 }

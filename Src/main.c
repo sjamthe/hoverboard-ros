@@ -24,6 +24,7 @@
 #include "setup.h"
 #include "config.h"
 #include <string.h>
+#include "hallinterrupts.h"
 
 void SystemClock_Config(void);
 void Error_Handler(void);
@@ -105,6 +106,10 @@ int main(void) {
 
   HAL_GPIO_WritePin(OFF_PORT, OFF_PIN, 1);
 
+ #ifdef HALL_INTERRUPTS
+    HallInterruptinit();
+ #endif
+
   HAL_ADC_Start(&hadc1);
   HAL_ADC_Start(&hadc2);
 
@@ -145,8 +150,33 @@ int main(void) {
     #ifdef DEBUG_SERIAL_USART3
       //sprintf(message,"Hello %d\n",counter++);
       //debugLog(message, strlen((char *)message));
-      printf("Hello %d\n",counter++);
-    #endif
+      //printf("Hello %d\n",counter++);
+
+      //Test HallInterruptReadPosn
+      HALL_POSN p;
+      HallInterruptReadPosn(&p, 0);
+      if(pwml != 0) 
+      {
+        printf("left wheel rev %d, rpm %d, pos mm %d, speed mm/s %d\n",
+          p.wheel[LEFT].HallPosn,p.wheel[0].HallSpeed, p.wheel[0].HallPosn_mm, p.wheel[0].HallSpeed_mm_per_s);
+      }
+      if(pwmr != 0)
+      { 
+        printf("right wheel rev %d, rpm %d, pos mm %d, speed mm/s %d\n",
+          p.wheel[RIGHT].HallPosn,p.wheel[1].HallSpeed, p.wheel[1].HallPosn_mm, p.wheel[1].HallSpeed_mm_per_s);
+      }
+      //test if we can stop at 60% angle
+      #ifdef CONTROL_MOTOR_TEST
+        int langle = 60*HALL_POSN_PER_REV/360;
+        int rangle = -60*HALL_POSN_PER_REV/360;
+        if(p.wheel[LEFT].HallPosn >= langle) {
+          pwml = 0;
+        }
+        if(p.wheel[RIGHT].HallPosn <=rangle) {
+          pwmr = 0;
+        }
+      #endif //CONTROL_MOTOR_TEST
+    #endif //DEBUG_SERIAL_USART3
    // ####### POWEROFF BY POWER-BUTTON #######
    if (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {
      while (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {}
