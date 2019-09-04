@@ -30,9 +30,12 @@ void SystemClock_Config(void);
 void Error_Handler(void);
 void motor_init(void);
 
+#define CONTROL_SERIAL_USART2_DMA
+
 #ifdef CONTROL_SERIAL_USART2
   extern UART_HandleTypeDef huart2; 
 #ifdef CONTROL_SERIAL_USART2_DMA
+  uint8_t ch_buf[10];
 	extern DMA_HandleTypeDef hdma_usart2_rx;
 	extern DMA_HandleTypeDef hdma_usart2_tx;
 #endif
@@ -97,9 +100,7 @@ int main(void) {
   #ifdef CONTROL_SERIAL_USART2
     UART_Control_Init();
   #endif
-
   #ifdef CONTROL_SERIAL_USART2_DMA
-    uint8_t ch_buf[10];
     if(HAL_UART_Receive_DMA(&huart2, (uint8_t *)&ch_buf, 10)  != HAL_OK) 
     {
       Error_Handler();
@@ -150,15 +151,6 @@ int main(void) {
 
     #ifdef CONTROL_SERIAL_USART2
       sprintf(message,"Hello %d\n",counter++);
-      uint8_t ch_buf[10];
-      // if(HAL_UART_Receive_IT(&huart2, (uint8_t *)&ch_buf, 10)  != HAL_OK) 
-      // {
-      //   Error_Handler();
-      // }
-     /* else
-      {
-         printf("Read on UART2 %s\n", (char *)ch_buf);
-      }*/
     #ifdef CONTROL_SERIAL_USART2_DMA
       HAL_UART_Transmit_DMA(&huart2, (uint8_t *)message, strlen(message));
     #else
@@ -210,6 +202,14 @@ void USART2_IRQHandler(void)
   HAL_UART_IRQHandler(&huart2);
 }
 #endif
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if(huart == &huart2)
+  {
+    printf("Read on UART2 %s\n", (char *)ch_buf);
+  }
+}
 
 /** System Clock Configuration
 */
