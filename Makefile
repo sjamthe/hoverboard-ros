@@ -37,10 +37,8 @@ Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_i2c.c \
 Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_dma.c \
 Src/system_at32f4xx.c \
 Src/setup.c \
-Src/control.c \
 Src/main.c \
 Src/bldc.c \
-Src/comms.c \
 Src/stm32f1xx_it.c \
 Src/BLDC_controller_data.c \
 Src/BLDC_controller.c \

@@ -427,6 +427,8 @@ void UART_Debug_Init() {
   DMA1->IFCR           = DMA_IFCR_CTCIF2 | DMA_IFCR_CHTIF2 | DMA_IFCR_CGIF2;
 }
 
+#ifdef DEBUG_SERIAL_USART3_DMA
+
 /* consoleLog uses DMA for heavy writes */
 void debugLog(char *message, int len)
 {
@@ -440,6 +442,7 @@ void debugLog(char *message, int len)
     }
 }
 
+#endif
 /*
 * Setting to redirect STDOUT to COM PORT
 */
@@ -493,7 +496,7 @@ PUTCHAR_PROTOTYPE
 
 #endif //END of DEBUG_SERIAL_USART3
 
-#ifdef CONTROL_SERIAL_USART2_DMA
+#ifdef CONTROL_SERIAL_USART2
 
 void UART_Control_Init() {
   GPIO_InitTypeDef GPIO_InitStruct;
@@ -523,44 +526,44 @@ void UART_Control_Init() {
    /* Peripheral clock enable */
    __HAL_RCC_USART2_CLK_ENABLE(); // Why again?
 
- GPIO_InitStruct.Pull = GPIO_PULLUP; //GPIO_NOPULL;
- GPIO_InitStruct.Pin = GPIO_PIN_2;
- GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
- GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
- HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  GPIO_InitStruct.Pull = GPIO_PULLUP; //GPIO_NOPULL;
+  GPIO_InitStruct.Pin = GPIO_PIN_2;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
- GPIO_InitStruct.Pin = GPIO_PIN_3;
- GPIO_InitStruct.Mode = GPIO_MODE_INPUT; //GPIO_MODE_AF_PP;
-// GPIO_InitStruct.Pull = GPIO_NOPULL;
- HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  GPIO_InitStruct.Pin = GPIO_PIN_3;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT; //GPIO_MODE_AF_PP;
+  // GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
- /* Peripheral DMA init*/
+  /* Peripheral DMA init*/
 
- hdma_usart2_rx.Instance = DMA1_Channel6;
- hdma_usart2_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
- hdma_usart2_rx.Init.PeriphInc = DMA_PINC_DISABLE;
- hdma_usart2_rx.Init.MemInc = DMA_MINC_ENABLE;
- hdma_usart2_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
- hdma_usart2_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
- hdma_usart2_rx.Init.Mode = DMA_CIRCULAR; //DMA_NORMAL;
- hdma_usart2_rx.Init.Priority = DMA_PRIORITY_LOW;
- HAL_DMA_Init(&hdma_usart2_rx);
+  hdma_usart2_rx.Instance = DMA1_Channel6;
+  hdma_usart2_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+  hdma_usart2_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+  hdma_usart2_rx.Init.MemInc = DMA_MINC_ENABLE;
+  hdma_usart2_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+  hdma_usart2_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+  hdma_usart2_rx.Init.Mode = DMA_CIRCULAR; //DMA_NORMAL;
+  hdma_usart2_rx.Init.Priority = DMA_PRIORITY_LOW;
+  HAL_DMA_Init(&hdma_usart2_rx);
 
- __HAL_LINKDMA(&huart2,hdmarx,hdma_usart2_rx);
+  __HAL_LINKDMA(&huart2,hdmarx,hdma_usart2_rx);
 
- hdma_usart2_tx.Instance = DMA1_Channel7;
- hdma_usart2_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
- hdma_usart2_tx.Init.PeriphInc = DMA_PINC_DISABLE;
- hdma_usart2_tx.Init.MemInc = DMA_MINC_ENABLE;
- hdma_usart2_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
- hdma_usart2_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
- hdma_usart2_tx.Init.Mode = DMA_NORMAL;
- hdma_usart2_tx.Init.Priority = DMA_PRIORITY_LOW;
-HAL_DMA_Init(&hdma_usart2_tx);
- __HAL_LINKDMA(&huart2,hdmatx,hdma_usart2_tx);
+  hdma_usart2_tx.Instance = DMA1_Channel7;
+  hdma_usart2_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+  hdma_usart2_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+  hdma_usart2_tx.Init.MemInc = DMA_MINC_ENABLE;
+  hdma_usart2_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+  hdma_usart2_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+  hdma_usart2_tx.Init.Mode = DMA_NORMAL;
+  hdma_usart2_tx.Init.Priority = DMA_PRIORITY_LOW;
+  HAL_DMA_Init(&hdma_usart2_tx);
+  __HAL_LINKDMA(&huart2,hdmatx,hdma_usart2_tx);
 
-HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);                                        
-HAL_NVIC_EnableIRQ(USART2_IRQn); //Necessary for DMA
+  HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);                                        
+  HAL_NVIC_EnableIRQ(USART2_IRQn); //Necessary for DMA
 }
 
 #endif

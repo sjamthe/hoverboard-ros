@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,84 +58,86 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 1
   30:Src/main.c    **** void Error_Handler(void);
   31:Src/main.c    **** void motor_init(void);
   32:Src/main.c    **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 2
 
 
-  33:Src/main.c    **** #ifdef CONTROL_SERIAL_USART2_DMA
+  33:Src/main.c    **** #ifdef CONTROL_SERIAL_USART2
   34:Src/main.c    ****   extern UART_HandleTypeDef huart2; 
-  35:Src/main.c    **** 	extern DMA_HandleTypeDef hdma_usart2_rx;
-  36:Src/main.c    **** 	extern DMA_HandleTypeDef hdma_usart2_tx;
-  37:Src/main.c    **** #endif
-  38:Src/main.c    **** 
-  39:Src/main.c    **** extern ADC_HandleTypeDef hadc1;
-  40:Src/main.c    **** extern ADC_HandleTypeDef hadc2;
-  41:Src/main.c    **** extern volatile adc_buf_t adc_buffer;
-  42:Src/main.c    **** 
-  43:Src/main.c    **** extern uint8_t buzzerFreq;    // global variable for the buzzer pitch. can be 1, 2, 3, 4, 5, 6, 7..
-  44:Src/main.c    **** extern uint8_t buzzerPattern; // global variable for the buzzer pattern. can be 1, 2, 3, 4, 5, 6, 7
-  45:Src/main.c    **** 
-  46:Src/main.c    **** extern volatile int pwml;  // global variable for pwm left. -1000 to 1000
-  47:Src/main.c    **** extern volatile int pwmr;  // global variable for pwm right. -1000 to 1000
-  48:Src/main.c    **** 
-  49:Src/main.c    **** uint16_t speed = 0;
-  50:Src/main.c    **** char message[100];
-  51:Src/main.c    **** uint16_t counter = 0;
-  52:Src/main.c    **** 
-  53:Src/main.c    **** void poweroff() {
-  27              		.loc 1 53 0
+  35:Src/main.c    **** #ifdef CONTROL_SERIAL_USART2_DMA
+  36:Src/main.c    **** 	extern DMA_HandleTypeDef hdma_usart2_rx;
+  37:Src/main.c    **** 	extern DMA_HandleTypeDef hdma_usart2_tx;
+  38:Src/main.c    **** #endif
+  39:Src/main.c    **** #endif
+  40:Src/main.c    **** 
+  41:Src/main.c    **** extern ADC_HandleTypeDef hadc1;
+  42:Src/main.c    **** extern ADC_HandleTypeDef hadc2;
+  43:Src/main.c    **** extern volatile adc_buf_t adc_buffer;
+  44:Src/main.c    **** 
+  45:Src/main.c    **** extern uint8_t buzzerFreq;    // global variable for the buzzer pitch. can be 1, 2, 3, 4, 5, 6, 7..
+  46:Src/main.c    **** extern uint8_t buzzerPattern; // global variable for the buzzer pattern. can be 1, 2, 3, 4, 5, 6, 7
+  47:Src/main.c    **** 
+  48:Src/main.c    **** extern volatile int pwml;  // global variable for pwm left. -1000 to 1000
+  49:Src/main.c    **** extern volatile int pwmr;  // global variable for pwm right. -1000 to 1000
+  50:Src/main.c    **** 
+  51:Src/main.c    **** uint16_t speed = 0;
+  52:Src/main.c    **** char message[100];
+  53:Src/main.c    **** uint16_t counter = 0;
+  54:Src/main.c    **** 
+  55:Src/main.c    **** void poweroff() {
+  27              		.loc 1 55 0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-  54:Src/main.c    ****     if (ABS(speed) < 20) {
-  31              		.loc 1 54 0
+  56:Src/main.c    ****     if (ABS(speed) < 20) {
+  31              		.loc 1 56 0
   32 0000 0B4B     		ldr	r3, .L9
   33 0002 1B88     		ldrh	r3, [r3]
   34 0004 132B     		cmp	r3, #19
   35 0006 12D8     		bhi	.L1
-  53:Src/main.c    ****     if (ABS(speed) < 20) {
-  36              		.loc 1 53 0
+  55:Src/main.c    ****     if (ABS(speed) < 20) {
+  36              		.loc 1 55 0
   37 0008 10B5     		push	{r4, lr}
   38              	.LCFI0:
   39              		.cfi_def_cfa_offset 8
   40              		.cfi_offset 4, -8
   41              		.cfi_offset 14, -4
-  55:Src/main.c    ****         buzzerPattern = 0;
-  42              		.loc 1 55 0
+  57:Src/main.c    ****         buzzerPattern = 0;
+  42              		.loc 1 57 0
   43 000a 0024     		movs	r4, #0
   44 000c 094B     		ldr	r3, .L9+4
   45 000e 1C70     		strb	r4, [r3]
   46              	.LVL0:
   47              	.LBB2:
-  56:Src/main.c    ****         for (int i = 0; i < 8; i++) {
-  48              		.loc 1 56 0
+  58:Src/main.c    ****         for (int i = 0; i < 8; i++) {
+  48              		.loc 1 58 0
   49 0010 05E0     		b	.L3
   50              	.LVL1:
   51              	.L4:
-  57:Src/main.c    ****             buzzerFreq = i;
-  52              		.loc 1 57 0 discriminator 3
+  59:Src/main.c    ****             buzzerFreq = i;
+  52              		.loc 1 59 0 discriminator 3
   53 0012 094B     		ldr	r3, .L9+8
   54 0014 1C70     		strb	r4, [r3]
-  58:Src/main.c    ****             HAL_Delay(100);
-  55              		.loc 1 58 0 discriminator 3
+  60:Src/main.c    ****             HAL_Delay(100);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 3
+
+
+  55              		.loc 1 60 0 discriminator 3
   56 0016 6420     		movs	r0, #100
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 3
-
-
   57 0018 FFF7FEFF 		bl	HAL_Delay
   58              	.LVL2:
-  56:Src/main.c    ****         for (int i = 0; i < 8; i++) {
-  59              		.loc 1 56 0 discriminator 3
+  58:Src/main.c    ****         for (int i = 0; i < 8; i++) {
+  59              		.loc 1 58 0 discriminator 3
   60 001c 0134     		adds	r4, r4, #1
   61              	.LVL3:
   62              	.L3:
-  56:Src/main.c    ****         for (int i = 0; i < 8; i++) {
-  63              		.loc 1 56 0 is_stmt 0 discriminator 1
+  58:Src/main.c    ****         for (int i = 0; i < 8; i++) {
+  63              		.loc 1 58 0 is_stmt 0 discriminator 1
   64 001e 072C     		cmp	r4, #7
   65 0020 F7DD     		ble	.L4
   66              	.LBE2:
-  59:Src/main.c    ****         }
-  60:Src/main.c    ****         HAL_GPIO_WritePin(OFF_PORT, OFF_PIN, 0);
-  67              		.loc 1 60 0 is_stmt 1
+  61:Src/main.c    ****         }
+  62:Src/main.c    ****         HAL_GPIO_WritePin(OFF_PORT, OFF_PIN, 0);
+  67              		.loc 1 62 0 is_stmt 1
   68 0022 0022     		movs	r2, #0
   69 0024 2021     		movs	r1, #32
   70 0026 0548     		ldr	r0, .L9+12
@@ -168,158 +170,170 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 1
   98              		.fpu fpv4-sp-d16
  100              	SystemClock_Config:
  101              	.LFB128:
-  61:Src/main.c    ****         while(1) {}
-  62:Src/main.c    ****     }
-  63:Src/main.c    **** }
-  64:Src/main.c    **** 
-  65:Src/main.c    **** 
-  66:Src/main.c    **** int main(void) {
-  67:Src/main.c    ****   HAL_Init();
-  68:Src/main.c    **** 
-  69:Src/main.c    ****   __HAL_RCC_AFIO_CLK_ENABLE();
-  70:Src/main.c    ****   HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 4
+  63:Src/main.c    ****         while(1) {}
+  64:Src/main.c    ****     }
+  65:Src/main.c    **** }
+  66:Src/main.c    **** 
+  67:Src/main.c    **** 
+  68:Src/main.c    **** int main(void) {
+  69:Src/main.c    ****   HAL_Init();
+  70:Src/main.c    **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 4
 
 
-  71:Src/main.c    ****   /* System interrupt init*/
-  72:Src/main.c    ****   /* MemoryManagement_IRQn interrupt configuration */
-  73:Src/main.c    ****   HAL_NVIC_SetPriority(MemoryManagement_IRQn, 0, 0);
-  74:Src/main.c    ****   /* BusFault_IRQn interrupt configuration */
-  75:Src/main.c    ****   HAL_NVIC_SetPriority(BusFault_IRQn, 0, 0);
-  76:Src/main.c    ****   /* UsageFault_IRQn interrupt configuration */
-  77:Src/main.c    ****   HAL_NVIC_SetPriority(UsageFault_IRQn, 0, 0);
-  78:Src/main.c    ****   /* SVCall_IRQn interrupt configuration */
-  79:Src/main.c    ****   HAL_NVIC_SetPriority(SVCall_IRQn, 0, 0);
-  80:Src/main.c    ****   /* DebugMonitor_IRQn interrupt configuration */
-  81:Src/main.c    ****   HAL_NVIC_SetPriority(DebugMonitor_IRQn, 0, 0);
-  82:Src/main.c    ****   /* PendSV_IRQn interrupt configuration */
-  83:Src/main.c    ****   HAL_NVIC_SetPriority(PendSV_IRQn, 0, 0);
-  84:Src/main.c    ****   /* SysTick_IRQn interrupt configuration */
-  85:Src/main.c    ****   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
-  86:Src/main.c    **** 
-  87:Src/main.c    ****   SystemClock_Config();
-  88:Src/main.c    ****   __HAL_RCC_DMA1_CLK_DISABLE();
-  89:Src/main.c    **** 
-  90:Src/main.c    ****   MX_GPIO_Init();
-  91:Src/main.c    ****   MX_TIM_Init();
-  92:Src/main.c    ****   MX_ADC1_Init();
-  93:Src/main.c    ****   MX_ADC2_Init();
-  94:Src/main.c    **** 
-  95:Src/main.c    ****   #ifdef CONTROL_SERIAL_USART2_DMA
-  96:Src/main.c    ****     UART_Control_Init();
-  97:Src/main.c    ****     uint8_t ch_buf[10];
-  98:Src/main.c    ****     if(HAL_UART_Receive_DMA(&huart2, (uint8_t *)&ch_buf, 10)  != HAL_OK) {
-  99:Src/main.c    ****       Error_Handler();
- 100:Src/main.c    ****     }
- 101:Src/main.c    ****   #endif
- 102:Src/main.c    **** 
- 103:Src/main.c    ****   #ifdef DEBUG_SERIAL_USART3
- 104:Src/main.c    ****     UART_Debug_Init();
- 105:Src/main.c    ****   #endif
- 106:Src/main.c    **** 
- 107:Src/main.c    ****   HAL_GPIO_WritePin(OFF_PORT, OFF_PIN, 1);
+  71:Src/main.c    ****   __HAL_RCC_AFIO_CLK_ENABLE();
+  72:Src/main.c    ****   HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
+  73:Src/main.c    ****   /* System interrupt init*/
+  74:Src/main.c    ****   /* MemoryManagement_IRQn interrupt configuration */
+  75:Src/main.c    ****   HAL_NVIC_SetPriority(MemoryManagement_IRQn, 0, 0);
+  76:Src/main.c    ****   /* BusFault_IRQn interrupt configuration */
+  77:Src/main.c    ****   HAL_NVIC_SetPriority(BusFault_IRQn, 0, 0);
+  78:Src/main.c    ****   /* UsageFault_IRQn interrupt configuration */
+  79:Src/main.c    ****   HAL_NVIC_SetPriority(UsageFault_IRQn, 0, 0);
+  80:Src/main.c    ****   /* SVCall_IRQn interrupt configuration */
+  81:Src/main.c    ****   HAL_NVIC_SetPriority(SVCall_IRQn, 0, 0);
+  82:Src/main.c    ****   /* DebugMonitor_IRQn interrupt configuration */
+  83:Src/main.c    ****   HAL_NVIC_SetPriority(DebugMonitor_IRQn, 0, 0);
+  84:Src/main.c    ****   /* PendSV_IRQn interrupt configuration */
+  85:Src/main.c    ****   HAL_NVIC_SetPriority(PendSV_IRQn, 0, 0);
+  86:Src/main.c    ****   /* SysTick_IRQn interrupt configuration */
+  87:Src/main.c    ****   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+  88:Src/main.c    **** 
+  89:Src/main.c    ****   SystemClock_Config();
+  90:Src/main.c    ****   __HAL_RCC_DMA1_CLK_DISABLE();
+  91:Src/main.c    **** 
+  92:Src/main.c    ****   MX_GPIO_Init();
+  93:Src/main.c    ****   MX_TIM_Init();
+  94:Src/main.c    ****   MX_ADC1_Init();
+  95:Src/main.c    ****   MX_ADC2_Init();
+  96:Src/main.c    **** 
+  97:Src/main.c    ****   #ifdef CONTROL_SERIAL_USART2
+  98:Src/main.c    ****     UART_Control_Init();
+  99:Src/main.c    ****   #endif
+ 100:Src/main.c    **** 
+ 101:Src/main.c    ****   #ifdef CONTROL_SERIAL_USART2_DMA
+ 102:Src/main.c    ****     uint8_t ch_buf[10];
+ 103:Src/main.c    ****     if(HAL_UART_Receive_DMA(&huart2, (uint8_t *)&ch_buf, 10)  != HAL_OK) 
+ 104:Src/main.c    ****     {
+ 105:Src/main.c    ****       Error_Handler();
+ 106:Src/main.c    ****     }
+ 107:Src/main.c    ****   #endif
  108:Src/main.c    **** 
- 109:Src/main.c    ****  #ifdef HALL_INTERRUPTS
- 110:Src/main.c    ****     HallInterruptinit();
- 111:Src/main.c    ****  #endif
+ 109:Src/main.c    ****   #ifdef DEBUG_SERIAL_USART3
+ 110:Src/main.c    ****     UART_Debug_Init();
+ 111:Src/main.c    ****   #endif
  112:Src/main.c    **** 
- 113:Src/main.c    ****   HAL_ADC_Start(&hadc1);
- 114:Src/main.c    ****   HAL_ADC_Start(&hadc2);
- 115:Src/main.c    **** 
- 116:Src/main.c    ****   motor_init();
- 117:Src/main.c    **** 
- 118:Src/main.c    ****   // ###### STARTUP CHIME #############
- 119:Src/main.c    ****   for (int i = 8; i >= 0; i--) {
- 120:Src/main.c    ****     buzzerFreq = i;
- 121:Src/main.c    ****     HAL_Delay(100);
- 122:Src/main.c    ****   }
- 123:Src/main.c    ****   buzzerFreq = 0;
- 124:Src/main.c    **** 
- 125:Src/main.c    ****   HAL_GPIO_WritePin(LED_PORT, LED_PIN, 1);
- 126:Src/main.c    ****  
- 127:Src/main.c    **** #ifdef CONTROL_MOTOR_TEST
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 5
+ 113:Src/main.c    ****   HAL_GPIO_WritePin(OFF_PORT, OFF_PIN, 1);
+ 114:Src/main.c    **** 
+ 115:Src/main.c    ****  #ifdef HALL_INTERRUPTS
+ 116:Src/main.c    ****     HallInterruptinit();
+ 117:Src/main.c    ****  #endif
+ 118:Src/main.c    **** 
+ 119:Src/main.c    ****   HAL_ADC_Start(&hadc1);
+ 120:Src/main.c    ****   HAL_ADC_Start(&hadc2);
+ 121:Src/main.c    **** 
+ 122:Src/main.c    ****   motor_init();
+ 123:Src/main.c    **** 
+ 124:Src/main.c    ****   // ###### STARTUP CHIME #############
+ 125:Src/main.c    ****   for (int i = 8; i >= 0; i--) {
+ 126:Src/main.c    ****     buzzerFreq = i;
+ 127:Src/main.c    ****     HAL_Delay(100);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 5
 
 
- 128:Src/main.c    **** 
- 129:Src/main.c    **** 	#ifdef INVERT_R_DIRECTION
- 130:Src/main.c    **** 	  pwmr = 60;
- 131:Src/main.c    **** 	#else
- 132:Src/main.c    **** 	  pwmr = -60;
- 133:Src/main.c    **** 	#endif
- 134:Src/main.c    **** 	#ifdef INVERT_L_DIRECTION
- 135:Src/main.c    **** 	  pwml = -60;
- 136:Src/main.c    **** 	#else
- 137:Src/main.c    **** 	  pwml = 60;
- 138:Src/main.c    **** 	#endif
- 139:Src/main.c    **** 
- 140:Src/main.c    **** #endif
- 141:Src/main.c    **** 
- 142:Src/main.c    ****   while(1) {
- 143:Src/main.c    ****     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms
- 144:Src/main.c    **** 
- 145:Src/main.c    ****     #ifdef CONTROL_SERIAL_USART2_DMA
- 146:Src/main.c    ****       sprintf(message,"Hello %d\n",counter++);
- 147:Src/main.c    ****       HAL_UART_Transmit_DMA(&huart2, (uint8_t *)message, strlen(message));
- 148:Src/main.c    ****     #endif
- 149:Src/main.c    **** 
- 150:Src/main.c    ****     #ifdef DEBUG_SERIAL_USART3
- 151:Src/main.c    ****       //sprintf(message,"Hello %d\n",counter++);
- 152:Src/main.c    ****       //debugLog(message, strlen((char *)message));
- 153:Src/main.c    ****       //printf("Hello %d\n",counter++);
- 154:Src/main.c    **** 
- 155:Src/main.c    ****       //Test HallInterruptReadPosn
- 156:Src/main.c    ****       HALL_POSN p;
- 157:Src/main.c    ****       HallInterruptReadPosn(&p, 0);
- 158:Src/main.c    ****       if(pwml != 0) 
+ 128:Src/main.c    ****   }
+ 129:Src/main.c    ****   buzzerFreq = 0;
+ 130:Src/main.c    **** 
+ 131:Src/main.c    ****   HAL_GPIO_WritePin(LED_PORT, LED_PIN, 1);
+ 132:Src/main.c    ****  
+ 133:Src/main.c    **** #ifdef CONTROL_MOTOR_TEST
+ 134:Src/main.c    **** 
+ 135:Src/main.c    **** 	#ifdef INVERT_R_DIRECTION
+ 136:Src/main.c    **** 	  pwmr = 60;
+ 137:Src/main.c    **** 	#else
+ 138:Src/main.c    **** 	  pwmr = -60;
+ 139:Src/main.c    **** 	#endif
+ 140:Src/main.c    **** 	#ifdef INVERT_L_DIRECTION
+ 141:Src/main.c    **** 	  pwml = -60;
+ 142:Src/main.c    **** 	#else
+ 143:Src/main.c    **** 	  pwml = 60;
+ 144:Src/main.c    **** 	#endif
+ 145:Src/main.c    **** 
+ 146:Src/main.c    **** #endif
+ 147:Src/main.c    **** 
+ 148:Src/main.c    ****   while(1) {
+ 149:Src/main.c    ****     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms
+ 150:Src/main.c    **** 
+ 151:Src/main.c    ****     #ifdef CONTROL_SERIAL_USART2
+ 152:Src/main.c    ****       sprintf(message,"Hello %d\n",counter++);
+ 153:Src/main.c    ****       uint8_t ch_buf[10];
+ 154:Src/main.c    ****       // if(HAL_UART_Receive_IT(&huart2, (uint8_t *)&ch_buf, 10)  != HAL_OK) 
+ 155:Src/main.c    ****       // {
+ 156:Src/main.c    ****       //   Error_Handler();
+ 157:Src/main.c    ****       // }
+ 158:Src/main.c    ****      /* else
  159:Src/main.c    ****       {
- 160:Src/main.c    ****         printf("left wheel rev %d, rpm %d, pos mm %d, speed mm/s %d\n",
- 161:Src/main.c    ****           p.wheel[LEFT].HallPosn,p.wheel[0].HallSpeed, p.wheel[0].HallPosn_mm, p.wheel[0].HallSpeed
- 162:Src/main.c    ****       }
- 163:Src/main.c    ****       if(pwmr != 0)
- 164:Src/main.c    ****       { 
- 165:Src/main.c    ****         printf("right wheel rev %d, rpm %d, pos mm %d, speed mm/s %d\n",
- 166:Src/main.c    ****           p.wheel[RIGHT].HallPosn,p.wheel[1].HallSpeed, p.wheel[1].HallPosn_mm, p.wheel[1].HallSpee
- 167:Src/main.c    ****       }
- 168:Src/main.c    ****       //test if we can stop at 60% angle
- 169:Src/main.c    ****       #ifdef CONTROL_MOTOR_TEST
- 170:Src/main.c    ****         int langle = 60*HALL_POSN_PER_REV/360;
- 171:Src/main.c    ****         int rangle = -60*HALL_POSN_PER_REV/360;
- 172:Src/main.c    ****         if(p.wheel[LEFT].HallPosn >= langle) {
- 173:Src/main.c    ****           pwml = 0;
- 174:Src/main.c    ****         }
- 175:Src/main.c    ****         if(p.wheel[RIGHT].HallPosn <=rangle) {
- 176:Src/main.c    ****           pwmr = 0;
- 177:Src/main.c    ****         }
- 178:Src/main.c    ****       #endif //CONTROL_MOTOR_TEST
- 179:Src/main.c    ****     #endif //DEBUG_SERIAL_USART3
- 180:Src/main.c    ****    // ####### POWEROFF BY POWER-BUTTON #######
- 181:Src/main.c    ****    if (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {
- 182:Src/main.c    ****      while (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {}
- 183:Src/main.c    ****      poweroff();
- 184:Src/main.c    ****    }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 6
+ 160:Src/main.c    ****          printf("Read on UART2 %s\n", (char *)ch_buf);
+ 161:Src/main.c    ****       }*/
+ 162:Src/main.c    ****     #ifdef CONTROL_SERIAL_USART2_DMA
+ 163:Src/main.c    ****       HAL_UART_Transmit_DMA(&huart2, (uint8_t *)message, strlen(message));
+ 164:Src/main.c    ****     #else
+ 165:Src/main.c    ****       HAL_UART_Transmit(&huart2, (uint8_t *)message, strlen(message), 10);
+ 166:Src/main.c    ****     #endif
+ 167:Src/main.c    ****     #endif
+ 168:Src/main.c    ****     #ifdef DEBUG_SERIAL_USART3
+ 169:Src/main.c    ****       //Test HallInterruptReadPosn
+ 170:Src/main.c    ****       HALL_POSN p;
+ 171:Src/main.c    ****       HallInterruptReadPosn(&p, 0);
+ 172:Src/main.c    ****       if(pwml != 0) 
+ 173:Src/main.c    ****       {
+ 174:Src/main.c    ****         printf("left wheel rev %d, rpm %d, pos mm %d, speed mm/s %d\n",
+ 175:Src/main.c    ****           p.wheel[LEFT].HallPosn,p.wheel[0].HallSpeed, p.wheel[0].HallPosn_mm, p.wheel[0].HallSpeed
+ 176:Src/main.c    ****       }
+ 177:Src/main.c    ****       if(pwmr != 0)
+ 178:Src/main.c    ****       { 
+ 179:Src/main.c    ****         printf("right wheel rev %d, rpm %d, pos mm %d, speed mm/s %d\n",
+ 180:Src/main.c    ****           p.wheel[RIGHT].HallPosn,p.wheel[1].HallSpeed, p.wheel[1].HallPosn_mm, p.wheel[1].HallSpee
+ 181:Src/main.c    ****       }
+ 182:Src/main.c    ****       //test if we can stop at 60% angle
+ 183:Src/main.c    ****       #ifdef CONTROL_MOTOR_TEST
+ 184:Src/main.c    ****         int langle = 60*HALL_POSN_PER_REV/360;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 6
 
 
- 185:Src/main.c    ****   }
- 186:Src/main.c    **** }
- 187:Src/main.c    **** 
- 188:Src/main.c    **** #ifdef CONTROL_SERIAL_USART2_DMA
- 189:Src/main.c    **** void DMA1_Stream6_IRQHandler(void)
- 190:Src/main.c    **** {
- 191:Src/main.c    ****   HAL_DMA_IRQHandler(&hdma_usart2_tx);
- 192:Src/main.c    **** }
- 193:Src/main.c    **** 
- 194:Src/main.c    **** void USART2_IRQHandler(void)
- 195:Src/main.c    **** {
- 196:Src/main.c    ****   HAL_UART_IRQHandler(&huart2);
- 197:Src/main.c    **** }
- 198:Src/main.c    **** #endif
- 199:Src/main.c    **** 
- 200:Src/main.c    **** /** System Clock Configuration
- 201:Src/main.c    **** */
- 202:Src/main.c    **** void SystemClock_Config(void) {
- 102              		.loc 1 202 0
+ 185:Src/main.c    ****         int rangle = -60*HALL_POSN_PER_REV/360;
+ 186:Src/main.c    ****         if(p.wheel[LEFT].HallPosn >= langle) {
+ 187:Src/main.c    ****           pwml = 0;
+ 188:Src/main.c    ****         }
+ 189:Src/main.c    ****         if(p.wheel[RIGHT].HallPosn <=rangle) {
+ 190:Src/main.c    ****           pwmr = 0;
+ 191:Src/main.c    ****         }
+ 192:Src/main.c    ****       #endif //CONTROL_MOTOR_TEST
+ 193:Src/main.c    ****     #endif //DEBUG_SERIAL_USART3
+ 194:Src/main.c    ****    // ####### POWEROFF BY POWER-BUTTON #######
+ 195:Src/main.c    ****    if (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {
+ 196:Src/main.c    ****      while (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {}
+ 197:Src/main.c    ****      poweroff();
+ 198:Src/main.c    ****    }
+ 199:Src/main.c    ****   }
+ 200:Src/main.c    **** }
+ 201:Src/main.c    **** 
+ 202:Src/main.c    **** #ifdef CONTROL_SERIAL_USART2_DMA
+ 203:Src/main.c    **** void DMA1_Stream6_IRQHandler(void)
+ 204:Src/main.c    **** {
+ 205:Src/main.c    ****   HAL_DMA_IRQHandler(&hdma_usart2_tx);
+ 206:Src/main.c    **** }
+ 207:Src/main.c    **** 
+ 208:Src/main.c    **** void USART2_IRQHandler(void)
+ 209:Src/main.c    **** {
+ 210:Src/main.c    ****   HAL_UART_IRQHandler(&huart2);
+ 211:Src/main.c    **** }
+ 212:Src/main.c    **** #endif
+ 213:Src/main.c    **** 
+ 214:Src/main.c    **** /** System Clock Configuration
+ 215:Src/main.c    **** */
+ 216:Src/main.c    **** void SystemClock_Config(void) {
+ 102              		.loc 1 216 0
  103              		.cfi_startproc
  104              		@ args = 0, pretend = 0, frame = 0
  105              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -328,11 +342,11 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 1
  108              		.cfi_def_cfa_offset 8
  109              		.cfi_offset 3, -8
  110              		.cfi_offset 14, -4
- 203:Src/main.c    **** 
- 204:Src/main.c    ****   /**Configure the Systick interrupt time
- 205:Src/main.c    ****     */
- 206:Src/main.c    ****   HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq() / 1000);
- 111              		.loc 1 206 0
+ 217:Src/main.c    **** 
+ 218:Src/main.c    ****   /**Configure the Systick interrupt time
+ 219:Src/main.c    ****     */
+ 220:Src/main.c    ****   HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq() / 1000);
+ 111              		.loc 1 220 0
  112 0002 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
  113              	.LVL6:
  114 0006 084B     		ldr	r3, .L13
@@ -340,27 +354,27 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 1
  116 000c 8009     		lsrs	r0, r0, #6
  117 000e FFF7FEFF 		bl	HAL_SYSTICK_Config
  118              	.LVL7:
- 207:Src/main.c    **** 
- 208:Src/main.c    ****   /**Configure the Systick
- 209:Src/main.c    ****     */
- 210:Src/main.c    ****   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
- 119              		.loc 1 210 0
+ 221:Src/main.c    **** 
+ 222:Src/main.c    ****   /**Configure the Systick
+ 223:Src/main.c    ****     */
+ 224:Src/main.c    ****   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 7
+
+
+ 119              		.loc 1 224 0
  120 0012 0420     		movs	r0, #4
  121 0014 FFF7FEFF 		bl	HAL_SYSTICK_CLKSourceConfig
  122              	.LVL8:
- 211:Src/main.c    ****   /* SysTick_IRQn interrupt configuration */
- 212:Src/main.c    ****   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
- 123              		.loc 1 212 0
+ 225:Src/main.c    ****   /* SysTick_IRQn interrupt configuration */
+ 226:Src/main.c    ****   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+ 123              		.loc 1 226 0
  124 0018 0022     		movs	r2, #0
  125 001a 1146     		mov	r1, r2
  126 001c 4FF0FF30 		mov	r0, #-1
  127 0020 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  128              	.LVL9:
- 213:Src/main.c    **** }
- 129              		.loc 1 213 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 7
-
-
+ 227:Src/main.c    **** }
+ 129              		.loc 1 227 0
  130 0024 08BD     		pop	{r3, pc}
  131              	.L14:
  132 0026 00BF     		.align	2
@@ -377,8 +391,8 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 1
  144              		.fpu fpv4-sp-d16
  146              	main:
  147              	.LFB127:
-  66:Src/main.c    ****   HAL_Init();
- 148              		.loc 1 66 0
+  68:Src/main.c    ****   HAL_Init();
+ 148              		.loc 1 68 0
  149              		.cfi_startproc
  150              		@ args = 0, pretend = 0, frame = 48
  151              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -390,468 +404,511 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 1
  157 0002 8EB0     		sub	sp, sp, #56
  158              	.LCFI4:
  159              		.cfi_def_cfa_offset 64
-  67:Src/main.c    **** 
- 160              		.loc 1 67 0
+  69:Src/main.c    **** 
+ 160              		.loc 1 69 0
  161 0004 FFF7FEFF 		bl	HAL_Init
  162              	.LVL10:
  163              	.LBB3:
-  69:Src/main.c    ****   HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
- 164              		.loc 1 69 0
- 165 0008 564C     		ldr	r4, .L28
+  71:Src/main.c    ****   HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
+ 164              		.loc 1 71 0
+ 165 0008 604C     		ldr	r4, .L28
  166 000a A369     		ldr	r3, [r4, #24]
  167 000c 43F00103 		orr	r3, r3, #1
  168 0010 A361     		str	r3, [r4, #24]
  169 0012 A369     		ldr	r3, [r4, #24]
  170 0014 03F00103 		and	r3, r3, #1
  171 0018 0393     		str	r3, [sp, #12]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 8
+
+
  172 001a 039B     		ldr	r3, [sp, #12]
  173              	.LBE3:
-  70:Src/main.c    ****   /* System interrupt init*/
- 174              		.loc 1 70 0
+  72:Src/main.c    ****   /* System interrupt init*/
+ 174              		.loc 1 72 0
  175 001c 0320     		movs	r0, #3
  176 001e FFF7FEFF 		bl	HAL_NVIC_SetPriorityGrouping
  177              	.LVL11:
-  73:Src/main.c    ****   /* BusFault_IRQn interrupt configuration */
- 178              		.loc 1 73 0
+  75:Src/main.c    ****   /* BusFault_IRQn interrupt configuration */
+ 178              		.loc 1 75 0
  179 0022 0022     		movs	r2, #0
  180 0024 1146     		mov	r1, r2
  181 0026 6FF00B00 		mvn	r0, #11
  182 002a FFF7FEFF 		bl	HAL_NVIC_SetPriority
  183              	.LVL12:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 8
-
-
-  75:Src/main.c    ****   /* UsageFault_IRQn interrupt configuration */
- 184              		.loc 1 75 0
+  77:Src/main.c    ****   /* UsageFault_IRQn interrupt configuration */
+ 184              		.loc 1 77 0
  185 002e 0022     		movs	r2, #0
  186 0030 1146     		mov	r1, r2
  187 0032 6FF00A00 		mvn	r0, #10
  188 0036 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  189              	.LVL13:
-  77:Src/main.c    ****   /* SVCall_IRQn interrupt configuration */
- 190              		.loc 1 77 0
+  79:Src/main.c    ****   /* SVCall_IRQn interrupt configuration */
+ 190              		.loc 1 79 0
  191 003a 0022     		movs	r2, #0
  192 003c 1146     		mov	r1, r2
  193 003e 6FF00900 		mvn	r0, #9
  194 0042 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  195              	.LVL14:
-  79:Src/main.c    ****   /* DebugMonitor_IRQn interrupt configuration */
- 196              		.loc 1 79 0
+  81:Src/main.c    ****   /* DebugMonitor_IRQn interrupt configuration */
+ 196              		.loc 1 81 0
  197 0046 0022     		movs	r2, #0
  198 0048 1146     		mov	r1, r2
  199 004a 6FF00400 		mvn	r0, #4
  200 004e FFF7FEFF 		bl	HAL_NVIC_SetPriority
  201              	.LVL15:
-  81:Src/main.c    ****   /* PendSV_IRQn interrupt configuration */
- 202              		.loc 1 81 0
+  83:Src/main.c    ****   /* PendSV_IRQn interrupt configuration */
+ 202              		.loc 1 83 0
  203 0052 0022     		movs	r2, #0
  204 0054 1146     		mov	r1, r2
  205 0056 6FF00300 		mvn	r0, #3
  206 005a FFF7FEFF 		bl	HAL_NVIC_SetPriority
  207              	.LVL16:
-  83:Src/main.c    ****   /* SysTick_IRQn interrupt configuration */
- 208              		.loc 1 83 0
+  85:Src/main.c    ****   /* SysTick_IRQn interrupt configuration */
+ 208              		.loc 1 85 0
  209 005e 0022     		movs	r2, #0
  210 0060 1146     		mov	r1, r2
  211 0062 6FF00100 		mvn	r0, #1
  212 0066 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  213              	.LVL17:
-  85:Src/main.c    **** 
- 214              		.loc 1 85 0
+  87:Src/main.c    **** 
+ 214              		.loc 1 87 0
  215 006a 0022     		movs	r2, #0
  216 006c 1146     		mov	r1, r2
  217 006e 4FF0FF30 		mov	r0, #-1
  218 0072 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  219              	.LVL18:
-  87:Src/main.c    ****   __HAL_RCC_DMA1_CLK_DISABLE();
- 220              		.loc 1 87 0
+  89:Src/main.c    ****   __HAL_RCC_DMA1_CLK_DISABLE();
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 9
+
+
+ 220              		.loc 1 89 0
  221 0076 FFF7FEFF 		bl	SystemClock_Config
  222              	.LVL19:
-  88:Src/main.c    **** 
- 223              		.loc 1 88 0
+  90:Src/main.c    **** 
+ 223              		.loc 1 90 0
  224 007a 6369     		ldr	r3, [r4, #20]
  225 007c 23F00103 		bic	r3, r3, #1
  226 0080 6361     		str	r3, [r4, #20]
-  90:Src/main.c    ****   MX_TIM_Init();
- 227              		.loc 1 90 0
+  92:Src/main.c    ****   MX_TIM_Init();
+ 227              		.loc 1 92 0
  228 0082 FFF7FEFF 		bl	MX_GPIO_Init
  229              	.LVL20:
-  91:Src/main.c    ****   MX_ADC1_Init();
- 230              		.loc 1 91 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 9
-
-
+  93:Src/main.c    ****   MX_ADC1_Init();
+ 230              		.loc 1 93 0
  231 0086 FFF7FEFF 		bl	MX_TIM_Init
  232              	.LVL21:
-  92:Src/main.c    ****   MX_ADC2_Init();
- 233              		.loc 1 92 0
+  94:Src/main.c    ****   MX_ADC2_Init();
+ 233              		.loc 1 94 0
  234 008a FFF7FEFF 		bl	MX_ADC1_Init
  235              	.LVL22:
-  93:Src/main.c    **** 
- 236              		.loc 1 93 0
+  95:Src/main.c    **** 
+ 236              		.loc 1 95 0
  237 008e FFF7FEFF 		bl	MX_ADC2_Init
  238              	.LVL23:
- 104:Src/main.c    ****   #endif
- 239              		.loc 1 104 0
- 240 0092 FFF7FEFF 		bl	UART_Debug_Init
+  98:Src/main.c    ****   #endif
+ 239              		.loc 1 98 0
+ 240 0092 FFF7FEFF 		bl	UART_Control_Init
  241              	.LVL24:
- 107:Src/main.c    **** 
- 242              		.loc 1 107 0
- 243 0096 0122     		movs	r2, #1
- 244 0098 2021     		movs	r1, #32
- 245 009a 3348     		ldr	r0, .L28+4
- 246 009c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 247              	.LVL25:
- 110:Src/main.c    ****  #endif
- 248              		.loc 1 110 0
- 249 00a0 FFF7FEFF 		bl	HallInterruptinit
+ 110:Src/main.c    ****   #endif
+ 242              		.loc 1 110 0
+ 243 0096 FFF7FEFF 		bl	UART_Debug_Init
+ 244              	.LVL25:
+ 113:Src/main.c    **** 
+ 245              		.loc 1 113 0
+ 246 009a 0122     		movs	r2, #1
+ 247 009c 2021     		movs	r1, #32
+ 248 009e 3C48     		ldr	r0, .L28+4
+ 249 00a0 FFF7FEFF 		bl	HAL_GPIO_WritePin
  250              	.LVL26:
- 113:Src/main.c    ****   HAL_ADC_Start(&hadc2);
- 251              		.loc 1 113 0
- 252 00a4 3148     		ldr	r0, .L28+8
- 253 00a6 FFF7FEFF 		bl	HAL_ADC_Start
- 254              	.LVL27:
- 114:Src/main.c    **** 
- 255              		.loc 1 114 0
- 256 00aa 3148     		ldr	r0, .L28+12
- 257 00ac FFF7FEFF 		bl	HAL_ADC_Start
- 258              	.LVL28:
- 116:Src/main.c    **** 
- 259              		.loc 1 116 0
- 260 00b0 FFF7FEFF 		bl	motor_init
+ 116:Src/main.c    ****  #endif
+ 251              		.loc 1 116 0
+ 252 00a4 FFF7FEFF 		bl	HallInterruptinit
+ 253              	.LVL27:
+ 119:Src/main.c    ****   HAL_ADC_Start(&hadc2);
+ 254              		.loc 1 119 0
+ 255 00a8 3A48     		ldr	r0, .L28+8
+ 256 00aa FFF7FEFF 		bl	HAL_ADC_Start
+ 257              	.LVL28:
+ 120:Src/main.c    **** 
+ 258              		.loc 1 120 0
+ 259 00ae 3A48     		ldr	r0, .L28+12
+ 260 00b0 FFF7FEFF 		bl	HAL_ADC_Start
  261              	.LVL29:
- 262              	.LBB4:
- 119:Src/main.c    ****     buzzerFreq = i;
- 263              		.loc 1 119 0
- 264 00b4 0824     		movs	r4, #8
- 265 00b6 05E0     		b	.L16
- 266              	.LVL30:
- 267              	.L17:
- 120:Src/main.c    ****     HAL_Delay(100);
- 268              		.loc 1 120 0 discriminator 3
- 269 00b8 2E4B     		ldr	r3, .L28+16
- 270 00ba 1C70     		strb	r4, [r3]
- 121:Src/main.c    ****   }
- 271              		.loc 1 121 0 discriminator 3
- 272 00bc 6420     		movs	r0, #100
- 273 00be FFF7FEFF 		bl	HAL_Delay
- 274              	.LVL31:
- 119:Src/main.c    ****     buzzerFreq = i;
- 275              		.loc 1 119 0 discriminator 3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 10
+ 122:Src/main.c    **** 
+ 262              		.loc 1 122 0
+ 263 00b4 FFF7FEFF 		bl	motor_init
+ 264              	.LVL30:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 10
 
 
- 276 00c2 013C     		subs	r4, r4, #1
+ 265              	.LBB4:
+ 125:Src/main.c    ****     buzzerFreq = i;
+ 266              		.loc 1 125 0
+ 267 00b8 0824     		movs	r4, #8
+ 268 00ba 05E0     		b	.L16
+ 269              	.LVL31:
+ 270              	.L17:
+ 126:Src/main.c    ****     HAL_Delay(100);
+ 271              		.loc 1 126 0 discriminator 3
+ 272 00bc 374B     		ldr	r3, .L28+16
+ 273 00be 1C70     		strb	r4, [r3]
+ 127:Src/main.c    ****   }
+ 274              		.loc 1 127 0 discriminator 3
+ 275 00c0 6420     		movs	r0, #100
+ 276 00c2 FFF7FEFF 		bl	HAL_Delay
  277              	.LVL32:
- 278              	.L16:
- 119:Src/main.c    ****     buzzerFreq = i;
- 279              		.loc 1 119 0 is_stmt 0 discriminator 1
- 280 00c4 002C     		cmp	r4, #0
- 281 00c6 F7DA     		bge	.L17
- 282              	.LBE4:
- 123:Src/main.c    **** 
- 283              		.loc 1 123 0 is_stmt 1
- 284 00c8 2A4B     		ldr	r3, .L28+16
- 285 00ca 0022     		movs	r2, #0
- 286 00cc 1A70     		strb	r2, [r3]
- 125:Src/main.c    ****  
- 287              		.loc 1 125 0
- 288 00ce 0122     		movs	r2, #1
- 289 00d0 0421     		movs	r1, #4
- 290 00d2 2948     		ldr	r0, .L28+20
- 291 00d4 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 292              	.LVL33:
- 132:Src/main.c    **** 	#endif
- 293              		.loc 1 132 0
- 294 00d8 284B     		ldr	r3, .L28+24
- 295 00da 6FF03B02 		mvn	r2, #59
- 296 00de 1A60     		str	r2, [r3]
- 137:Src/main.c    **** 	#endif
- 297              		.loc 1 137 0
- 298 00e0 274B     		ldr	r3, .L28+28
- 299 00e2 3C22     		movs	r2, #60
- 300 00e4 1A60     		str	r2, [r3]
- 301 00e6 16E0     		b	.L24
- 302              	.L26:
- 303              	.LBB5:
- 160:Src/main.c    ****           p.wheel[LEFT].HallPosn,p.wheel[0].HallSpeed, p.wheel[0].HallPosn_mm, p.wheel[0].HallSpeed
- 304              		.loc 1 160 0
- 305 00e8 079B     		ldr	r3, [sp, #28]
- 306 00ea 0093     		str	r3, [sp]
- 307 00ec 069B     		ldr	r3, [sp, #24]
- 308 00ee 059A     		ldr	r2, [sp, #20]
- 309 00f0 0499     		ldr	r1, [sp, #16]
- 310 00f2 2448     		ldr	r0, .L28+32
- 311 00f4 FFF7FEFF 		bl	printf
- 312              	.LVL34:
- 313 00f8 18E0     		b	.L18
- 314              	.L27:
- 165:Src/main.c    ****           p.wheel[RIGHT].HallPosn,p.wheel[1].HallSpeed, p.wheel[1].HallPosn_mm, p.wheel[1].HallSpee
- 315              		.loc 1 165 0
- 316 00fa 0C9B     		ldr	r3, [sp, #48]
- 317 00fc 0093     		str	r3, [sp]
- 318 00fe 0B9B     		ldr	r3, [sp, #44]
- 319 0100 0A9A     		ldr	r2, [sp, #40]
- 320 0102 0999     		ldr	r1, [sp, #36]
- 321 0104 2048     		ldr	r0, .L28+36
- 322 0106 FFF7FEFF 		bl	printf
- 323              	.LVL35:
- 324 010a 13E0     		b	.L19
- 325              	.LVL36:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 11
+ 125:Src/main.c    ****     buzzerFreq = i;
+ 278              		.loc 1 125 0 discriminator 3
+ 279 00c6 013C     		subs	r4, r4, #1
+ 280              	.LVL33:
+ 281              	.L16:
+ 125:Src/main.c    ****     buzzerFreq = i;
+ 282              		.loc 1 125 0 is_stmt 0 discriminator 1
+ 283 00c8 002C     		cmp	r4, #0
+ 284 00ca F7DA     		bge	.L17
+ 285              	.LBE4:
+ 129:Src/main.c    **** 
+ 286              		.loc 1 129 0 is_stmt 1
+ 287 00cc 334B     		ldr	r3, .L28+16
+ 288 00ce 0022     		movs	r2, #0
+ 289 00d0 1A70     		strb	r2, [r3]
+ 131:Src/main.c    ****  
+ 290              		.loc 1 131 0
+ 291 00d2 0122     		movs	r2, #1
+ 292 00d4 0421     		movs	r1, #4
+ 293 00d6 3248     		ldr	r0, .L28+20
+ 294 00d8 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 295              	.LVL34:
+ 138:Src/main.c    **** 	#endif
+ 296              		.loc 1 138 0
+ 297 00dc 314B     		ldr	r3, .L28+24
+ 298 00de 6FF03B02 		mvn	r2, #59
+ 299 00e2 1A60     		str	r2, [r3]
+ 143:Src/main.c    **** 	#endif
+ 300              		.loc 1 143 0
+ 301 00e4 304B     		ldr	r3, .L28+28
+ 302 00e6 3C22     		movs	r2, #60
+ 303 00e8 1A60     		str	r2, [r3]
+ 304 00ea 17E0     		b	.L24
+ 305              	.LVL35:
+ 306              	.L26:
+ 307              	.LBB5:
+ 174:Src/main.c    ****           p.wheel[LEFT].HallPosn,p.wheel[0].HallSpeed, p.wheel[0].HallPosn_mm, p.wheel[0].HallSpeed
+ 308              		.loc 1 174 0
+ 309 00ec 079B     		ldr	r3, [sp, #28]
+ 310 00ee 0093     		str	r3, [sp]
+ 311 00f0 069B     		ldr	r3, [sp, #24]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 11
 
 
- 326              	.L21:
- 181:Src/main.c    ****      while (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {}
- 327              		.loc 1 181 0
- 328 010c 0221     		movs	r1, #2
- 329 010e 1648     		ldr	r0, .L28+4
- 330 0110 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 331              	.LVL37:
- 332 0114 E0B9     		cbnz	r0, .L23
- 333              	.LVL38:
- 334              	.L24:
- 143:Src/main.c    **** 
- 335              		.loc 1 143 0
- 336 0116 0520     		movs	r0, #5
- 337 0118 FFF7FEFF 		bl	HAL_Delay
- 338              	.LVL39:
- 157:Src/main.c    ****       if(pwml != 0) 
- 339              		.loc 1 157 0
- 340 011c 0021     		movs	r1, #0
- 341 011e 04A8     		add	r0, sp, #16
- 342 0120 FFF7FEFF 		bl	HallInterruptReadPosn
- 343              	.LVL40:
- 158:Src/main.c    ****       {
- 344              		.loc 1 158 0
- 345 0124 164B     		ldr	r3, .L28+28
- 346 0126 1B68     		ldr	r3, [r3]
- 347 0128 002B     		cmp	r3, #0
- 348 012a DDD1     		bne	.L26
- 349              	.L18:
- 163:Src/main.c    ****       { 
- 350              		.loc 1 163 0
- 351 012c 134B     		ldr	r3, .L28+24
- 352 012e 1B68     		ldr	r3, [r3]
- 353 0130 002B     		cmp	r3, #0
- 354 0132 E2D1     		bne	.L27
- 355              	.L19:
- 356              	.LVL41:
- 172:Src/main.c    ****           pwml = 0;
- 357              		.loc 1 172 0
- 358 0134 049B     		ldr	r3, [sp, #16]
- 359 0136 0E2B     		cmp	r3, #14
- 360 0138 02DD     		ble	.L20
- 173:Src/main.c    ****         }
- 361              		.loc 1 173 0
- 362 013a 114B     		ldr	r3, .L28+28
- 363 013c 0022     		movs	r2, #0
- 364 013e 1A60     		str	r2, [r3]
- 365              	.L20:
- 175:Src/main.c    ****           pwmr = 0;
- 366              		.loc 1 175 0
- 367 0140 099B     		ldr	r3, [sp, #36]
- 368 0142 13F10E0F 		cmn	r3, #14
- 369 0146 E1DA     		bge	.L21
- 176:Src/main.c    ****         }
- 370              		.loc 1 176 0
- 371 0148 0C4B     		ldr	r3, .L28+24
- 372 014a 0022     		movs	r2, #0
- 373 014c 1A60     		str	r2, [r3]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 12
+ 312 00f2 059A     		ldr	r2, [sp, #20]
+ 313 00f4 0499     		ldr	r1, [sp, #16]
+ 314 00f6 2D48     		ldr	r0, .L28+32
+ 315 00f8 FFF7FEFF 		bl	printf
+ 316              	.LVL36:
+ 317 00fc 2BE0     		b	.L18
+ 318              	.L27:
+ 179:Src/main.c    ****           p.wheel[RIGHT].HallPosn,p.wheel[1].HallSpeed, p.wheel[1].HallPosn_mm, p.wheel[1].HallSpee
+ 319              		.loc 1 179 0
+ 320 00fe 0C9B     		ldr	r3, [sp, #48]
+ 321 0100 0093     		str	r3, [sp]
+ 322 0102 0B9B     		ldr	r3, [sp, #44]
+ 323 0104 0A9A     		ldr	r2, [sp, #40]
+ 324 0106 0999     		ldr	r1, [sp, #36]
+ 325 0108 2948     		ldr	r0, .L28+36
+ 326 010a FFF7FEFF 		bl	printf
+ 327              	.LVL37:
+ 328 010e 26E0     		b	.L19
+ 329              	.LVL38:
+ 330              	.L21:
+ 195:Src/main.c    ****      while (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {}
+ 331              		.loc 1 195 0
+ 332 0110 0221     		movs	r1, #2
+ 333 0112 1F48     		ldr	r0, .L28+4
+ 334 0114 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 335              	.LVL39:
+ 336 0118 0028     		cmp	r0, #0
+ 337 011a 2ED1     		bne	.L23
+ 338              	.LVL40:
+ 339              	.L24:
+ 149:Src/main.c    **** 
+ 340              		.loc 1 149 0
+ 341 011c 0520     		movs	r0, #5
+ 342 011e FFF7FEFF 		bl	HAL_Delay
+ 343              	.LVL41:
+ 152:Src/main.c    ****       uint8_t ch_buf[10];
+ 344              		.loc 1 152 0
+ 345 0122 244B     		ldr	r3, .L28+40
+ 346 0124 1A88     		ldrh	r2, [r3]
+ 347 0126 511C     		adds	r1, r2, #1
+ 348 0128 1980     		strh	r1, [r3]	@ movhi
+ 349 012a 234C     		ldr	r4, .L28+44
+ 350 012c 2349     		ldr	r1, .L28+48
+ 351 012e 2046     		mov	r0, r4
+ 352 0130 FFF7FEFF 		bl	sprintf
+ 353              	.LVL42:
+ 165:Src/main.c    ****     #endif
+ 354              		.loc 1 165 0
+ 355 0134 2046     		mov	r0, r4
+ 356 0136 FFF7FEFF 		bl	strlen
+ 357              	.LVL43:
+ 358 013a 0A23     		movs	r3, #10
+ 359 013c 82B2     		uxth	r2, r0
+ 360 013e 2146     		mov	r1, r4
+ 361 0140 1F48     		ldr	r0, .L28+52
+ 362 0142 FFF7FEFF 		bl	HAL_UART_Transmit
+ 363              	.LVL44:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 12
 
 
- 374 014e DDE7     		b	.L21
- 375              	.L23:
- 182:Src/main.c    ****      poweroff();
- 376              		.loc 1 182 0 discriminator 1
- 377 0150 0221     		movs	r1, #2
- 378 0152 0548     		ldr	r0, .L28+4
- 379 0154 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 380              	.LVL42:
- 381 0158 0028     		cmp	r0, #0
- 382 015a F9D1     		bne	.L23
- 183:Src/main.c    ****    }
- 383              		.loc 1 183 0
- 384 015c FFF7FEFF 		bl	poweroff
- 385              	.LVL43:
- 386              	.LBE5:
- 142:Src/main.c    ****     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms
- 387              		.loc 1 142 0
- 388 0160 D9E7     		b	.L24
- 389              	.L29:
- 390 0162 00BF     		.align	2
- 391              	.L28:
- 392 0164 00100240 		.word	1073876992
- 393 0168 00080140 		.word	1073809408
- 394 016c 00000000 		.word	hadc1
- 395 0170 00000000 		.word	hadc2
- 396 0174 00000000 		.word	buzzerFreq
- 397 0178 000C0140 		.word	1073810432
- 398 017c 00000000 		.word	pwmr
- 399 0180 00000000 		.word	pwml
- 400 0184 00000000 		.word	.LC0
- 401 0188 38000000 		.word	.LC1
- 402              		.cfi_endproc
- 403              	.LFE127:
- 405              		.section	.text.Error_Handler,"ax",%progbits
- 406              		.align	1
- 407              		.global	Error_Handler
- 408              		.syntax unified
- 409              		.thumb
- 410              		.thumb_func
- 411              		.fpu fpv4-sp-d16
- 413              	Error_Handler:
- 414              	.LFB129:
- 214:Src/main.c    **** 
- 215:Src/main.c    **** /**
- 216:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
- 217:Src/main.c    ****   * @param  None
- 218:Src/main.c    ****   * @retval None
- 219:Src/main.c    ****   */
- 220:Src/main.c    **** void Error_Handler(void)
- 221:Src/main.c    **** {
- 415              		.loc 1 221 0
- 416              		.cfi_startproc
- 417              		@ args = 0, pretend = 0, frame = 0
- 418              		@ frame_needed = 0, uses_anonymous_args = 0
- 419 0000 10B5     		push	{r4, lr}
- 420              	.LCFI5:
- 421              		.cfi_def_cfa_offset 8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 13
+ 171:Src/main.c    ****       if(pwml != 0) 
+ 364              		.loc 1 171 0
+ 365 0146 0021     		movs	r1, #0
+ 366 0148 04A8     		add	r0, sp, #16
+ 367 014a FFF7FEFF 		bl	HallInterruptReadPosn
+ 368              	.LVL45:
+ 172:Src/main.c    ****       {
+ 369              		.loc 1 172 0
+ 370 014e 164B     		ldr	r3, .L28+28
+ 371 0150 1B68     		ldr	r3, [r3]
+ 372 0152 002B     		cmp	r3, #0
+ 373 0154 CAD1     		bne	.L26
+ 374              	.L18:
+ 177:Src/main.c    ****       { 
+ 375              		.loc 1 177 0
+ 376 0156 134B     		ldr	r3, .L28+24
+ 377 0158 1B68     		ldr	r3, [r3]
+ 378 015a 002B     		cmp	r3, #0
+ 379 015c CFD1     		bne	.L27
+ 380              	.L19:
+ 381              	.LVL46:
+ 186:Src/main.c    ****           pwml = 0;
+ 382              		.loc 1 186 0
+ 383 015e 049B     		ldr	r3, [sp, #16]
+ 384 0160 0E2B     		cmp	r3, #14
+ 385 0162 02DD     		ble	.L20
+ 187:Src/main.c    ****         }
+ 386              		.loc 1 187 0
+ 387 0164 104B     		ldr	r3, .L28+28
+ 388 0166 0022     		movs	r2, #0
+ 389 0168 1A60     		str	r2, [r3]
+ 390              	.L20:
+ 189:Src/main.c    ****           pwmr = 0;
+ 391              		.loc 1 189 0
+ 392 016a 099B     		ldr	r3, [sp, #36]
+ 393 016c 13F10E0F 		cmn	r3, #14
+ 394 0170 CEDA     		bge	.L21
+ 190:Src/main.c    ****         }
+ 395              		.loc 1 190 0
+ 396 0172 0C4B     		ldr	r3, .L28+24
+ 397 0174 0022     		movs	r2, #0
+ 398 0176 1A60     		str	r2, [r3]
+ 399 0178 CAE7     		b	.L21
+ 400              	.L23:
+ 196:Src/main.c    ****      poweroff();
+ 401              		.loc 1 196 0 discriminator 1
+ 402 017a 0221     		movs	r1, #2
+ 403 017c 0448     		ldr	r0, .L28+4
+ 404 017e FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 405              	.LVL47:
+ 406 0182 0028     		cmp	r0, #0
+ 407 0184 F9D1     		bne	.L23
+ 197:Src/main.c    ****    }
+ 408              		.loc 1 197 0
+ 409 0186 FFF7FEFF 		bl	poweroff
+ 410              	.LVL48:
+ 411              	.LBE5:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 13
 
 
- 422              		.cfi_offset 4, -8
- 423              		.cfi_offset 14, -4
- 424              	.LVL44:
- 425              	.LBB6:
- 222:Src/main.c    ****   for (int i = 2; i >= 0; i--) {
- 426              		.loc 1 222 0
- 427 0002 0224     		movs	r4, #2
- 428 0004 09E0     		b	.L31
- 429              	.LVL45:
- 430              	.L32:
- 223:Src/main.c    ****     buzzerFreq = 4;
- 431              		.loc 1 223 0 discriminator 3
- 432 0006 084B     		ldr	r3, .L34
- 433 0008 0422     		movs	r2, #4
- 434 000a 1A70     		strb	r2, [r3]
- 224:Src/main.c    ****     buzzerPattern = 1;
- 435              		.loc 1 224 0 discriminator 3
- 436 000c 074B     		ldr	r3, .L34+4
- 437 000e 0122     		movs	r2, #1
- 438 0010 1A70     		strb	r2, [r3]
- 225:Src/main.c    ****     HAL_Delay(5);
- 439              		.loc 1 225 0 discriminator 3
- 440 0012 0520     		movs	r0, #5
- 441 0014 FFF7FEFF 		bl	HAL_Delay
- 442              	.LVL46:
- 222:Src/main.c    ****     buzzerFreq = 4;
- 443              		.loc 1 222 0 discriminator 3
- 444 0018 013C     		subs	r4, r4, #1
- 445              	.LVL47:
- 446              	.L31:
- 222:Src/main.c    ****     buzzerFreq = 4;
- 447              		.loc 1 222 0 is_stmt 0 discriminator 1
- 448 001a 002C     		cmp	r4, #0
- 449 001c F3DA     		bge	.L32
- 450              	.LBE6:
- 226:Src/main.c    ****   }
- 227:Src/main.c    ****   buzzerFreq = 0;
- 451              		.loc 1 227 0 is_stmt 1
- 452 001e 024B     		ldr	r3, .L34
- 453 0020 0022     		movs	r2, #0
- 454 0022 1A70     		strb	r2, [r3]
- 228:Src/main.c    **** }
- 455              		.loc 1 228 0
- 456 0024 10BD     		pop	{r4, pc}
- 457              	.LVL48:
- 458              	.L35:
- 459 0026 00BF     		.align	2
- 460              	.L34:
- 461 0028 00000000 		.word	buzzerFreq
- 462 002c 00000000 		.word	buzzerPattern
- 463              		.cfi_endproc
- 464              	.LFE129:
- 466              		.global	counter
- 467              		.comm	message,100,4
- 468              		.global	speed
- 469              		.section	.bss.counter,"aw",%nobits
- 470              		.align	1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 14
+ 148:Src/main.c    ****     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms
+ 412              		.loc 1 148 0
+ 413 018a C7E7     		b	.L24
+ 414              	.L29:
+ 415              		.align	2
+ 416              	.L28:
+ 417 018c 00100240 		.word	1073876992
+ 418 0190 00080140 		.word	1073809408
+ 419 0194 00000000 		.word	hadc1
+ 420 0198 00000000 		.word	hadc2
+ 421 019c 00000000 		.word	buzzerFreq
+ 422 01a0 000C0140 		.word	1073810432
+ 423 01a4 00000000 		.word	pwmr
+ 424 01a8 00000000 		.word	pwml
+ 425 01ac 0C000000 		.word	.LC1
+ 426 01b0 44000000 		.word	.LC2
+ 427 01b4 00000000 		.word	.LANCHOR1
+ 428 01b8 00000000 		.word	message
+ 429 01bc 00000000 		.word	.LC0
+ 430 01c0 00000000 		.word	huart2
+ 431              		.cfi_endproc
+ 432              	.LFE127:
+ 434              		.section	.text.Error_Handler,"ax",%progbits
+ 435              		.align	1
+ 436              		.global	Error_Handler
+ 437              		.syntax unified
+ 438              		.thumb
+ 439              		.thumb_func
+ 440              		.fpu fpv4-sp-d16
+ 442              	Error_Handler:
+ 443              	.LFB129:
+ 228:Src/main.c    **** 
+ 229:Src/main.c    **** /**
+ 230:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
+ 231:Src/main.c    ****   * @param  None
+ 232:Src/main.c    ****   * @retval None
+ 233:Src/main.c    ****   */
+ 234:Src/main.c    **** void Error_Handler(void)
+ 235:Src/main.c    **** {
+ 444              		.loc 1 235 0
+ 445              		.cfi_startproc
+ 446              		@ args = 0, pretend = 0, frame = 0
+ 447              		@ frame_needed = 0, uses_anonymous_args = 0
+ 448 0000 10B5     		push	{r4, lr}
+ 449              	.LCFI5:
+ 450              		.cfi_def_cfa_offset 8
+ 451              		.cfi_offset 4, -8
+ 452              		.cfi_offset 14, -4
+ 453              	.LVL49:
+ 454              	.LBB6:
+ 236:Src/main.c    ****   for (int i = 2; i >= 0; i--) {
+ 455              		.loc 1 236 0
+ 456 0002 0224     		movs	r4, #2
+ 457 0004 09E0     		b	.L31
+ 458              	.LVL50:
+ 459              	.L32:
+ 237:Src/main.c    ****     buzzerFreq = 4;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 14
 
 
- 473              	counter:
- 474 0000 0000     		.space	2
- 475              		.section	.bss.speed,"aw",%nobits
- 476              		.align	1
- 477              		.set	.LANCHOR0,. + 0
- 480              	speed:
- 481 0000 0000     		.space	2
- 482              		.section	.rodata.main.str1.4,"aMS",%progbits,1
- 483              		.align	2
- 484              	.LC0:
- 485 0000 6C656674 		.ascii	"left wheel rev %d, rpm %d, pos mm %d, speed mm/s %d"
- 485      20776865 
- 485      656C2072 
- 485      65762025 
- 485      642C2072 
- 486 0033 0A00     		.ascii	"\012\000"
- 487 0035 000000   		.space	3
- 488              	.LC1:
- 489 0038 72696768 		.ascii	"right wheel rev %d, rpm %d, pos mm %d, speed mm/s %"
- 489      74207768 
- 489      65656C20 
- 489      72657620 
- 489      25642C20 
- 490 006b 640A00   		.ascii	"d\012\000"
- 491              		.text
- 492              	.Letext0:
- 493              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 494              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 495              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
- 496              		.file 5 "Inc/system_at32f4xx.h"
- 497              		.file 6 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
- 498              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 499              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 500              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
- 501              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 502              		.file 11 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 503              		.file 12 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 504              		.file 13 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_adc.h"
- 505              		.file 14 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
- 506              		.file 15 "Inc/defines.h"
- 507              		.file 16 "Inc/control_structures.h"
- 508              		.file 17 "Inc/hallinterrupts.h"
- 509              		.file 18 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
- 510              		.file 19 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
- 511              		.file 20 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
- 512              		.file 21 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
- 513              		.file 22 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
- 514              		.file 23 "Inc/setup.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s 			page 15
+ 460              		.loc 1 237 0 discriminator 3
+ 461 0006 084B     		ldr	r3, .L34
+ 462 0008 0422     		movs	r2, #4
+ 463 000a 1A70     		strb	r2, [r3]
+ 238:Src/main.c    ****     buzzerPattern = 1;
+ 464              		.loc 1 238 0 discriminator 3
+ 465 000c 074B     		ldr	r3, .L34+4
+ 466 000e 0122     		movs	r2, #1
+ 467 0010 1A70     		strb	r2, [r3]
+ 239:Src/main.c    ****     HAL_Delay(5);
+ 468              		.loc 1 239 0 discriminator 3
+ 469 0012 0520     		movs	r0, #5
+ 470 0014 FFF7FEFF 		bl	HAL_Delay
+ 471              	.LVL51:
+ 236:Src/main.c    ****     buzzerFreq = 4;
+ 472              		.loc 1 236 0 discriminator 3
+ 473 0018 013C     		subs	r4, r4, #1
+ 474              	.LVL52:
+ 475              	.L31:
+ 236:Src/main.c    ****     buzzerFreq = 4;
+ 476              		.loc 1 236 0 is_stmt 0 discriminator 1
+ 477 001a 002C     		cmp	r4, #0
+ 478 001c F3DA     		bge	.L32
+ 479              	.LBE6:
+ 240:Src/main.c    ****   }
+ 241:Src/main.c    ****   buzzerFreq = 0;
+ 480              		.loc 1 241 0 is_stmt 1
+ 481 001e 024B     		ldr	r3, .L34
+ 482 0020 0022     		movs	r2, #0
+ 483 0022 1A70     		strb	r2, [r3]
+ 242:Src/main.c    **** }
+ 484              		.loc 1 242 0
+ 485 0024 10BD     		pop	{r4, pc}
+ 486              	.LVL53:
+ 487              	.L35:
+ 488 0026 00BF     		.align	2
+ 489              	.L34:
+ 490 0028 00000000 		.word	buzzerFreq
+ 491 002c 00000000 		.word	buzzerPattern
+ 492              		.cfi_endproc
+ 493              	.LFE129:
+ 495              		.global	counter
+ 496              		.comm	message,100,4
+ 497              		.global	speed
+ 498              		.section	.bss.counter,"aw",%nobits
+ 499              		.align	1
+ 500              		.set	.LANCHOR1,. + 0
+ 503              	counter:
+ 504 0000 0000     		.space	2
+ 505              		.section	.bss.speed,"aw",%nobits
+ 506              		.align	1
+ 507              		.set	.LANCHOR0,. + 0
+ 510              	speed:
+ 511 0000 0000     		.space	2
+ 512              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+ 513              		.align	2
+ 514              	.LC0:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 15
+
+
+ 515 0000 48656C6C 		.ascii	"Hello %d\012\000"
+ 515      6F202564 
+ 515      0A00
+ 516 000a 0000     		.space	2
+ 517              	.LC1:
+ 518 000c 6C656674 		.ascii	"left wheel rev %d, rpm %d, pos mm %d, speed mm/s %d"
+ 518      20776865 
+ 518      656C2072 
+ 518      65762025 
+ 518      642C2072 
+ 519 003f 0A00     		.ascii	"\012\000"
+ 520 0041 000000   		.space	3
+ 521              	.LC2:
+ 522 0044 72696768 		.ascii	"right wheel rev %d, rpm %d, pos mm %d, speed mm/s %"
+ 522      74207768 
+ 522      65656C20 
+ 522      72657620 
+ 522      25642C20 
+ 523 0077 640A00   		.ascii	"d\012\000"
+ 524              		.text
+ 525              	.Letext0:
+ 526              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 527              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 528              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 529              		.file 5 "Inc/system_at32f4xx.h"
+ 530              		.file 6 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 531              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 532              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 533              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 534              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 535              		.file 11 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 536              		.file 12 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 537              		.file 13 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_adc.h"
+ 538              		.file 14 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 539              		.file 15 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 540              		.file 16 "Inc/defines.h"
+ 541              		.file 17 "Inc/control_structures.h"
+ 542              		.file 18 "Inc/hallinterrupts.h"
+ 543              		.file 19 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 544              		.file 20 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
+ 545              		.file 21 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
+ 546              		.file 22 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
+ 547              		.file 23 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 548              		.file 24 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
+ 549              		.file 25 "Inc/setup.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:17     .text.poweroff:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:24     .text.poweroff:0000000000000000 poweroff
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:85     .text.poweroff:0000000000000030 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:93     .text.SystemClock_Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:100    .text.SystemClock_Config:0000000000000000 SystemClock_Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:134    .text.SystemClock_Config:0000000000000028 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:139    .text.main:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:146    .text.main:0000000000000000 main
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:392    .text.main:0000000000000164 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:406    .text.Error_Handler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:413    .text.Error_Handler:0000000000000000 Error_Handler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:461    .text.Error_Handler:0000000000000028 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:473    .bss.counter:0000000000000000 counter
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:17     .text.poweroff:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:24     .text.poweroff:0000000000000000 poweroff
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:85     .text.poweroff:0000000000000030 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:93     .text.SystemClock_Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:100    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:134    .text.SystemClock_Config:0000000000000028 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:139    .text.main:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:146    .text.main:0000000000000000 main
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:417    .text.main:000000000000018c $d
                             *COM*:0000000000000064 message
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:480    .bss.speed:0000000000000000 speed
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:470    .bss.counter:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:476    .bss.speed:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccO3ZZP2.s:483    .rodata.main.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:435    .text.Error_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:442    .text.Error_Handler:0000000000000000 Error_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:490    .text.Error_Handler:0000000000000028 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:503    .bss.counter:0000000000000000 counter
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:510    .bss.speed:0000000000000000 speed
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:499    .bss.counter:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:506    .bss.speed:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYqZBgN.s:513    .rodata.main.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_Delay
@@ -868,14 +925,19 @@ MX_GPIO_Init
 MX_TIM_Init
 MX_ADC1_Init
 MX_ADC2_Init
+UART_Control_Init
 UART_Debug_Init
 HallInterruptinit
 HAL_ADC_Start
 motor_init
 printf
 HAL_GPIO_ReadPin
+sprintf
+strlen
+HAL_UART_Transmit
 HallInterruptReadPosn
 hadc1
 hadc2
 pwmr
 pwml
+huart2

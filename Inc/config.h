@@ -170,28 +170,4 @@ else {\
   weakl = 0;\
   weakr = 0;
 
-// ############################### VALIDATE SETTINGS ###############################
-#if defined CONTROL_MOTOR_TEST && defined CONTROL_DETECT_HALL
-#error CONTROL_MOTOR_TEST and CONTROL_DETECT_HALL not allowed. One overrides the other.
-#endif
 
-
-#if defined CONTROL_SERIAL_USART2 && defined CONTROL_ADC
-  #error CONTROL_ADC and CONTROL_SERIAL_USART2 not allowed. it is on the same cable.
-#endif
-
-#if defined CONTROL_SERIAL_USART2 && defined CONTROL_PPM
-  #error CONTROL_PPM and CONTROL_SERIAL_USART2 not allowed. it is on the same cable.
-#endif
-
-#if defined DEBUG_SERIAL_USART3 && defined CONTROL_NUNCHUCK
-  #error CONTROL_NUNCHUCK and DEBUG_SERIAL_USART3 not allowed. it is on the same cable.
-#endif
-
-#if defined DEBUG_SERIAL_USART3 && defined DEBUG_I2C_LCD
-  #error DEBUG_I2C_LCD and DEBUG_SERIAL_USART3 not allowed. it is on the same cable.
-#endif
-
-#if defined CONTROL_PPM && defined CONTROL_ADC && defined CONTROL_NUNCHUCK || defined CONTROL_PPM && defined CONTROL_ADC || defined CONTROL_ADC && defined CONTROL_NUNCHUCK || defined CONTROL_PPM && defined CONTROL_NUNCHUCK
-  #error only 1 input method allowed. use CONTROL_PPM or CONTROL_ADC or CONTROL_NUNCHUCK.
-#endif

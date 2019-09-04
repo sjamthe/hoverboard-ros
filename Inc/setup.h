@@ -34,14 +34,6 @@ void UART_Init(void);
     void UART_Control_Init(void);
 #endif
 
-#ifdef CONTROL_PPM
-void PPM_Init();
-void PPM_ISR_Callback();
-void PPM_SysTick_Callback();
+#ifdef DEBUG_SERIAL_USART3
+    void UART_Debug_Init(void);
 #endif
-
-void Nunchuck_Init();
-void Nunchuck_Read();
-void consoleScope();
-void debugLog(char *message, int len);
-void setScopeChannel(uint8_t ch, int16_t val);

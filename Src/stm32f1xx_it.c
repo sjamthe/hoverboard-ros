@@ -14,12 +14,6 @@
 #include "setup.h"
 #include "hallinterrupts.h"
 
-#ifdef CONTROL_NUNCHUCK
-	extern DMA_HandleTypeDef hdma_i2c2_rx;
-	extern DMA_HandleTypeDef hdma_i2c2_tx;
-	extern I2C_HandleTypeDef hi2c2;
-#endif
-
 #ifdef CONTROL_SERIAL_USART2
 	extern DMA_HandleTypeDef hdma_usart2_rx;
 	extern DMA_HandleTypeDef hdma_usart2_tx;

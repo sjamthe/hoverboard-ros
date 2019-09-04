@@ -30,10 +30,12 @@ void SystemClock_Config(void);
 void Error_Handler(void);
 void motor_init(void);
 
-#ifdef CONTROL_SERIAL_USART2_DMA
+#ifdef CONTROL_SERIAL_USART2
   extern UART_HandleTypeDef huart2; 
+#ifdef CONTROL_SERIAL_USART2_DMA
 	extern DMA_HandleTypeDef hdma_usart2_rx;
 	extern DMA_HandleTypeDef hdma_usart2_tx;
+#endif
 #endif
 
 extern ADC_HandleTypeDef hadc1;
@@ -92,10 +94,14 @@ int main(void) {
   MX_ADC1_Init();
   MX_ADC2_Init();
 
-  #ifdef CONTROL_SERIAL_USART2_DMA
+  #ifdef CONTROL_SERIAL_USART2
     UART_Control_Init();
+  #endif
+
+  #ifdef CONTROL_SERIAL_USART2_DMA
     uint8_t ch_buf[10];
-    if(HAL_UART_Receive_DMA(&huart2, (uint8_t *)&ch_buf, 10)  != HAL_OK) {
+    if(HAL_UART_Receive_DMA(&huart2, (uint8_t *)&ch_buf, 10)  != HAL_OK) 
+    {
       Error_Handler();
     }
   #endif
@@ -142,16 +148,24 @@ int main(void) {
   while(1) {
     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms
 
-    #ifdef CONTROL_SERIAL_USART2_DMA
+    #ifdef CONTROL_SERIAL_USART2
       sprintf(message,"Hello %d\n",counter++);
+      uint8_t ch_buf[10];
+      // if(HAL_UART_Receive_IT(&huart2, (uint8_t *)&ch_buf, 10)  != HAL_OK) 
+      // {
+      //   Error_Handler();
+      // }
+     /* else
+      {
+         printf("Read on UART2 %s\n", (char *)ch_buf);
+      }*/
+    #ifdef CONTROL_SERIAL_USART2_DMA
       HAL_UART_Transmit_DMA(&huart2, (uint8_t *)message, strlen(message));
+    #else
+      HAL_UART_Transmit(&huart2, (uint8_t *)message, strlen(message), 10);
     #endif
-
+    #endif
     #ifdef DEBUG_SERIAL_USART3
-      //sprintf(message,"Hello %d\n",counter++);
-      //debugLog(message, strlen((char *)message));
-      //printf("Hello %d\n",counter++);
-
       //Test HallInterruptReadPosn
       HALL_POSN p;
       HallInterruptReadPosn(&p, 0);
