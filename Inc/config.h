@@ -59,7 +59,7 @@
 // ############################### INPUT ###############################
 
 // ###### STAND-ALONE MOTOR TEST ######
-#define CONTROL_MOTOR_TEST           //spin motors at low speed
+//#define CONTROL_MOTOR_TEST           //spin motors at low speed
 //#define CONTROL_DETECT_HALL          //step through hall configurations to find right settings
 
 

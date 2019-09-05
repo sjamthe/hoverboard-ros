@@ -32,6 +32,8 @@ void UART_Init(void);
 
 #ifdef CONTROL_SERIAL_USART2
     void UART_Control_Init(void);
+    #define RX_BUF_SIZE 512
+    int readUSART2(void);
 #endif
 
 #ifdef DEBUG_SERIAL_USART3

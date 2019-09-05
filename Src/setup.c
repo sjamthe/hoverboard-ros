@@ -38,6 +38,7 @@ pb10 usart3 dma1 channel2/3
 #include "defines.h"
 #include "config.h"
 #include <stdio.h>
+#include "setup.h"
 
 TIM_HandleTypeDef htim_right;
 TIM_HandleTypeDef htim_left;
@@ -501,12 +502,12 @@ PUTCHAR_PROTOTYPE
 void UART_Control_Init() {
   GPIO_InitTypeDef GPIO_InitStruct;
   __HAL_RCC_USART2_CLK_ENABLE();
-  /* DMA1_Channel6_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel6_IRQn, 5, 6);
-  HAL_NVIC_EnableIRQ(DMA1_Channel6_IRQn);
-  /* DMA1_Channel7_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel7_IRQn, 5, 7);
-  HAL_NVIC_EnableIRQ(DMA1_Channel7_IRQn);
+  // /* DMA1_Channel6_IRQn interrupt configuration */
+  // HAL_NVIC_SetPriority(DMA1_Channel6_IRQn, 5, 6);
+  // HAL_NVIC_EnableIRQ(DMA1_Channel6_IRQn);
+  // /* DMA1_Channel7_IRQn interrupt configuration */
+  // HAL_NVIC_SetPriority(DMA1_Channel7_IRQn, 5, 7);
+  // HAL_NVIC_EnableIRQ(DMA1_Channel7_IRQn);
 
   huart2.Instance = USART2;
   huart2.Init.BaudRate = CONTROL_BAUD;
@@ -519,7 +520,7 @@ void UART_Control_Init() {
   HAL_UART_Init(&huart2);
 
 
-  __HAL_RCC_DMA1_CLK_ENABLE();
+  // __HAL_RCC_DMA1_CLK_ENABLE();
   /* USER CODE BEGIN USART2_MspInit 0 */
    __HAL_RCC_GPIOA_CLK_ENABLE();
   /* USER CODE END USART2_MspInit 0 */
@@ -539,31 +540,87 @@ void UART_Control_Init() {
 
   /* Peripheral DMA init*/
 
-  hdma_usart2_rx.Instance = DMA1_Channel6;
-  hdma_usart2_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
-  hdma_usart2_rx.Init.PeriphInc = DMA_PINC_DISABLE;
-  hdma_usart2_rx.Init.MemInc = DMA_MINC_ENABLE;
-  hdma_usart2_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-  hdma_usart2_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-  hdma_usart2_rx.Init.Mode = DMA_CIRCULAR; //DMA_NORMAL;
-  hdma_usart2_rx.Init.Priority = DMA_PRIORITY_LOW;
-  HAL_DMA_Init(&hdma_usart2_rx);
+  // hdma_usart2_rx.Instance = DMA1_Channel6;
+  // hdma_usart2_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+  // hdma_usart2_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+  // hdma_usart2_rx.Init.MemInc = DMA_MINC_ENABLE;
+  // hdma_usart2_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+  // hdma_usart2_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+  // hdma_usart2_rx.Init.Mode = DMA_CIRCULAR; //DMA_NORMAL;
+  // hdma_usart2_rx.Init.Priority = DMA_PRIORITY_LOW;
+  // HAL_DMA_Init(&hdma_usart2_rx);
 
-  __HAL_LINKDMA(&huart2,hdmarx,hdma_usart2_rx);
+  // __HAL_LINKDMA(&huart2,hdmarx,hdma_usart2_rx);
 
-  hdma_usart2_tx.Instance = DMA1_Channel7;
-  hdma_usart2_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
-  hdma_usart2_tx.Init.PeriphInc = DMA_PINC_DISABLE;
-  hdma_usart2_tx.Init.MemInc = DMA_MINC_ENABLE;
-  hdma_usart2_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-  hdma_usart2_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-  hdma_usart2_tx.Init.Mode = DMA_NORMAL;
-  hdma_usart2_tx.Init.Priority = DMA_PRIORITY_LOW;
-  HAL_DMA_Init(&hdma_usart2_tx);
-  __HAL_LINKDMA(&huart2,hdmatx,hdma_usart2_tx);
+  // hdma_usart2_tx.Instance = DMA1_Channel7;
+  // hdma_usart2_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+  // hdma_usart2_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+  // hdma_usart2_tx.Init.MemInc = DMA_MINC_ENABLE;
+  // hdma_usart2_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+  // hdma_usart2_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+  // hdma_usart2_tx.Init.Mode = DMA_NORMAL;
+  // hdma_usart2_tx.Init.Priority = DMA_PRIORITY_LOW;
+  // HAL_DMA_Init(&hdma_usart2_tx);
+  // __HAL_LINKDMA(&huart2,hdmatx,hdma_usart2_tx);
 
   HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);                                        
   HAL_NVIC_EnableIRQ(USART2_IRQn); //Necessary for DMA
 }
 
+void USART2_IRQHandler(void)
+{
+  HAL_UART_IRQHandler(&huart2);
+}
+
+
+uint8_t g_RxBuf[RX_BUF_SIZE];		/* receive buffer */
+uint8_t byte;
+uint8_t g_RxRead = 0;
+uint8_t g_RxWritten = 0;
+
+/*
+* In callback move the byte read to RxBuffer.
+* If there is no space in buffer disable interrupt.
+* Interrupt is enabled back after buffer is read and clear.
+*/
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if(huart->Instance == huart2.Instance)
+  {
+    g_RxBuf[g_RxWritten++] = byte;
+    if(g_RxWritten == RX_BUF_SIZE)
+    {
+      __HAL_UART_DISABLE_IT(&huart2, UART_IT_TC);
+    } 
+    else
+    {
+      HAL_UART_Receive_IT(&huart2, &byte, 1);
+    }
+    
+  }
+}
+
+int readUSART2(void)
+{
+  int ucData = -1;
+  
+  if(g_RxRead < g_RxWritten)
+  {
+    ucData = g_RxBuf[g_RxRead++];
+  }
+  if(g_RxRead == RX_BUF_SIZE )
+  {
+    g_RxRead = 0;
+    g_RxWritten = 0;
+    //Enable the interrupt so we can read again.
+    __HAL_UART_ENABLE_IT(&huart2, UART_IT_TC);
+    HAL_UART_Receive_IT(&huart2, &byte, 1);
+  }
+  return ucData;
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle)
+{
+  __NOP;
+}
 #endif

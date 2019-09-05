@@ -1,0 +1,329 @@
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"time.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN3ros16normalizeSecNSecERmS0_,"ax",%progbits
+  17              		.align	1
+  18              		.global	_ZN3ros16normalizeSecNSecERmS0_
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	_ZN3ros16normalizeSecNSecERmS0_:
+  25              		.fnstart
+  26              	.LFB241:
+  27              		.file 1 "./ROSSerial/time.cpp"
+   1:./ROSSerial/time.cpp **** /*
+   2:./ROSSerial/time.cpp ****  * Software License Agreement (BSD License)
+   3:./ROSSerial/time.cpp ****  *
+   4:./ROSSerial/time.cpp ****  * Copyright (c) 2011, Willow Garage, Inc.
+   5:./ROSSerial/time.cpp ****  * All rights reserved.
+   6:./ROSSerial/time.cpp ****  *
+   7:./ROSSerial/time.cpp ****  * Redistribution and use in source and binary forms, with or without
+   8:./ROSSerial/time.cpp ****  * modification, are permitted provided that the following conditions
+   9:./ROSSerial/time.cpp ****  * are met:
+  10:./ROSSerial/time.cpp ****  *
+  11:./ROSSerial/time.cpp ****  *  * Redistributions of source code must retain the above copyright
+  12:./ROSSerial/time.cpp ****  *    notice, this list of conditions and the following disclaimer.
+  13:./ROSSerial/time.cpp ****  *  * Redistributions in binary form must reproduce the above
+  14:./ROSSerial/time.cpp ****  *    copyright notice, this list of conditions and the following
+  15:./ROSSerial/time.cpp ****  *    disclaimer in the documentation and/or other materials provided
+  16:./ROSSerial/time.cpp ****  *    with the distribution.
+  17:./ROSSerial/time.cpp ****  *  * Neither the name of Willow Garage, Inc. nor the names of its
+  18:./ROSSerial/time.cpp ****  *    contributors may be used to endorse or promote prducts derived
+  19:./ROSSerial/time.cpp ****  *    from this software without specific prior written permission.
+  20:./ROSSerial/time.cpp ****  *
+  21:./ROSSerial/time.cpp ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  22:./ROSSerial/time.cpp ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  23:./ROSSerial/time.cpp ****  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+  24:./ROSSerial/time.cpp ****  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+  25:./ROSSerial/time.cpp ****  * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  26:./ROSSerial/time.cpp ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  27:./ROSSerial/time.cpp ****  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  28:./ROSSerial/time.cpp ****  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  29:./ROSSerial/time.cpp ****  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  30:./ROSSerial/time.cpp ****  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+  31:./ROSSerial/time.cpp ****  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s 			page 2
+
+
+  32:./ROSSerial/time.cpp ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:./ROSSerial/time.cpp ****  */
+  34:./ROSSerial/time.cpp **** 
+  35:./ROSSerial/time.cpp **** #include "ros/time.h"
+  36:./ROSSerial/time.cpp **** 
+  37:./ROSSerial/time.cpp **** namespace ros
+  38:./ROSSerial/time.cpp **** {
+  39:./ROSSerial/time.cpp **** void normalizeSecNSec(uint32_t& sec, uint32_t& nsec)
+  40:./ROSSerial/time.cpp **** {
+  28              		.loc 1 40 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  34 0000 30B4     		push	{r4, r5}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 4, -8
+  38              		.cfi_offset 5, -4
+  41:./ROSSerial/time.cpp ****   uint32_t nsec_part = nsec % 1000000000UL;
+  39              		.loc 1 41 0
+  40 0002 0C68     		ldr	r4, [r1]
+  41 0004 630A     		lsrs	r3, r4, #9
+  42 0006 074A     		ldr	r2, .L3
+  43 0008 A2FB0323 		umull	r2, r3, r2, r3
+  44 000c DA09     		lsrs	r2, r3, #7
+  45 000e 064D     		ldr	r5, .L3+4
+  46 0010 05FB1242 		mls	r2, r5, r2, r4
+  47              	.LVL1:
+  42:./ROSSerial/time.cpp ****   uint32_t sec_part = nsec / 1000000000UL;
+  43:./ROSSerial/time.cpp ****   sec += sec_part;
+  48              		.loc 1 43 0
+  49 0014 0468     		ldr	r4, [r0]
+  50 0016 04EBD313 		add	r3, r4, r3, lsr #7
+  51              	.LVL2:
+  52 001a 0360     		str	r3, [r0]
+  53              	.LVL3:
+  44:./ROSSerial/time.cpp ****   nsec = nsec_part;
+  54              		.loc 1 44 0
+  55 001c 0A60     		str	r2, [r1]
+  45:./ROSSerial/time.cpp **** }
+  56              		.loc 1 45 0
+  57 001e 30BC     		pop	{r4, r5}
+  58              	.LCFI1:
+  59              		.cfi_restore 5
+  60              		.cfi_restore 4
+  61              		.cfi_def_cfa_offset 0
+  62 0020 7047     		bx	lr
+  63              	.L4:
+  64 0022 00BF     		.align	2
+  65              	.L3:
+  66 0024 834B0400 		.word	281475
+  67 0028 00CA9A3B 		.word	1000000000
+  68              		.cfi_endproc
+  69              	.LFE241:
+  70              		.cantunwind
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s 			page 3
+
+
+  71              		.fnend
+  73              		.section	.text._ZN3ros4Time8fromNSecEl,"ax",%progbits
+  74              		.align	1
+  75              		.global	_ZN3ros4Time8fromNSecEl
+  76              		.syntax unified
+  77              		.thumb
+  78              		.thumb_func
+  79              		.fpu fpv4-sp-d16
+  81              	_ZN3ros4Time8fromNSecEl:
+  82              		.fnstart
+  83              	.LFB242:
+  46:./ROSSerial/time.cpp **** 
+  47:./ROSSerial/time.cpp **** Time& Time::fromNSec(int32_t t)
+  48:./ROSSerial/time.cpp **** {
+  84              		.loc 1 48 0
+  85              		.cfi_startproc
+  86              		@ args = 0, pretend = 0, frame = 0
+  87              		@ frame_needed = 0, uses_anonymous_args = 0
+  88              	.LVL4:
+  89 0000 10B5     		push	{r4, lr}
+  90              	.LCFI2:
+  91              		.cfi_def_cfa_offset 8
+  92              		.cfi_offset 4, -8
+  93              		.cfi_offset 14, -4
+  94 0002 0446     		mov	r4, r0
+  49:./ROSSerial/time.cpp ****   sec = t / 1000000000;
+  95              		.loc 1 49 0
+  96 0004 084A     		ldr	r2, .L7
+  97 0006 82FB0132 		smull	r3, r2, r2, r1
+  98 000a CB17     		asrs	r3, r1, #31
+  99 000c C3EB2273 		rsb	r3, r3, r2, asr #28
+ 100 0010 0360     		str	r3, [r0]
+  50:./ROSSerial/time.cpp ****   nsec = t % 1000000000;
+ 101              		.loc 1 50 0
+ 102 0012 064A     		ldr	r2, .L7+4
+ 103 0014 02FB1312 		mls	r2, r2, r3, r1
+ 104 0018 0146     		mov	r1, r0
+ 105              	.LVL5:
+ 106 001a 41F8042F 		str	r2, [r1, #4]!
+  51:./ROSSerial/time.cpp ****   normalizeSecNSec(sec, nsec);
+ 107              		.loc 1 51 0
+ 108 001e FFF7FEFF 		bl	_ZN3ros16normalizeSecNSecERmS0_
+ 109              	.LVL6:
+  52:./ROSSerial/time.cpp ****   return *this;
+  53:./ROSSerial/time.cpp **** }
+ 110              		.loc 1 53 0
+ 111 0022 2046     		mov	r0, r4
+ 112 0024 10BD     		pop	{r4, pc}
+ 113              	.LVL7:
+ 114              	.L8:
+ 115 0026 00BF     		.align	2
+ 116              	.L7:
+ 117 0028 A12FB844 		.word	1152921505
+ 118 002c 00CA9A3B 		.word	1000000000
+ 119              		.cfi_endproc
+ 120              	.LFE242:
+ 121              		.cantunwind
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s 			page 4
+
+
+ 122              		.fnend
+ 124              		.section	.text._ZN3ros4TimepLERKNS_8DurationE,"ax",%progbits
+ 125              		.align	1
+ 126              		.global	_ZN3ros4TimepLERKNS_8DurationE
+ 127              		.syntax unified
+ 128              		.thumb
+ 129              		.thumb_func
+ 130              		.fpu fpv4-sp-d16
+ 132              	_ZN3ros4TimepLERKNS_8DurationE:
+ 133              		.fnstart
+ 134              	.LFB243:
+  54:./ROSSerial/time.cpp **** 
+  55:./ROSSerial/time.cpp **** Time& Time::operator +=(const Duration &rhs)
+  56:./ROSSerial/time.cpp **** {
+ 135              		.loc 1 56 0
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139              	.LVL8:
+ 140 0000 10B5     		push	{r4, lr}
+ 141              	.LCFI3:
+ 142              		.cfi_def_cfa_offset 8
+ 143              		.cfi_offset 4, -8
+ 144              		.cfi_offset 14, -4
+ 145 0002 0446     		mov	r4, r0
+  57:./ROSSerial/time.cpp ****   sec += rhs.sec;
+ 146              		.loc 1 57 0
+ 147 0004 0A68     		ldr	r2, [r1]
+ 148 0006 0368     		ldr	r3, [r0]
+ 149 0008 1344     		add	r3, r3, r2
+ 150 000a 0360     		str	r3, [r0]
+  58:./ROSSerial/time.cpp ****   nsec += rhs.nsec;
+ 151              		.loc 1 58 0
+ 152 000c 4A68     		ldr	r2, [r1, #4]
+ 153 000e 4368     		ldr	r3, [r0, #4]
+ 154 0010 1344     		add	r3, r3, r2
+ 155 0012 0146     		mov	r1, r0
+ 156              	.LVL9:
+ 157 0014 41F8043F 		str	r3, [r1, #4]!
+  59:./ROSSerial/time.cpp ****   normalizeSecNSec(sec, nsec);
+ 158              		.loc 1 59 0
+ 159 0018 FFF7FEFF 		bl	_ZN3ros16normalizeSecNSecERmS0_
+ 160              	.LVL10:
+  60:./ROSSerial/time.cpp ****   return *this;
+  61:./ROSSerial/time.cpp **** }
+ 161              		.loc 1 61 0
+ 162 001c 2046     		mov	r0, r4
+ 163 001e 10BD     		pop	{r4, pc}
+ 164              		.cfi_endproc
+ 165              	.LFE243:
+ 166              		.cantunwind
+ 167              		.fnend
+ 169              		.section	.text._ZN3ros4TimemIERKNS_8DurationE,"ax",%progbits
+ 170              		.align	1
+ 171              		.global	_ZN3ros4TimemIERKNS_8DurationE
+ 172              		.syntax unified
+ 173              		.thumb
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s 			page 5
+
+
+ 174              		.thumb_func
+ 175              		.fpu fpv4-sp-d16
+ 177              	_ZN3ros4TimemIERKNS_8DurationE:
+ 178              		.fnstart
+ 179              	.LFB244:
+  62:./ROSSerial/time.cpp **** 
+  63:./ROSSerial/time.cpp **** Time& Time::operator -=(const Duration &rhs)
+  64:./ROSSerial/time.cpp **** {
+ 180              		.loc 1 64 0
+ 181              		.cfi_startproc
+ 182              		@ args = 0, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184              	.LVL11:
+ 185 0000 10B5     		push	{r4, lr}
+ 186              	.LCFI4:
+ 187              		.cfi_def_cfa_offset 8
+ 188              		.cfi_offset 4, -8
+ 189              		.cfi_offset 14, -4
+ 190 0002 0446     		mov	r4, r0
+  65:./ROSSerial/time.cpp ****   sec += -rhs.sec;
+ 191              		.loc 1 65 0
+ 192 0004 0A68     		ldr	r2, [r1]
+ 193 0006 0368     		ldr	r3, [r0]
+ 194 0008 9B1A     		subs	r3, r3, r2
+ 195 000a 0360     		str	r3, [r0]
+  66:./ROSSerial/time.cpp ****   nsec += -rhs.nsec;
+ 196              		.loc 1 66 0
+ 197 000c 4A68     		ldr	r2, [r1, #4]
+ 198 000e 4368     		ldr	r3, [r0, #4]
+ 199 0010 9B1A     		subs	r3, r3, r2
+ 200 0012 0146     		mov	r1, r0
+ 201              	.LVL12:
+ 202 0014 41F8043F 		str	r3, [r1, #4]!
+  67:./ROSSerial/time.cpp ****   normalizeSecNSec(sec, nsec);
+ 203              		.loc 1 67 0
+ 204 0018 FFF7FEFF 		bl	_ZN3ros16normalizeSecNSecERmS0_
+ 205              	.LVL13:
+  68:./ROSSerial/time.cpp ****   return *this;
+  69:./ROSSerial/time.cpp **** }
+ 206              		.loc 1 69 0
+ 207 001c 2046     		mov	r0, r4
+ 208 001e 10BD     		pop	{r4, pc}
+ 209              		.cfi_endproc
+ 210              	.LFE244:
+ 211              		.cantunwind
+ 212              		.fnend
+ 214              		.text
+ 215              	.Letext0:
+ 216              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cmath"
+ 217              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/arm-none-eab
+ 218              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 219              		.file 5 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 220              		.file 6 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 221              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 222              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 223              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/math.h"
+ 224              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s 			page 6
+
+
+ 225              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/math.h"
+ 226              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 227              		.file 13 "<built-in>"
+ 228              		.file 14 "ROSSerial/ros/duration.h"
+ 229              		.file 15 "./ROSSerial/ros/time.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 time.cpp
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s:17     .text._ZN3ros16normalizeSecNSecERmS0_:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s:24     .text._ZN3ros16normalizeSecNSecERmS0_:0000000000000000 _ZN3ros16normalizeSecNSecERmS0_
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s:66     .text._ZN3ros16normalizeSecNSecERmS0_:0000000000000024 $d
+.ARM.exidx.text._ZN3ros16normalizeSecNSecERmS0_:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s:74     .text._ZN3ros4Time8fromNSecEl:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s:81     .text._ZN3ros4Time8fromNSecEl:0000000000000000 _ZN3ros4Time8fromNSecEl
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s:117    .text._ZN3ros4Time8fromNSecEl:0000000000000028 $d
+.ARM.exidx.text._ZN3ros4Time8fromNSecEl:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s:125    .text._ZN3ros4TimepLERKNS_8DurationE:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s:132    .text._ZN3ros4TimepLERKNS_8DurationE:0000000000000000 _ZN3ros4TimepLERKNS_8DurationE
+.ARM.exidx.text._ZN3ros4TimepLERKNS_8DurationE:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s:170    .text._ZN3ros4TimemIERKNS_8DurationE:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cccbdzgJ.s:177    .text._ZN3ros4TimemIERKNS_8DurationE:0000000000000000 _ZN3ros4TimemIERKNS_8DurationE
+.ARM.exidx.text._ZN3ros4TimemIERKNS_8DurationE:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

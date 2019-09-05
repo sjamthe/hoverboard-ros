@@ -30,12 +30,12 @@ void SystemClock_Config(void);
 void Error_Handler(void);
 void motor_init(void);
 
-#define CONTROL_SERIAL_USART2_DMA
+//#define CONTROL_SERIAL_USART2_DMA
 
 #ifdef CONTROL_SERIAL_USART2
   extern UART_HandleTypeDef huart2; 
-#ifdef CONTROL_SERIAL_USART2_DMA
   uint8_t ch_buf[10];
+#ifdef CONTROL_SERIAL_USART2_DMA
 	extern DMA_HandleTypeDef hdma_usart2_rx;
 	extern DMA_HandleTypeDef hdma_usart2_tx;
 #endif
@@ -121,6 +121,7 @@ int main(void) {
   HAL_ADC_Start(&hadc2);
 
   motor_init();
+  ros_init();
 
   // ###### STARTUP CHIME #############
   for (int i = 8; i >= 0; i--) {
@@ -148,15 +149,15 @@ int main(void) {
 
   while(1) {
     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms
+    ros_run();
 
-    #ifdef CONTROL_SERIAL_USART2
-      sprintf(message,"Hello %d\n",counter++);
-    #ifdef CONTROL_SERIAL_USART2_DMA
-      HAL_UART_Transmit_DMA(&huart2, (uint8_t *)message, strlen(message));
-    #else
-      HAL_UART_Transmit(&huart2, (uint8_t *)message, strlen(message), 10);
-    #endif
-    #endif
+    // Test USART2
+    // int ch = readUSART2();
+    // if(ch != -1)
+    // {
+    //   putchar(ch);
+    // }
+
     #ifdef DEBUG_SERIAL_USART3
       //Test HallInterruptReadPosn
       HALL_POSN p;
@@ -171,6 +172,8 @@ int main(void) {
         printf("right wheel rev %d, rpm %d, pos mm %d, speed mm/s %d\n",
           p.wheel[RIGHT].HallPosn,p.wheel[1].HallSpeed, p.wheel[1].HallPosn_mm, p.wheel[1].HallSpeed_mm_per_s);
       }
+
+
       //test if we can stop at 60% angle
       #ifdef CONTROL_MOTOR_TEST
         int langle = 60*HALL_POSN_PER_REV/360;
@@ -202,14 +205,6 @@ void USART2_IRQHandler(void)
   HAL_UART_IRQHandler(&huart2);
 }
 #endif
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-  if(huart == &huart2)
-  {
-    printf("Read on UART2 %s\n", (char *)ch_buf);
-  }
-}
 
 /** System Clock Configuration
 */

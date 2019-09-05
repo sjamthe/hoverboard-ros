@@ -45,7 +45,12 @@ Src/BLDC_controller.c \
 Src/hallinterrupts.c \
 Src/motorcontrol.c
 
-
+# CPP sources
+CPP_SOURCES = \
+./ROSSerial/duration.cpp \
+./ROSSerial/time.cpp \
+./Src/ROS_main.cpp \
+./Src/ROS_subscribe.cpp 
 
 # ASM sources
 ASM_SOURCES =  \
@@ -56,6 +61,7 @@ startup_at32f403xe.s
 #######################################
 PREFIX = arm-none-eabi-
 CC = $(PREFIX)gcc
+CXX = $(PREFIX)g++
 AS = $(PREFIX)gcc -x assembler-with-cpp
 CP = $(PREFIX)objcopy
 AR = $(PREFIX)ar
@@ -97,21 +103,28 @@ C_INCLUDES =  \
 -IDrivers/Modified_HAL_Driver/Inc \
 -IDrivers/CMSIS/CM4/DeviceSupport \
 -IDrivers/CMSIS/CM4/CoreSupport \
-
-#-IDrivers/stm32f1xx_StdPeriph_Driver/Inc \
+-IROSSerial \
+-IROSSerial/ros \
+-IROSSerial/rosserial_msgs \
+-IROSSerial/std_msgs 
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
 CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections -std=gnu11
 
+CXXFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(CXX_INCLUDES) $(OPT) -Wall  -fno-rtti
+CXXFLAGS += -fdata-sections -ffunction-sections -fpermissive
+
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2
+CXXFLAGS += -g2 -gdwarf-2 
 endif
 
 
 # Generate dependency information
 CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"
+CXXFLAGS += -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"
 
 
 #######################################
@@ -123,7 +136,7 @@ LDSCRIPT = AT32F403RCTx_FLASH.ld
 # libraries
 LIBS = -lc -lm -lnosys
 LIBDIR =
-LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -specs=nosys.specs
 
 # default action: build all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
@@ -135,9 +148,15 @@ all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET
 # list of objects
 OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))
 vpath %.c $(sort $(dir $(C_SOURCES)))
+# list of CPP objects
+OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(CPP_SOURCES:.cpp=.o)))
+vpath %.cpp $(sort $(dir $(CPP_SOURCES)))
 # list of ASM program objects
 OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(ASM_SOURCES:.s=.o)))
 vpath %.s $(sort $(dir $(ASM_SOURCES)))
+
+$(BUILD_DIR)/%.o: %.cpp Makefile | $(BUILD_DIR) 
+	$(CXX) -c $(CXXFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.cpp=.lst)) $< -o $@
 
 $(BUILD_DIR)/%.o: %.c Inc/config.h Makefile | $(BUILD_DIR)
 	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@ -include Inc/stm32f1xx_conf.h
@@ -170,15 +189,11 @@ load:
 	openocd -f interface/stlink-v2.cfg -f target/stm32f3x.cfg -c init -c "reset halt" -c "stm32f1x unlock 0" \
 	 -c "flash write_image erase $(BUILD_DIR)/$(TARGET).hex 0 ihex" -c "shutdown"
 
-stable:
-	openocd -f interface/stlink-v2.cfg -f target/stm32f3x.cfg -c init -c "reset halt" -c "stm32f1x unlock 0" \
-	 -c "flash write_image erase hover_v1.hex 0 ihex" -c "shutdown"
-
-flash-jlink:
-	 JLinkExe -if swd -device Cortex-M4 -speed 4000 -SettingsFile .\JLinkSettings.ini -CommanderScript jlink-command.jlink
+connect:
+	openocd -f interface/stlink-v2.cfg -f target/stm32f3x.cfg -c init 
 
 unlock:
-	openocd -f interface/stlink-v2.cfg -f target/stm32f1x.cfg -c init -c "reset halt" -c "stm32f1x unlock 0"
+	openocd -f interface/stlink.cfg -f target/stm32f3x.cfg -c init -c "reset halt" -c "stm32f1x unlock 0"
 
 #######################################
 # dependencies
