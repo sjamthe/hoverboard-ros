@@ -379,7 +379,7 @@ public:
           {
             if (subscribers2[topic_ - 100].topic_id != 0) {
               s_CallBack = (void (*)(char*))subscribers2[topic_ - 100].callback;
-              printf("Calling callback with %id\n",subscribers2[topic_ - 100].topic_id);
+              //printf("Calling callback with %id\n",subscribers2[topic_ - 100].topic_id);
               s_CallBack(message_in);
             }
           }
@@ -611,7 +611,7 @@ public:
       chk += message_out[i];
     l += 7;
     message_out[l++] = 255 - (chk % 256);
-    printf("Sending message - %s, length %d\n",msg->getType(), l);
+    //printf("Sending message - %s, length %d\n",msg->getType(), l);
     if (l <= OUTPUT_SIZE)
     {
       hardware_.write(message_out, l);

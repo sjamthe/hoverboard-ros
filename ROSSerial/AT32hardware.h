@@ -116,21 +116,24 @@ public:
 	 */
 	void write(uint8_t* data, uint32_t length)
 	{
-		//comSendBuf(COM2,data,length);
-		printf("printing %d\n",length);
+		// printf("printing %d\n",length);
+		/* Without Interrupt we can still publish chatter at 111.6Hz or 9ms per message */
 		HAL_StatusTypeDef ret = HAL_UART_Transmit(&huart2, (uint8_t *)data, length, 10);
 		if(ret == HAL_TIMEOUT)
 		{
 			printf("timeout %d - %s\n",length, data);
 		}
-		else
-		{
-			printf("done %d - %s\n",length, data);
-		}
 		
+		// /* Try Interrupt - Has delayed byte problem. */
 		// if(HAL_UART_Transmit_IT(&huart2, (uint8_t *)data, length)!= HAL_OK)
   		// {
-		// 	HAL_Delay(10);  
+		// 	HAL_Delay(10); 
+		// 	printf("delayed bytes %d\n",length); 
+		// }
+
+		// else
+		// {
+		// 	printf("sent %d bytes over Interrupt\n",length);
 		// }
 		
 	}

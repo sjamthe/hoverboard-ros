@@ -44,6 +44,6 @@ void ros_run()
     str_msg.data = buf;
     //printf("%s\n",buf);
     
-    //nh.publish1(chatter->topic_id, &str_msg); 
+    nh.publish1(chatter->topic_id, &str_msg); 
 
 }

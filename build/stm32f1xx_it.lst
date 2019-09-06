@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 2
 
 
   31              		@ link register save eliminated.
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
   50:Src/stm32f1xx_it.c **** {
   68              		.loc 1 50 0
   69              		.cfi_startproc
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 3
 
 
   70              		@ Volatile: function does not return.
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
   69:Src/stm32f1xx_it.c **** 
   70:Src/stm32f1xx_it.c **** /**
   71:Src/stm32f1xx_it.c ****   * @brief  This function handles Usage Fault exception.
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 4
 
 
   72:Src/stm32f1xx_it.c ****   * @param  None
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
  149              	DebugMon_Handler:
  150              	.LFB132:
   91:Src/stm32f1xx_it.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 5
 
 
   92:Src/stm32f1xx_it.c **** /**
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
  110:Src/stm32f1xx_it.c **** /**
  111:Src/stm32f1xx_it.c ****   * @brief  This function handles SysTick Handler.
  112:Src/stm32f1xx_it.c ****   * @param  None
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 6
 
 
  113:Src/stm32f1xx_it.c ****   * @retval None
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
  139:Src/stm32f1xx_it.c **** #ifdef CONTROL_NUNCHUCK
  140:Src/stm32f1xx_it.c **** extern I2C_HandleTypeDef hi2c2;
  141:Src/stm32f1xx_it.c **** void I2C1_EV_IRQHandler(void)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 7
 
 
  142:Src/stm32f1xx_it.c **** {
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
  225 0000 08B5     		push	{r3, lr}
  226              	.LCFI1:
  227              		.cfi_def_cfa_offset 8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 8
 
 
  228              		.cfi_offset 3, -8
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
  263 0038 5161     		str	r1, [r2, #20]
  211:Src/stm32f1xx_it.c ****     triggered |= GPIO_PIN_7;
  264              		.loc 1 211 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 9
 
 
  265 003a 0B43     		orrs	r3, r3, r1
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
  232:Src/stm32f1xx_it.c **** // shared interrupt for these pins, depending on where the sfotware serial pin is
  233:Src/stm32f1xx_it.c **** #ifdef SOFTWARE_SERIAL
  234:Src/stm32f1xx_it.c ****   if (triggered & SOFTWARE_SERIAL_RX_PIN){
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 10
 
 
  235:Src/stm32f1xx_it.c ****       softwareserialRXInterrupt();
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
  340              		.loc 1 248 0
  341 000c 4FF40043 		mov	r3, #32768
  342 0010 1D4A     		ldr	r2, .L36
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 11
 
 
  343 0012 5361     		str	r3, [r2, #20]
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
  377              		.loc 1 268 0
  378 0046 104A     		ldr	r2, .L36
  379 0048 4FF48051 		mov	r1, #4096
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 12
 
 
  380 004c 5161     		str	r1, [r2, #20]
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
  287:Src/stm32f1xx_it.c **** #endif
  288:Src/stm32f1xx_it.c **** 
  289:Src/stm32f1xx_it.c **** } 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 13
 
 
  416              		.loc 1 289 0
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
  459              	.L40:
  460 000c 00000000 		.word	hdma_usart2_rx
  461              		.cfi_endproc
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 14
 
 
  462              	.LFE137:
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
  505              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
  506              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
  507              		.file 11 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_def.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 15
 
 
  508              		.file 12 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
@@ -847,41 +847,41 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 1
  511              		.file 15 "Inc/hallinterrupts.h"
  512              		.file 16 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
  513              		.file 17 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_it.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:17     .text.NMI_Handler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:24     .text.NMI_Handler:0000000000000000 NMI_Handler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:38     .text.HardFault_Handler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:45     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:59     .text.MemManage_Handler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:66     .text.MemManage_Handler:0000000000000000 MemManage_Handler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:80     .text.BusFault_Handler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:87     .text.BusFault_Handler:0000000000000000 BusFault_Handler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:101    .text.UsageFault_Handler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:108    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:122    .text.SVC_Handler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:129    .text.SVC_Handler:0000000000000000 SVC_Handler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:142    .text.DebugMon_Handler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:149    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:162    .text.PendSV_Handler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:169    .text.PendSV_Handler:0000000000000000 PendSV_Handler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:182    .text.SysTick_Handler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:189    .text.SysTick_Handler:0000000000000000 SysTick_Handler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:212    .text.EXTI9_5_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:219    .text.EXTI9_5_IRQHandler:0000000000000000 EXTI9_5_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:311    .text.EXTI9_5_IRQHandler:0000000000000070 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:316    .text.EXTI15_10_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:323    .text.EXTI15_10_IRQHandler:0000000000000000 EXTI15_10_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:428    .text.EXTI15_10_IRQHandler:0000000000000088 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:433    .text.DMA1_Channel6_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:440    .text.DMA1_Channel6_IRQHandler:0000000000000000 DMA1_Channel6_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:460    .text.DMA1_Channel6_IRQHandler:000000000000000c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:465    .text.DMA1_Channel7_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:472    .text.DMA1_Channel7_IRQHandler:0000000000000000 DMA1_Channel7_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccYK9bS1.s:492    .text.DMA1_Channel7_IRQHandler:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:17     .text.NMI_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:24     .text.NMI_Handler:0000000000000000 NMI_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:38     .text.HardFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:45     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:59     .text.MemManage_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:66     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:80     .text.BusFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:87     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:101    .text.UsageFault_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:108    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:122    .text.SVC_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:129    .text.SVC_Handler:0000000000000000 SVC_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:142    .text.DebugMon_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:149    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:162    .text.PendSV_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:169    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:182    .text.SysTick_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:189    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:212    .text.EXTI9_5_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:219    .text.EXTI9_5_IRQHandler:0000000000000000 EXTI9_5_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:311    .text.EXTI9_5_IRQHandler:0000000000000070 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:316    .text.EXTI15_10_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:323    .text.EXTI15_10_IRQHandler:0000000000000000 EXTI15_10_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:428    .text.EXTI15_10_IRQHandler:0000000000000088 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:433    .text.DMA1_Channel6_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:440    .text.DMA1_Channel6_IRQHandler:0000000000000000 DMA1_Channel6_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:460    .text.DMA1_Channel6_IRQHandler:000000000000000c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:465    .text.DMA1_Channel7_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:472    .text.DMA1_Channel7_IRQHandler:0000000000000000 DMA1_Channel7_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5akKHM.s:492    .text.DMA1_Channel7_IRQHandler:000000000000000c $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick

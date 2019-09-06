@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
   30:Src/main.c    **** void Error_Handler(void);
   31:Src/main.c    **** void motor_init(void);
   32:Src/main.c    **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 2
 
 
   33:Src/main.c    **** //#define CONTROL_SERIAL_USART2_DMA
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
   51              	.L4:
   62:Src/main.c    ****             buzzerFreq = i;
   52              		.loc 1 62 0 discriminator 3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 3
 
 
   53 0012 094B     		ldr	r3, .L9+8
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
   68:Src/main.c    **** }
   69:Src/main.c    **** 
   70:Src/main.c    **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 4
 
 
   71:Src/main.c    **** int main(void) {
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
  125:Src/main.c    **** 
  126:Src/main.c    ****   // ###### STARTUP CHIME #############
  127:Src/main.c    ****   for (int i = 8; i >= 0; i--) {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 5
 
 
  128:Src/main.c    ****     buzzerFreq = i;
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
  182:Src/main.c    ****           pwml = 0;
  183:Src/main.c    ****         }
  184:Src/main.c    ****         if(p.wheel[RIGHT].HallPosn <=rangle) {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 6
 
 
  185:Src/main.c    ****           pwmr = 0;
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
  121 0014 FFF7FEFF 		bl	HAL_SYSTICK_CLKSourceConfig
  122              	.LVL8:
  220:Src/main.c    ****   /* SysTick_IRQn interrupt configuration */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 7
 
 
  221:Src/main.c    ****   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
   75:Src/main.c    ****   /* System interrupt init*/
  174              		.loc 1 75 0
  175 001c 0320     		movs	r0, #3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 8
 
 
  176 001e FFF7FEFF 		bl	HAL_NVIC_SetPriorityGrouping
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
  222              	.LVL19:
   93:Src/main.c    **** 
  223              		.loc 1 93 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 9
 
 
  224 007a 6369     		ldr	r3, [r4, #20]
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
  266 00b8 FFF7FEFF 		bl	ros_init
  267              	.LVL31:
  268              	.LBB4:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 10
 
 
  127:Src/main.c    ****     buzzerFreq = i;
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
  165:Src/main.c    ****       {
  313              		.loc 1 165 0
  314 00f2 194B     		ldr	r3, .L26+24
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 11
 
 
  315 00f4 1B68     		ldr	r3, [r3]
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
  362 0136 0999     		ldr	r1, [sp, #36]
  363 0138 0A48     		ldr	r0, .L26+36
  364 013a FFF7FEFF 		bl	printf
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 12
 
 
  365              	.LVL43:
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
  411 0006 084B     		ldr	r3, .L32
  412 0008 0422     		movs	r2, #4
  413 000a 1A70     		strb	r2, [r3]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 13
 
 
  233:Src/main.c    ****     buzzerPattern = 1;
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
  465      20776865 
  465      656C2072 
  465      65762025 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 14
 
 
  465      642C2072 
@@ -816,30 +816,30 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 1
  493              		.file 22 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
  494              		.file 23 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
  495              		.file 24 "Inc/setup.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:17     .text.poweroff:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:24     .text.poweroff:0000000000000000 poweroff
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:85     .text.poweroff:0000000000000030 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:93     .text.SystemClock_Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:100    .text.SystemClock_Config:0000000000000000 SystemClock_Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:134    .text.SystemClock_Config:0000000000000028 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:139    .text.main:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:146    .text.main:0000000000000000 main
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:370    .text.main:0000000000000140 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:385    .text.Error_Handler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:392    .text.Error_Handler:0000000000000000 Error_Handler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:440    .text.Error_Handler:0000000000000028 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:453    .bss.counter:0000000000000000 counter
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:17     .text.poweroff:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:24     .text.poweroff:0000000000000000 poweroff
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:85     .text.poweroff:0000000000000030 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:93     .text.SystemClock_Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:100    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:134    .text.SystemClock_Config:0000000000000028 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:139    .text.main:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:146    .text.main:0000000000000000 main
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:370    .text.main:0000000000000140 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:385    .text.Error_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:392    .text.Error_Handler:0000000000000000 Error_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:440    .text.Error_Handler:0000000000000028 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:453    .bss.counter:0000000000000000 counter
                             *COM*:0000000000000064 message
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:460    .bss.speed:0000000000000000 speed
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:460    .bss.speed:0000000000000000 speed
                             *COM*:000000000000000a ch_buf
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:450    .bss.counter:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:456    .bss.speed:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cclPQmhj.s:463    .rodata.main.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:450    .bss.counter:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:456    .bss.speed:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc2ZKwtX.s:463    .rodata.main.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_Delay
