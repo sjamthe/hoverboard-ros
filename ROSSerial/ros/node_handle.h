@@ -466,7 +466,7 @@ public:
         return &publishers2[i];
       }
     }
-    return ;
+    return nullptr;
   }
 
   /* Register a new publisher */
@@ -589,7 +589,7 @@ public:
 
   int publish1(int id, Msg * msg)
   {
-    //printf("in nh.publsh %d\n",id);
+    //printf("in nh.publsh %d %x\n",id, msg);
     if (id >= 100 && !configured_)
       return 0;
     //printf("in nh.publsh %s\n",msg->getType());

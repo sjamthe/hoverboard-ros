@@ -29,6 +29,7 @@ void MX_TIM_Init(void);
 void MX_ADC1_Init(void);
 void MX_ADC2_Init(void);
 void UART_Init(void);
+void Hall_Sensor_Init(void);
 
 #ifdef CONTROL_SERIAL_USART2
     void UART_Control_Init(void);

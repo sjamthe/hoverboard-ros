@@ -66,8 +66,6 @@ static uint32_t buzzerTimer = 0;
 
 // uint8_t enable          = 0;
 
-volatile unsigned  bldc_count_per_hall_counter[2] = {0,0};
-
 // static int offsetcount = 0;
 // static int offsetrl1   = 2000;
 // static int offsetrl2   = 2000;

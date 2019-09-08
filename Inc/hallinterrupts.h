@@ -72,7 +72,7 @@ extern TIME_STATS timeStats;
 // change to change speed output value
 #define HALL_SPEED_CALIBRATION 256000.0
 // 10khz timer
-#define HALL_INTERRUPT_TIMER_FREQ 100000
+#define HALL_INTERRUPT_TIMER_FREQ 100000 //try 1Hz to see if speed is more stable.
 
 #define HALL_POSN_PER_REV 90
 #define DEFAULT_WHEEL_SIZE_INCHES 6.5
@@ -116,11 +116,12 @@ typedef struct tag_HALL_POSN {
         int HallPosn_mm; // posn in m
         int HallSpeed_mm_per_s; // speed in m/s
         unsigned long HallSkipped;
+        unsigned long HallTimeDiff;
     } wheel[2];
 } HALL_POSN;
 #pragma pack(pop)
 
-void HallInterruptReadPosn( HALL_POSN *p, int Reset );
+// void HallInterruptReadPosn( HALL_POSN*, int ); //Defined in ROS_main.cpp
 
 #pragma pack(push, 1)  // struct is a mix of many different types with varying size
 typedef struct tag_HALL_PARAMS{

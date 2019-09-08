@@ -65,13 +65,12 @@ void MX_GPIO_Init(void) {
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
 
-  GPIO_InitStruct.Mode  = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull  = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 
-  #ifdef HALL_INTERRUPTS
+  //#ifdef HALL_INTERRUPTS
     GPIO_InitStruct.Mode  = GPIO_MODE_IT_RISING_FALLING;
-  #endif
+  //#endif
   
   GPIO_InitStruct.Pin = LEFT_HALL_U_PIN;
   HAL_GPIO_Init(LEFT_HALL_U_PORT, &GPIO_InitStruct);
@@ -90,6 +89,8 @@ void MX_GPIO_Init(void) {
 
   GPIO_InitStruct.Pin = RIGHT_HALL_W_PIN;
   HAL_GPIO_Init(RIGHT_HALL_W_PORT, &GPIO_InitStruct);
+
+  GPIO_InitStruct.Mode  = GPIO_MODE_INPUT;
 
   GPIO_InitStruct.Pin = CHARGER_PIN;
   HAL_GPIO_Init(CHARGER_PORT, &GPIO_InitStruct);
@@ -176,6 +177,15 @@ void MX_GPIO_Init(void) {
 
   GPIO_InitStruct.Pin = RIGHT_TIM_WL_PIN;
   HAL_GPIO_Init(RIGHT_TIM_WL_PORT, &GPIO_InitStruct);
+
+}
+
+void Hall_Sensor_Init(void) {
+    // enable IRQs for type hall effect sensor GPIOs.
+    HAL_NVIC_SetPriority(EXTI9_5_IRQn, 3, 0);
+    HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+    HAL_NVIC_SetPriority(EXTI15_10_IRQn, 3, 0);
+    HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 }
 
 void MX_TIM_Init(void) {
@@ -621,6 +631,6 @@ int readUSART2(void)
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle)
 {
-  __NOP;
+  //__NOP;
 }
 #endif

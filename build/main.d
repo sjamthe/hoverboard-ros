@@ -23,7 +23,7 @@ build/main.d: Src/main.c Inc/stm32f1xx_conf.h \
  Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_uart.h Inc/defines.h \
- Inc/setup.h Inc/config.h Inc/hallinterrupts.h Inc/control_structures.h
+ Inc/setup.h Inc/config.h
 
 Inc/stm32f1xx_conf.h:
 
@@ -84,7 +84,3 @@ Inc/defines.h:
 Inc/setup.h:
 
 Inc/config.h:
-
-Inc/hallinterrupts.h:
-
-Inc/control_structures.h:

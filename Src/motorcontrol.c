@@ -28,7 +28,13 @@ const uint8_t hall_idx_right = HALL_IDX_RIGHT-1;
 volatile int pwml = 0;
 volatile int pwmr = 0;
 
-static const uint16_t pwm_res       = 64000000 / 2 / PWM_FREQ; // = 2000
+uint8_t left_hall, prev_left_hall = 0;
+uint8_t right_hall, prev_right_hall = 0;
+const uint8_t pin_order = {1,5,4,6,2,3};
+
+//static const uint16_t pwm_res       = 64000000 / 2 / PWM_FREQ; // = 2000
+//Should 64000000 or actually be the SysFreq?
+uint16_t pwm_res       = 72000000 / 2 / PWM_FREQ; // = 2000
 
 const uint16_t hall_cfg_left[6][3]  =
 {
@@ -85,6 +91,21 @@ void motor_run()
     uint8_t hall_vl = !(LEFT_HALL_V_PORT->IDR & hall_cfg_left[hall_idx_left][1]);
     uint8_t hall_wl = !(LEFT_HALL_W_PORT->IDR & hall_cfg_left[hall_idx_left][2]);
 
+    // ----- start tick measurement ---- //
+    left_hall = (~(LEFT_HALL_U_PORT->IDR & (LEFT_HALL_U_PIN | LEFT_HALL_V_PIN | LEFT_HALL_W_PIN))/LEFT_HALL_U_PIN) & 7;
+    right_hall = (~(RIGHT_HALL_U_PORT->IDR & (RIGHT_HALL_U_PIN | RIGHT_HALL_V_PIN | RIGHT_HALL_W_PIN))/RIGHT_HALL_U_PIN) & 7;
+
+    if(left_hall != prev_left_hall) 
+    {
+      printf("left:%d:right:%d\n",left_hall,right_hall);
+      prev_left_hall = left_hall;
+    }
+    if(right_hall != prev_right_hall) 
+    {
+      printf("left:%d:right:%d\n",left_hall,right_hall);
+      prev_right_hall = right_hall;
+    }
+    // ----- end tick measurement ---- //
     /* Set motor inputs here */
     rtU_Left.b_hallA   = hall_ul;
     rtU_Left.b_hallB   = hall_vl;

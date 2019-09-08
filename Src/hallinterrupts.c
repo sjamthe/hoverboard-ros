@@ -46,7 +46,7 @@
 //
 // if you wish to reset the values in the structure completely, use:
 // void HallInterruptReset();
-// if you wish to read distance and spped, and optionally reset distance to zero,
+// if you wish to read distance and speed, and optionally reset distance to zero,
 // then use:
 // void HallInterruptReadPosn( HALL_POSN *p, int Reset );
 //
@@ -59,7 +59,6 @@
 //////////////////////////////////////////////////////////////
 // this is the Hall data we gather, and can be read directly elsewhere
 // it CAN be read with interrupts disabled using
-// void HallInterruptReadPosn( HALL_POSN *p, int Reset )
 volatile HALL_DATA_STRUCT HallData[2];
 
 volatile uint8_t hall_ul;
@@ -69,9 +68,6 @@ volatile uint8_t hall_wl;
 volatile uint8_t hall_ur;
 volatile uint8_t hall_vr;
 volatile uint8_t hall_wr;
-
-volatile unsigned  bldc_count_per_hall[2] = {0, 0};
-extern volatile unsigned  bldc_count_per_hall_counter[2];
 
 //////////////////////////////////////////////////////////////
 // local data
@@ -111,7 +107,8 @@ void HallInterruptinit(void){
     // setup TIM4:
     __HAL_RCC_TIM4_CLK_ENABLE();
     h_timer_hall.Instance = TIM4;
-    h_timer_hall.Init.Prescaler         = 64000000 / 2 / HALL_INTERRUPT_TIMER_FREQ;
+    //h_timer_hall.Init.Prescaler         = 64000000 / 2 / HALL_INTERRUPT_TIMER_FREQ;
+    h_timer_hall.Init.Prescaler         = 72000000 / 2 / HALL_INTERRUPT_TIMER_FREQ;
     h_timer_hall.Init.CounterMode       = TIM_COUNTERMODE_UP;
     h_timer_hall.Init.Period            = 0xFFFF; // we just want the timer to wrap
     h_timer_hall.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;
@@ -155,7 +152,7 @@ void HallInterruptSetWheelDiameterMM(float mm){
 void HallInterruptReset(){
     __disable_irq(); // but we want both values at the same time, without interferance
     HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
-    //HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
+    HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
     __enable_irq();
     memset((void *)&HallData, 0, sizeof(HallData));
     memset((void *)&local_hall_params, 0, sizeof(local_hall_params));
@@ -184,7 +181,7 @@ void HallInterruptReset(){
 void HallInterruptReadPosn( HALL_POSN *p, int Reset ){
     __disable_irq(); // but we want both values at the same time, without interferance
     HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
-    //HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
+    HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
     __enable_irq();
     for (int i = 0; i < 2; i++){
         p->wheel[i].HallPosn = HallData[i].HallPosn;
@@ -192,6 +189,7 @@ void HallInterruptReadPosn( HALL_POSN *p, int Reset ){
         p->wheel[i].HallSpeed = HallData[i].HallSpeed;
         p->wheel[i].HallSpeed_mm_per_s = HallData[i].HallSpeed_mm_per_s;
         p->wheel[i].HallSkipped = HallData[i].HallSkipped;
+        p->wheel[i].HallTimeDiff = HallData[i].HallTimeDiff;
 
         if (Reset){
             HallData[i].HallPosn = 0;
@@ -250,14 +248,21 @@ void HallInterruptsInterrupt(void){
     unsigned short Right = RIGHT_HALL_U_PORT->IDR;
 
     // Get hall sensors values
-    hall_ul = !(Left & LEFT_HALL_U_PIN);
-    hall_vl = !(Left & LEFT_HALL_V_PIN);
-    hall_wl = !(Left & LEFT_HALL_W_PIN);
+    // hall_ul = !(Left & LEFT_HALL_U_PIN);
+    // hall_vl = !(Left & LEFT_HALL_V_PIN);
+    // hall_wl = !(Left & LEFT_HALL_W_PIN);
 
-    hall_ur = !(Right & RIGHT_HALL_U_PIN);
-    hall_vr = !(Right & RIGHT_HALL_V_PIN);
-    hall_wr = !(Right & RIGHT_HALL_W_PIN);
+    // hall_ur = !(Right & RIGHT_HALL_U_PIN);
+    // hall_vr = !(Right & RIGHT_HALL_V_PIN);
+    // hall_wr = !(Right & RIGHT_HALL_W_PIN);
     __enable_irq();
+
+    // if (local_hall_params[0].last_hall > 0 &&
+    //     local_hall_params[0].last_hall != local_hall_params[0].hall){
+    //         uint32_t tick = HAL_GetTick();
+    //     printf("time:%lu:%lu, left:%d\n",
+    //         time,tick,local_hall_params[0].hall);
+    // }
 
     for (int i = 0; i < 2; i++){
         // if this wheel change hall input
@@ -265,11 +270,10 @@ void HallInterruptsInterrupt(void){
             if (local_hall_params[i].last_hall == 0){
                 // valid startup condition
             } else {
-                bldc_count_per_hall[i] = bldc_count_per_hall_counter[i];
-                bldc_count_per_hall_counter[i] = 0;
 
                 local_hall_params[i].zerospeedtimeout = 5; // number of timer wraps to after which to assume speed zero
                 local_hall_params[i].hall_time = (timerwraps_copy << 16) | time;
+                //local_hall_params[i].hall_time = HallGetuS();
                 long long dt = local_hall_params[i].hall_time - local_hall_params[i].last_hall_time;
 
                 // note correction of direction for left wheel
@@ -295,8 +299,9 @@ void HallInterruptsInterrupt(void){
                         (float)HALL_INTERRUPT_TIMER_FREQ);
                 } else {
                     // we missed a transition?
-                    HallData[i].HallSkipped ++;
+                    HallData[i].HallSkipped++;
                 }
+                // printf("i:%d, time:%lu, posn:%ld\n",i,time,HallData[i].HallPosn);
             }
 
             // remember for next round

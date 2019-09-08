@@ -31,7 +31,9 @@ build/ROS_main.d: Src/ROS_main.cpp ROSSerial/ros.h \
  ROSSerial/ros/publisher.h ROSSerial/ros/node_handle.h \
  ROSSerial/ros/subscriber.h ROSSerial/ros/service_server.h \
  ROSSerial/ros/service_client.h ROSSerial/std_msgs/UInt16.h \
- Inc/ROS_subscribe.h
+ Inc/ROS_subscribe.h ROSSerial/sensor_msgs/JointState.h \
+ ROSSerial/std_msgs/Header.h Inc/hallinterrupts.h \
+ Inc/control_structures.h
 
 ROSSerial/ros.h:
 
@@ -124,3 +126,11 @@ ROSSerial/ros/service_client.h:
 ROSSerial/std_msgs/UInt16.h:
 
 Inc/ROS_subscribe.h:
+
+ROSSerial/sensor_msgs/JointState.h:
+
+ROSSerial/std_msgs/Header.h:
+
+Inc/hallinterrupts.h:
+
+Inc/control_structures.h:

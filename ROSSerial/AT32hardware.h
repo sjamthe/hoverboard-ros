@@ -64,7 +64,7 @@ public:
 	{
 		if(HAL_UART_Receive_IT(&huart2, &byte, 1) != 0)
 		{
-			return -1;
+			return ;
 		}
 	}
 
@@ -121,7 +121,7 @@ public:
 		HAL_StatusTypeDef ret = HAL_UART_Transmit(&huart2, (uint8_t *)data, length, 10);
 		if(ret == HAL_TIMEOUT)
 		{
-			printf("timeout %d - %s\n",length, data);
+			//printf("timeout %d - %s\n",length, data);
 		}
 		
 		// /* Try Interrupt - Has delayed byte problem. */

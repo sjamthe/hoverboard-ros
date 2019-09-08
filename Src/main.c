@@ -24,11 +24,13 @@
 #include "setup.h"
 #include "config.h"
 #include <string.h>
-#include "hallinterrupts.h"
 
 void SystemClock_Config(void);
 void Error_Handler(void);
 void motor_init(void);
+
+void ros_init(void);
+void ros_run(void);
 
 //#define CONTROL_SERIAL_USART2_DMA
 
@@ -41,15 +43,16 @@ void motor_init(void);
 #endif
 #endif
 
+#ifdef CONTROL_MOTOR_TEST
+  extern volatile int pwml;  // global variable for pwm left. -1000 to 1000
+  extern volatile int pwmr;  // global variable for pwm right. -1000 to 1000
+#endif
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 extern volatile adc_buf_t adc_buffer;
 
 extern uint8_t buzzerFreq;    // global variable for the buzzer pitch. can be 1, 2, 3, 4, 5, 6, 7...
 extern uint8_t buzzerPattern; // global variable for the buzzer pattern. can be 1, 2, 3, 4, 5, 6, 7...
-
-extern volatile int pwml;  // global variable for pwm left. -1000 to 1000
-extern volatile int pwmr;  // global variable for pwm right. -1000 to 1000
 
 uint16_t speed = 0;
 char message[100];
@@ -113,8 +116,9 @@ int main(void) {
 
   HAL_GPIO_WritePin(OFF_PORT, OFF_PIN, 1);
 
+ Hall_Sensor_Init();
  #ifdef HALL_INTERRUPTS
-    HallInterruptinit();
+  //HallInterruptinit();
  #endif
 
   HAL_ADC_Start(&hadc1);
@@ -125,7 +129,7 @@ int main(void) {
 
   // ###### STARTUP CHIME #############
   for (int i = 8; i >= 0; i--) {
-    buzzerFreq = i;
+    //buzzerFreq = i;
     HAL_Delay(100);
   }
   buzzerFreq = 0;
@@ -151,41 +155,6 @@ int main(void) {
     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms
     ros_run();
 
-    // Test USART2
-    // int ch = readUSART2();
-    // if(ch != -1)
-    // {
-    //   putchar(ch);
-    // }
-
-    #ifdef DEBUG_SERIAL_USART3
-      //Test HallInterruptReadPosn
-      HALL_POSN p;
-      HallInterruptReadPosn(&p, 0);
-      if(pwml != 0) 
-      {
-        printf("left wheel rev %d, rpm %d, pos mm %d, speed mm/s %d\n",
-          p.wheel[LEFT].HallPosn,p.wheel[0].HallSpeed, p.wheel[0].HallPosn_mm, p.wheel[0].HallSpeed_mm_per_s);
-      }
-      if(pwmr != 0)
-      { 
-        printf("right wheel rev %d, rpm %d, pos mm %d, speed mm/s %d\n",
-          p.wheel[RIGHT].HallPosn,p.wheel[1].HallSpeed, p.wheel[1].HallPosn_mm, p.wheel[1].HallSpeed_mm_per_s);
-      }
-
-
-      //test if we can stop at 60% angle
-      #ifdef CONTROL_MOTOR_TEST
-        int langle = 60*HALL_POSN_PER_REV/360;
-        int rangle = -60*HALL_POSN_PER_REV/360;
-        if(p.wheel[LEFT].HallPosn >= langle) {
-          pwml = 0;
-        }
-        if(p.wheel[RIGHT].HallPosn <=rangle) {
-          pwmr = 0;
-        }
-      #endif //CONTROL_MOTOR_TEST
-    #endif //DEBUG_SERIAL_USART3
    // ####### POWEROFF BY POWER-BUTTON #######
    if (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {
      while (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {}
