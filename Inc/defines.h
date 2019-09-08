@@ -24,6 +24,9 @@
 
 #define BOARD_V4
 
+#define LEFT 0
+#define RIGHT 1
+
 #define LEFT_HALL_U_PIN GPIO_PIN_5
 #define LEFT_HALL_V_PIN GPIO_PIN_6
 #define LEFT_HALL_W_PIN GPIO_PIN_7
@@ -161,3 +164,18 @@ typedef struct {
   uint16_t l_rx2;
 } adc_buf_t;
 
+#pragma pack(push, 4)  // long and float are 4 byte each
+typedef struct tag_WHEEL_POSN_STRUCT {
+  uint8_t reset_counter; //If set to True all counters are reset.
+  int direction; //-1 if motor rotation is inverted else 1.
+  int hall; //Reading of all hall pins
+  int prev_hall; 
+  float rpm;
+  long ticks; // 90 per revolution
+  long ticks_at_prev_rotation; // 90 per revolution
+  unsigned long millis_at_tick; //time at last tick
+  unsigned long millis_at_prev_tick; //time at previous to last tick
+  unsigned long millis_at_prev_rotation; //time 90 ticks ago, used to measure rpm accuratately
+} WHEEL_POSN_STRUCT;
+
+#pragma pack(pop)

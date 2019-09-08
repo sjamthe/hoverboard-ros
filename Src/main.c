@@ -118,7 +118,7 @@ int main(void) {
 
  Hall_Sensor_Init();
  #ifdef HALL_INTERRUPTS
-  //HallInterruptinit();
+  HallInterruptinit();
  #endif
 
   HAL_ADC_Start(&hadc1);
@@ -129,7 +129,7 @@ int main(void) {
 
   // ###### STARTUP CHIME #############
   for (int i = 8; i >= 0; i--) {
-    //buzzerFreq = i;
+    buzzerFreq = i;
     HAL_Delay(100);
   }
   buzzerFreq = 0;
@@ -150,6 +150,9 @@ int main(void) {
 	#endif
 
 #endif
+//invert direction
+pwml = -1*pwml;
+//pwmr = -1*pwmr;
 
   while(1) {
     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms

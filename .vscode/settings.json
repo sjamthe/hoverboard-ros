@@ -3,7 +3,8 @@
         "stm32f1xx_hal.h": "c",
         "hallinterrupts.h": "c",
         "config.h": "c",
-        "setup.h": "c"
+        "setup.h": "c",
+        "defines.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

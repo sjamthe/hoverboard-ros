@@ -28,13 +28,15 @@ const uint8_t hall_idx_right = HALL_IDX_RIGHT-1;
 volatile int pwml = 0;
 volatile int pwmr = 0;
 
-uint8_t left_hall, prev_left_hall = 0;
-uint8_t right_hall, prev_right_hall = 0;
-const uint8_t pin_order = {1,5,4,6,2,3};
+//uint8_t left_hall, prev_left_hall = 0;
+//uint8_t right_hall, prev_right_hall = 0;
+volatile WHEEL_POSN_STRUCT wheel_posn[2];
+
+int hall_pin_order[7];
 
 //static const uint16_t pwm_res       = 64000000 / 2 / PWM_FREQ; // = 2000
 //Should 64000000 or actually be the SysFreq?
-uint16_t pwm_res       = 72000000 / 2 / PWM_FREQ; // = 2000
+uint16_t pwm_res ; 
 
 const uint16_t hall_cfg_left[6][3]  =
 {
@@ -56,9 +58,76 @@ const uint16_t hall_cfg_right[6][3] =
 	{RIGHT_HALL_W_PIN,RIGHT_HALL_V_PIN,RIGHT_HALL_U_PIN}
 };
 
+void motor_counter_reset(uint8_t motor)
+{
+  wheel_posn[motor].reset_counter = 0;
+  wheel_posn[motor].prev_hall = 0;
+  wheel_posn[motor].ticks = 0; // 90 per revolution
+  wheel_posn[motor].millis_at_tick = 0; //time at last tick
+  wheel_posn[motor].millis_at_prev_tick = 0; //time at previous to last tick
+  wheel_posn[motor].millis_at_prev_rotation = 0;
+}
+
+void motor_counter_increment(uint8_t motor)
+{
+  wheel_posn[motor].millis_at_prev_tick = wheel_posn[motor].millis_at_tick;
+  wheel_posn[motor].millis_at_tick = HAL_GetTick();
+  //Find out the direction of motion and #o ticks moved since prev reading
+  int posn = hall_pin_order[wheel_posn[motor].hall];
+  int prev_posn = hall_pin_order[wheel_posn[motor].prev_hall];
+  //Initialize first tick
+  if(prev_posn < 0)
+  {
+    wheel_posn[motor].ticks = 0;
+  }
+  else //after 1st tick we come here.
+  {
+    //We assume we won't skip more than 1 tick so we can device direction based on ticks
+    if(posn-prev_posn > 0 && posn-prev_posn <= 2)
+    {
+      wheel_posn[motor].ticks += posn-prev_posn; //because we may move more than 1 tick.
+    }
+    else if(posn-prev_posn < -2)
+    {
+      wheel_posn[motor].ticks += 6 + posn-prev_posn;
+    }
+    else if(posn-prev_posn < 0 && posn-prev_posn >= -2)
+    {
+      wheel_posn[motor].ticks += posn-prev_posn;  // shoulb be reverse direction
+    }
+    else //posn-prev_posn +ve >= 3
+    {
+      wheel_posn[motor].ticks += posn-prev_posn - 6;
+    }
+    //See if we finished a rotation (if we have more than 1 ticks then it is tricky see || condition)
+    if(abs(wheel_posn[motor].ticks -  wheel_posn[motor].ticks_at_prev_rotation) >= 90)
+    {
+      wheel_posn[motor].rpm = 1000.0*90.0/
+        (abs(wheel_posn[motor].ticks - wheel_posn[motor].ticks_at_prev_rotation )*
+        (wheel_posn[motor].millis_at_tick - wheel_posn[motor].millis_at_prev_rotation));
+      if(wheel_posn[motor].ticks < 0)
+      {
+        wheel_posn[motor].rpm *= -1; //reverse direction
+      }
+      wheel_posn[motor].ticks_at_prev_rotation = wheel_posn[motor].ticks;
+      wheel_posn[motor].millis_at_prev_rotation = wheel_posn[motor].millis_at_tick;
+    }
+  }
+  wheel_posn[motor].prev_hall = wheel_posn[motor].hall;
+
+  //DEBUG code only
+  //#ifdef DEBUG
+  int rpm = 1000*wheel_posn[motor].rpm;
+  printf("%d:%d:rpm=%d:%ld:%lu:%d\n",motor,wheel_posn[motor].hall,rpm,
+          wheel_posn[motor].ticks,wheel_posn[motor].millis_at_tick,
+          wheel_posn[motor].ticks_at_prev_rotation);
+  //#endif
+}
+
 void motor_init()
 {
-      /* Set BLDC controller parameters */  
+  pwm_res = SystemCoreClock / 2 / PWM_FREQ; // = 2250
+  /* Set BLDC controller parameters */  
   rtP.z_ctrlTypSel        = CTRL_TYP_SEL;
   rtP.b_phaAdvEna         = PHASE_ADV_ENA;  
   
@@ -77,6 +146,31 @@ void motor_init()
   /* Initialize BLDC controllers */
   BLDC_controller_initialize(rtM_Left);
   BLDC_controller_initialize(rtM_Right);
+
+  /* Initialize hall_sensor_positions {1,5,4,6,2,3} to find ticks */
+   hall_pin_order[1]=0;
+   hall_pin_order[5]=1;
+   hall_pin_order[4]=2;
+   hall_pin_order[6]=3;
+   hall_pin_order[2]=4;
+   hall_pin_order[3]=5;
+   hall_pin_order[0]=-1; //0 should never come and indicated uninitialized state
+
+   motor_counter_reset(LEFT);
+   wheel_posn[LEFT].hall = 0;
+   motor_counter_reset(RIGHT);
+   wheel_posn[RIGHT].hall = 0;
+   #ifdef INVERT_L_DIRECTION
+    wheel_posn[LEFT].direction = 1;
+    #else
+    wheel_posn[LEFT].direction = -1;
+   #endif
+   #ifdef INVERT_R_DIRECTION
+    wheel_posn[RIGHT].direction = 1;
+    #else
+    wheel_posn[RIGHT].direction = -1;
+    #endif
+
 }
 
 void motor_run()
@@ -92,18 +186,18 @@ void motor_run()
     uint8_t hall_wl = !(LEFT_HALL_W_PORT->IDR & hall_cfg_left[hall_idx_left][2]);
 
     // ----- start tick measurement ---- //
-    left_hall = (~(LEFT_HALL_U_PORT->IDR & (LEFT_HALL_U_PIN | LEFT_HALL_V_PIN | LEFT_HALL_W_PIN))/LEFT_HALL_U_PIN) & 7;
-    right_hall = (~(RIGHT_HALL_U_PORT->IDR & (RIGHT_HALL_U_PIN | RIGHT_HALL_V_PIN | RIGHT_HALL_W_PIN))/RIGHT_HALL_U_PIN) & 7;
+    wheel_posn[LEFT].hall = (~(LEFT_HALL_U_PORT->IDR & (LEFT_HALL_U_PIN | LEFT_HALL_V_PIN | LEFT_HALL_W_PIN))/LEFT_HALL_U_PIN) & 7;
+    wheel_posn[RIGHT].hall = (~(RIGHT_HALL_U_PORT->IDR & (RIGHT_HALL_U_PIN | RIGHT_HALL_V_PIN | RIGHT_HALL_W_PIN))/RIGHT_HALL_U_PIN) & 7;
 
-    if(left_hall != prev_left_hall) 
+    for (int i=0;i<2; i++)
     {
-      printf("left:%d:right:%d\n",left_hall,right_hall);
-      prev_left_hall = left_hall;
-    }
-    if(right_hall != prev_right_hall) 
-    {
-      printf("left:%d:right:%d\n",left_hall,right_hall);
-      prev_right_hall = right_hall;
+      if(wheel_posn[i].reset_counter) {
+        motor_counter_reset(i);
+      }
+      if(wheel_posn[i].hall != wheel_posn[i].prev_hall) 
+      {
+        motor_counter_increment(i);
+      }
     }
     // ----- end tick measurement ---- //
     /* Set motor inputs here */

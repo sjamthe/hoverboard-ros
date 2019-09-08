@@ -180,6 +180,10 @@ void MX_GPIO_Init(void) {
 
 }
 
+/* 
+* For some reason if we call the following routine early like in MX_GPIO_Init
+* we get Hard_Fault in other places.
+*/
 void Hall_Sensor_Init(void) {
     // enable IRQs for type hall effect sensor GPIOs.
     HAL_NVIC_SetPriority(EXTI9_5_IRQn, 3, 0);
