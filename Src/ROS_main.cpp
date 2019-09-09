@@ -4,20 +4,21 @@
 
 #include "ros.h"
 #include "ROS_subscribe.h"
+#include "std_msgs/ROSString.h"
 #include "sensor_msgs/JointState.h"
 #include "hallinterrupts.h"
+#include "defines.h"
 
 
 extern volatile int pwml;  // global variable for pwm left. -1000 to 1000
 extern volatile int pwmr;  // global variable for pwm right. -1000 to 1000
-
+extern volatile WHEEL_POSN_STRUCT wheel_posn[2];
 
 extern "C" 
 {
     void ros_init(void);
     void ros_run(void);
-    void get_position(sensor_msgs::JointState *wheelPositions);
-    //void HallInterruptReadPosn( HALL_POSN*, int );
+    void publish_hovebot_state(void);
 }
 
 using namespace ros;
@@ -25,28 +26,32 @@ using namespace ros;
 ros::NodeHandle nh; /* ROS node handle */
 
 ros::PublisherType *hovebotState;
+ros::PublisherType *chatter;
+
 
 void ros_init()
 {
     nh.initNode();
 
-    /* Register Publisher  */
-    //sensor_msgs::JointState varwheels;
-    //wheelPositions = &varwheels;
-    //Init wheelPositions
-
+    /* Register Publisher hovebot_state  */
     sensor_msgs::JointState tmpVar;
     hovebotState = nh.addPublisher("hovebot_state",  &tmpVar);
+
+    /* Register Publisher chatter  */
+    std_msgs::String tmpStr;
+    chatter = nh.addPublisher("chatter",  &tmpStr);
 
     /* Register Subscriber led */
     rosSubscribeInit(&nh);
 }
 
-void ros_run()
+void publish_hovebot_state(void)
 {
     sensor_msgs::JointState wheelPositions; //This has to be local variable. for some reason.
-    char *names[2] = {"left","right"};
-    float position[2], velocity[2], effort[2];
+    char *names[2] = {"LEFT","RIGHT"};
+    float position[2] = {wheel_posn[0].ticks,wheel_posn[1].ticks};
+    float velocity[2] = {wheel_posn[0].rpm, wheel_posn[1].rpm};
+    float effort[2] = {pwml, pwmr};
 
     wheelPositions.name = (char **) &names;
     wheelPositions.name_length = 2;
@@ -57,53 +62,31 @@ void ros_run()
     wheelPositions.effort_length = 2;
     wheelPositions.effort = (float *) &effort;
 
-    nh.spinOnce1();
-
-    //test if we can stop at 60% angle
-    // #ifdef CONTROL_MOTOR_TEST
-    //   int langle = 60*HALL_POSN_PER_REV/360;
-    //   int rangle = -60*HALL_POSN_PER_REV/360;
-    //   if(p.wheel[LEFT].HallPosn >= langle) {
-    //     pwml = 0;
-    //   }
-    //   if(p.wheel[RIGHT].HallPosn <=rangle) {
-    //     pwmr = 0;
-    //   }
-    // #endif //CONTROL_MOTOR_TEST
-
     //Note: If message (wheelPositions) is declared outside function/globally publish1 doesn't work.
     //may be constructor is not getting called.
-   // get_position(&wheelPositions);
-    nh.publish1(hovebotState->topic_id, &wheelPositions); 
+    //nh.publish1(hovebotState->topic_id, &wheelPositions); 
+
+//#ifdef DEBUG
+    char buf[512];
+    std_msgs::String tmpStr;
+    tmpStr.data = buf;
+    int motor=0;
+    int rpm = 1000*wheel_posn[motor].rpm;
+    sprintf(buf,"%d:%d:rpm=%d:%ld:%lu:%d\n",motor,wheel_posn[motor].hall,rpm,
+        wheel_posn[motor].ticks,wheel_posn[motor].millis_at_tick,
+        wheel_posn[motor].ticks_at_prev_rotation);
+    nh.publish1(chatter->topic_id, &tmpStr);
+//#endif
+}
+
+void ros_run()
+{
+    if(nh.spinOnce1() != 0)
+    {
+        printf("ERROR: spinOnce1 returned error probably SPIN_TIMEOUT");
+        return;
+    }
+
+    publish_hovebot_state();
 }
  
-// void get_position(sensor_msgs::JointState *wheelPositions)
-// {
-//     HALL_POSN p;
-//     HallInterruptReadPosn(&p, 0);
-    
-//     #ifdef DEBUG_SERIAL_USART3
-//     //   uint32_t c_time = nh.getHardware()->time();
-//     //   if(pwml != 0) 
-//     //   {
-//     //     printf("%ld: %ld: left wheel rev %d, rpm %d, skipped %ld\n",c_time, p.wheel[LEFT].HallTimeDiff,
-//     //       p.wheel[LEFT].HallPosn,p.wheel[LEFT].HallSpeed,  p.wheel[LEFT].HallSkipped);
-//     //   }
-//     //   if(pwmr != 0)
-//     //   { 
-//     //     printf("%ld: %ld: right wheel rev %d, rpm %d, skipped %ld\n",c_time, p.wheel[RIGHT].HallTimeDiff,
-//     //       p.wheel[RIGHT].HallPosn,p.wheel[RIGHT].HallSpeed, p.wheel[RIGHT].HallSkipped);
-//     //   }
-//     #endif //DEBUG_SERIAL_USART3
-
-//     wheelPositions->position[LEFT] = p.wheel[LEFT].HallPosn; 
-//     wheelPositions->position[RIGHT] =  p.wheel[RIGHT].HallPosn;
-
-//     wheelPositions->velocity[LEFT] =  p.wheel[LEFT].HallSpeed; 
-//     wheelPositions->velocity[RIGHT] =  p.wheel[RIGHT].HallSpeed; 
-
-//     wheelPositions->effort[LEFT] =  pwml; 
-//     wheelPositions->effort[RIGHT] =  pwmr; 
-    
-//     return;
-// }

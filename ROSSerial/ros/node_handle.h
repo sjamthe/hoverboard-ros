@@ -620,6 +620,7 @@ public:
     else
     {
       logerror("Message from device dropped: message larger than buffer.");
+      printf("Message from device dropped: message larger than buffer.");
       return -1;
     }
   }

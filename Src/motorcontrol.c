@@ -116,12 +116,12 @@ void motor_counter_increment(uint8_t motor)
   wheel_posn[motor].prev_hall = wheel_posn[motor].hall;
 
   //DEBUG code only
-  //#ifdef DEBUG
+#ifdef DEBUG
   int rpm = 1000*wheel_posn[motor].rpm;
   printf("%d:%d:rpm=%d:%ld:%lu:%d\n",motor,wheel_posn[motor].hall,rpm,
           wheel_posn[motor].ticks,wheel_posn[motor].millis_at_tick,
           wheel_posn[motor].ticks_at_prev_rotation);
-  //#endif
+#endif
 }
 
 void motor_init()
