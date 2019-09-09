@@ -119,9 +119,9 @@ public:
 		// printf("printing %d\n",length);
 		/* Without Interrupt we can still publish chatter at 111.6Hz or 9ms per message */
 		HAL_StatusTypeDef ret = HAL_UART_Transmit(&huart2, (uint8_t *)data, length, 20);
-		if(ret == HAL_TIMEOUT)
+		if(ret != HAL_OK)
 		{
-			printf("timeout %lu - %s\n",length, data);
+			printf("HAL write error %d %lu - %s\n",ret,length, data);
 		}
 		
 		// /* Try Interrupt - Has delayed byte problem. */

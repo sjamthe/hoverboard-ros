@@ -151,8 +151,8 @@ int main(void) {
 
 #endif
 //invert direction
-pwml = -1*pwml;
-//pwmr = -1*pwmr;
+// pwml = -1*pwml;
+// pwmr = -1*pwmr;
 
   while(1) {
     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms

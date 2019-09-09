@@ -247,10 +247,10 @@ public:
     //printf("spinOnce\n");
     /* restart if timed out */
     uint32_t c_time = hardware_.time();
-    //printf("spinOnce %ld\n",c_time);
-
     if ((c_time - last_sync_receive_time) > (SYNC_SECONDS * 2200))
     {
+      //printf("spinOnce  setting configured_ false %lu, %lu, %ld\n",c_time, 
+      //        last_sync_receive_time, (c_time-last_sync_receive_time));
       configured_ = false;
     }
 
@@ -390,7 +390,8 @@ public:
     /* occasionally sync time */
     if (configured_ && ((c_time - last_sync_time) > (SYNC_SECONDS * 500)))
     {
-      requestSyncTime();
+      //printf("Resetting sync time %lu, %lu, %ld\n",c_time, last_sync_time, (c_time-last_sync_time));
+      requestSyncTime(); 
       last_sync_time = c_time;
     }
 
@@ -410,9 +411,16 @@ public:
 
   void requestSyncTime()
   {
+    if(last_sync_receive_time < rt_time)
+    {
+      printf("skip requestSyncTime as one is pending %lu\n",hardware_.time());
+      return;
+    }
     std_msgs::Time t;
-    publish1(TopicInfo::ID_TIME, &t);
     rt_time = hardware_.time();
+    printf("requestSyncTime  rt_time=%lu\n",rt_time);
+    publish1(TopicInfo::ID_TIME, &t);
+    //printf("end requestSyncTime  rt_time=%lu\n",hardware_.time());
   }
 
   void syncTime(uint8_t * data)
@@ -425,7 +433,9 @@ public:
     t.data.nsec += (offset % 1000) * 1000000UL;
 
     this->setNow(t.data);
-    last_sync_receive_time = hardware_.time();
+    uint32_t c_time = hardware_.time();
+    printf("syncTime c_time=%lu, offset=%ld\n",c_time,offset);
+    last_sync_receive_time = c_time;
   }
 
   Time now()
@@ -589,10 +599,13 @@ public:
 
   int publish1(int id, Msg * msg)
   {
-    //printf("in nh.publsh %d %x\n",id, msg);
-    if (id >= 100 && !configured_)
+    if(id == TopicInfo::ID_TIME)
+      printf("time=%lu, in nh.publsh %d %x\n",hardware_.time(), id, msg);
+    if (id >= 100 && !configured_) {
       return 0;
-    //printf("in nh.publsh %s\n",msg->getType());
+    }
+    // if(id == TopicInfo::ID_TIME)
+    //   printf("in nh.publsh %s\n",msg->getType());
     /* serialize message */
     int l = msg->serialize(message_out + 7);
 
@@ -611,10 +624,13 @@ public:
       chk += message_out[i];
     l += 7;
     message_out[l++] = 255 - (chk % 256);
-    //printf("Sending message - %s, length %d\n",msg->getType(), l);
+    //if(id == TopicInfo::ID_TIME)
+    //  printf("Sending message - %s, length %d\n",msg->getType(), l);
     if (l <= OUTPUT_SIZE)
     {
       hardware_.write(message_out, l);
+      if(id == TopicInfo::ID_TIME)
+        printf("%lu:sent write message - %s, length %d\n",hardware_.time(), msg->getType(), l);
       return l;
     }
     else

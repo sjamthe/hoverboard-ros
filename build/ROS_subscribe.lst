@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
   40              	.LBB20:
   41              	.LBB21:
   42              		.file 2 "ROSSerial/std_msgs/UInt16.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 2
 
 
    1:ROSSerial/std_msgs/UInt16.h **** #ifndef _ROS_std_msgs_UInt16_h
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
   24:./Src/ROS_subscribe.cpp ****     // }
   25:./Src/ROS_subscribe.cpp ****     // else
   26:./Src/ROS_subscribe.cpp ****     // {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 3
 
 
   27:./Src/ROS_subscribe.cpp ****     //     bsp_LedOff(2);
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  109              		.fnstart
  110              	.LFB482:
   36:./Src/ROS_subscribe.cpp **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 4
 
 
   37:./Src/ROS_subscribe.cpp **** 
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  154              		.file 3 "ROSSerial/ros/node_handle.h"
    1:ROSSerial/ros/node_handle.h **** /*
    2:ROSSerial/ros/node_handle.h ****  * Software License Agreement (BSD License)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 5
 
 
    3:ROSSerial/ros/node_handle.h ****  *
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
   57:ROSSerial/ros/node_handle.h **** }
   58:ROSSerial/ros/node_handle.h **** 
   59:ROSSerial/ros/node_handle.h **** #include "ros/publisher.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 6
 
 
   60:ROSSerial/ros/node_handle.h **** #include "ros/subscriber.h"
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  114:ROSSerial/ros/node_handle.h ****     const char* message_type;
  115:ROSSerial/ros/node_handle.h ****     const char* md5sum;
  116:ROSSerial/ros/node_handle.h **** } PublisherType;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 7
 
 
  117:ROSSerial/ros/node_handle.h **** 
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  171:ROSSerial/ros/node_handle.h ****     req_param_resp.floats_length = 0;
  172:ROSSerial/ros/node_handle.h ****     req_param_resp.floats = NULL;
  173:ROSSerial/ros/node_handle.h ****     req_param_resp.ints_length = 0;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 8
 
 
  174:ROSSerial/ros/node_handle.h ****     req_param_resp.ints = NULL;
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  228:ROSSerial/ros/node_handle.h ****   /* used for syncing the time */
  229:ROSSerial/ros/node_handle.h ****   uint32_t last_sync_time;
  230:ROSSerial/ros/node_handle.h ****   uint32_t last_sync_receive_time;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 9
 
 
  231:ROSSerial/ros/node_handle.h ****   uint32_t last_msg_timeout_time;
@@ -500,10 +500,10 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  247:ROSSerial/ros/node_handle.h ****     //printf("spinOnce\n");
  248:ROSSerial/ros/node_handle.h ****     /* restart if timed out */
  249:ROSSerial/ros/node_handle.h ****     uint32_t c_time = hardware_.time();
- 250:ROSSerial/ros/node_handle.h ****     //printf("spinOnce %ld\n",c_time);
- 251:ROSSerial/ros/node_handle.h **** 
- 252:ROSSerial/ros/node_handle.h ****     if ((c_time - last_sync_receive_time) > (SYNC_SECONDS * 2200))
- 253:ROSSerial/ros/node_handle.h ****     {
+ 250:ROSSerial/ros/node_handle.h ****     if ((c_time - last_sync_receive_time) > (SYNC_SECONDS * 2200))
+ 251:ROSSerial/ros/node_handle.h ****     {
+ 252:ROSSerial/ros/node_handle.h ****       //printf("spinOnce  setting configured_ false %lu, %lu, %ld\n",c_time, 
+ 253:ROSSerial/ros/node_handle.h ****       //        last_sync_receive_time, (c_time-last_sync_receive_time));
  254:ROSSerial/ros/node_handle.h ****       configured_ = false;
  255:ROSSerial/ros/node_handle.h ****     }
  256:ROSSerial/ros/node_handle.h **** 
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  285:ROSSerial/ros/node_handle.h ****       checksum_ += data;
  286:ROSSerial/ros/node_handle.h ****       if (mode_ == MODE_MESSAGE)          /* message data being recieved */
  287:ROSSerial/ros/node_handle.h ****       {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 10
 
 
  288:ROSSerial/ros/node_handle.h ****         message_in[index_++] = data;
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  342:ROSSerial/ros/node_handle.h ****         mode_++;
  343:ROSSerial/ros/node_handle.h ****         checksum_ = data;               /* first byte included in checksum */
  344:ROSSerial/ros/node_handle.h ****       }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 11
 
 
  345:ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_TOPIC_H)     /* top half of topic id */
@@ -649,162 +649,172 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  390:ROSSerial/ros/node_handle.h ****     /* occasionally sync time */
  391:ROSSerial/ros/node_handle.h ****     if (configured_ && ((c_time - last_sync_time) > (SYNC_SECONDS * 500)))
  392:ROSSerial/ros/node_handle.h ****     {
- 393:ROSSerial/ros/node_handle.h ****       requestSyncTime();
- 394:ROSSerial/ros/node_handle.h ****       last_sync_time = c_time;
- 395:ROSSerial/ros/node_handle.h ****     }
- 396:ROSSerial/ros/node_handle.h **** 
- 397:ROSSerial/ros/node_handle.h ****     return SPIN_OK;
- 398:ROSSerial/ros/node_handle.h ****   }
- 399:ROSSerial/ros/node_handle.h **** 
+ 393:ROSSerial/ros/node_handle.h ****       //printf("Resetting sync time %lu, %lu, %ld\n",c_time, last_sync_time, (c_time-last_sync_time
+ 394:ROSSerial/ros/node_handle.h ****       requestSyncTime(); 
+ 395:ROSSerial/ros/node_handle.h ****       last_sync_time = c_time;
+ 396:ROSSerial/ros/node_handle.h ****     }
+ 397:ROSSerial/ros/node_handle.h **** 
+ 398:ROSSerial/ros/node_handle.h ****     return SPIN_OK;
+ 399:ROSSerial/ros/node_handle.h ****   }
  400:ROSSerial/ros/node_handle.h **** 
- 401:ROSSerial/ros/node_handle.h ****   /* Are we connected to the PC? */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 12
+ 401:ROSSerial/ros/node_handle.h **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 12
 
 
- 402:ROSSerial/ros/node_handle.h ****   virtual bool connected()
- 403:ROSSerial/ros/node_handle.h ****   {
- 404:ROSSerial/ros/node_handle.h ****     return configured_;
- 405:ROSSerial/ros/node_handle.h ****   };
- 406:ROSSerial/ros/node_handle.h **** 
- 407:ROSSerial/ros/node_handle.h ****   /********************************************************************
- 408:ROSSerial/ros/node_handle.h ****    * Time functions
- 409:ROSSerial/ros/node_handle.h ****    */
- 410:ROSSerial/ros/node_handle.h **** 
- 411:ROSSerial/ros/node_handle.h ****   void requestSyncTime()
- 412:ROSSerial/ros/node_handle.h ****   {
- 413:ROSSerial/ros/node_handle.h ****     std_msgs::Time t;
- 414:ROSSerial/ros/node_handle.h ****     publish1(TopicInfo::ID_TIME, &t);
- 415:ROSSerial/ros/node_handle.h ****     rt_time = hardware_.time();
- 416:ROSSerial/ros/node_handle.h ****   }
- 417:ROSSerial/ros/node_handle.h **** 
- 418:ROSSerial/ros/node_handle.h ****   void syncTime(uint8_t * data)
- 419:ROSSerial/ros/node_handle.h ****   {
- 420:ROSSerial/ros/node_handle.h ****     std_msgs::Time t;
- 421:ROSSerial/ros/node_handle.h ****     uint32_t offset = hardware_.time() - rt_time;
- 422:ROSSerial/ros/node_handle.h **** 
- 423:ROSSerial/ros/node_handle.h ****     t.deserialize(data);
- 424:ROSSerial/ros/node_handle.h ****     t.data.sec += offset / 1000;
- 425:ROSSerial/ros/node_handle.h ****     t.data.nsec += (offset % 1000) * 1000000UL;
- 426:ROSSerial/ros/node_handle.h **** 
- 427:ROSSerial/ros/node_handle.h ****     this->setNow(t.data);
- 428:ROSSerial/ros/node_handle.h ****     last_sync_receive_time = hardware_.time();
- 429:ROSSerial/ros/node_handle.h ****   }
+ 402:ROSSerial/ros/node_handle.h ****   /* Are we connected to the PC? */
+ 403:ROSSerial/ros/node_handle.h ****   virtual bool connected()
+ 404:ROSSerial/ros/node_handle.h ****   {
+ 405:ROSSerial/ros/node_handle.h ****     return configured_;
+ 406:ROSSerial/ros/node_handle.h ****   };
+ 407:ROSSerial/ros/node_handle.h **** 
+ 408:ROSSerial/ros/node_handle.h ****   /********************************************************************
+ 409:ROSSerial/ros/node_handle.h ****    * Time functions
+ 410:ROSSerial/ros/node_handle.h ****    */
+ 411:ROSSerial/ros/node_handle.h **** 
+ 412:ROSSerial/ros/node_handle.h ****   void requestSyncTime()
+ 413:ROSSerial/ros/node_handle.h ****   {
+ 414:ROSSerial/ros/node_handle.h ****     if(last_sync_receive_time < rt_time)
+ 415:ROSSerial/ros/node_handle.h ****     {
+ 416:ROSSerial/ros/node_handle.h ****       printf("skip requestSyncTime as one is pending %lu\n",hardware_.time());
+ 417:ROSSerial/ros/node_handle.h ****       return;
+ 418:ROSSerial/ros/node_handle.h ****     }
+ 419:ROSSerial/ros/node_handle.h ****     std_msgs::Time t;
+ 420:ROSSerial/ros/node_handle.h ****     rt_time = hardware_.time();
+ 421:ROSSerial/ros/node_handle.h ****     printf("requestSyncTime  rt_time=%lu\n",rt_time);
+ 422:ROSSerial/ros/node_handle.h ****     publish1(TopicInfo::ID_TIME, &t);
+ 423:ROSSerial/ros/node_handle.h ****     //printf("end requestSyncTime  rt_time=%lu\n",hardware_.time());
+ 424:ROSSerial/ros/node_handle.h ****   }
+ 425:ROSSerial/ros/node_handle.h **** 
+ 426:ROSSerial/ros/node_handle.h ****   void syncTime(uint8_t * data)
+ 427:ROSSerial/ros/node_handle.h ****   {
+ 428:ROSSerial/ros/node_handle.h ****     std_msgs::Time t;
+ 429:ROSSerial/ros/node_handle.h ****     uint32_t offset = hardware_.time() - rt_time;
  430:ROSSerial/ros/node_handle.h **** 
- 431:ROSSerial/ros/node_handle.h ****   Time now()
- 432:ROSSerial/ros/node_handle.h ****   {
- 433:ROSSerial/ros/node_handle.h ****     uint32_t ms = hardware_.time();
- 434:ROSSerial/ros/node_handle.h ****     Time current_time;
- 435:ROSSerial/ros/node_handle.h ****     current_time.sec = ms / 1000 + sec_offset;
- 436:ROSSerial/ros/node_handle.h ****     current_time.nsec = (ms % 1000) * 1000000UL + nsec_offset;
- 437:ROSSerial/ros/node_handle.h ****     normalizeSecNSec(current_time.sec, current_time.nsec);
- 438:ROSSerial/ros/node_handle.h ****     return current_time;
+ 431:ROSSerial/ros/node_handle.h ****     t.deserialize(data);
+ 432:ROSSerial/ros/node_handle.h ****     t.data.sec += offset / 1000;
+ 433:ROSSerial/ros/node_handle.h ****     t.data.nsec += (offset % 1000) * 1000000UL;
+ 434:ROSSerial/ros/node_handle.h **** 
+ 435:ROSSerial/ros/node_handle.h ****     this->setNow(t.data);
+ 436:ROSSerial/ros/node_handle.h ****     uint32_t c_time = hardware_.time();
+ 437:ROSSerial/ros/node_handle.h ****     printf("syncTime c_time=%lu, offset=%ld\n",c_time,offset);
+ 438:ROSSerial/ros/node_handle.h ****     last_sync_receive_time = c_time;
  439:ROSSerial/ros/node_handle.h ****   }
  440:ROSSerial/ros/node_handle.h **** 
- 441:ROSSerial/ros/node_handle.h ****   void setNow(Time & new_now)
+ 441:ROSSerial/ros/node_handle.h ****   Time now()
  442:ROSSerial/ros/node_handle.h ****   {
  443:ROSSerial/ros/node_handle.h ****     uint32_t ms = hardware_.time();
- 444:ROSSerial/ros/node_handle.h ****     sec_offset = new_now.sec - ms / 1000 - 1;
- 445:ROSSerial/ros/node_handle.h ****     nsec_offset = new_now.nsec - (ms % 1000) * 1000000UL + 1000000000UL;
- 446:ROSSerial/ros/node_handle.h ****     normalizeSecNSec(sec_offset, nsec_offset);
- 447:ROSSerial/ros/node_handle.h ****   }
- 448:ROSSerial/ros/node_handle.h **** 
- 449:ROSSerial/ros/node_handle.h ****   /********************************************************************
- 450:ROSSerial/ros/node_handle.h ****    * Topic Management
- 451:ROSSerial/ros/node_handle.h ****    */
- 452:ROSSerial/ros/node_handle.h **** 
- 453:ROSSerial/ros/node_handle.h ****    /* Register a new publisher without C++ template */
- 454:ROSSerial/ros/node_handle.h ****   PublisherType* addPublisher(char * topic_name, Msg * msg)
- 455:ROSSerial/ros/node_handle.h ****   {
- 456:ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_PUBLISHERS; i++)
- 457:ROSSerial/ros/node_handle.h ****     {
- 458:ROSSerial/ros/node_handle.h ****       if (publishers2[i].topic_id == 0) {// empty slot}
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 13
+ 444:ROSSerial/ros/node_handle.h ****     Time current_time;
+ 445:ROSSerial/ros/node_handle.h ****     current_time.sec = ms / 1000 + sec_offset;
+ 446:ROSSerial/ros/node_handle.h ****     current_time.nsec = (ms % 1000) * 1000000UL + nsec_offset;
+ 447:ROSSerial/ros/node_handle.h ****     normalizeSecNSec(current_time.sec, current_time.nsec);
+ 448:ROSSerial/ros/node_handle.h ****     return current_time;
+ 449:ROSSerial/ros/node_handle.h ****   }
+ 450:ROSSerial/ros/node_handle.h **** 
+ 451:ROSSerial/ros/node_handle.h ****   void setNow(Time & new_now)
+ 452:ROSSerial/ros/node_handle.h ****   {
+ 453:ROSSerial/ros/node_handle.h ****     uint32_t ms = hardware_.time();
+ 454:ROSSerial/ros/node_handle.h ****     sec_offset = new_now.sec - ms / 1000 - 1;
+ 455:ROSSerial/ros/node_handle.h ****     nsec_offset = new_now.nsec - (ms % 1000) * 1000000UL + 1000000000UL;
+ 456:ROSSerial/ros/node_handle.h ****     normalizeSecNSec(sec_offset, nsec_offset);
+ 457:ROSSerial/ros/node_handle.h ****   }
+ 458:ROSSerial/ros/node_handle.h **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 13
 
 
- 459:ROSSerial/ros/node_handle.h **** 
- 460:ROSSerial/ros/node_handle.h ****         publishers2[i].topic_id = i + 100 + MAX_SUBSCRIBERS;
- 461:ROSSerial/ros/node_handle.h ****         publishers2[i].topic_name = topic_name;
- 462:ROSSerial/ros/node_handle.h ****         publishers2[i].msg = msg;
- 463:ROSSerial/ros/node_handle.h ****         publishers2[i].message_type = msg->getType();
- 464:ROSSerial/ros/node_handle.h ****         publishers2[i].md5sum = msg->getMD5();
- 465:ROSSerial/ros/node_handle.h **** 
- 466:ROSSerial/ros/node_handle.h ****         return &publishers2[i];
- 467:ROSSerial/ros/node_handle.h ****       }
- 468:ROSSerial/ros/node_handle.h ****     }
- 469:ROSSerial/ros/node_handle.h ****     return nullptr;
- 470:ROSSerial/ros/node_handle.h ****   }
- 471:ROSSerial/ros/node_handle.h **** 
- 472:ROSSerial/ros/node_handle.h ****   /* Register a new publisher */
- 473:ROSSerial/ros/node_handle.h ****   bool advertise(Publisher & p)
- 474:ROSSerial/ros/node_handle.h ****   {
- 475:ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_PUBLISHERS; i++)
- 476:ROSSerial/ros/node_handle.h ****     {
- 477:ROSSerial/ros/node_handle.h ****       if (publishers[i] == 0) // empty slot
- 478:ROSSerial/ros/node_handle.h ****       {
- 479:ROSSerial/ros/node_handle.h ****         publishers[i] = &p;
- 480:ROSSerial/ros/node_handle.h ****         p.id_ = i + 100 + MAX_SUBSCRIBERS;
- 481:ROSSerial/ros/node_handle.h ****         p.nh_ = this;
- 482:ROSSerial/ros/node_handle.h ****         return true;
- 483:ROSSerial/ros/node_handle.h ****       }
- 484:ROSSerial/ros/node_handle.h ****     }
- 485:ROSSerial/ros/node_handle.h ****     return false;
- 486:ROSSerial/ros/node_handle.h ****   }
- 487:ROSSerial/ros/node_handle.h **** 
- 488:ROSSerial/ros/node_handle.h ****   /* Register a new subscriber */
- 489:ROSSerial/ros/node_handle.h ****   template<typename SubscriberT>
- 490:ROSSerial/ros/node_handle.h ****   bool subscribe(SubscriberT& s)
- 491:ROSSerial/ros/node_handle.h ****   {
- 492:ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_SUBSCRIBERS; i++)
- 493:ROSSerial/ros/node_handle.h ****     {
- 494:ROSSerial/ros/node_handle.h ****       if (subscribers[i] == 0) // empty slot
- 495:ROSSerial/ros/node_handle.h ****       {
- 496:ROSSerial/ros/node_handle.h ****         subscribers[i] = static_cast<Subscriber_*>(&s);
- 497:ROSSerial/ros/node_handle.h ****         s.id_ = i + 100;
- 498:ROSSerial/ros/node_handle.h ****         return true;
- 499:ROSSerial/ros/node_handle.h ****       }
- 500:ROSSerial/ros/node_handle.h ****     }
- 501:ROSSerial/ros/node_handle.h ****     return false;
- 502:ROSSerial/ros/node_handle.h ****   }
- 503:ROSSerial/ros/node_handle.h **** 
- 504:ROSSerial/ros/node_handle.h ****   bool addSubscriber(SubscriberType sub)
- 505:ROSSerial/ros/node_handle.h ****   {
- 506:ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_SUBSCRIBERS; i++)
- 155              		.loc 3 506 0
+ 459:ROSSerial/ros/node_handle.h ****   /********************************************************************
+ 460:ROSSerial/ros/node_handle.h ****    * Topic Management
+ 461:ROSSerial/ros/node_handle.h ****    */
+ 462:ROSSerial/ros/node_handle.h **** 
+ 463:ROSSerial/ros/node_handle.h ****    /* Register a new publisher without C++ template */
+ 464:ROSSerial/ros/node_handle.h ****   PublisherType* addPublisher(char * topic_name, Msg * msg)
+ 465:ROSSerial/ros/node_handle.h ****   {
+ 466:ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_PUBLISHERS; i++)
+ 467:ROSSerial/ros/node_handle.h ****     {
+ 468:ROSSerial/ros/node_handle.h ****       if (publishers2[i].topic_id == 0) {// empty slot}
+ 469:ROSSerial/ros/node_handle.h **** 
+ 470:ROSSerial/ros/node_handle.h ****         publishers2[i].topic_id = i + 100 + MAX_SUBSCRIBERS;
+ 471:ROSSerial/ros/node_handle.h ****         publishers2[i].topic_name = topic_name;
+ 472:ROSSerial/ros/node_handle.h ****         publishers2[i].msg = msg;
+ 473:ROSSerial/ros/node_handle.h ****         publishers2[i].message_type = msg->getType();
+ 474:ROSSerial/ros/node_handle.h ****         publishers2[i].md5sum = msg->getMD5();
+ 475:ROSSerial/ros/node_handle.h **** 
+ 476:ROSSerial/ros/node_handle.h ****         return &publishers2[i];
+ 477:ROSSerial/ros/node_handle.h ****       }
+ 478:ROSSerial/ros/node_handle.h ****     }
+ 479:ROSSerial/ros/node_handle.h ****     return nullptr;
+ 480:ROSSerial/ros/node_handle.h ****   }
+ 481:ROSSerial/ros/node_handle.h **** 
+ 482:ROSSerial/ros/node_handle.h ****   /* Register a new publisher */
+ 483:ROSSerial/ros/node_handle.h ****   bool advertise(Publisher & p)
+ 484:ROSSerial/ros/node_handle.h ****   {
+ 485:ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_PUBLISHERS; i++)
+ 486:ROSSerial/ros/node_handle.h ****     {
+ 487:ROSSerial/ros/node_handle.h ****       if (publishers[i] == 0) // empty slot
+ 488:ROSSerial/ros/node_handle.h ****       {
+ 489:ROSSerial/ros/node_handle.h ****         publishers[i] = &p;
+ 490:ROSSerial/ros/node_handle.h ****         p.id_ = i + 100 + MAX_SUBSCRIBERS;
+ 491:ROSSerial/ros/node_handle.h ****         p.nh_ = this;
+ 492:ROSSerial/ros/node_handle.h ****         return true;
+ 493:ROSSerial/ros/node_handle.h ****       }
+ 494:ROSSerial/ros/node_handle.h ****     }
+ 495:ROSSerial/ros/node_handle.h ****     return false;
+ 496:ROSSerial/ros/node_handle.h ****   }
+ 497:ROSSerial/ros/node_handle.h **** 
+ 498:ROSSerial/ros/node_handle.h ****   /* Register a new subscriber */
+ 499:ROSSerial/ros/node_handle.h ****   template<typename SubscriberT>
+ 500:ROSSerial/ros/node_handle.h ****   bool subscribe(SubscriberT& s)
+ 501:ROSSerial/ros/node_handle.h ****   {
+ 502:ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_SUBSCRIBERS; i++)
+ 503:ROSSerial/ros/node_handle.h ****     {
+ 504:ROSSerial/ros/node_handle.h ****       if (subscribers[i] == 0) // empty slot
+ 505:ROSSerial/ros/node_handle.h ****       {
+ 506:ROSSerial/ros/node_handle.h ****         subscribers[i] = static_cast<Subscriber_*>(&s);
+ 507:ROSSerial/ros/node_handle.h ****         s.id_ = i + 100;
+ 508:ROSSerial/ros/node_handle.h ****         return true;
+ 509:ROSSerial/ros/node_handle.h ****       }
+ 510:ROSSerial/ros/node_handle.h ****     }
+ 511:ROSSerial/ros/node_handle.h ****     return false;
+ 512:ROSSerial/ros/node_handle.h ****   }
+ 513:ROSSerial/ros/node_handle.h **** 
+ 514:ROSSerial/ros/node_handle.h ****   bool addSubscriber(SubscriberType sub)
+ 515:ROSSerial/ros/node_handle.h ****   {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 14
+
+
+ 516:ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_SUBSCRIBERS; i++)
+ 155              		.loc 3 516 0
  156 0020 0024     		movs	r4, #0
  157              	.LVL11:
  158              	.L11:
  159 0022 042C     		cmp	r4, #4
  160 0024 26DC     		bgt	.L9
  161              	.LBB33:
- 507:ROSSerial/ros/node_handle.h ****     {
- 508:ROSSerial/ros/node_handle.h ****       if (subscribers2[i].topic_id == 0) {// empty slot}
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 14
-
-
- 162              		.loc 3 508 0
+ 517:ROSSerial/ros/node_handle.h ****     {
+ 518:ROSSerial/ros/node_handle.h ****       if (subscribers2[i].topic_id == 0) {// empty slot}
+ 162              		.loc 3 518 0
  163 0026 04EB8403 		add	r3, r4, r4, lsl #2
  164 002a 06EB8303 		add	r3, r6, r3, lsl #2
  165 002e B3F8A434 		ldrh	r3, [r3, #1188]
  166 0032 0BB1     		cbz	r3, .L13
  167              	.LBE33:
- 506:ROSSerial/ros/node_handle.h ****     {
- 168              		.loc 3 506 0
+ 516:ROSSerial/ros/node_handle.h ****     {
+ 168              		.loc 3 516 0
  169 0034 0134     		adds	r4, r4, #1
  170              	.LVL12:
  171 0036 F4E7     		b	.L11
  172              	.L13:
  173              	.LBB35:
  174              	.LBB34:
- 509:ROSSerial/ros/node_handle.h ****         void * ptr = &subscribers2[i];
- 175              		.loc 3 509 0
+ 519:ROSSerial/ros/node_handle.h ****         void * ptr = &subscribers2[i];
+ 175              		.loc 3 519 0
  176 0038 4FEA840C 		lsl	ip, r4, #2
  177 003c 0CEB0405 		add	r5, ip, r4
  178 0040 AD00     		lsls	r5, r5, #2
  179 0042 05F59465 		add	r5, r5, #1184
  180 0046 3544     		add	r5, r5, r6
  181              	.LVL13:
- 510:ROSSerial/ros/node_handle.h ****         memcpy(ptr, &sub, sizeof(sub));
- 182              		.loc 3 510 0
+ 520:ROSSerial/ros/node_handle.h ****         memcpy(ptr, &sub, sizeof(sub));
+ 182              		.loc 3 520 0
  183 0048 6F46     		mov	r7, sp
  184 004a 0FCF     		ldmia	r7!, {r0, r1, r2, r3}
  185 004c 6860     		str	r0, [r5, #4]	@ unaligned
@@ -813,21 +823,24 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  188 0052 2B61     		str	r3, [r5, #16]	@ unaligned
  189 0054 3868     		ldr	r0, [r7]
  190 0056 6861     		str	r0, [r5, #20]	@ unaligned
- 511:ROSSerial/ros/node_handle.h ****         subscribers2[i].topic_id = i + 100;
- 191              		.loc 3 511 0
+ 521:ROSSerial/ros/node_handle.h ****         subscribers2[i].topic_id = i + 100;
+ 191              		.loc 3 521 0
  192 0058 04F16402 		add	r2, r4, #100
  193 005c 92B2     		uxth	r2, r2
  194 005e 0CEB0403 		add	r3, ip, r4
  195 0062 06EB8303 		add	r3, r6, r3, lsl #2
  196 0066 A3F8A424 		strh	r2, [r3, #1188]	@ movhi
- 512:ROSSerial/ros/node_handle.h ****         printf("Registered %s with id %d\n", \
- 197              		.loc 3 512 0
+ 522:ROSSerial/ros/node_handle.h ****         printf("Registered %s with id %d\n", \
+ 197              		.loc 3 522 0
  198 006a D3F8A814 		ldr	r1, [r3, #1192]
  199 006e 0748     		ldr	r0, .L14+16
  200 0070 FFF7FEFF 		bl	printf
  201              	.LVL14:
  202              	.L9:
  203              	.LBE34:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 15
+
+
  204              	.LBE35:
  205              	.LBE32:
  206              	.LBE31:
@@ -838,9 +851,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
   52:./Src/ROS_subscribe.cpp **** }
  207              		.loc 1 52 0
  208 0074 0120     		movs	r0, #1
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 15
-
-
  209 0076 0BB0     		add	sp, sp, #44
  210              	.LCFI3:
  211              		.cfi_def_cfa_offset 20
@@ -888,6 +898,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  245              		.section	.rodata._Z6led_cbPh.str1.4,"aMS",%progbits,1
  246              		.align	2
  247              	.LC0:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 16
+
+
  248 0000 6C656453 		.ascii	"ledState in CB %d\012\000"
  248      74617465 
  248      20696E20 
@@ -898,9 +911,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  251              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
  252              		.file 5 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
  253              		.file 6 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 16
-
-
  254              		.file 7 "Inc/system_at32f4xx.h"
  255              		.file 8 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
  256              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
@@ -927,28 +937,28 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 1
  277              		.file 30 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
  278              		.file 31 "ROSSerial/std_msgs/Time.h"
  279              		.file 32 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s 			page 17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 ROS_subscribe.cpp
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:17     .text._Z6led_cbPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:24     .text._Z6led_cbPh:0000000000000000 _Z6led_cbPh
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:65     .text._Z6led_cbPh:0000000000000018 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:17     .text._Z6led_cbPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:24     .text._Z6led_cbPh:0000000000000000 _Z6led_cbPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:65     .text._Z6led_cbPh:0000000000000018 $d
       .ARM.extab.text._Z6led_cbPh:0000000000000000 $d
       .ARM.exidx.text._Z6led_cbPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:72     .text._Z11getLedStatev:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:79     .text._Z11getLedStatev:0000000000000000 _Z11getLedStatev
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:94     .text._Z11getLedStatev:0000000000000008 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:72     .text._Z11getLedStatev:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:79     .text._Z11getLedStatev:0000000000000000 _Z11getLedStatev
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:94     .text._Z11getLedStatev:0000000000000008 $d
  .ARM.exidx.text._Z11getLedStatev:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:101    .text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:108    .text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 _Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:218    .text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:000000000000007c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:101    .text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:108    .text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 _Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:218    .text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:000000000000007c $d
 .ARM.exidx.text._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:228    .data._ZL8ledState:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:232    .data._ZL8ledState:0000000000000000 _ZL8ledState
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:235    .rodata._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccqzysY1.s:246    .rodata._Z6led_cbPh.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:228    .data._ZL8ledState:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:232    .data._ZL8ledState:0000000000000000 _ZL8ledState
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:235    .rodata._Z16rosSubscribeInitPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc5ll7vc.s:246    .rodata._Z6led_cbPh.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 printf

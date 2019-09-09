@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
   30:Src/main.c    **** void motor_init(void);
   31:Src/main.c    **** 
   32:Src/main.c    **** void ros_init(void);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 2
 
 
   33:Src/main.c    **** void ros_run(void);
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
   48              		.loc 1 64 0
   49 0010 05E0     		b	.L3
   50              	.LVL1:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 3
 
 
   51              	.L4:
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
  101              	.LFB128:
   69:Src/main.c    ****         while(1) {}
   70:Src/main.c    ****     }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 4
 
 
   71:Src/main.c    **** }
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
  125:Src/main.c    ****   HAL_ADC_Start(&hadc2);
  126:Src/main.c    **** 
  127:Src/main.c    ****   motor_init();
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 5
 
 
  128:Src/main.c    ****   ros_init();
@@ -267,8 +267,8 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
  151:Src/main.c    **** 
  152:Src/main.c    **** #endif
  153:Src/main.c    **** //invert direction
- 154:Src/main.c    **** pwml = -1*pwml;
- 155:Src/main.c    **** //pwmr = -1*pwmr;
+ 154:Src/main.c    **** // pwml = -1*pwml;
+ 155:Src/main.c    **** // pwmr = -1*pwmr;
  156:Src/main.c    **** 
  157:Src/main.c    ****   while(1) {
  158:Src/main.c    ****     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
  182:Src/main.c    **** */
  183:Src/main.c    **** void SystemClock_Config(void) {
  102              		.loc 1 183 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 6
 
 
  103              		.cfi_startproc
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
   74:Src/main.c    ****   HAL_Init();
  148              		.loc 1 74 0
  149              		.cfi_startproc
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 7
 
 
  150              		@ args = 0, pretend = 0, frame = 8
@@ -378,7 +378,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
  163              	.LBB3:
   77:Src/main.c    ****   HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
  164              		.loc 1 77 0
- 165 0008 444C     		ldr	r4, .L22
+ 165 0008 3F4C     		ldr	r4, .L22
  166 000a A369     		ldr	r3, [r4, #24]
  167 000c 43F00103 		orr	r3, r3, #1
  168 0010 A361     		str	r3, [r4, #24]
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
  197 0046 0022     		movs	r2, #0
  198 0048 1146     		mov	r1, r2
  199 004a 6FF00400 		mvn	r0, #4
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 8
 
 
  200 004e FFF7FEFF 		bl	HAL_NVIC_SetPriority
@@ -478,13 +478,13 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
  243 0096 FFF7FEFF 		bl	UART_Debug_Init
  244              	.LVL25:
  117:Src/main.c    **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 9
 
 
  245              		.loc 1 117 0
  246 009a 0122     		movs	r2, #1
  247 009c 2021     		movs	r1, #32
- 248 009e 2048     		ldr	r0, .L22+4
+ 248 009e 1B48     		ldr	r0, .L22+4
  249 00a0 FFF7FEFF 		bl	HAL_GPIO_WritePin
  250              	.LVL26:
  119:Src/main.c    ****  #ifdef HALL_INTERRUPTS
@@ -493,12 +493,12 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
  253              	.LVL27:
  124:Src/main.c    ****   HAL_ADC_Start(&hadc2);
  254              		.loc 1 124 0
- 255 00a8 1E48     		ldr	r0, .L22+8
+ 255 00a8 1948     		ldr	r0, .L22+8
  256 00aa FFF7FEFF 		bl	HAL_ADC_Start
  257              	.LVL28:
  125:Src/main.c    **** 
  258              		.loc 1 125 0
- 259 00ae 1E48     		ldr	r0, .L22+12
+ 259 00ae 1948     		ldr	r0, .L22+12
  260 00b0 FFF7FEFF 		bl	HAL_ADC_Start
  261              	.LVL29:
  127:Src/main.c    ****   ros_init();
@@ -518,7 +518,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
  273              	.L17:
  132:Src/main.c    ****     HAL_Delay(100);
  274              		.loc 1 132 0 discriminator 3
- 275 00c0 1A4B     		ldr	r3, .L22+16
+ 275 00c0 154B     		ldr	r3, .L22+16
  276 00c2 1C70     		strb	r4, [r3]
  133:Src/main.c    ****   }
  277              		.loc 1 133 0 discriminator 3
@@ -537,8 +537,8 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
  288              	.LBE4:
  135:Src/main.c    **** 
  289              		.loc 1 135 0 is_stmt 1
- 290 00d0 164B     		ldr	r3, .L22+16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 10
+ 290 00d0 114B     		ldr	r3, .L22+16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 10
 
 
  291 00d2 0022     		movs	r2, #0
@@ -547,81 +547,64 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
  293              		.loc 1 137 0
  294 00d6 0122     		movs	r2, #1
  295 00d8 0421     		movs	r1, #4
- 296 00da 1548     		ldr	r0, .L22+20
+ 296 00da 1048     		ldr	r0, .L22+20
  297 00dc FFF7FEFF 		bl	HAL_GPIO_WritePin
  298              	.LVL35:
- 144:Src/main.c    **** 	#endif
- 299              		.loc 1 144 0
- 300 00e0 144B     		ldr	r3, .L22+24
- 301 00e2 6FF03B02 		mvn	r2, #59
- 302 00e6 1A60     		str	r2, [r3]
- 149:Src/main.c    **** 	#endif
- 303              		.loc 1 149 0
- 304 00e8 134B     		ldr	r3, .L22+28
- 305 00ea 3C22     		movs	r2, #60
- 306 00ec 1A60     		str	r2, [r3]
- 154:Src/main.c    **** //pwmr = -1*pwmr;
- 307              		.loc 1 154 0
- 308 00ee 1A68     		ldr	r2, [r3]
- 309 00f0 5242     		negs	r2, r2
- 310 00f2 1A60     		str	r2, [r3]
- 311              	.L18:
+ 299              	.L18:
  158:Src/main.c    ****     ros_run();
- 312              		.loc 1 158 0
- 313 00f4 0520     		movs	r0, #5
- 314 00f6 FFF7FEFF 		bl	HAL_Delay
- 315              	.LVL36:
+ 300              		.loc 1 158 0
+ 301 00e0 0520     		movs	r0, #5
+ 302 00e2 FFF7FEFF 		bl	HAL_Delay
+ 303              	.LVL36:
  159:Src/main.c    **** 
- 316              		.loc 1 159 0
- 317 00fa FFF7FEFF 		bl	ros_run
- 318              	.LVL37:
+ 304              		.loc 1 159 0
+ 305 00e6 FFF7FEFF 		bl	ros_run
+ 306              	.LVL37:
  162:Src/main.c    ****      while (HAL_GPIO_ReadPin(BUTTON_PORT, BUTTON_PIN)) {}
- 319              		.loc 1 162 0
- 320 00fe 0221     		movs	r1, #2
- 321 0100 0748     		ldr	r0, .L22+4
- 322 0102 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 323              	.LVL38:
- 324 0106 0028     		cmp	r0, #0
- 325 0108 F4D0     		beq	.L18
- 326              	.L19:
+ 307              		.loc 1 162 0
+ 308 00ea 0221     		movs	r1, #2
+ 309 00ec 0748     		ldr	r0, .L22+4
+ 310 00ee FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 311              	.LVL38:
+ 312 00f2 0028     		cmp	r0, #0
+ 313 00f4 F4D0     		beq	.L18
+ 314              	.L19:
  163:Src/main.c    ****      poweroff();
- 327              		.loc 1 163 0 discriminator 1
- 328 010a 0221     		movs	r1, #2
- 329 010c 0448     		ldr	r0, .L22+4
- 330 010e FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 331              	.LVL39:
- 332 0112 0028     		cmp	r0, #0
- 333 0114 F9D1     		bne	.L19
+ 315              		.loc 1 163 0 discriminator 1
+ 316 00f6 0221     		movs	r1, #2
+ 317 00f8 0448     		ldr	r0, .L22+4
+ 318 00fa FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 319              	.LVL39:
+ 320 00fe 0028     		cmp	r0, #0
+ 321 0100 F9D1     		bne	.L19
  164:Src/main.c    ****    }
- 334              		.loc 1 164 0
- 335 0116 FFF7FEFF 		bl	poweroff
- 336              	.LVL40:
- 337 011a EBE7     		b	.L18
- 338              	.L23:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 11
+ 322              		.loc 1 164 0
+ 323 0102 FFF7FEFF 		bl	poweroff
+ 324              	.LVL40:
+ 325 0106 EBE7     		b	.L18
+ 326              	.L23:
+ 327              		.align	2
+ 328              	.L22:
+ 329 0108 00100240 		.word	1073876992
+ 330 010c 00080140 		.word	1073809408
+ 331 0110 00000000 		.word	hadc1
+ 332 0114 00000000 		.word	hadc2
+ 333 0118 00000000 		.word	buzzerFreq
+ 334 011c 000C0140 		.word	1073810432
+ 335              		.cfi_endproc
+ 336              	.LFE127:
+ 338              		.section	.text.Error_Handler,"ax",%progbits
+ 339              		.align	1
+ 340              		.global	Error_Handler
+ 341              		.syntax unified
+ 342              		.thumb
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 11
 
 
- 339              		.align	2
- 340              	.L22:
- 341 011c 00100240 		.word	1073876992
- 342 0120 00080140 		.word	1073809408
- 343 0124 00000000 		.word	hadc1
- 344 0128 00000000 		.word	hadc2
- 345 012c 00000000 		.word	buzzerFreq
- 346 0130 000C0140 		.word	1073810432
- 347 0134 00000000 		.word	pwmr
- 348 0138 00000000 		.word	pwml
- 349              		.cfi_endproc
- 350              	.LFE127:
- 352              		.section	.text.Error_Handler,"ax",%progbits
- 353              		.align	1
- 354              		.global	Error_Handler
- 355              		.syntax unified
- 356              		.thumb
- 357              		.thumb_func
- 358              		.fpu fpv4-sp-d16
- 360              	Error_Handler:
- 361              	.LFB129:
+ 343              		.thumb_func
+ 344              		.fpu fpv4-sp-d16
+ 346              	Error_Handler:
+ 347              	.LFB129:
  195:Src/main.c    **** 
  196:Src/main.c    **** /**
  197:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
@@ -630,128 +613,125 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 1
  200:Src/main.c    ****   */
  201:Src/main.c    **** void Error_Handler(void)
  202:Src/main.c    **** {
- 362              		.loc 1 202 0
- 363              		.cfi_startproc
- 364              		@ args = 0, pretend = 0, frame = 0
- 365              		@ frame_needed = 0, uses_anonymous_args = 0
- 366 0000 10B5     		push	{r4, lr}
- 367              	.LCFI5:
- 368              		.cfi_def_cfa_offset 8
- 369              		.cfi_offset 4, -8
- 370              		.cfi_offset 14, -4
- 371              	.LVL41:
- 372              	.LBB5:
+ 348              		.loc 1 202 0
+ 349              		.cfi_startproc
+ 350              		@ args = 0, pretend = 0, frame = 0
+ 351              		@ frame_needed = 0, uses_anonymous_args = 0
+ 352 0000 10B5     		push	{r4, lr}
+ 353              	.LCFI5:
+ 354              		.cfi_def_cfa_offset 8
+ 355              		.cfi_offset 4, -8
+ 356              		.cfi_offset 14, -4
+ 357              	.LVL41:
+ 358              	.LBB5:
  203:Src/main.c    ****   for (int i = 2; i >= 0; i--) {
- 373              		.loc 1 203 0
- 374 0002 0224     		movs	r4, #2
- 375 0004 09E0     		b	.L25
- 376              	.LVL42:
- 377              	.L26:
+ 359              		.loc 1 203 0
+ 360 0002 0224     		movs	r4, #2
+ 361 0004 09E0     		b	.L25
+ 362              	.LVL42:
+ 363              	.L26:
  204:Src/main.c    ****     buzzerFreq = 4;
- 378              		.loc 1 204 0 discriminator 3
- 379 0006 084B     		ldr	r3, .L28
- 380 0008 0422     		movs	r2, #4
- 381 000a 1A70     		strb	r2, [r3]
+ 364              		.loc 1 204 0 discriminator 3
+ 365 0006 084B     		ldr	r3, .L28
+ 366 0008 0422     		movs	r2, #4
+ 367 000a 1A70     		strb	r2, [r3]
  205:Src/main.c    ****     buzzerPattern = 1;
- 382              		.loc 1 205 0 discriminator 3
- 383 000c 074B     		ldr	r3, .L28+4
- 384 000e 0122     		movs	r2, #1
- 385 0010 1A70     		strb	r2, [r3]
+ 368              		.loc 1 205 0 discriminator 3
+ 369 000c 074B     		ldr	r3, .L28+4
+ 370 000e 0122     		movs	r2, #1
+ 371 0010 1A70     		strb	r2, [r3]
  206:Src/main.c    ****     HAL_Delay(5);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 12
-
-
- 386              		.loc 1 206 0 discriminator 3
- 387 0012 0520     		movs	r0, #5
- 388 0014 FFF7FEFF 		bl	HAL_Delay
- 389              	.LVL43:
+ 372              		.loc 1 206 0 discriminator 3
+ 373 0012 0520     		movs	r0, #5
+ 374 0014 FFF7FEFF 		bl	HAL_Delay
+ 375              	.LVL43:
  203:Src/main.c    ****     buzzerFreq = 4;
- 390              		.loc 1 203 0 discriminator 3
- 391 0018 013C     		subs	r4, r4, #1
- 392              	.LVL44:
- 393              	.L25:
+ 376              		.loc 1 203 0 discriminator 3
+ 377 0018 013C     		subs	r4, r4, #1
+ 378              	.LVL44:
+ 379              	.L25:
  203:Src/main.c    ****     buzzerFreq = 4;
- 394              		.loc 1 203 0 is_stmt 0 discriminator 1
- 395 001a 002C     		cmp	r4, #0
- 396 001c F3DA     		bge	.L26
- 397              	.LBE5:
+ 380              		.loc 1 203 0 is_stmt 0 discriminator 1
+ 381 001a 002C     		cmp	r4, #0
+ 382 001c F3DA     		bge	.L26
+ 383              	.LBE5:
  207:Src/main.c    ****   }
  208:Src/main.c    ****   buzzerFreq = 0;
- 398              		.loc 1 208 0 is_stmt 1
- 399 001e 024B     		ldr	r3, .L28
- 400 0020 0022     		movs	r2, #0
- 401 0022 1A70     		strb	r2, [r3]
+ 384              		.loc 1 208 0 is_stmt 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 12
+
+
+ 385 001e 024B     		ldr	r3, .L28
+ 386 0020 0022     		movs	r2, #0
+ 387 0022 1A70     		strb	r2, [r3]
  209:Src/main.c    **** }
- 402              		.loc 1 209 0
- 403 0024 10BD     		pop	{r4, pc}
- 404              	.LVL45:
- 405              	.L29:
- 406 0026 00BF     		.align	2
- 407              	.L28:
- 408 0028 00000000 		.word	buzzerFreq
- 409 002c 00000000 		.word	buzzerPattern
- 410              		.cfi_endproc
- 411              	.LFE129:
- 413              		.global	counter
- 414              		.comm	message,100,4
- 415              		.global	speed
- 416              		.comm	ch_buf,10,4
- 417              		.section	.bss.counter,"aw",%nobits
- 418              		.align	1
- 421              	counter:
- 422 0000 0000     		.space	2
- 423              		.section	.bss.speed,"aw",%nobits
- 424              		.align	1
- 425              		.set	.LANCHOR0,. + 0
- 428              	speed:
- 429 0000 0000     		.space	2
- 430              		.text
- 431              	.Letext0:
- 432              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 433              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 434              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
- 435              		.file 5 "Inc/system_at32f4xx.h"
- 436              		.file 6 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
- 437              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 438              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 439              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
- 440              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 441              		.file 11 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 442              		.file 12 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 13
-
-
- 443              		.file 13 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_adc.h"
- 444              		.file 14 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
- 445              		.file 15 "Inc/defines.h"
- 446              		.file 16 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
- 447              		.file 17 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
- 448              		.file 18 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
- 449              		.file 19 "Inc/setup.h"
- 450              		.file 20 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s 			page 14
+ 388              		.loc 1 209 0
+ 389 0024 10BD     		pop	{r4, pc}
+ 390              	.LVL45:
+ 391              	.L29:
+ 392 0026 00BF     		.align	2
+ 393              	.L28:
+ 394 0028 00000000 		.word	buzzerFreq
+ 395 002c 00000000 		.word	buzzerPattern
+ 396              		.cfi_endproc
+ 397              	.LFE129:
+ 399              		.global	counter
+ 400              		.comm	message,100,4
+ 401              		.global	speed
+ 402              		.comm	ch_buf,10,4
+ 403              		.section	.bss.counter,"aw",%nobits
+ 404              		.align	1
+ 407              	counter:
+ 408 0000 0000     		.space	2
+ 409              		.section	.bss.speed,"aw",%nobits
+ 410              		.align	1
+ 411              		.set	.LANCHOR0,. + 0
+ 414              	speed:
+ 415 0000 0000     		.space	2
+ 416              		.text
+ 417              	.Letext0:
+ 418              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 419              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 420              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 421              		.file 5 "Inc/system_at32f4xx.h"
+ 422              		.file 6 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 423              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 424              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 425              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 426              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 427              		.file 11 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 428              		.file 12 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 429              		.file 13 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_adc.h"
+ 430              		.file 14 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 431              		.file 15 "Inc/defines.h"
+ 432              		.file 16 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 433              		.file 17 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
+ 434              		.file 18 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
+ 435              		.file 19 "Inc/setup.h"
+ 436              		.file 20 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:17     .text.poweroff:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:24     .text.poweroff:0000000000000000 poweroff
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:85     .text.poweroff:0000000000000030 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:93     .text.SystemClock_Config:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:100    .text.SystemClock_Config:0000000000000000 SystemClock_Config
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:134    .text.SystemClock_Config:0000000000000028 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:139    .text.main:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:146    .text.main:0000000000000000 main
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:341    .text.main:000000000000011c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:353    .text.Error_Handler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:360    .text.Error_Handler:0000000000000000 Error_Handler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:408    .text.Error_Handler:0000000000000028 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:421    .bss.counter:0000000000000000 counter
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:17     .text.poweroff:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:24     .text.poweroff:0000000000000000 poweroff
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:85     .text.poweroff:0000000000000030 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:93     .text.SystemClock_Config:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:100    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:134    .text.SystemClock_Config:0000000000000028 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:139    .text.main:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:146    .text.main:0000000000000000 main
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:329    .text.main:0000000000000108 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:339    .text.Error_Handler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:346    .text.Error_Handler:0000000000000000 Error_Handler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:394    .text.Error_Handler:0000000000000028 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:407    .bss.counter:0000000000000000 counter
                             *COM*:0000000000000064 message
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:428    .bss.speed:0000000000000000 speed
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:414    .bss.speed:0000000000000000 speed
                             *COM*:000000000000000a ch_buf
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:418    .bss.counter:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccn72OPV.s:424    .bss.speed:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:404    .bss.counter:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccrUu22B.s:410    .bss.speed:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_Delay
@@ -778,5 +758,3 @@ ros_run
 HAL_GPIO_ReadPin
 hadc1
 hadc2
-pwmr
-pwml
