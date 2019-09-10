@@ -1,50 +1,34 @@
 /*
  * ros_subscribe.cpp
- *	Operate led #2
  *
  *  Created on: Mar 18, 2019
  *      Author: Shirish Jamthe
- * 
+ * to test publish use following
+ * $ rostopic pub /wheels_cmd sensor_msgs/JointState "{name:['LEFT','RIGHT'], position:[10,10],velocity:[20,20],effort:[60,-60]}"
  */
 
 #include "ROS_subscribe.h"
 
-void led_cb(unsigned char* cmd_msg);
-static int16_t ledState = -1;
+static sensor_msgs::JointState wheelPositions;
 
-void led_cb(unsigned char* msg)
+void wheels_cmd_cb(unsigned char* msg)
 {
-	const std_msgs::UInt16 cmd_msg;
-	cmd_msg.deserialize(msg);
-	
-    ledState = cmd_msg.data;
-    printf("ledState in CB %d\n",ledState);
-    // if(ledState) {
-    //     bsp_LedOn(2);
-    // }
-    // else
-    // {
-    //     bsp_LedOff(2);
-    // }
-    
+	wheelPositions.deserialize(msg);  
 }
 
-int16_t getLedState()
+sensor_msgs::JointState getWheelPositions()
 {
-    return ledState;
+	return wheelPositions;
 }
 
-
-uint32_t rosSubscribeInit(ros::NodeHandle *nh)
+uint32_t rosSubscribeWheelsCmd(ros::NodeHandle *nh)
 {
     ros::SubscriberType sub ;
-	//nh_ = nh;
-
-	const std_msgs::UInt16 msg;
-	sub.topic_name = "led";
+    const sensor_msgs::JointState msg;
+	sub.topic_name = "wheels_cmd";
 	sub.message_type = msg.getType();
 	sub.md5sum = msg.getMD5();
-	sub.callback = led_cb;
+	sub.callback = wheels_cmd_cb;
 	
 	nh->addSubscriber(sub);
 	

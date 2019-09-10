@@ -9,9 +9,9 @@
 #define INC_ROS_SUBSCRIBE_H_
 
 #include "ros.h"
-#include "std_msgs/UInt16.h"
+#include "sensor_msgs/JointState.h"
 
-uint32_t rosSubscribeInit(ros::NodeHandle *nh);
-int16_t getLedState(void);
+uint32_t rosSubscribeWheelsCmd(ros::NodeHandle *nh);
+sensor_msgs::JointState getWheelPositions(void);
 
 #endif /* INC_SUBSCRIBE_H_ */

@@ -44,8 +44,8 @@ void ros_init()
     std_msgs::String tmpStr;
     chatter = nh.addPublisher("chatter",  &tmpStr);
 
-    /* Register Subscriber led */
-    rosSubscribeInit(&nh);
+    /* Register Subscriber */
+    rosSubscribeWheelsCmd(&nh);
 }
 
 void publish_hovebot_state(void)
@@ -64,6 +64,7 @@ void publish_hovebot_state(void)
     wheelPositions.velocity_length = 2;
     wheelPositions.effort_length = 2;
     wheelPositions.effort = (float *) &effort;
+    wheelPositions.header.stamp = nh.now();
 
     //Note: If message (wheelPositions) is declared outside function/globally publish1 doesn't work.
     //may be constructor is not getting called.
@@ -101,6 +102,20 @@ void ros_run()
         //printf("publishing %ld, %ld\n",now, (now - publish_time));
         publish_hovebot_state();
         publish_time = now;
+    }
+
+    //Get wheel positions and set the values
+    sensor_msgs::JointState newWheelPositions = getWheelPositions();
+    if(newWheelPositions.name_length > 0) 
+    {
+        for (int i=0; i<2; i++)
+        {
+            printf("Received Wheel[%d] %s %d %d %d\n",i,newWheelPositions.name[i], int(newWheelPositions.position[i]),
+                        int(newWheelPositions.velocity[i]),int(newWheelPositions.effort[i]) );
+        }
+
+        pwml = MIN(newWheelPositions.effort[0],80);
+        pwmr = MIN(newWheelPositions.effort[1],80);
     }
 }
  
