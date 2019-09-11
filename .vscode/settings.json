@@ -4,7 +4,10 @@
         "hallinterrupts.h": "c",
         "config.h": "c",
         "setup.h": "c",
-        "defines.h": "c"
+        "defines.h": "c",
+        "unordered_map": "c",
+        "unordered_set": "c",
+        "regex": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

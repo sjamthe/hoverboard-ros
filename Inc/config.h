@@ -66,8 +66,8 @@
 // ###### CONTROL VIA UART (serial) ######
 #define CONTROL_SERIAL_USART2       // left sensor board cable, disable if ADC or PPM is used!
 #define CONTROL_BAUD       115200    // control via usart from eg an Arduino or raspberry
-#define CHAR_PROTOCOL             // New protocol that uses chars 'w'= Forward, 's' = Backward, 'a' = Left, 'd' = Right
-// for Arduino, use void loop(void){ Serial.write((uint8_t *) &steer, sizeof(steer)); Serial.write((uint8_t *) &speed, sizeof(speed));delay(20); }
+
+#define PWM_LIMIT 100
 
 // ###### CONTROL VIA RC REMOTE ######
 // left sensor board cable. Channel 1: steering, Channel 2: speed.
@@ -124,7 +124,7 @@
 #define STEER_COEFFICIENT   1.0  // higher value == stronger. if you do not want any steering, set it to 0.0; 0.0 to 1.0
 
 //#define CONTROL_MOTOR_TEST
-//#define INVERT_R_DIRECTION
+#define INVERT_R_DIRECTION
 //#define INVERT_L_DIRECTION
 
 #define BEEPS_BACKWARD 0    // 0 or 1

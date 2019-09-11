@@ -43,10 +43,6 @@ void ros_run(void);
 #endif
 #endif
 
-#ifdef CONTROL_MOTOR_TEST
-  extern volatile int pwml;  // global variable for pwm left. -1000 to 1000
-  extern volatile int pwmr;  // global variable for pwm right. -1000 to 1000
-#endif
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 extern volatile adc_buf_t adc_buffer;
@@ -137,22 +133,10 @@ int main(void) {
   HAL_GPIO_WritePin(LED_PORT, LED_PIN, 1);
  
 #ifdef CONTROL_MOTOR_TEST
-
-	#ifdef INVERT_R_DIRECTION
-	  pwmr = 60;
-	#else
-	  pwmr = -60;
-	#endif
-	#ifdef INVERT_L_DIRECTION
-	  pwml = -60;
-	#else
-	  pwml = 60;
-	#endif
-
+  extern int pwms[2]; 
+	pwms[LEFT] = 60;
+  pwms[RIGHT] = -60;
 #endif
-//invert direction
-// pwml = -1*pwml;
-// pwmr = -1*pwmr;
 
   while(1) {
     HAL_Delay(DELAY_IN_MAIN_LOOP); //delay in ms

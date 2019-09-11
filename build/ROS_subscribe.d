@@ -30,7 +30,7 @@ build/ROS_subscribe.d: Src/ROS_subscribe.cpp Inc/ROS_subscribe.h \
  ROSSerial/rosserial_msgs/RequestParam.h ROSSerial/std_msgs/ROSString.h \
  ROSSerial/ros/publisher.h ROSSerial/ros/node_handle.h \
  ROSSerial/ros/subscriber.h ROSSerial/ros/service_server.h \
- ROSSerial/ros/service_client.h ROSSerial/std_msgs/UInt16.h \
+ ROSSerial/ros/service_client.h ROSSerial/std_msgs/UInt16.h Inc/defines.h \
  ROSSerial/sensor_msgs/JointState.h ROSSerial/std_msgs/Header.h
 
 Inc/ROS_subscribe.h:
@@ -124,6 +124,8 @@ ROSSerial/ros/service_server.h:
 ROSSerial/ros/service_client.h:
 
 ROSSerial/std_msgs/UInt16.h:
+
+Inc/defines.h:
 
 ROSSerial/sensor_msgs/JointState.h:
 

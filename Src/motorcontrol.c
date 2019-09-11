@@ -5,7 +5,6 @@
 #include "config.h"
 #include "defines.h"
 
-
 RT_MODEL rtM_Left_;    /* Real-time model */
 RT_MODEL rtM_Right_;   /* Real-time model */
 RT_MODEL *const rtM_Left = &rtM_Left_;
@@ -25,11 +24,8 @@ ExtY rtY_Right;                  /* External outputs */
 const uint8_t hall_idx_left  = HALL_IDX_LEFT-1;
 const uint8_t hall_idx_right = HALL_IDX_RIGHT-1;
 
-volatile int pwml = 0;
-volatile int pwmr = 0;
+int pwms[2] = {0,0};
 
-//uint8_t left_hall, prev_left_hall = 0;
-//uint8_t right_hall, prev_right_hall = 0;
 volatile WHEEL_POSN_STRUCT wheel_posn[2];
 
 int hall_pin_order[7];
@@ -93,13 +89,13 @@ void motor_counter_increment(uint8_t motor)
     }
     else if(posn-prev_posn < 0 && posn-prev_posn >= -2)
     {
-      wheel_posn[motor].ticks += posn-prev_posn;  // shoulb be reverse direction
+      wheel_posn[motor].ticks += posn-prev_posn;  // shoul be reverse direction
     }
     else //posn-prev_posn +ve >= 3
     {
       wheel_posn[motor].ticks += posn-prev_posn - 6;
     }
-    //See if we finished a rotation (if we have more than 1 ticks then it is tricky see || condition)
+    //See if we finished a rotation 
     if(abs(wheel_posn[motor].ticks -  wheel_posn[motor].ticks_at_prev_rotation) >= 90)
     {
       wheel_posn[motor].rpm = 1000.0*90.0/
@@ -148,34 +144,35 @@ void motor_init()
   BLDC_controller_initialize(rtM_Right);
 
   /* Initialize hall_sensor_positions {1,5,4,6,2,3} to find ticks */
-   hall_pin_order[1]=0;
-   hall_pin_order[5]=1;
-   hall_pin_order[4]=2;
-   hall_pin_order[6]=3;
-   hall_pin_order[2]=4;
-   hall_pin_order[3]=5;
-   hall_pin_order[0]=-1; //0 should never come and indicated uninitialized state
+  hall_pin_order[1]=0;
+  hall_pin_order[5]=1;
+  hall_pin_order[4]=2;
+  hall_pin_order[6]=3;
+  hall_pin_order[2]=4;
+  hall_pin_order[3]=5;
+  hall_pin_order[0]=-1; //0 should never come and indicated uninitialized state
 
-   motor_counter_reset(LEFT);
-   wheel_posn[LEFT].hall = 0;
-   motor_counter_reset(RIGHT);
-   wheel_posn[RIGHT].hall = 0;
-   #ifdef INVERT_L_DIRECTION
-    wheel_posn[LEFT].direction = 1;
-    #else
-    wheel_posn[LEFT].direction = -1;
-   #endif
-   #ifdef INVERT_R_DIRECTION
-    wheel_posn[RIGHT].direction = 1;
-    #else
-    wheel_posn[RIGHT].direction = -1;
-    #endif
+  motor_counter_reset(LEFT);
+  wheel_posn[LEFT].hall = 0;
+  motor_counter_reset(RIGHT);
+  wheel_posn[RIGHT].hall = 0;
+
+  #ifndef INVERT_L_DIRECTION
+  wheel_posn[LEFT].direction = 1;
+  #else
+  wheel_posn[LEFT].direction = -1;
+  #endif
+  #ifndef INVERT_R_DIRECTION
+  wheel_posn[RIGHT].direction = 1;
+  #else
+  wheel_posn[RIGHT].direction = -1;
+  #endif
 
 }
 
 void motor_run()
 {
-    // ############################### MOTOR CONTROL ###############################
+  // ############################### MOTOR CONTROL ###############################
  
   int ul, vl, wl;
   int ur, vr, wr;
@@ -204,7 +201,7 @@ void motor_run()
     rtU_Left.b_hallA   = hall_ul;
     rtU_Left.b_hallB   = hall_vl;
     rtU_Left.b_hallC   = hall_wl;
-    rtU_Left.r_DC      = pwml;
+    rtU_Left.r_DC      = pwms[LEFT];
     
     /* Step the controller */
     BLDC_controller_step(rtM_Left);
@@ -233,7 +230,7 @@ void motor_run()
     rtU_Right.b_hallA  = hall_ur;
     rtU_Right.b_hallB  = hall_vr;
     rtU_Right.b_hallC  = hall_wr;
-    rtU_Right.r_DC     = pwmr;
+    rtU_Right.r_DC     = pwms[RIGHT];
 
     /* Step the controller */
     BLDC_controller_step(rtM_Right);

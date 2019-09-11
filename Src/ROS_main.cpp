@@ -9,18 +9,16 @@
 #include "hallinterrupts.h"
 #include "defines.h"
 
-
-extern volatile int pwml;  // global variable for pwm left. -1000 to 1000
-extern volatile int pwmr;  // global variable for pwm right. -1000 to 1000
 extern volatile WHEEL_POSN_STRUCT wheel_posn[2];
+extern int pwms[2];
 
 uint32_t publish_time = 0;
-
 extern "C" 
 {
     void ros_init(void);
     void ros_run(void);
     void publish_hovebot_state(void);
+    void wheels_pwm_set(void);
 }
 
 using namespace ros;
@@ -52,9 +50,9 @@ void publish_hovebot_state(void)
 {
     sensor_msgs::JointState wheelPositions; //This has to be local variable. for some reason.
     char *names[2] = {"LEFT","RIGHT"};
-    float position[2] = {wheel_posn[0].ticks,wheel_posn[1].ticks};
-    float velocity[2] = {wheel_posn[0].rpm, wheel_posn[1].rpm};
-    float effort[2] = {pwml, pwmr};
+    float position[2] = {wheel_posn[LEFT].ticks,wheel_posn[RIGHT].ticks};
+    float velocity[2] = {wheel_posn[LEFT].rpm, wheel_posn[RIGHT].rpm};
+    float effort[2] = {pwms[LEFT], pwms[RIGHT]};
 
     wheelPositions.name = (char **) &names;
     wheelPositions.name_length = 2;
@@ -94,28 +92,14 @@ void ros_run()
 
     if(nh.spinOnce1() != 0)
     {
-        printf("ERROR: spinOnce1 returned error probably SPIN_TIMEOUT\n");
+        printf("%lu:ERROR: spinOnce1 returned error probably SPIN_TIMEOUT\n",now);
         return;
     }
     //Publish every 100ms (10Hz)
-    if ((now - publish_time) > 50) {
+    if ((now - publish_time) > 100) {
         //printf("publishing %ld, %ld\n",now, (now - publish_time));
         publish_hovebot_state();
         publish_time = now;
     }
-
-    //Get wheel positions and set the values
-    sensor_msgs::JointState newWheelPositions = getWheelPositions();
-    if(newWheelPositions.name_length > 0) 
-    {
-        for (int i=0; i<2; i++)
-        {
-            printf("Received Wheel[%d] %s %d %d %d\n",i,newWheelPositions.name[i], int(newWheelPositions.position[i]),
-                        int(newWheelPositions.velocity[i]),int(newWheelPositions.effort[i]) );
-        }
-
-        pwml = MIN(newWheelPositions.effort[0],80);
-        pwmr = MIN(newWheelPositions.effort[1],80);
-    }
+    wheels_pwm_set();
 }
- 

@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
   30:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
   31:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
   32:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 2
 
 
   33:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
   87:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****  ===============================================================================  
   88:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     [..]
   89:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     This subsection provides a set of functions allowing to control the RCC Clocks 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 3
 
 
   90:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     frequencies.
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  127:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   
  128:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   /*------------------------------- RTC/LCD Configuration ------------------------*/ 
  129:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   if ((((PeriphClkInit->PeriphClockSelection) & RCC_PERIPHCLK_RTC) == RCC_PERIPHCLK_RTC))
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 4
 
 
   44              		.loc 1 129 0
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  150:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       /* Wait for Backup domain Write protection disable */
  151:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       tickstart = HAL_GetTick();
  152:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 5
 
 
  153:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       while(HAL_IS_BIT_CLR(PWR->CR, PWR_CR_DBP))
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  109              	.LVL10:
  110              	.L8:
  176:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 6
 
 
  177:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         /* Get Start Tick */
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  135              	.L11:
  207:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   }
  208:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 7
 
 
  209:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** #if defined(STM32F105xC) || defined(STM32F107xC)
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  263:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       __HAL_RCC_PLLI2S_ENABLE();
  264:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       
  265:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       /* Get Start Tick*/
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 8
 
 
  266:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       tickstart = HAL_GetTick();
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  152              	.LCFI2:
  153              		.cfi_remember_state
  154              		.cfi_def_cfa_offset 16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 9
 
 
  155              		@ sp needed
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  201 00dc 0A4B     		ldr	r3, .L20
  202 00de 1B6A     		ldr	r3, [r3, #32]
  203 00e0 13F0020F 		tst	r3, #2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 10
 
 
  204 00e4 BFD1     		bne	.L8
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  313:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** {
  247              		.loc 1 313 0
  248              		.cfi_startproc
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 11
 
 
  249              		@ args = 0, pretend = 0, frame = 0
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  343:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
  344:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   /* Get the I2S3 clock configuration -----------------------------------------*/
  345:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   PeriphClkInit->PeriphClockSelection |= RCC_PERIPHCLK_I2S3;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 12
 
 
  346:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   PeriphClkInit->I2s3ClockSelection = RCC_I2S3CLKSOURCE_SYSCLK;
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  374:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *            @arg @ref RCC_PERIPHCLK_I2S3 I2S3 peripheral clock
  375:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *            @arg @ref RCC_PERIPHCLK_I2S2 I2S2 peripheral clock
  376:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   @endif
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 13
 
 
  377:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   @if STM32F105xC
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  416:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     defined(AT32F403Rx_HD)
  417:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   const uint8_t aPLLMULFactorTable[16] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 16};
  317              		.loc 1 417 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 14
 
 
  318 0006 404C     		ldr	r4, .L45
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  354              	.LVL29:
  436:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   
  437:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       /* Check if PLL is enabled */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 15
 
 
  438:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       if (HAL_IS_BIT_SET(RCC->CR,RCC_CR_PLLON))
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  471:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** #else
  472:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****           if ((temp_reg & RCC_CFGR_PLLSRC) != RCC_PLLSOURCE_HSI_DIV2)
  473:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****           {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 16
 
 
  474:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****             /* HSE used as PLL clock source : PLLCLK = HSE/PREDIV1 * PLLMUL */
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  395              	.LVL35:
  396              	.L33:
  482:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 17
 
 
  397              		.loc 1 482 0
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  552:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       }
  553:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       else
  554:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 18
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 18
 
 
  555:Drivers/Modified_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****          /* Check if PLLI2S is enabled */
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  411              		.cfi_remember_state
  412              		.cfi_def_cfa_offset 12
  413              		@ sp needed
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 19
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 19
 
 
  414 0092 30BD     		pop	{r4, r5, pc}
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  458 00ce 0F4B     		ldr	r3, .L45+4
  459 00d0 1B68     		ldr	r3, [r3]
  460 00d2 13F4003F 		tst	r3, #131072
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 20
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 20
 
 
  461 00d6 13D1     		bne	.L41
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  508              		.cfi_endproc
  509              	.LFE128:
  511              		.section	.rodata
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 21
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 21
 
 
  512              		.align	2
@@ -1238,23 +1238,23 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 1
  546              		.file 12 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
  547              		.file 13 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
  548              		.file 14 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s 			page 22
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_rcc_ex.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s:17     .text.HAL_RCCEx_PeriphCLKConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s:24     .text.HAL_RCCEx_PeriphCLKConfig:0000000000000000 HAL_RCCEx_PeriphCLKConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s:231    .text.HAL_RCCEx_PeriphCLKConfig:0000000000000108 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s:238    .text.HAL_RCCEx_GetPeriphCLKConfig:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s:245    .text.HAL_RCCEx_GetPeriphCLKConfig:0000000000000000 HAL_RCCEx_GetPeriphCLKConfig
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s:288    .text.HAL_RCCEx_GetPeriphCLKConfig:0000000000000030 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s:293    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s:300    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000000 HAL_RCCEx_GetPeriphCLKFreq
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s:333    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000024 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s:349    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000034 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s:503    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000108 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccH7jRMQ.s:512    .rodata:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s:17     .text.HAL_RCCEx_PeriphCLKConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s:24     .text.HAL_RCCEx_PeriphCLKConfig:0000000000000000 HAL_RCCEx_PeriphCLKConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s:231    .text.HAL_RCCEx_PeriphCLKConfig:0000000000000108 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s:238    .text.HAL_RCCEx_GetPeriphCLKConfig:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s:245    .text.HAL_RCCEx_GetPeriphCLKConfig:0000000000000000 HAL_RCCEx_GetPeriphCLKConfig
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s:288    .text.HAL_RCCEx_GetPeriphCLKConfig:0000000000000030 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s:293    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s:300    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000000 HAL_RCCEx_GetPeriphCLKFreq
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s:333    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000024 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s:349    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000034 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s:503    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000108 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccv8VR6j.s:512    .rodata:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GetTick

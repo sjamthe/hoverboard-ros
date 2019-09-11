@@ -1,6 +1,6 @@
 ## High Priority
 
-1. ROS Subscribe to sensor_msgs/JointState
+1. Set 
 
 
 ## Low Priority
