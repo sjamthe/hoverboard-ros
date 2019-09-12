@@ -10,7 +10,7 @@
 #include "ROS_subscribe.h"
 
 #define SAFETY_MS 2000
-#define POSITION_PWM 50
+const int position_pwms[2] = {50,55};
 
 extern "C" 
 {
@@ -85,13 +85,13 @@ void wheels_pwm_set()
       {
         if(motionDirection[i] == 1) // go forward
         {
-          pwms[i] = POSITION_PWM*wheel_posn[i].direction;
+          pwms[i] = position_pwms[i]*wheel_posn[i].direction;
           printf("%lu:Target[%d] set for forward %ld <= %ld, pwms=%d\n",now,i,
               ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
         }
         else // go back
         {
-          pwms[i] = -POSITION_PWM*wheel_posn[i].direction;
+          pwms[i] = -position_pwms[i]*wheel_posn[i].direction;
           printf("%lu:Target[%d] set for backward %ld <= %ld, pwms=%d\n",now,i,
               ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
         }

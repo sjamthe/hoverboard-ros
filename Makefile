@@ -192,6 +192,9 @@ load:
 connect:
 	openocd -f interface/stlink-v2.cfg -f target/stm32f3x.cfg -c init 
 
+run:
+	openocd -f interface/stlink-v2.cfg -f target/stm32f3x.cfg -c init -s "reset init" -c "reset run" -c "shutdown"
+
 unlock:
 	openocd -f interface/stlink.cfg -f target/stm32f3x.cfg -c init -c "reset halt" -c "stm32f1x unlock 0"
 
