@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 1
   30:Src/bldc.c    **** 
   31:Src/bldc.c    **** // Matlab includes and defines - from auto-code generation
   32:Src/bldc.c    **** // ###############################################################################
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s 			page 2
 
 
   33:Src/bldc.c    **** // #include "BLDC_controller.h"           /* Model's header file */
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 1
   31 0000 10B5     		push	{r4, lr}
   32              	.LCFI0:
   33              		.cfi_def_cfa_offset 8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s 			page 3
 
 
   34              		.cfi_offset 4, -8
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 1
   75 005e 1C4B     		ldr	r3, .L8+36
   76 0060 A3FB0213 		umull	r1, r3, r3, r2
   77 0064 1B0B     		lsrs	r3, r3, #12
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s 			page 4
 
 
   78 0066 1B49     		ldr	r1, .L8+40
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 1
  111 009c 0F4C     		ldr	r4, .L8+48
  112 009e 0123     		movs	r3, #1
  113 00a0 2370     		strb	r3, [r4]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s 			page 5
 
 
  111:Src/bldc.c    **** 
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 1
  177              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
  178              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
  179              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s 			page 6
 
 
  180              		.file 5 "Inc/system_at32f4xx.h"
@@ -310,24 +310,24 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 1
  186              		.file 11 "Inc/rtwtypes.h"
  187              		.file 12 "Inc/defines.h"
  188              		.file 13 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bldc.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:17     .text.DMA1_Channel1_IRQHandler:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:24     .text.DMA1_Channel1_IRQHandler:0000000000000000 DMA1_Channel1_IRQHandler
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:124    .text.DMA1_Channel1_IRQHandler:00000000000000ac $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:173    .data.batteryVoltage:0000000000000000 batteryVoltage
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:159    .bss.buzzerPattern:0000000000000000 buzzerPattern
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:153    .bss.buzzerFreq:0000000000000000 buzzerFreq
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:147    .bss.OverrunFlag.9205:0000000000000000 OverrunFlag.9205
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:148    .bss.OverrunFlag.9205:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:154    .bss.buzzerFreq:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:160    .bss.buzzerPattern:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:162    .bss.buzzerTimer:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:166    .bss.buzzerTimer:0000000000000000 buzzerTimer
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccfpAyoW.s:169    .data.batteryVoltage:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:17     .text.DMA1_Channel1_IRQHandler:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:24     .text.DMA1_Channel1_IRQHandler:0000000000000000 DMA1_Channel1_IRQHandler
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:124    .text.DMA1_Channel1_IRQHandler:00000000000000ac $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:173    .data.batteryVoltage:0000000000000000 batteryVoltage
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:159    .bss.buzzerPattern:0000000000000000 buzzerPattern
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:153    .bss.buzzerFreq:0000000000000000 buzzerFreq
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:147    .bss.OverrunFlag.9205:0000000000000000 OverrunFlag.9205
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:148    .bss.OverrunFlag.9205:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:154    .bss.buzzerFreq:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:160    .bss.buzzerPattern:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:162    .bss.buzzerTimer:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:166    .bss.buzzerTimer:0000000000000000 buzzerTimer
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc25Ok0N.s:169    .data.batteryVoltage:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_TogglePin

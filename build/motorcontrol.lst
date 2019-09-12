@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
   30:Src/motorcontrol.c **** 
   31:Src/motorcontrol.c **** int hall_pin_order[7];
   32:Src/motorcontrol.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 2
 
 
   33:Src/motorcontrol.c **** //static const uint16_t pwm_res       = 64000000 / 2 / PWM_FREQ; // = 2000
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
   51 0014 E361     		str	r3, [r4, #28]
   63:Src/motorcontrol.c ****   wheel_posn[motor].millis_at_prev_tick = 0; //time at previous to last tick
   52              		.loc 1 63 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 3
 
 
   53 0016 2362     		str	r3, [r4, #32]
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  103 0010 2B62     		str	r3, [r5, #32]
   70:Src/motorcontrol.c ****   wheel_posn[motor].millis_at_tick = HAL_GetTick();
  104              		.loc 1 70 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 4
 
 
  105 0012 FFF7FEFF 		bl	HAL_GetTick
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  141 004c 0AE0     		b	.L9
  142              	.LVL7:
  143              	.L14:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 5
 
 
   77:Src/motorcontrol.c ****   }
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  182 0084 A869     		ldr	r0, [r5, #24]
  183 0086 1B1A     		subs	r3, r3, r0
  184 0088 002B     		cmp	r3, #0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 6
 
 
  185 008a B8BF     		it	lt
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  228 00d2 1144     		add	r1, r1, r2
  229 00d4 8968     		ldr	r1, [r1, #8]
  230 00d6 0244     		add	r2, r2, r0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 7
 
 
  231 00d8 D160     		str	r1, [r2, #12]
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  272 0114 CFE7     		b	.L12
  273              	.L19:
  274 0116 00BF     		.align	3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 8
 
 
  275              	.L18:
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  131:Src/motorcontrol.c ****   rtM_Left->defaultParam  = &rtP;
  322              		.loc 1 131 0
  323 0020 1B48     		ldr	r0, .L22+16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 9
 
 
  324 0022 0360     		str	r3, [r0]
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  360 0052 0222     		movs	r2, #2
  361 0054 1A61     		str	r2, [r3, #16]
  150:Src/motorcontrol.c ****   hall_pin_order[6]=3;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 10
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 10
 
 
  362              		.loc 1 150 0
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  395 0080 00000000 		.word	SystemCoreClock
  396 0084 D34D6210 		.word	274877907
  397 0088 00000000 		.word	pwm_res
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 11
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 11
 
 
  398 008c 00000000 		.word	rtP
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  443              		.loc 1 182 0
  444 0010 9A68     		ldr	r2, [r3, #8]
  445 0012 12F0800F 		tst	r2, #128
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 12
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 12
 
 
  446 0016 0CBF     		ite	eq
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  488              		.loc 1 189 0 is_stmt 0 discriminator 1
  489 0056 012C     		cmp	r4, #1
  490 0058 13DC     		bgt	.L48
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 13
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 13
 
 
  191:Src/motorcontrol.c ****         motor_counter_reset(i);
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  529 0092 FFF7FEFF 		bl	BLDC_controller_step
  530              	.LVL33:
  208:Src/motorcontrol.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 14
 
 
  209:Src/motorcontrol.c ****     /* Get motor outputs here */
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  574 00c8 4DDA     		bge	.L33
  575              		.loc 1 219 0 is_stmt 0 discriminator 1
  576 00ca 0A3B     		subs	r3, r3, #10
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 15
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 15
 
 
  577 00cc 9BB2     		uxth	r3, r3
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  235:Src/motorcontrol.c ****     /* Step the controller */
  236:Src/motorcontrol.c ****     BLDC_controller_step(rtM_Right);
  616              		.loc 1 236 0 discriminator 8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 16
 
 
  617 0106 3048     		ldr	r0, .L51+40
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  659              		.loc 1 248 0 is_stmt 1 discriminator 8
  660 013a 4219     		adds	r2, r0, r5
  661 013c 9442     		cmp	r4, r2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 17
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 17
 
 
  662 013e 27DB     		blt	.L50
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  708 016c 9BB2     		uxth	r3, r3
  709 016e AEE7     		b	.L34
  710              	.L43:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 18
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 18
 
 
  219:Src/motorcontrol.c ****   // =================================================================
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  754              		.loc 1 252 0 is_stmt 1 discriminator 8
  755 0198 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  756              	.LVL70:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 19
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 19
 
 
  757              	.L46:
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  814 0006 2000     		.short	32
  815 0008 8000     		.short	128
  816 000a 4000     		.short	64
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 20
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 20
 
 
  817 000c 4000     		.short	64
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  881              		.file 7 "Inc/system_at32f4xx.h"
  882              		.file 8 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
  883              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 21
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 21
 
 
  884              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
@@ -1207,22 +1207,22 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 1
  887              		.file 13 "Inc/defines.h"
  888              		.file 14 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
  889              		.file 15 "<built-in>"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s 			page 22
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 motorcontrol.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:17     .text.motor_counter_reset:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:24     .text.motor_counter_reset:0000000000000000 motor_counter_reset
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:66     .text.motor_counter_reset:0000000000000020 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:17     .text.motor_counter_reset:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:24     .text.motor_counter_reset:0000000000000000 motor_counter_reset
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:66     .text.motor_counter_reset:0000000000000020 $d
                             *COM*:0000000000000050 wheel_posn
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:74     .text.motor_counter_increment:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:81     .text.motor_counter_increment:0000000000000000 motor_counter_increment
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:276    .text.motor_counter_increment:0000000000000118 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:74     .text.motor_counter_increment:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:81     .text.motor_counter_increment:0000000000000000 motor_counter_increment
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:276    .text.motor_counter_increment:0000000000000118 $d
                             *COM*:000000000000001c hall_pin_order
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:285    .text.motor_init:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:292    .text.motor_init:0000000000000000 motor_init
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:395    .text.motor_init:0000000000000080 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:285    .text.motor_init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:292    .text.motor_init:0000000000000000 motor_init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:395    .text.motor_init:0000000000000080 $d
                             *COM*:0000000000000002 pwm_res
                             *COM*:0000000000000064 rtP
                             *COM*:0000000000000010 rtM_Left_
@@ -1233,21 +1233,21 @@ DEFINED SYMBOLS
                             *COM*:0000000000000024 rtDW_Right
                             *COM*:0000000000000008 rtU_Right
                             *COM*:0000000000000014 rtY_Right
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:413    .text.motor_run:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:420    .text.motor_run:0000000000000000 motor_run
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:764    .text.motor_run:00000000000001a0 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:833    .rodata.hall_cfg_right:0000000000000000 hall_cfg_right
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:810    .rodata.hall_cfg_left:0000000000000000 hall_cfg_left
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:804    .bss.pwms:0000000000000000 pwms
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:860    .rodata.hall_idx_right:0000000000000000 hall_idx_right
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:855    .rodata.hall_idx_left:0000000000000000 hall_idx_left
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:872    .rodata.rtM_Right:0000000000000000 rtM_Right
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:866    .rodata.rtM_Left:0000000000000000 rtM_Left
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:800    .bss.pwms:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:807    .rodata.hall_cfg_left:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:830    .rodata.hall_cfg_right:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:863    .rodata.rtM_Left:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccTtSsxC.s:869    .rodata.rtM_Right:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:413    .text.motor_run:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:420    .text.motor_run:0000000000000000 motor_run
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:764    .text.motor_run:00000000000001a0 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:833    .rodata.hall_cfg_right:0000000000000000 hall_cfg_right
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:810    .rodata.hall_cfg_left:0000000000000000 hall_cfg_left
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:804    .bss.pwms:0000000000000000 pwms
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:860    .rodata.hall_idx_right:0000000000000000 hall_idx_right
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:855    .rodata.hall_idx_left:0000000000000000 hall_idx_left
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:872    .rodata.rtM_Right:0000000000000000 rtM_Right
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:866    .rodata.rtM_Left:0000000000000000 rtM_Left
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:800    .bss.pwms:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:807    .rodata.hall_cfg_left:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:830    .rodata.hall_cfg_right:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:863    .rodata.rtM_Left:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccd1FFHM.s:869    .rodata.rtM_Right:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_ui2d

@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   29:ROSSerial/std_msgs/Header.h ****       *(outbuffer + offset + 1) = (this->stamp.sec >> (8 * 1)) & 0xFF;
   30:ROSSerial/std_msgs/Header.h ****       *(outbuffer + offset + 2) = (this->stamp.sec >> (8 * 2)) & 0xFF;
   31:ROSSerial/std_msgs/Header.h ****       *(outbuffer + offset + 3) = (this->stamp.sec >> (8 * 3)) & 0xFF;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 2
 
 
   32:ROSSerial/std_msgs/Header.h ****       offset += sizeof(this->stamp.sec);
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   55:ROSSerial/std_msgs/Header.h ****       this->stamp.sec |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
   59              		.loc 1 55 0
   60 0022 4A79     		ldrb	r2, [r1, #5]	@ zero_extendqisi2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 3
 
 
   61 0024 43EA0223 		orr	r3, r3, r2, lsl #8
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  102 0064 CC5C     		ldrb	r4, [r1, r3]	@ zero_extendqisi2
  103 0066 8C54     		strb	r4, [r1, r2]
   67:ROSSerial/std_msgs/Header.h ****           inbuffer[k-1]=inbuffer[k];
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 4
 
 
  104              		.loc 1 67 0 discriminator 2
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  152              		.loc 1 76 0
  153 0000 0048     		ldr	r0, .L6
  154              	.LVL14:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 5
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 5
 
 
  155 0002 7047     		bx	lr
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
    6:ROSSerial/sensor_msgs/JointState.h **** #include <stdlib.h>
    7:ROSSerial/sensor_msgs/JointState.h **** #include "ros/msg.h"
    8:ROSSerial/sensor_msgs/JointState.h **** #include "std_msgs/Header.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 6
 
 
    9:ROSSerial/sensor_msgs/JointState.h **** 
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   63:ROSSerial/sensor_msgs/JointState.h ****       *(outbuffer + offset + 3) = (this->position_length >> (8 * 3)) & 0xFF;
   64:ROSSerial/sensor_msgs/JointState.h ****       offset += sizeof(this->position_length);
   65:ROSSerial/sensor_msgs/JointState.h ****       for( uint32_t i = 0; i < position_length; i++){
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 7
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 7
 
 
   66:ROSSerial/sensor_msgs/JointState.h ****       offset += serializeAvrFloat64(outbuffer + offset, this->position[i]);
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  120:ROSSerial/sensor_msgs/JointState.h ****       offset += deserializeAvrFloat64(inbuffer + offset, &(this->st_position));
  121:ROSSerial/sensor_msgs/JointState.h ****         memcpy( &(this->position[i]), &(this->st_position), sizeof(float));
  122:ROSSerial/sensor_msgs/JointState.h ****       }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 8
 
 
  123:ROSSerial/sensor_msgs/JointState.h ****       uint32_t velocity_lengthT = ((uint32_t) (*(inbuffer + offset))); 
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  235              		.fnstart
  236              	.LFB490:
  151:ROSSerial/sensor_msgs/JointState.h ****     const char * getMD5(){ return "3066dcd76a6cfaef579bd0f34173e9fd"; };
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 9
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 9
 
 
  237              		.loc 2 151 0
@@ -520,147 +520,155 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
    9:./Src/ROS_subscribe.cpp **** 
   10:./Src/ROS_subscribe.cpp **** #include "ROS_subscribe.h"
   11:./Src/ROS_subscribe.cpp **** 
-  12:./Src/ROS_subscribe.cpp **** extern "C" 
-  13:./Src/ROS_subscribe.cpp **** {
-  14:./Src/ROS_subscribe.cpp **** 	void wheels_pwm_set(void);
-  15:./Src/ROS_subscribe.cpp **** }
-  16:./Src/ROS_subscribe.cpp **** 
-  17:./Src/ROS_subscribe.cpp **** static sensor_msgs::JointState wheelPositions;
-  18:./Src/ROS_subscribe.cpp **** uint32_t wheelPositionsAt;
+  12:./Src/ROS_subscribe.cpp **** #define SAFETY_MS 2000
+  13:./Src/ROS_subscribe.cpp **** #define POSITION_PWM 50
+  14:./Src/ROS_subscribe.cpp **** 
+  15:./Src/ROS_subscribe.cpp **** extern "C" 
+  16:./Src/ROS_subscribe.cpp **** {
+  17:./Src/ROS_subscribe.cpp **** 	void wheels_pwm_set(void);
+  18:./Src/ROS_subscribe.cpp **** }
   19:./Src/ROS_subscribe.cpp **** 
-  20:./Src/ROS_subscribe.cpp **** extern int pwms[2];
-  21:./Src/ROS_subscribe.cpp **** extern volatile WHEEL_POSN_STRUCT wheel_posn[2];
+  20:./Src/ROS_subscribe.cpp **** static sensor_msgs::JointState wheelPositions;
+  21:./Src/ROS_subscribe.cpp **** uint32_t wheelInputAt; //MS at which we received the input callback
   22:./Src/ROS_subscribe.cpp **** 
-  23:./Src/ROS_subscribe.cpp **** long ticksTarget[2] = {0,0}; //ticks target set by ROS
-  24:./Src/ROS_subscribe.cpp **** float rpmTarget[2] = {0,0}; //velocity/rpm target set by ROS
+  23:./Src/ROS_subscribe.cpp **** extern int pwms[2];
+  24:./Src/ROS_subscribe.cpp **** extern volatile WHEEL_POSN_STRUCT wheel_posn[2];
   25:./Src/ROS_subscribe.cpp **** 
-  26:./Src/ROS_subscribe.cpp **** void wheels_cmd_cb(unsigned char* msg)
-  27:./Src/ROS_subscribe.cpp **** {
-  28:./Src/ROS_subscribe.cpp **** 	wheelPositionsAt = HAL_GetTick();
-  29:./Src/ROS_subscribe.cpp **** 	wheelPositions.deserialize(msg);  
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 10
+  26:./Src/ROS_subscribe.cpp **** long ticksTarget[2] = {0,0}; //ticks target set by ROS
+  27:./Src/ROS_subscribe.cpp **** float rpmTarget[2] = {0,0}; //velocity/rpm target set by ROS
+  28:./Src/ROS_subscribe.cpp **** int motionDirection[2]; //Were we asked to move forward or back?
+  29:./Src/ROS_subscribe.cpp **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 10
 
 
-  30:./Src/ROS_subscribe.cpp **** 	printf("%lu: New wheels_cmd_cb received\n",HAL_GetTick());
-  31:./Src/ROS_subscribe.cpp **** }
-  32:./Src/ROS_subscribe.cpp **** 
-  33:./Src/ROS_subscribe.cpp **** void wheels_pwm_set()
-  34:./Src/ROS_subscribe.cpp **** {
-  35:./Src/ROS_subscribe.cpp ****   uint32_t now = HAL_GetTick();
-  36:./Src/ROS_subscribe.cpp **** 
-  37:./Src/ROS_subscribe.cpp ****   //safety stop if no new update in 1000ms
-  38:./Src/ROS_subscribe.cpp ****   if((now - wheelPositionsAt) > 2000)
-  39:./Src/ROS_subscribe.cpp ****   {
-  40:./Src/ROS_subscribe.cpp ****     for (int i=0;i<2;i++)
-  41:./Src/ROS_subscribe.cpp ****     {
-  42:./Src/ROS_subscribe.cpp **** 	  if(pwms[i] != 0) {
-  43:./Src/ROS_subscribe.cpp **** 	  	printf("%lu:LIMIT reached. set speed to 0 , %lu, %lu for pwms[%d]=%d ticks=%ld\n",
-  44:./Src/ROS_subscribe.cpp **** 	  			now, wheelPositionsAt, (now - wheelPositionsAt), i, pwms[i], wheel_posn[i].ticks);
-  45:./Src/ROS_subscribe.cpp **** 	  }
-  46:./Src/ROS_subscribe.cpp ****       pwms[i] = 0;
-  47:./Src/ROS_subscribe.cpp ****       ticksTarget[i] = 0;
-  48:./Src/ROS_subscribe.cpp ****       rpmTarget[i] = 0;
-  49:./Src/ROS_subscribe.cpp **** 	  wheelPositionsAt = 0; //reset clock;
-  50:./Src/ROS_subscribe.cpp ****     }
-  51:./Src/ROS_subscribe.cpp ****     return;
-  52:./Src/ROS_subscribe.cpp ****   }
+  30:./Src/ROS_subscribe.cpp **** void wheels_cmd_cb(unsigned char* msg)
+  31:./Src/ROS_subscribe.cpp **** {
+  32:./Src/ROS_subscribe.cpp **** 	wheelInputAt = HAL_GetTick();
+  33:./Src/ROS_subscribe.cpp **** 	wheelPositions.deserialize(msg); 
+  34:./Src/ROS_subscribe.cpp ****   for (int i=0; i < wheelPositions.name_length && i<2; i++)
+  35:./Src/ROS_subscribe.cpp ****   {
+  36:./Src/ROS_subscribe.cpp ****     ticksTarget[i] = long(wheelPositions.position[i]) + wheel_posn[i].ticks; 
+  37:./Src/ROS_subscribe.cpp ****     //
+  38:./Src/ROS_subscribe.cpp ****     if(ticksTarget[i]*wheel_posn[i].direction >= wheel_posn[i].ticks*wheel_posn[i].direction)
+  39:./Src/ROS_subscribe.cpp ****     {
+  40:./Src/ROS_subscribe.cpp ****       motionDirection[i] = 1*wheel_posn[i].direction;
+  41:./Src/ROS_subscribe.cpp ****     }
+  42:./Src/ROS_subscribe.cpp ****     else
+  43:./Src/ROS_subscribe.cpp ****     {
+  44:./Src/ROS_subscribe.cpp ****       motionDirection[i] = -1*wheel_posn[i].direction;
+  45:./Src/ROS_subscribe.cpp ****     }
+  46:./Src/ROS_subscribe.cpp ****     printf("%lu: wheels_cmd_cb tickTarget=%ld, dir=%d\n",wheelInputAt,ticksTarget[i],motionDirectio
+  47:./Src/ROS_subscribe.cpp ****   }
+  48:./Src/ROS_subscribe.cpp **** }
+  49:./Src/ROS_subscribe.cpp **** 
+  50:./Src/ROS_subscribe.cpp **** void wheels_pwm_set()
+  51:./Src/ROS_subscribe.cpp **** {
+  52:./Src/ROS_subscribe.cpp ****   uint32_t now = HAL_GetTick();
   53:./Src/ROS_subscribe.cpp **** 
-  54:./Src/ROS_subscribe.cpp ****   //Get wheel positions and set the values
-  55:./Src/ROS_subscribe.cpp ****   if(wheelPositions.name_length == 2) 
+  54:./Src/ROS_subscribe.cpp ****   //safety stop if no new update in MS
+  55:./Src/ROS_subscribe.cpp ****   if((now - wheelInputAt) > SAFETY_MS)
   56:./Src/ROS_subscribe.cpp ****   {
-  57:./Src/ROS_subscribe.cpp ****     for (int i=0;i<2; i++)
+  57:./Src/ROS_subscribe.cpp ****     for (int i=0; i<2;i++)
   58:./Src/ROS_subscribe.cpp ****     {
-  59:./Src/ROS_subscribe.cpp ****       //If position target was set to 0 set a new target, if we met/passed it then reset it
-  60:./Src/ROS_subscribe.cpp ****       if(wheelPositions.position[i] != 0)
-  61:./Src/ROS_subscribe.cpp ****       {
-  62:./Src/ROS_subscribe.cpp ****         if(ticksTarget[i] == 0)
-  63:./Src/ROS_subscribe.cpp ****         {
-  64:./Src/ROS_subscribe.cpp ****           //Set new target to current + delta requested
-  65:./Src/ROS_subscribe.cpp ****           ticksTarget[i] = long(wheelPositions.position[i]*wheel_posn[i].direction) + wheel_posn[i]
-  66:./Src/ROS_subscribe.cpp ****           if(ticksTarget[i] >= long(wheelPositions.position[i]*wheel_posn[i].direction)  + wheel_po
-  67:./Src/ROS_subscribe.cpp ****           {
-  68:./Src/ROS_subscribe.cpp ****             // go forward
-  69:./Src/ROS_subscribe.cpp ****             pwms[i] = 100*wheel_posn[i].direction;
-  70:./Src/ROS_subscribe.cpp ****           }
-  71:./Src/ROS_subscribe.cpp ****           else
-  72:./Src/ROS_subscribe.cpp ****           {
-  73:./Src/ROS_subscribe.cpp ****             // go back
-  74:./Src/ROS_subscribe.cpp ****             pwms[i] = -100*wheel_posn[i].direction;
-  75:./Src/ROS_subscribe.cpp ****           }
-  76:./Src/ROS_subscribe.cpp **** 		      printf("%lu:Target set for [%d] %ld=%d+%d\n",now,i,ticksTarget[i],
-  77:./Src/ROS_subscribe.cpp **** 		  			long(wheelPositions.position[i]), wheel_posn[i].ticks);
-  78:./Src/ROS_subscribe.cpp ****         }
-  79:./Src/ROS_subscribe.cpp ****         else if((wheel_posn[i].ticks*wheel_posn[i].direction) >= 
-  80:./Src/ROS_subscribe.cpp ****                 (ticksTarget[i]*wheel_posn[i].direction))
-  81:./Src/ROS_subscribe.cpp ****         {
-  82:./Src/ROS_subscribe.cpp ****           // We met the target
-  83:./Src/ROS_subscribe.cpp ****           printf("%lu:Target met for %d %ld >= %ld\n",now,i,
-  84:./Src/ROS_subscribe.cpp ****                 wheel_posn[i].ticks, ticksTarget[i]);
-  85:./Src/ROS_subscribe.cpp ****           
-  86:./Src/ROS_subscribe.cpp ****           ticksTarget[i] = 0;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 11
+  59:./Src/ROS_subscribe.cpp ****       if(pwms[i] != 0) {
+  60:./Src/ROS_subscribe.cpp ****         printf("%lu:LIMIT reached. set speed to 0 , %lu, %lu for pwms[%d]=%d ticks=%ld\n",
+  61:./Src/ROS_subscribe.cpp ****             now, wheelInputAt, (now - wheelInputAt), i, pwms[i], wheel_posn[i].ticks);
+  62:./Src/ROS_subscribe.cpp ****       }
+  63:./Src/ROS_subscribe.cpp ****       pwms[i] = 0; //stop motor
+  64:./Src/ROS_subscribe.cpp **** 	    wheelInputAt = 0; //reset clock;
+  65:./Src/ROS_subscribe.cpp ****     }
+  66:./Src/ROS_subscribe.cpp ****     return;
+  67:./Src/ROS_subscribe.cpp ****   }
+  68:./Src/ROS_subscribe.cpp ****   else if (wheelInputAt > 0) //set PWM based on input from ros
+  69:./Src/ROS_subscribe.cpp ****   {
+  70:./Src/ROS_subscribe.cpp ****     //check wheelPositions.name_length <= 2 for safety
+  71:./Src/ROS_subscribe.cpp ****     for (int i=0;i < wheelPositions.name_length && i < 2; i++)
+  72:./Src/ROS_subscribe.cpp ****     {
+  73:./Src/ROS_subscribe.cpp ****       //If the current position exceed target (with right direction) then stop motor
+  74:./Src/ROS_subscribe.cpp ****       if(ticksTarget[i]*motionDirection[i] <= wheel_posn[i].ticks*motionDirection[i])
+  75:./Src/ROS_subscribe.cpp ****       {
+  76:./Src/ROS_subscribe.cpp ****         // We met the target
+  77:./Src/ROS_subscribe.cpp ****         printf("%lu:Target[%d] met %ld <= %ld pwms=%d\n",now,i,
+  78:./Src/ROS_subscribe.cpp ****               ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
+  79:./Src/ROS_subscribe.cpp ****        
+  80:./Src/ROS_subscribe.cpp ****         // stop motor
+  81:./Src/ROS_subscribe.cpp ****         pwms[i] = 0;
+  82:./Src/ROS_subscribe.cpp ****         wheelInputAt = 0;
+  83:./Src/ROS_subscribe.cpp ****       }
+  84:./Src/ROS_subscribe.cpp ****       else if(ticksTarget[i] != 0 && pwms[i] == 0) //new target was set
+  85:./Src/ROS_subscribe.cpp ****       {
+  86:./Src/ROS_subscribe.cpp ****         if(motionDirection[i] == 1) // go forward
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 11
 
 
-  87:./Src/ROS_subscribe.cpp ****           pwms[i] = 0;
-  88:./Src/ROS_subscribe.cpp ****           wheelPositionsAt = 0; //reset clock;
-  89:./Src/ROS_subscribe.cpp ****         }
-  90:./Src/ROS_subscribe.cpp ****       }
-  91:./Src/ROS_subscribe.cpp ****       // For velocity target we need pwm
-  92:./Src/ROS_subscribe.cpp ****       //pwm can  be set directly
-  93:./Src/ROS_subscribe.cpp ****       else if(wheelPositions.effort[i] != 0)
-  94:./Src/ROS_subscribe.cpp ****       {
-  95:./Src/ROS_subscribe.cpp ****         //Make sure we are withing prescribed limits
-  96:./Src/ROS_subscribe.cpp ****         if(wheelPositions.effort[i] < 0)
-  97:./Src/ROS_subscribe.cpp ****         {
-  98:./Src/ROS_subscribe.cpp ****           pwms[i] = MAX(-PWM_LIMIT,int(wheelPositions.effort[i])); 
-  99:./Src/ROS_subscribe.cpp ****         }
- 100:./Src/ROS_subscribe.cpp ****         else
- 101:./Src/ROS_subscribe.cpp ****         {
- 102:./Src/ROS_subscribe.cpp ****           pwms[i] = MIN(PWM_LIMIT,int(wheelPositions.effort[i])); 
- 103:./Src/ROS_subscribe.cpp ****         }
- 104:./Src/ROS_subscribe.cpp **** 		printf("%lu:New PWM set for pwms[%d]=%d\n",now,i,pwms[i]);
- 105:./Src/ROS_subscribe.cpp ****       }     
- 106:./Src/ROS_subscribe.cpp ****     }
- 107:./Src/ROS_subscribe.cpp ****   }
- 108:./Src/ROS_subscribe.cpp **** }
- 109:./Src/ROS_subscribe.cpp **** 
- 110:./Src/ROS_subscribe.cpp **** uint32_t rosSubscribeWheelsCmd(ros::NodeHandle *nh)
- 111:./Src/ROS_subscribe.cpp **** {
- 112:./Src/ROS_subscribe.cpp ****     ros::SubscriberType sub ;
- 113:./Src/ROS_subscribe.cpp ****     const sensor_msgs::JointState msg;
- 114:./Src/ROS_subscribe.cpp **** 	sub.topic_name = "wheels_cmd";
- 115:./Src/ROS_subscribe.cpp **** 	sub.message_type = msg.getType();
- 116:./Src/ROS_subscribe.cpp **** 	sub.md5sum = msg.getMD5();
- 117:./Src/ROS_subscribe.cpp **** 	sub.callback = wheels_cmd_cb;
- 118:./Src/ROS_subscribe.cpp **** 	
- 119:./Src/ROS_subscribe.cpp **** 	nh->addSubscriber(sub);
- 120:./Src/ROS_subscribe.cpp **** 	
- 121:./Src/ROS_subscribe.cpp ****     return 1;
- 122:./Src/ROS_subscribe.cpp **** }
- 267              		.loc 3 122 0
+  87:./Src/ROS_subscribe.cpp ****         {
+  88:./Src/ROS_subscribe.cpp ****           pwms[i] = POSITION_PWM*wheel_posn[i].direction;
+  89:./Src/ROS_subscribe.cpp ****           printf("%lu:Target[%d] set for forward %ld <= %ld, pwms=%d\n",now,i,
+  90:./Src/ROS_subscribe.cpp ****               ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
+  91:./Src/ROS_subscribe.cpp ****         }
+  92:./Src/ROS_subscribe.cpp ****         else // go back
+  93:./Src/ROS_subscribe.cpp ****         {
+  94:./Src/ROS_subscribe.cpp ****           pwms[i] = -POSITION_PWM*wheel_posn[i].direction;
+  95:./Src/ROS_subscribe.cpp ****           printf("%lu:Target[%d] set for backward %ld <= %ld, pwms=%d\n",now,i,
+  96:./Src/ROS_subscribe.cpp ****               ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
+  97:./Src/ROS_subscribe.cpp ****         }
+  98:./Src/ROS_subscribe.cpp ****       }
+  99:./Src/ROS_subscribe.cpp ****       // For velocity target we need pwm
+ 100:./Src/ROS_subscribe.cpp ****       //pwm can  be set directly
+ 101:./Src/ROS_subscribe.cpp ****       else if(wheelPositions.effort[i] != 0)
+ 102:./Src/ROS_subscribe.cpp ****       {
+ 103:./Src/ROS_subscribe.cpp ****         //Make sure we are withing prescribed limits
+ 104:./Src/ROS_subscribe.cpp ****         if(wheelPositions.effort[i] < 0)
+ 105:./Src/ROS_subscribe.cpp ****         {
+ 106:./Src/ROS_subscribe.cpp ****           pwms[i] = MAX(-PWM_LIMIT,int(wheelPositions.effort[i])); 
+ 107:./Src/ROS_subscribe.cpp ****         }
+ 108:./Src/ROS_subscribe.cpp ****         else
+ 109:./Src/ROS_subscribe.cpp ****         {
+ 110:./Src/ROS_subscribe.cpp ****           pwms[i] = MIN(PWM_LIMIT,int(wheelPositions.effort[i])); 
+ 111:./Src/ROS_subscribe.cpp ****         }
+ 112:./Src/ROS_subscribe.cpp ****         printf("%lu:New PWM set for pwms[%d]=%d\n",now,i,pwms[i]);
+ 113:./Src/ROS_subscribe.cpp ****       }     
+ 114:./Src/ROS_subscribe.cpp ****     } // end of for
+ 115:./Src/ROS_subscribe.cpp ****   } //end of if-else
+ 116:./Src/ROS_subscribe.cpp **** } //end of function
+ 117:./Src/ROS_subscribe.cpp **** 
+ 118:./Src/ROS_subscribe.cpp **** uint32_t rosSubscribeWheelsCmd(ros::NodeHandle *nh)
+ 119:./Src/ROS_subscribe.cpp **** {
+ 120:./Src/ROS_subscribe.cpp ****     ros::SubscriberType sub ;
+ 121:./Src/ROS_subscribe.cpp ****     const sensor_msgs::JointState msg;
+ 122:./Src/ROS_subscribe.cpp **** 	sub.topic_name = "wheels_cmd";
+ 123:./Src/ROS_subscribe.cpp **** 	sub.message_type = msg.getType();
+ 124:./Src/ROS_subscribe.cpp **** 	sub.md5sum = msg.getMD5();
+ 125:./Src/ROS_subscribe.cpp **** 	sub.callback = wheels_cmd_cb;
+ 126:./Src/ROS_subscribe.cpp **** 	
+ 127:./Src/ROS_subscribe.cpp **** 	nh->addSubscriber(sub);
+ 128:./Src/ROS_subscribe.cpp **** 	
+ 129:./Src/ROS_subscribe.cpp ****     return 1;
+ 130:./Src/ROS_subscribe.cpp **** }
+ 267              		.loc 3 130 0
  268              		.cfi_startproc
  269              		@ args = 0, pretend = 0, frame = 0
  270              		@ frame_needed = 0, uses_anonymous_args = 0
  271              		@ link register save eliminated.
  272              	.LVL21:
- 273              		.loc 3 122 0
+ 273              		.loc 3 130 0
  274 0000 0128     		cmp	r0, #1
  275 0002 00D0     		beq	.L19
  276              	.LVL22:
  277              	.L17:
  278 0004 7047     		bx	lr
  279              	.LVL23:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 12
+
+
  280              	.L19:
- 281              		.loc 3 122 0 is_stmt 0 discriminator 1
+ 281              		.loc 3 130 0 is_stmt 0 discriminator 1
  282 0006 4FF6FF73 		movw	r3, #65535
  283 000a 9942     		cmp	r1, r3
  284 000c FAD1     		bne	.L17
  285              	.LVL24:
  286              	.LBB63:
  287              	.LBB64:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 12
-
-
  288              	.LBB65:
   40:ROSSerial/sensor_msgs/JointState.h ****     {
  289              		.loc 2 40 0 is_stmt 1
@@ -710,6 +718,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   24:ROSSerial/ros/time.h ****  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
   25:ROSSerial/ros/time.h ****  * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
   26:ROSSerial/ros/time.h ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 13
+
+
   27:ROSSerial/ros/time.h ****  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
   28:ROSSerial/ros/time.h ****  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
   29:ROSSerial/ros/time.h ****  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
@@ -718,9 +729,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   32:ROSSerial/ros/time.h ****  * POSSIBILITY OF SUCH DAMAGE.
   33:ROSSerial/ros/time.h ****  */
   34:ROSSerial/ros/time.h **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 13
-
-
   35:ROSSerial/ros/time.h **** #ifndef ROS_TIME_H_
   36:ROSSerial/ros/time.h **** #define ROS_TIME_H_
   37:ROSSerial/ros/time.h **** 
@@ -760,7 +768,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  327              	.LBE65:
  328              	.LBE64:
  329              	.LBE63:
- 330              		.loc 3 122 0
+ 330              		.loc 3 130 0
  331 0036 E5E7     		b	.L17
  332              	.L21:
  333              		.align	2
@@ -770,6 +778,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  337 0040 08000000 		.word	_ZTVN8std_msgs6HeaderE+8
  338              		.cfi_endproc
  339              	.LFE497:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 14
+
+
  340              		.cantunwind
  341              		.fnend
  343              		.section	.text._ZNK8std_msgs6Header9serializeEPh,"axG",%progbits,_ZNK8std_msgs6Header9serializeEPh
@@ -778,9 +789,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  346              		.syntax unified
  347              		.thumb
  348              		.thumb_func
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 14
-
-
  349              		.fpu fpv4-sp-d16
  351              	_ZNK8std_msgs6Header9serializeEPh:
  352              		.fnstart
@@ -830,6 +838,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  389 0020 4B71     		strb	r3, [r1, #5]
   30:ROSSerial/std_msgs/Header.h ****       *(outbuffer + offset + 3) = (this->stamp.sec >> (8 * 3)) & 0xFF;
  390              		.loc 1 30 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 15
+
+
  391 0022 4389     		ldrh	r3, [r0, #10]
  392 0024 8B71     		strb	r3, [r1, #6]
   31:ROSSerial/std_msgs/Header.h ****       offset += sizeof(this->stamp.sec);
@@ -838,9 +849,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  395 0028 CB71     		strb	r3, [r1, #7]
  396              	.LVL32:
   33:ROSSerial/std_msgs/Header.h ****       *(outbuffer + offset + 1) = (this->stamp.nsec >> (8 * 1)) & 0xFF;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 15
-
-
  397              		.loc 1 33 0
  398 002a C368     		ldr	r3, [r0, #12]
  399 002c 0B72     		strb	r3, [r1, #8]
@@ -890,6 +898,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  437              		.section	.text._ZNK11sensor_msgs10JointState9serializeEPh,"axG",%progbits,_ZNK11sensor_msgs10Joint
  438              		.align	1
  439              		.weak	_ZNK11sensor_msgs10JointState9serializeEPh
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 16
+
+
  440              		.syntax unified
  441              		.thumb
  442              		.thumb_func
@@ -898,9 +909,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  446              		.fnstart
  447              	.LFB487:
   44:ROSSerial/sensor_msgs/JointState.h ****     {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 16
-
-
  448              		.loc 2 44 0
  449              		.cfi_startproc
  450              		@ args = 0, pretend = 0, frame = 0
@@ -950,6 +958,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  488 0020 1B0A     		lsrs	r3, r3, #8
  489 0022 4B71     		strb	r3, [r1, #5]
   30:ROSSerial/std_msgs/Header.h ****       *(outbuffer + offset + 3) = (this->stamp.sec >> (8 * 3)) & 0xFF;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 17
+
+
  490              		.loc 1 30 0
  491 0024 C389     		ldrh	r3, [r0, #14]
  492 0026 8B71     		strb	r3, [r1, #6]
@@ -958,9 +969,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  494 0028 C37B     		ldrb	r3, [r0, #15]	@ zero_extendqisi2
  495 002a CB71     		strb	r3, [r1, #7]
  496              	.LVL44:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 17
-
-
   33:ROSSerial/std_msgs/Header.h ****       *(outbuffer + offset + 1) = (this->stamp.nsec >> (8 * 1)) & 0xFF;
  497              		.loc 1 33 0
  498 002c 0369     		ldr	r3, [r0, #16]
@@ -1010,6 +1018,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  534 0058 B269     		ldr	r2, [r6, #24]
  535 005a EA54     		strb	r2, [r5, r3]
   49:ROSSerial/sensor_msgs/JointState.h ****       *(outbuffer + offset + 2) = (this->name_length >> (8 * 2)) & 0xFF;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 18
+
+
  536              		.loc 2 49 0
  537 005c B369     		ldr	r3, [r6, #24]
  538 005e 1B0A     		lsrs	r3, r3, #8
@@ -1018,9 +1029,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   50:ROSSerial/sensor_msgs/JointState.h ****       *(outbuffer + offset + 3) = (this->name_length >> (8 * 3)) & 0xFF;
  541              		.loc 2 50 0
  542 0066 728B     		ldrh	r2, [r6, #26]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 18
-
-
  543 0068 04F11203 		add	r3, r4, #18
  544 006c EA54     		strb	r2, [r5, r3]
   51:ROSSerial/sensor_msgs/JointState.h ****       offset += sizeof(this->name_length);
@@ -1070,6 +1078,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  581              	.LBB92:
   54:ROSSerial/sensor_msgs/JointState.h ****       varToArr(outbuffer + offset, length_namei);
  582              		.loc 2 54 0 is_stmt 1 discriminator 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 19
+
+
  583 009a 336A     		ldr	r3, [r6, #32]
  584 009c 4FEA8809 		lsl	r9, r8, #2
  585 00a0 53F82800 		ldr	r0, [r3, r8, lsl #2]
@@ -1078,9 +1089,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  588 00a8 0746     		mov	r7, r0
  589              	.LVL60:
   55:ROSSerial/sensor_msgs/JointState.h ****       offset += 4;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 19
-
-
  590              		.loc 2 55 0 discriminator 2
  591 00aa 2046     		mov	r0, r4
  592              	.LVL61:
@@ -1130,6 +1138,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   41:ROSSerial/ros/msg.h **** namespace ros
   42:ROSSerial/ros/msg.h **** {
   43:ROSSerial/ros/msg.h **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 20
+
+
   44:ROSSerial/ros/msg.h **** /* Base Message Type */
   45:ROSSerial/ros/msg.h **** class Msg
   46:ROSSerial/ros/msg.h **** {
@@ -1138,9 +1149,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   49:ROSSerial/ros/msg.h ****   virtual int deserialize(unsigned char *data) = 0;
   50:ROSSerial/ros/msg.h ****   virtual const char * getType() = 0;
   51:ROSSerial/ros/msg.h ****   virtual const char * getMD5() = 0;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 20
-
-
   52:ROSSerial/ros/msg.h **** 
   53:ROSSerial/ros/msg.h ****   /**
   54:ROSSerial/ros/msg.h ****    * @brief This tricky function handles promoting a 32bit float to a 64bit
@@ -1190,6 +1198,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   98:ROSSerial/ros/msg.h ****    * @param[out] f pointer to place the deserialized value in.
   99:ROSSerial/ros/msg.h ****    *
  100:ROSSerial/ros/msg.h ****    * @return number of bytes to advance the buffer pointer.
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 21
+
+
  101:ROSSerial/ros/msg.h ****    */
  102:ROSSerial/ros/msg.h ****   static int deserializeAvrFloat64(const unsigned char* inbuffer, float* f)
  103:ROSSerial/ros/msg.h ****   {
@@ -1198,9 +1209,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  106:ROSSerial/ros/msg.h **** 
  107:ROSSerial/ros/msg.h ****     // Copy truncated mantissa.
  108:ROSSerial/ros/msg.h ****     *val = ((uint32_t)(*(inbuffer++)) >> 5 & 0x07);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 21
-
-
  109:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*(inbuffer++)) & 0xff) << 3;
  110:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*(inbuffer++)) & 0xff) << 11;
  111:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*inbuffer) & 0x0f) << 19;
@@ -1250,6 +1258,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  617              	.LBE88:
   60:ROSSerial/sensor_msgs/JointState.h ****       *(outbuffer + offset + 1) = (this->position_length >> (8 * 1)) & 0xFF;
  618              		.loc 2 60 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 22
+
+
  619 00c0 736A     		ldr	r3, [r6, #36]
  620 00c2 2B55     		strb	r3, [r5, r4]
   61:ROSSerial/sensor_msgs/JointState.h ****       *(outbuffer + offset + 2) = (this->position_length >> (8 * 2)) & 0xFF;
@@ -1258,9 +1269,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  623 00c6 1B0A     		lsrs	r3, r3, #8
  624 00c8 621C     		adds	r2, r4, #1
  625 00ca AB54     		strb	r3, [r5, r2]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 22
-
-
   62:ROSSerial/sensor_msgs/JointState.h ****       *(outbuffer + offset + 3) = (this->position_length >> (8 * 3)) & 0xFF;
  626              		.loc 2 62 0
  627 00cc F28C     		ldrh	r2, [r6, #38]
@@ -1310,6 +1318,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  662              		.loc 5 79 0
  663 00f0 DC12     		asrs	r4, r3, #11
  664              	.LVL71:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 23
+
+
  665 00f2 5471     		strb	r4, [r2, #5]
   80:ROSSerial/ros/msg.h ****     *(outbuffer++) = (exp >> 4) & 0x7F;
  666              		.loc 5 80 0
@@ -1318,9 +1329,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  669 00f8 43EA0113 		orr	r3, r3, r1, lsl #4
  670 00fc 9371     		strb	r3, [r2, #6]
  671              	.LVL73:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 23
-
-
   81:ROSSerial/ros/msg.h **** 
  672              		.loc 5 81 0
  673 00fe 0909     		lsrs	r1, r1, #4
@@ -1370,6 +1378,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   70:ROSSerial/ros/msg.h ****     }
  710              		.loc 5 70 0
  711 012e 01F56071 		add	r1, r1, #896
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 24
+
+
  712              	.LVL80:
  713 0132 D5E7     		b	.L30
  714              	.LVL81:
@@ -1378,9 +1389,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  716              		.loc 5 86 0
  717 0134 61F07F01 		orn	r1, r1, #127
  718 0138 D171     		strb	r1, [r2, #7]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 24
-
-
  719 013a E7E7     		b	.L31
  720              	.LVL82:
  721              	.L29:
@@ -1430,6 +1438,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  757 0160 5770     		strb	r7, [r2, #1]
  758              	.LVL86:
   76:ROSSerial/ros/msg.h ****     *(outbuffer++) = (sig << 5) & 0xff;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 25
+
+
  759              		.loc 5 76 0
  760 0162 9770     		strb	r7, [r2, #2]
   77:ROSSerial/ros/msg.h ****     *(outbuffer++) = (sig >> 3) & 0xff;
@@ -1438,9 +1449,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  763              	.LVL87:
  764 0166 D770     		strb	r7, [r2, #3]
   78:ROSSerial/ros/msg.h ****     *(outbuffer++) = (sig >> 11) & 0xff;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 25
-
-
  765              		.loc 5 78 0
  766 0168 DF10     		asrs	r7, r3, #3
  767              	.LVL88:
@@ -1490,6 +1498,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  803 0192 2A18     		adds	r2, r5, r0
  804 0194 B36B     		ldr	r3, [r6, #56]
  805 0196 03EB8403 		add	r3, r3, r4, lsl #2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 26
+
+
  806 019a D3ED007A 		vldr.32	s15, [r3]
  807              	.LVL96:
  808              	.LBB102:
@@ -1498,9 +1509,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  810              		.loc 5 67 0 discriminator 2
  811 019e 17EE903A 		vmov	r3, s15	@ int
  812 01a2 C3F3C751 		ubfx	r1, r3, #23, #8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 26
-
-
  813              	.LVL97:
   68:ROSSerial/ros/msg.h ****     {
  814              		.loc 5 68 0 discriminator 2
@@ -1550,6 +1558,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  851              	.LBB103:
   81:ROSSerial/sensor_msgs/JointState.h ****       offset += serializeAvrFloat64(outbuffer + offset, this->effort[i]);
  852              		.loc 2 81 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 27
+
+
  853 01d4 0024     		movs	r4, #0
  854              	.LVL102:
  855 01d6 17E0     		b	.L43
@@ -1558,9 +1569,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  858              	.LBB104:
  859              	.LBB105:
   74:ROSSerial/ros/msg.h ****     *(outbuffer++) = 0;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 27
-
-
  860              		.loc 5 74 0
  861 01d8 0027     		movs	r7, #0
  862 01da 1770     		strb	r7, [r2]
@@ -1610,6 +1618,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  898              	.LBE104:
   82:ROSSerial/sensor_msgs/JointState.h ****       }
  899              		.loc 2 82 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 28
+
+
  900 0204 0830     		adds	r0, r0, #8
  901              	.LVL113:
   81:ROSSerial/sensor_msgs/JointState.h ****       offset += serializeAvrFloat64(outbuffer + offset, this->effort[i]);
@@ -1618,9 +1629,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  904              	.LVL114:
  905              	.L43:
   81:ROSSerial/sensor_msgs/JointState.h ****       offset += serializeAvrFloat64(outbuffer + offset, this->effort[i]);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 28
-
-
  906              		.loc 2 81 0 is_stmt 0 discriminator 3
  907 0208 F36B     		ldr	r3, [r6, #60]
  908 020a A342     		cmp	r3, r4
@@ -1670,6 +1678,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  947              		.section	.text._ZN11sensor_msgs10JointState11deserializeEPh,"axG",%progbits,_ZN11sensor_msgs10Join
  948              		.align	1
  949              		.weak	_ZN11sensor_msgs10JointState11deserializeEPh
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 29
+
+
  950              		.syntax unified
  951              		.thumb
  952              		.thumb_func
@@ -1678,9 +1689,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  956              		.fnstart
  957              	.LFB488:
   87:ROSSerial/sensor_msgs/JointState.h ****     {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 29
-
-
  958              		.loc 2 87 0
  959              		.cfi_startproc
  960              		@ args = 0, pretend = 0, frame = 0
@@ -1730,6 +1738,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  998 0024 2B79     		ldrb	r3, [r5, #4]	@ zero_extendqisi2
  999 0026 9360     		str	r3, [r2, #8]
   55:ROSSerial/std_msgs/Header.h ****       this->stamp.sec |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 30
+
+
  1000              		.loc 1 55 0
  1001 0028 6979     		ldrb	r1, [r5, #5]	@ zero_extendqisi2
  1002 002a 43EA0123 		orr	r3, r3, r1, lsl #8
@@ -1738,9 +1749,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1004              		.loc 1 56 0
  1005 0030 A979     		ldrb	r1, [r5, #6]	@ zero_extendqisi2
  1006 0032 43EA0143 		orr	r3, r3, r1, lsl #16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 30
-
-
  1007 0036 9360     		str	r3, [r2, #8]
   57:ROSSerial/std_msgs/Header.h ****       offset += sizeof(this->stamp.sec);
  1008              		.loc 1 57 0
@@ -1790,6 +1798,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1044              		.loc 1 67 0
  1045 006e 0133     		adds	r3, r3, #1
  1046              	.LVL129:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 31
+
+
  1047 0070 F6E7     		b	.L53
  1048              	.L52:
  1049              	.LBE137:
@@ -1798,9 +1809,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1051 0072 0F37     		adds	r7, r7, #15
  1052              	.LVL130:
  1053 0074 0023     		movs	r3, #0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 31
-
-
  1054              	.LVL131:
  1055 0076 EB55     		strb	r3, [r5, r7]
   71:ROSSerial/std_msgs/Header.h ****       offset += length_frame_id;
@@ -1850,6 +1858,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   99:ROSSerial/sensor_msgs/JointState.h ****       uint32_t length_st_name;
  1092              		.loc 2 99 0
  1093 00a2 0020     		movs	r0, #0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 32
+
+
  1094 00a4 1AE0     		b	.L60
  1095              	.LVL139:
  1096              	.L74:
@@ -1858,9 +1869,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1098              		.loc 2 97 0
  1099 00a6 B900     		lsls	r1, r7, #2
  1100 00a8 206A     		ldr	r0, [r4, #32]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 32
-
-
  1101 00aa FFF7FEFF 		bl	realloc
  1102              	.LVL140:
  1103 00ae 2062     		str	r0, [r4, #32]
@@ -1910,6 +1918,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1140 00d0 E361     		str	r3, [r4, #28]
  108:ROSSerial/sensor_msgs/JointState.h ****         memcpy( &(this->name[i]), &(this->st_name), sizeof(char*));
  1141              		.loc 2 108 0 discriminator 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 33
+
+
  1142 00d2 0E46     		mov	r6, r1
  1143              	.LVL147:
  109:ROSSerial/sensor_msgs/JointState.h ****       }
@@ -1918,9 +1929,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1146 00d6 42F82030 		str	r3, [r2, r0, lsl #2]	@ unaligned
  1147              	.LBE139:
   99:ROSSerial/sensor_msgs/JointState.h ****       uint32_t length_st_name;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 33
-
-
  1148              		.loc 2 99 0 discriminator 2
  1149 00da 0130     		adds	r0, r0, #1
  1150              	.LVL148:
@@ -1970,6 +1978,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1182              	.LVL153:
  1183              	.L55:
  1184              	.LBE143:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 34
+
+
  1185              	.LBE142:
  1186              	.LBE141:
  1187              	.LBE144:
@@ -1978,9 +1989,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1189              		.loc 2 111 0
  1190 00fc AF5D     		ldrb	r7, [r5, r6]	@ zero_extendqisi2
  1191              	.LVL154:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 34
-
-
  112:ROSSerial/sensor_msgs/JointState.h ****       position_lengthT |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2); 
  1192              		.loc 2 112 0
  1193 00fe 731C     		adds	r3, r6, #1
@@ -2030,6 +2038,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1230 0128 FFF7FEFF 		bl	realloc
  1231              	.LVL163:
  1232 012c E062     		str	r0, [r4, #44]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 35
+
+
  1233 012e F6E7     		b	.L61
  1234              	.LVL164:
  1235              	.L63:
@@ -2038,9 +2049,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1238              	.LBB148:
  122:ROSSerial/ros/msg.h **** 
  1239              		.loc 5 122 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 35
-
-
  1240 0130 CB79     		ldrb	r3, [r1, #7]	@ zero_extendqisi2
  1241 0132 1B06     		lsls	r3, r3, #24
  1242 0134 03F00043 		and	r3, r3, #-2147483648
@@ -2090,6 +2098,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  110:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*inbuffer) & 0x0f) << 19;
  1279              		.loc 5 110 0 discriminator 2
  1280 0160 4A79     		ldrb	r2, [r1, #5]	@ zero_extendqisi2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 36
+
+
  1281 0162 43EAC223 		orr	r3, r3, r2, lsl #11
  1282 0166 A362     		str	r3, [r4, #40]
  111:ROSSerial/ros/msg.h **** 
@@ -2098,9 +2109,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1285 016a D204     		lsls	r2, r2, #19
  1286 016c 02F4F002 		and	r2, r2, #7864320
  1287 0170 1343     		orrs	r3, r3, r2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 36
-
-
  1288 0172 A362     		str	r3, [r4, #40]
  1289              	.LVL171:
  114:ROSSerial/ros/msg.h ****     exp |= ((uint32_t)(*inbuffer) & 0x7f) << 4;
@@ -2150,6 +2158,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1326              		.loc 2 126 0
  1327 01a2 F31C     		adds	r3, r6, #3
  1328 01a4 EB5C     		ldrb	r3, [r5, r3]	@ zero_extendqisi2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 37
+
+
  1329 01a6 47EA0367 		orr	r7, r7, r3, lsl #24
  1330              	.LVL180:
  127:ROSSerial/sensor_msgs/JointState.h ****       if(velocity_lengthT > velocity_length)
@@ -2158,9 +2169,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1333              	.LVL181:
  128:ROSSerial/sensor_msgs/JointState.h ****         this->velocity = (float*)realloc(this->velocity, velocity_lengthT * sizeof(float));
  1334              		.loc 2 128 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 37
-
-
  1335 01ac 236B     		ldr	r3, [r4, #48]
  1336 01ae BB42     		cmp	r3, r7
  1337 01b0 02D3     		bcc	.L76
@@ -2210,6 +2218,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  133:ROSSerial/sensor_msgs/JointState.h ****       }
  1376              		.loc 2 133 0
  1377 01d4 A36B     		ldr	r3, [r4, #56]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 38
+
+
  1378 01d6 626B     		ldr	r2, [r4, #52]	@ unaligned
  1379 01d8 43F82020 		str	r2, [r3, r0, lsl #2]	@ unaligned
  131:ROSSerial/sensor_msgs/JointState.h ****       offset += deserializeAvrFloat64(inbuffer + offset, &(this->st_velocity));
@@ -2218,9 +2229,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1382              	.LVL190:
  1383              	.L68:
  131:ROSSerial/sensor_msgs/JointState.h ****       offset += deserializeAvrFloat64(inbuffer + offset, &(this->st_velocity));
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 38
-
-
  1384              		.loc 2 131 0 is_stmt 0 discriminator 3
  1385 01de 236B     		ldr	r3, [r4, #48]
  1386 01e0 8342     		cmp	r3, r0
@@ -2270,6 +2278,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1422              		.loc 5 116 0 discriminator 2
  1423 0212 52EA1712 		orrs	r2, r2, r7, lsr #4
  1424              	.LVL197:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 39
+
+
  1425 0216 D5D0     		beq	.L67
  118:ROSSerial/ros/msg.h ****     }
  1426              		.loc 5 118 0
@@ -2278,9 +2289,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1429 021c 43EAC253 		orr	r3, r3, r2, lsl #23
  1430 0220 6363     		str	r3, [r4, #52]
  1431 0222 CFE7     		b	.L67
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 39
-
-
  1432              	.LVL199:
  1433              	.L66:
  1434              	.LBE155:
@@ -2330,6 +2338,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1470 024a 12E0     		b	.L72
  1471              	.LVL207:
  1472              	.L77:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 40
+
+
  1473              	.LBE158:
  141:ROSSerial/sensor_msgs/JointState.h ****       effort_length = effort_lengthT;
  1474              		.loc 2 141 0
@@ -2338,9 +2349,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1477              	.LVL208:
  1478 0250 FFF7FEFF 		bl	realloc
  1479              	.LVL209:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 40
-
-
  1480 0254 6064     		str	r0, [r4, #68]
  1481 0256 F6E7     		b	.L69
  1482              	.LVL210:
@@ -2390,6 +2398,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1519 027c 5B09     		lsrs	r3, r3, #5
  1520 027e 2364     		str	r3, [r4, #64]
  1521              	.LVL215:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 41
+
+
  109:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*(inbuffer++)) & 0xff) << 11;
  1522              		.loc 5 109 0 discriminator 2
  1523 0280 0A79     		ldrb	r2, [r1, #4]	@ zero_extendqisi2
@@ -2398,9 +2409,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1526              	.LVL216:
  110:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*inbuffer) & 0x0f) << 19;
  1527              		.loc 5 110 0 discriminator 2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 41
-
-
  1528 0288 4A79     		ldrb	r2, [r1, #5]	@ zero_extendqisi2
  1529 028a 43EAC223 		orr	r3, r3, r2, lsl #11
  1530 028e 2364     		str	r3, [r4, #64]
@@ -2450,6 +2458,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1568              		.fnend
  1570              		.section	.text._Z13wheels_cmd_cbPh,"ax",%progbits
  1571              		.align	1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 42
+
+
  1572              		.global	_Z13wheels_cmd_cbPh
  1573              		.syntax unified
  1574              		.thumb
@@ -2458,11 +2469,8 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1578              	_Z13wheels_cmd_cbPh:
  1579              		.fnstart
  1580              	.LFB491:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 42
-
-
-  27:./Src/ROS_subscribe.cpp **** 	wheelPositionsAt = HAL_GetTick();
- 1581              		.loc 3 27 0
+  31:./Src/ROS_subscribe.cpp **** 	wheelInputAt = HAL_GetTick();
+ 1581              		.loc 3 31 0
  1582              		.cfi_startproc
  1583              		@ args = 0, pretend = 0, frame = 0
  1584              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2478,21 +2486,21 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1594              		.cfi_offset 7, -8
  1595              		.cfi_offset 14, -4
  1596 0002 0546     		mov	r5, r0
-  28:./Src/ROS_subscribe.cpp **** 	wheelPositions.deserialize(msg);  
- 1597              		.loc 3 28 0
+  32:./Src/ROS_subscribe.cpp **** 	wheelPositions.deserialize(msg); 
+ 1597              		.loc 3 32 0
  1598 0004 FFF7FEFF 		bl	HAL_GetTick
  1599              	.LVL225:
- 1600 0008 9E4B     		ldr	r3, .L105
+ 1600 0008 9E4B     		ldr	r3, .L109
  1601 000a 1860     		str	r0, [r3]
  1602              	.LVL226:
- 1603              	.LBB184:
- 1604              	.LBB185:
- 1605              	.LBB186:
- 1606              	.LBB187:
+ 1603              	.LBB185:
+ 1604              	.LBB186:
+ 1605              	.LBB187:
+ 1606              	.LBB188:
   49:ROSSerial/std_msgs/Header.h ****       this->seq |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
  1607              		.loc 1 49 0
  1608 000c 2A78     		ldrb	r2, [r5]	@ zero_extendqisi2
- 1609 000e 9E4B     		ldr	r3, .L105+4
+ 1609 000e 9E4B     		ldr	r3, .L109+4
  1610 0010 9A60     		str	r2, [r3, #8]
   50:ROSSerial/std_msgs/Header.h ****       this->seq |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
  1611              		.loc 1 50 0
@@ -2510,6 +2518,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1621 0024 42EA0162 		orr	r2, r2, r1, lsl #24
  1622 0028 9A60     		str	r2, [r3, #8]
  1623              	.LVL227:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 43
+
+
   54:ROSSerial/std_msgs/Header.h ****       this->stamp.sec |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
  1624              		.loc 1 54 0
  1625 002a 2A79     		ldrb	r2, [r5, #4]	@ zero_extendqisi2
@@ -2518,9 +2529,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1627              		.loc 1 55 0
  1628 002e 6979     		ldrb	r1, [r5, #5]	@ zero_extendqisi2
  1629 0030 42EA0122 		orr	r2, r2, r1, lsl #8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 43
-
-
  1630 0034 DA60     		str	r2, [r3, #12]
   56:ROSSerial/std_msgs/Header.h ****       this->stamp.sec |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
  1631              		.loc 1 56 0
@@ -2557,7 +2565,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1656              		.loc 1 65 0
  1657 0062 E868     		ldr	r0, [r5, #12]	@ unaligned
  1658              	.LVL230:
- 1659              	.LBB188:
+ 1659              	.LBB189:
   67:ROSSerial/std_msgs/Header.h ****           inbuffer[k-1]=inbuffer[k];
  1660              		.loc 1 67 0
  1661 0064 1023     		movs	r3, #16
@@ -2570,6 +2578,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1667              		.loc 1 68 0
  1668 006e 5A1E     		subs	r2, r3, #1
  1669 0070 E95C     		ldrb	r1, [r5, r3]	@ zero_extendqisi2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 44
+
+
  1670 0072 A954     		strb	r1, [r5, r2]
   67:ROSSerial/std_msgs/Header.h ****           inbuffer[k-1]=inbuffer[k];
  1671              		.loc 1 67 0
@@ -2577,10 +2588,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1673              	.LVL232:
  1674 0076 F6E7     		b	.L80
  1675              	.L79:
- 1676              	.LBE188:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 44
-
-
+ 1676              	.LBE189:
   70:ROSSerial/std_msgs/Header.h ****       this->frame_id = (char *)(inbuffer + offset-1);
  1677              		.loc 1 70 0
  1678 0078 0F30     		adds	r0, r0, #15
@@ -2591,11 +2599,11 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   71:ROSSerial/std_msgs/Header.h ****       offset += length_frame_id;
  1683              		.loc 1 71 0
  1684 007e 05F10F03 		add	r3, r5, #15
- 1685 0082 814A     		ldr	r2, .L105+4
+ 1685 0082 814A     		ldr	r2, .L109+4
  1686 0084 5361     		str	r3, [r2, #20]
  1687              	.LVL235:
- 1688              	.LBE187:
- 1689              	.LBE186:
+ 1688              	.LBE188:
+ 1689              	.LBE187:
   91:ROSSerial/sensor_msgs/JointState.h ****       name_lengthT |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1); 
  1690              		.loc 2 91 0
  1691 0086 2E5D     		ldrb	r6, [r5, r4]	@ zero_extendqisi2
@@ -2626,25 +2634,25 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1711              		.loc 2 96 0
  1712 00a2 9369     		ldr	r3, [r2, #24]
  1713 00a4 9E42     		cmp	r6, r3
- 1714 00a6 03D8     		bhi	.L101
+ 1714 00a6 03D8     		bhi	.L105
  1715              	.L81:
   98:ROSSerial/sensor_msgs/JointState.h ****       for( uint32_t i = 0; i < name_length; i++){
  1716              		.loc 2 98 0
- 1717 00a8 774B     		ldr	r3, .L105+4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 45
+
+
+ 1717 00a8 774B     		ldr	r3, .L109+4
  1718 00aa 9E61     		str	r6, [r3, #24]
  1719              	.LVL241:
- 1720              	.LBB189:
+ 1720              	.LBB190:
   99:ROSSerial/sensor_msgs/JointState.h ****       uint32_t length_st_name;
  1721              		.loc 2 99 0
  1722 00ac 0026     		movs	r6, #0
  1723              	.LVL242:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 45
-
-
  1724 00ae 1CE0     		b	.L87
  1725              	.LVL243:
- 1726              	.L101:
- 1727              	.LBE189:
+ 1726              	.L105:
+ 1727              	.LBE190:
   97:ROSSerial/sensor_msgs/JointState.h ****       name_length = name_lengthT;
  1728              		.loc 2 97 0
  1729 00b0 1746     		mov	r7, r2
@@ -2656,13 +2664,13 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1735 00bc F4E7     		b	.L81
  1736              	.LVL245:
  1737              	.L83:
- 1738              	.LBB196:
- 1739              	.LBB190:
+ 1738              	.LBB197:
+ 1739              	.LBB191:
  102:ROSSerial/sensor_msgs/JointState.h ****       for(unsigned int k= offset; k< offset+length_st_name; ++k){
  1740              		.loc 2 102 0
  1741 00be 0434     		adds	r4, r4, #4
  1742              	.LVL246:
- 1743              	.LBB191:
+ 1743              	.LBB192:
  103:ROSSerial/sensor_msgs/JointState.h ****           inbuffer[k-1]=inbuffer[k];
  1744              		.loc 2 103 0
  1745 00c0 2346     		mov	r3, r4
@@ -2682,7 +2690,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1757              	.LVL248:
  1758 00d0 F7E7     		b	.L86
  1759              	.L85:
- 1760              	.LBE191:
+ 1760              	.LBE192:
  106:ROSSerial/sensor_msgs/JointState.h ****       this->st_name = (char *)(inbuffer + offset-1);
  1761              		.loc 2 106 0
  1762 00d2 4B1E     		subs	r3, r1, #1
@@ -2690,44 +2698,44 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1764 00d4 0022     		movs	r2, #0
  1765              	.LVL250:
  1766 00d6 EA54     		strb	r2, [r5, r3]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 46
+
+
  107:ROSSerial/sensor_msgs/JointState.h ****       offset += length_st_name;
  1767              		.loc 2 107 0
  1768 00d8 013C     		subs	r4, r4, #1
  1769 00da 2B19     		adds	r3, r5, r4
- 1770 00dc 6A4A     		ldr	r2, .L105+4
+ 1770 00dc 6A4A     		ldr	r2, .L109+4
  1771 00de D361     		str	r3, [r2, #28]
  108:ROSSerial/sensor_msgs/JointState.h ****         memcpy( &(this->name[i]), &(this->st_name), sizeof(char*));
  1772              		.loc 2 108 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 46
-
-
  1773 00e0 0C46     		mov	r4, r1
  1774              	.LVL251:
  109:ROSSerial/sensor_msgs/JointState.h ****       }
  1775              		.loc 2 109 0
  1776 00e2 126A     		ldr	r2, [r2, #32]
  1777 00e4 42F82630 		str	r3, [r2, r6, lsl #2]	@ unaligned
- 1778              	.LBE190:
+ 1778              	.LBE191:
   99:ROSSerial/sensor_msgs/JointState.h ****       uint32_t length_st_name;
  1779              		.loc 2 99 0
  1780 00e8 0136     		adds	r6, r6, #1
  1781              	.LVL252:
  1782              	.L87:
- 1783 00ea 674B     		ldr	r3, .L105+4
+ 1783 00ea 674B     		ldr	r3, .L109+4
  1784 00ec 9B69     		ldr	r3, [r3, #24]
  1785 00ee B342     		cmp	r3, r6
  1786 00f0 0BD9     		bls	.L82
- 1787              	.LBB195:
+ 1787              	.LBB196:
  101:ROSSerial/sensor_msgs/JointState.h ****       offset += 4;
  1788              		.loc 2 101 0
  1789 00f2 2746     		mov	r7, r4
  1790              	.LVL253:
- 1791              	.LBB192:
- 1792              	.LBB193:
+ 1791              	.LBB193:
+ 1792              	.LBB194:
  139:ROSSerial/ros/msg.h ****     for (size_t i = 0; i < sizeof(V); i++)
  1793              		.loc 5 139 0
  1794 00f4 0022     		movs	r2, #0
- 1795              	.LBB194:
+ 1795              	.LBB195:
  140:ROSSerial/ros/msg.h ****       var |= (arr[i] << (8 * i));
  1796              		.loc 5 140 0
  1797 00f6 1346     		mov	r3, r2
@@ -2749,18 +2757,18 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1812 0108 F6E7     		b	.L84
  1813              	.LVL257:
  1814              	.L82:
- 1815              	.LBE194:
- 1816              	.LBE193:
- 1817              	.LBE192:
- 1818              	.LBE195:
- 1819              	.LBE196:
+ 1815              	.LBE195:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 47
+
+
+ 1816              	.LBE194:
+ 1817              	.LBE193:
+ 1818              	.LBE196:
+ 1819              	.LBE197:
  111:ROSSerial/sensor_msgs/JointState.h ****       position_lengthT |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1); 
  1820              		.loc 2 111 0
  1821 010a 2E5D     		ldrb	r6, [r5, r4]	@ zero_extendqisi2
  1822              	.LVL258:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 47
-
-
  112:ROSSerial/sensor_msgs/JointState.h ****       position_lengthT |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2); 
  1823              		.loc 2 112 0
  1824 010c 631C     		adds	r3, r4, #1
@@ -2785,54 +2793,54 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1840              	.LVL262:
  116:ROSSerial/sensor_msgs/JointState.h ****         this->position = (float*)realloc(this->position, position_lengthT * sizeof(float));
  1841              		.loc 2 116 0
- 1842 0126 584B     		ldr	r3, .L105+4
+ 1842 0126 584B     		ldr	r3, .L109+4
  1843 0128 5B6A     		ldr	r3, [r3, #36]
  1844 012a 9E42     		cmp	r6, r3
- 1845 012c 03D8     		bhi	.L102
+ 1845 012c 03D8     		bhi	.L106
  1846              	.L88:
  118:ROSSerial/sensor_msgs/JointState.h ****       for( uint32_t i = 0; i < position_length; i++){
  1847              		.loc 2 118 0
- 1848 012e 564B     		ldr	r3, .L105+4
+ 1848 012e 564B     		ldr	r3, .L109+4
  1849 0130 5E62     		str	r6, [r3, #36]
  1850              	.LVL263:
- 1851              	.LBB197:
+ 1851              	.LBB198:
  119:ROSSerial/sensor_msgs/JointState.h ****       offset += deserializeAvrFloat64(inbuffer + offset, &(this->st_position));
  1852              		.loc 2 119 0
  1853 0132 0020     		movs	r0, #0
  1854 0134 13E0     		b	.L91
  1855              	.LVL264:
- 1856              	.L102:
- 1857              	.LBE197:
+ 1856              	.L106:
+ 1857              	.LBE198:
  117:ROSSerial/sensor_msgs/JointState.h ****       position_length = position_lengthT;
  1858              		.loc 2 117 0
- 1859 0136 544F     		ldr	r7, .L105+4
+ 1859 0136 544F     		ldr	r7, .L109+4
  1860 0138 B100     		lsls	r1, r6, #2
  1861 013a F86A     		ldr	r0, [r7, #44]
  1862 013c FFF7FEFF 		bl	realloc
  1863              	.LVL265:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 48
+
+
  1864 0140 F862     		str	r0, [r7, #44]
  1865 0142 F4E7     		b	.L88
  1866              	.LVL266:
  1867              	.L90:
- 1868              	.LBB202:
- 1869              	.LBB198:
- 1870              	.LBB199:
+ 1868              	.LBB203:
+ 1869              	.LBB199:
+ 1870              	.LBB200:
  122:ROSSerial/ros/msg.h **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 48
-
-
  1871              		.loc 5 122 0
  1872 0144 CB79     		ldrb	r3, [r1, #7]	@ zero_extendqisi2
  1873 0146 1B06     		lsls	r3, r3, #24
  1874 0148 03F00043 		and	r3, r3, #-2147483648
- 1875 014c 4E49     		ldr	r1, .L105+4
+ 1875 014c 4E49     		ldr	r1, .L109+4
  1876              	.LVL267:
  1877 014e 8A6A     		ldr	r2, [r1, #40]
  1878 0150 1343     		orrs	r3, r3, r2
  1879 0152 8B62     		str	r3, [r1, #40]
  1880              	.LVL268:
- 1881              	.LBE199:
- 1882              	.LBE198:
+ 1881              	.LBE200:
+ 1882              	.LBE199:
  120:ROSSerial/sensor_msgs/JointState.h ****         memcpy( &(this->position[i]), &(this->st_position), sizeof(float));
  1883              		.loc 2 120 0
  1884 0154 0834     		adds	r4, r4, #8
@@ -2846,7 +2854,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1890 015c 0130     		adds	r0, r0, #1
  1891              	.LVL270:
  1892              	.L91:
- 1893 015e 4A4B     		ldr	r3, .L105+4
+ 1893 015e 4A4B     		ldr	r3, .L109+4
  1894 0160 5B6A     		ldr	r3, [r3, #36]
  1895 0162 8342     		cmp	r3, r0
  1896 0164 21D9     		bls	.L89
@@ -2854,13 +2862,13 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1897              		.loc 2 120 0
  1898 0166 2919     		adds	r1, r5, r4
  1899              	.LVL271:
- 1900              	.LBB201:
- 1901              	.LBB200:
+ 1900              	.LBB202:
+ 1901              	.LBB201:
  108:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*(inbuffer++)) & 0xff) << 3;
  1902              		.loc 5 108 0
  1903 0168 CB78     		ldrb	r3, [r1, #3]	@ zero_extendqisi2
  1904 016a 5B09     		lsrs	r3, r3, #5
- 1905 016c 464E     		ldr	r6, .L105+4
+ 1905 016c 464E     		ldr	r6, .L109+4
  1906 016e B362     		str	r3, [r6, #40]
  1907              	.LVL272:
  109:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*(inbuffer++)) & 0xff) << 11;
@@ -2870,6 +2878,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1911 0176 B362     		str	r3, [r6, #40]
  1912              	.LVL273:
  110:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*inbuffer) & 0x0f) << 19;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 49
+
+
  1913              		.loc 5 110 0
  1914 0178 4A79     		ldrb	r2, [r1, #5]	@ zero_extendqisi2
  1915 017a 43EAC223 		orr	r3, r3, r2, lsl #11
@@ -2878,9 +2889,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1917              		.loc 5 111 0
  1918 0180 8A79     		ldrb	r2, [r1, #6]	@ zero_extendqisi2
  1919 0182 D204     		lsls	r2, r2, #19
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 49
-
-
  1920 0184 02F4F002 		and	r2, r2, #7864320
  1921 0188 1343     		orrs	r3, r3, r2
  1922 018a B362     		str	r3, [r6, #40]
@@ -2905,16 +2913,16 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1937 019c A2F56072 		sub	r2, r2, #896
  1938              	.LVL278:
  1939 01a0 43EAC253 		orr	r3, r3, r2, lsl #23
- 1940 01a4 384A     		ldr	r2, .L105+4
+ 1940 01a4 384A     		ldr	r2, .L109+4
  1941              	.LVL279:
  1942 01a6 9362     		str	r3, [r2, #40]
  1943              	.LVL280:
  1944 01a8 CCE7     		b	.L90
  1945              	.LVL281:
  1946              	.L89:
- 1947              	.LBE200:
- 1948              	.LBE201:
- 1949              	.LBE202:
+ 1947              	.LBE201:
+ 1948              	.LBE202:
+ 1949              	.LBE203:
  123:ROSSerial/sensor_msgs/JointState.h ****       velocity_lengthT |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1); 
  1950              		.loc 2 123 0
  1951 01aa 2E5D     		ldrb	r6, [r5, r4]	@ zero_extendqisi2
@@ -2930,6 +2938,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1959 01b4 A31C     		adds	r3, r4, #2
  1960 01b6 EB5C     		ldrb	r3, [r5, r3]	@ zero_extendqisi2
  1961 01b8 46EA0346 		orr	r6, r6, r3, lsl #16
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 50
+
+
  1962              	.LVL284:
  126:ROSSerial/sensor_msgs/JointState.h ****       offset += sizeof(this->velocity_length);
  1963              		.loc 2 126 0
@@ -2938,36 +2949,33 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1966 01c0 46EA0366 		orr	r6, r6, r3, lsl #24
  1967              	.LVL285:
  127:ROSSerial/sensor_msgs/JointState.h ****       if(velocity_lengthT > velocity_length)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 50
-
-
  1968              		.loc 2 127 0
  1969 01c4 0434     		adds	r4, r4, #4
  1970              	.LVL286:
  128:ROSSerial/sensor_msgs/JointState.h ****         this->velocity = (float*)realloc(this->velocity, velocity_lengthT * sizeof(float));
  1971              		.loc 2 128 0
- 1972 01c6 304B     		ldr	r3, .L105+4
+ 1972 01c6 304B     		ldr	r3, .L109+4
  1973 01c8 1B6B     		ldr	r3, [r3, #48]
  1974 01ca 9E42     		cmp	r6, r3
- 1975 01cc 03D8     		bhi	.L103
+ 1975 01cc 03D8     		bhi	.L107
  1976              	.LVL287:
  1977              	.L92:
  130:ROSSerial/sensor_msgs/JointState.h ****       for( uint32_t i = 0; i < velocity_length; i++){
  1978              		.loc 2 130 0
- 1979 01ce 2E4B     		ldr	r3, .L105+4
+ 1979 01ce 2E4B     		ldr	r3, .L109+4
  1980 01d0 1E63     		str	r6, [r3, #48]
  1981              	.LVL288:
- 1982              	.LBB203:
+ 1982              	.LBB204:
  131:ROSSerial/sensor_msgs/JointState.h ****       offset += deserializeAvrFloat64(inbuffer + offset, &(this->st_velocity));
  1983              		.loc 2 131 0
  1984 01d2 0020     		movs	r0, #0
  1985 01d4 13E0     		b	.L95
  1986              	.LVL289:
- 1987              	.L103:
- 1988              	.LBE203:
+ 1987              	.L107:
+ 1988              	.LBE204:
  129:ROSSerial/sensor_msgs/JointState.h ****       velocity_length = velocity_lengthT;
  1989              		.loc 2 129 0
- 1990 01d6 2C4F     		ldr	r7, .L105+4
+ 1990 01d6 2C4F     		ldr	r7, .L109+4
  1991 01d8 B100     		lsls	r1, r6, #2
  1992 01da B86B     		ldr	r0, [r7, #56]
  1993              	.LVL290:
@@ -2977,30 +2985,30 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  1997 01e2 F4E7     		b	.L92
  1998              	.LVL292:
  1999              	.L94:
- 2000              	.LBB208:
- 2001              	.LBB204:
- 2002              	.LBB205:
+ 2000              	.LBB209:
+ 2001              	.LBB205:
+ 2002              	.LBB206:
  122:ROSSerial/ros/msg.h **** 
  2003              		.loc 5 122 0
  2004 01e4 CB79     		ldrb	r3, [r1, #7]	@ zero_extendqisi2
  2005 01e6 1B06     		lsls	r3, r3, #24
  2006 01e8 03F00043 		and	r3, r3, #-2147483648
- 2007 01ec 2649     		ldr	r1, .L105+4
+ 2007 01ec 2649     		ldr	r1, .L109+4
  2008              	.LVL293:
  2009 01ee 4A6B     		ldr	r2, [r1, #52]
  2010 01f0 1343     		orrs	r3, r3, r2
  2011 01f2 4B63     		str	r3, [r1, #52]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 51
+
+
  2012              	.LVL294:
- 2013              	.LBE205:
- 2014              	.LBE204:
+ 2013              	.LBE206:
+ 2014              	.LBE205:
  132:ROSSerial/sensor_msgs/JointState.h ****         memcpy( &(this->velocity[i]), &(this->st_velocity), sizeof(float));
  2015              		.loc 2 132 0
  2016 01f4 0834     		adds	r4, r4, #8
  2017              	.LVL295:
  133:ROSSerial/sensor_msgs/JointState.h ****       }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 51
-
-
  2018              		.loc 2 133 0
  2019 01f6 8A6B     		ldr	r2, [r1, #56]
  2020 01f8 42F82030 		str	r3, [r2, r0, lsl #2]	@ unaligned
@@ -3009,7 +3017,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  2022 01fc 0130     		adds	r0, r0, #1
  2023              	.LVL296:
  2024              	.L95:
- 2025 01fe 224B     		ldr	r3, .L105+4
+ 2025 01fe 224B     		ldr	r3, .L109+4
  2026 0200 1B6B     		ldr	r3, [r3, #48]
  2027 0202 8342     		cmp	r3, r0
  2028 0204 21D9     		bls	.L93
@@ -3017,13 +3025,13 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  2029              		.loc 2 132 0
  2030 0206 2919     		adds	r1, r5, r4
  2031              	.LVL297:
- 2032              	.LBB207:
- 2033              	.LBB206:
+ 2032              	.LBB208:
+ 2033              	.LBB207:
  108:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*(inbuffer++)) & 0xff) << 3;
  2034              		.loc 5 108 0
  2035 0208 CB78     		ldrb	r3, [r1, #3]	@ zero_extendqisi2
  2036 020a 5B09     		lsrs	r3, r3, #5
- 2037 020c 1E4E     		ldr	r6, .L105+4
+ 2037 020c 1E4E     		ldr	r6, .L109+4
  2038 020e 7363     		str	r3, [r6, #52]
  2039              	.LVL298:
  109:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*(inbuffer++)) & 0xff) << 11;
@@ -3050,6 +3058,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  2057 022c 8E79     		ldrb	r6, [r1, #6]	@ zero_extendqisi2
  2058              	.LVL301:
  115:ROSSerial/ros/msg.h ****     if (exp != 0)
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 52
+
+
  2059              		.loc 5 115 0
  2060 022e CA79     		ldrb	r2, [r1, #7]	@ zero_extendqisi2
  2061 0230 1201     		lsls	r2, r2, #4
@@ -3058,9 +3069,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  116:ROSSerial/ros/msg.h ****     {
  2064              		.loc 5 116 0
  2065 0236 52EA1612 		orrs	r2, r2, r6, lsr #4
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 52
-
-
  2066              	.LVL303:
  2067 023a D3D0     		beq	.L94
  118:ROSSerial/ros/msg.h ****     }
@@ -3068,16 +3076,16 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  2069 023c A2F56072 		sub	r2, r2, #896
  2070              	.LVL304:
  2071 0240 43EAC253 		orr	r3, r3, r2, lsl #23
- 2072 0244 104A     		ldr	r2, .L105+4
+ 2072 0244 104A     		ldr	r2, .L109+4
  2073              	.LVL305:
  2074 0246 5363     		str	r3, [r2, #52]
  2075              	.LVL306:
  2076 0248 CCE7     		b	.L94
  2077              	.LVL307:
  2078              	.L93:
- 2079              	.LBE206:
- 2080              	.LBE207:
- 2081              	.LBE208:
+ 2079              	.LBE207:
+ 2080              	.LBE208:
+ 2081              	.LBE209:
  135:ROSSerial/sensor_msgs/JointState.h ****       effort_lengthT |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1); 
  2082              		.loc 2 135 0
  2083 024a 2E5D     		ldrb	r6, [r5, r4]	@ zero_extendqisi2
@@ -3106,31 +3114,31 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  2102              	.LVL312:
  140:ROSSerial/sensor_msgs/JointState.h ****         this->effort = (float*)realloc(this->effort, effort_lengthT * sizeof(float));
  2103              		.loc 2 140 0
- 2104 0266 084B     		ldr	r3, .L105+4
+ 2104 0266 084B     		ldr	r3, .L109+4
  2105 0268 DB6B     		ldr	r3, [r3, #60]
  2106 026a 9E42     		cmp	r6, r3
- 2107 026c 03D8     		bhi	.L104
+ 2107 026c 03D8     		bhi	.L108
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 53
+
+
  2108              	.LVL313:
  2109              	.L96:
  142:ROSSerial/sensor_msgs/JointState.h ****       for( uint32_t i = 0; i < effort_length; i++){
  2110              		.loc 2 142 0
- 2111 026e 064B     		ldr	r3, .L105+4
+ 2111 026e 064B     		ldr	r3, .L109+4
  2112 0270 DE63     		str	r6, [r3, #60]
  2113              	.LVL314:
- 2114              	.LBB209:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 53
-
-
+ 2114              	.LBB210:
  143:ROSSerial/sensor_msgs/JointState.h ****       offset += deserializeAvrFloat64(inbuffer + offset, &(this->st_effort));
  2115              		.loc 2 143 0
  2116 0272 0020     		movs	r0, #0
  2117 0274 17E0     		b	.L99
  2118              	.LVL315:
- 2119              	.L104:
- 2120              	.LBE209:
+ 2119              	.L108:
+ 2120              	.LBE210:
  141:ROSSerial/sensor_msgs/JointState.h ****       effort_length = effort_lengthT;
  2121              		.loc 2 141 0
- 2122 0276 044F     		ldr	r7, .L105+4
+ 2122 0276 044F     		ldr	r7, .L109+4
  2123 0278 B100     		lsls	r1, r6, #2
  2124 027a 786C     		ldr	r0, [r7, #68]
  2125              	.LVL316:
@@ -3138,29 +3146,29 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  2127              	.LVL317:
  2128 0280 7864     		str	r0, [r7, #68]
  2129 0282 F4E7     		b	.L96
- 2130              	.L106:
+ 2130              	.L110:
  2131              		.align	2
- 2132              	.L105:
+ 2132              	.L109:
  2133 0284 00000000 		.word	.LANCHOR1
  2134 0288 00000000 		.word	.LANCHOR0
  2135              	.LVL318:
  2136              	.L98:
- 2137              	.LBB214:
- 2138              	.LBB210:
- 2139              	.LBB211:
+ 2137              	.LBB215:
+ 2138              	.LBB211:
+ 2139              	.LBB212:
  122:ROSSerial/ros/msg.h **** 
  2140              		.loc 5 122 0
  2141 028c CB79     		ldrb	r3, [r1, #7]	@ zero_extendqisi2
  2142 028e 1B06     		lsls	r3, r3, #24
  2143 0290 03F00043 		and	r3, r3, #-2147483648
- 2144 0294 1A49     		ldr	r1, .L107
+ 2144 0294 3849     		ldr	r1, .L111
  2145              	.LVL319:
  2146 0296 0A6C     		ldr	r2, [r1, #64]
  2147 0298 1343     		orrs	r3, r3, r2
  2148 029a 0B64     		str	r3, [r1, #64]
  2149              	.LVL320:
- 2150              	.LBE211:
- 2151              	.LBE210:
+ 2150              	.LBE212:
+ 2151              	.LBE211:
  144:ROSSerial/sensor_msgs/JointState.h ****         memcpy( &(this->effort[i]), &(this->st_effort), sizeof(float));
  2152              		.loc 2 144 0
  2153 029c 0834     		adds	r4, r4, #8
@@ -3170,28 +3178,28 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  2156 029e 4A6C     		ldr	r2, [r1, #68]
  2157 02a0 42F82030 		str	r3, [r2, r0, lsl #2]	@ unaligned
  143:ROSSerial/sensor_msgs/JointState.h ****       offset += deserializeAvrFloat64(inbuffer + offset, &(this->st_effort));
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 54
+
+
  2158              		.loc 2 143 0
  2159 02a4 0130     		adds	r0, r0, #1
  2160              	.LVL322:
  2161              	.L99:
- 2162 02a6 164B     		ldr	r3, .L107
+ 2162 02a6 344B     		ldr	r3, .L111
  2163 02a8 DB6B     		ldr	r3, [r3, #60]
  2164 02aa 8342     		cmp	r3, r0
- 2165 02ac 21D9     		bls	.L97
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 54
-
-
+ 2165 02ac 21D9     		bls	.L103
  144:ROSSerial/sensor_msgs/JointState.h ****         memcpy( &(this->effort[i]), &(this->st_effort), sizeof(float));
  2166              		.loc 2 144 0
  2167 02ae 2919     		adds	r1, r5, r4
  2168              	.LVL323:
- 2169              	.LBB213:
- 2170              	.LBB212:
+ 2169              	.LBB214:
+ 2170              	.LBB213:
  108:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*(inbuffer++)) & 0xff) << 3;
  2171              		.loc 5 108 0
  2172 02b0 CB78     		ldrb	r3, [r1, #3]	@ zero_extendqisi2
  2173 02b2 5B09     		lsrs	r3, r3, #5
- 2174 02b4 124E     		ldr	r6, .L107
+ 2174 02b4 304E     		ldr	r6, .L111
  2175 02b6 3364     		str	r3, [r6, #64]
  2176              	.LVL324:
  109:ROSSerial/ros/msg.h ****     *val |= ((uint32_t)(*(inbuffer++)) & 0xff) << 11;
@@ -3230,470 +3238,513 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  2204 02e2 D3D0     		beq	.L98
  118:ROSSerial/ros/msg.h ****     }
  2205              		.loc 5 118 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 55
+
+
  2206 02e4 A2F56072 		sub	r2, r2, #896
  2207              	.LVL330:
  2208 02e8 43EAC253 		orr	r3, r3, r2, lsl #23
- 2209 02ec 044A     		ldr	r2, .L107
+ 2209 02ec 224A     		ldr	r2, .L111
  2210              	.LVL331:
  2211 02ee 1364     		str	r3, [r2, #64]
  2212              	.LVL332:
  2213 02f0 CCE7     		b	.L98
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 55
-
-
  2214              	.LVL333:
- 2215              	.L97:
- 2216              	.LBE212:
- 2217              	.LBE213:
- 2218              	.LBE214:
- 2219              	.LBE185:
- 2220              	.LBE184:
-  30:./Src/ROS_subscribe.cpp **** }
- 2221              		.loc 3 30 0
- 2222 02f2 FFF7FEFF 		bl	HAL_GetTick
- 2223              	.LVL334:
- 2224 02f6 0146     		mov	r1, r0
- 2225 02f8 0248     		ldr	r0, .L107+4
- 2226 02fa FFF7FEFF 		bl	printf
- 2227              	.LVL335:
-  31:./Src/ROS_subscribe.cpp **** 
- 2228              		.loc 3 31 0
- 2229 02fe F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 2230              	.LVL336:
- 2231              	.L108:
- 2232              		.align	2
- 2233              	.L107:
- 2234 0300 00000000 		.word	.LANCHOR0
- 2235 0304 00000000 		.word	.LC4
- 2236              		.cfi_endproc
- 2237              	.LFE491:
- 2238              		.fnend
- 2240              		.section	.text.wheels_pwm_set,"ax",%progbits
- 2241              		.align	1
- 2242              		.global	wheels_pwm_set
- 2243              		.syntax unified
- 2244              		.thumb
- 2245              		.thumb_func
- 2246              		.fpu fpv4-sp-d16
- 2248              	wheels_pwm_set:
- 2249              		.fnstart
- 2250              	.LFB492:
-  34:./Src/ROS_subscribe.cpp ****   uint32_t now = HAL_GetTick();
- 2251              		.loc 3 34 0
- 2252              		.cfi_startproc
- 2253              		@ args = 0, pretend = 0, frame = 0
- 2254              		@ frame_needed = 0, uses_anonymous_args = 0
- 2255 0000 30B5     		push	{r4, r5, lr}
- 2256              		.save {r4, r5, lr}
- 2257              	.LCFI6:
- 2258              		.cfi_def_cfa_offset 12
- 2259              		.cfi_offset 4, -12
- 2260              		.cfi_offset 5, -8
- 2261              		.cfi_offset 14, -4
- 2262              		.pad #20
- 2263 0002 85B0     		sub	sp, sp, #20
- 2264              	.LCFI7:
- 2265              		.cfi_def_cfa_offset 32
-  35:./Src/ROS_subscribe.cpp **** 
- 2266              		.loc 3 35 0
- 2267 0004 FFF7FEFF 		bl	HAL_GetTick
- 2268              	.LVL337:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 56
+ 2215              	.L103:
+ 2216              	.LBE213:
+ 2217              	.LBE214:
+ 2218              	.LBE215:
+ 2219              	.LBE186:
+ 2220              	.LBE185:
+ 2221              	.LBB216:
+  34:./Src/ROS_subscribe.cpp ****   {
+ 2222              		.loc 3 34 0
+ 2223 02f2 0024     		movs	r4, #0
+ 2224              	.LVL334:
+ 2225 02f4 12E0     		b	.L97
+ 2226              	.LVL335:
+ 2227              	.L101:
+  44:./Src/ROS_subscribe.cpp ****     }
+ 2228              		.loc 3 44 0
+ 2229 02f6 04EB8403 		add	r3, r4, r4, lsl #2
+ 2230 02fa D900     		lsls	r1, r3, #3
+ 2231 02fc 1F4B     		ldr	r3, .L111+4
+ 2232 02fe 0B44     		add	r3, r3, r1
+ 2233 0300 5B68     		ldr	r3, [r3, #4]
+ 2234 0302 5B42     		negs	r3, r3
+ 2235 0304 1E49     		ldr	r1, .L111+8
+ 2236 0306 41F82430 		str	r3, [r1, r4, lsl #2]
+ 2237              	.L102:
+  46:./Src/ROS_subscribe.cpp ****   }
+ 2238              		.loc 3 46 0 discriminator 3
+ 2239 030a 1D4B     		ldr	r3, .L111+8
+ 2240 030c 53F82430 		ldr	r3, [r3, r4, lsl #2]
+ 2241 0310 1C49     		ldr	r1, .L111+12
+ 2242 0312 0968     		ldr	r1, [r1]
+ 2243 0314 1C48     		ldr	r0, .L111+16
+ 2244 0316 FFF7FEFF 		bl	printf
+ 2245              	.LVL336:
+  34:./Src/ROS_subscribe.cpp ****   {
+ 2246              		.loc 3 34 0 discriminator 3
+ 2247 031a 0134     		adds	r4, r4, #1
+ 2248              	.LVL337:
+ 2249              	.L97:
+  34:./Src/ROS_subscribe.cpp ****   {
+ 2250              		.loc 3 34 0 is_stmt 0 discriminator 1
+ 2251 031c 164B     		ldr	r3, .L111
+ 2252 031e 9A69     		ldr	r2, [r3, #24]
+ 2253 0320 A242     		cmp	r2, r4
+ 2254 0322 27D9     		bls	.L78
+  34:./Src/ROS_subscribe.cpp ****   {
+ 2255              		.loc 3 34 0 discriminator 2
+ 2256 0324 012C     		cmp	r4, #1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 56
 
 
- 2269 0008 0546     		mov	r5, r0
- 2270              	.LVL338:
- 2271              	.LBB215:
-  38:./Src/ROS_subscribe.cpp ****   {
- 2272              		.loc 3 38 0
- 2273 000a 764B     		ldr	r3, .L128
- 2274 000c 1B68     		ldr	r3, [r3]
- 2275 000e C31A     		subs	r3, r0, r3
- 2276 0010 B3F5FA6F 		cmp	r3, #2000
- 2277 0014 28D9     		bls	.L110
- 2278              	.LBB216:
-  40:./Src/ROS_subscribe.cpp ****     {
- 2279              		.loc 3 40 0
- 2280 0016 0024     		movs	r4, #0
- 2281 0018 0EE0     		b	.L113
- 2282              	.LVL339:
- 2283              	.L112:
-  46:./Src/ROS_subscribe.cpp ****       ticksTarget[i] = 0;
- 2284              		.loc 3 46 0 discriminator 2
- 2285 001a 0023     		movs	r3, #0
- 2286 001c 724A     		ldr	r2, .L128+4
- 2287 001e 42F82430 		str	r3, [r2, r4, lsl #2]
-  47:./Src/ROS_subscribe.cpp ****       rpmTarget[i] = 0;
- 2288              		.loc 3 47 0 discriminator 2
- 2289 0022 724A     		ldr	r2, .L128+8
- 2290 0024 42F82430 		str	r3, [r2, r4, lsl #2]
-  48:./Src/ROS_subscribe.cpp **** 	  wheelPositionsAt = 0; //reset clock;
- 2291              		.loc 3 48 0 discriminator 2
- 2292 0028 714A     		ldr	r2, .L128+12
- 2293 002a 02EB8402 		add	r2, r2, r4, lsl #2
- 2294 002e 0021     		movs	r1, #0
- 2295 0030 1160     		str	r1, [r2]	@ float
-  49:./Src/ROS_subscribe.cpp ****     }
- 2296              		.loc 3 49 0 discriminator 2
- 2297 0032 6C4A     		ldr	r2, .L128
- 2298 0034 1360     		str	r3, [r2]
-  40:./Src/ROS_subscribe.cpp ****     {
- 2299              		.loc 3 40 0 discriminator 2
- 2300 0036 0134     		adds	r4, r4, #1
- 2301              	.LVL340:
- 2302              	.L113:
-  40:./Src/ROS_subscribe.cpp ****     {
- 2303              		.loc 3 40 0 is_stmt 0 discriminator 1
- 2304 0038 012C     		cmp	r4, #1
- 2305 003a 19DC     		bgt	.L109
-  42:./Src/ROS_subscribe.cpp **** 	  	printf("%lu:LIMIT reached. set speed to 0 , %lu, %lu for pwms[%d]=%d ticks=%ld\n",
- 2306              		.loc 3 42 0 is_stmt 1
- 2307 003c 6A4B     		ldr	r3, .L128+4
- 2308 003e 53F82430 		ldr	r3, [r3, r4, lsl #2]
- 2309 0042 002B     		cmp	r3, #0
- 2310 0044 E9D0     		beq	.L112
-  43:./Src/ROS_subscribe.cpp **** 	  			now, wheelPositionsAt, (now - wheelPositionsAt), i, pwms[i], wheel_posn[i].ticks);
- 2311              		.loc 3 43 0
- 2312 0046 674A     		ldr	r2, .L128
- 2313 0048 1268     		ldr	r2, [r2]
-  44:./Src/ROS_subscribe.cpp **** 	  }
- 2314              		.loc 3 44 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 57
+ 2257 0326 25DC     		bgt	.L78
+  36:./Src/ROS_subscribe.cpp ****     //
+ 2258              		.loc 3 36 0 is_stmt 1
+ 2259 0328 DB6A     		ldr	r3, [r3, #44]
+ 2260 032a 03EB8403 		add	r3, r3, r4, lsl #2
+ 2261 032e D3ED007A 		vldr.32	s15, [r3]
+ 2262 0332 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 2263 0336 17EE902A 		vmov	r2, s15	@ int
+ 2264 033a A100     		lsls	r1, r4, #2
+ 2265 033c 2144     		add	r1, r1, r4
+ 2266 033e C800     		lsls	r0, r1, #3
+ 2267 0340 0E4B     		ldr	r3, .L111+4
+ 2268 0342 0344     		add	r3, r3, r0
+ 2269 0344 5969     		ldr	r1, [r3, #20]
+ 2270 0346 0A44     		add	r2, r2, r1
+ 2271 0348 1049     		ldr	r1, .L111+20
+ 2272 034a 41F82420 		str	r2, [r1, r4, lsl #2]
+  38:./Src/ROS_subscribe.cpp ****     {
+ 2273              		.loc 3 38 0
+ 2274 034e 5968     		ldr	r1, [r3, #4]
+ 2275 0350 01FB02F1 		mul	r1, r1, r2
+ 2276 0354 5869     		ldr	r0, [r3, #20]
+ 2277 0356 5B68     		ldr	r3, [r3, #4]
+ 2278 0358 03FB00F3 		mul	r3, r3, r0
+ 2279 035c 9942     		cmp	r1, r3
+ 2280 035e CADB     		blt	.L101
+  40:./Src/ROS_subscribe.cpp ****     }
+ 2281              		.loc 3 40 0
+ 2282 0360 04EB8403 		add	r3, r4, r4, lsl #2
+ 2283 0364 D900     		lsls	r1, r3, #3
+ 2284 0366 054B     		ldr	r3, .L111+4
+ 2285 0368 0B44     		add	r3, r3, r1
+ 2286 036a 5968     		ldr	r1, [r3, #4]
+ 2287 036c 044B     		ldr	r3, .L111+8
+ 2288 036e 43F82410 		str	r1, [r3, r4, lsl #2]
+ 2289 0372 CAE7     		b	.L102
+ 2290              	.L78:
+ 2291              	.LBE216:
+  48:./Src/ROS_subscribe.cpp **** 
+ 2292              		.loc 3 48 0
+ 2293 0374 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 2294              	.LVL338:
+ 2295              	.L112:
+ 2296 0376 00BF     		.align	2
+ 2297              	.L111:
+ 2298 0378 00000000 		.word	.LANCHOR0
+ 2299 037c 00000000 		.word	wheel_posn
+ 2300 0380 00000000 		.word	.LANCHOR3
+ 2301 0384 00000000 		.word	.LANCHOR1
+ 2302 0388 00000000 		.word	.LC4
+ 2303 038c 00000000 		.word	.LANCHOR2
+ 2304              		.cfi_endproc
+ 2305              	.LFE491:
+ 2306              		.fnend
+ 2308              		.section	.text.wheels_pwm_set,"ax",%progbits
+ 2309              		.align	1
+ 2310              		.global	wheels_pwm_set
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 57
 
 
- 2315 004a 04EB8401 		add	r1, r4, r4, lsl #2
- 2316 004e C800     		lsls	r0, r1, #3
- 2317 0050 6849     		ldr	r1, .L128+16
- 2318 0052 0144     		add	r1, r1, r0
- 2319 0054 4969     		ldr	r1, [r1, #20]
-  43:./Src/ROS_subscribe.cpp **** 	  			now, wheelPositionsAt, (now - wheelPositionsAt), i, pwms[i], wheel_posn[i].ticks);
- 2320              		.loc 3 43 0
- 2321 0056 0291     		str	r1, [sp, #8]
- 2322 0058 0193     		str	r3, [sp, #4]
- 2323 005a 0094     		str	r4, [sp]
- 2324 005c AB1A     		subs	r3, r5, r2
- 2325 005e 2946     		mov	r1, r5
- 2326 0060 6548     		ldr	r0, .L128+20
- 2327 0062 FFF7FEFF 		bl	printf
- 2328              	.LVL341:
- 2329 0066 D8E7     		b	.L112
- 2330              	.LVL342:
- 2331              	.L110:
- 2332              	.LBE216:
- 2333              	.LBE215:
- 2334              	.LBB217:
+ 2311              		.syntax unified
+ 2312              		.thumb
+ 2313              		.thumb_func
+ 2314              		.fpu fpv4-sp-d16
+ 2316              	wheels_pwm_set:
+ 2317              		.fnstart
+ 2318              	.LFB492:
+  51:./Src/ROS_subscribe.cpp ****   uint32_t now = HAL_GetTick();
+ 2319              		.loc 3 51 0
+ 2320              		.cfi_startproc
+ 2321              		@ args = 0, pretend = 0, frame = 0
+ 2322              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2323 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 2324              		.save {r4, r5, r6, r7, lr}
+ 2325              	.LCFI6:
+ 2326              		.cfi_def_cfa_offset 20
+ 2327              		.cfi_offset 4, -20
+ 2328              		.cfi_offset 5, -16
+ 2329              		.cfi_offset 6, -12
+ 2330              		.cfi_offset 7, -8
+ 2331              		.cfi_offset 14, -4
+ 2332              		.pad #20
+ 2333 0002 85B0     		sub	sp, sp, #20
+ 2334              	.LCFI7:
+ 2335              		.cfi_def_cfa_offset 40
+  52:./Src/ROS_subscribe.cpp **** 
+ 2336              		.loc 3 52 0
+ 2337 0004 FFF7FEFF 		bl	HAL_GetTick
+ 2338              	.LVL339:
+ 2339 0008 0546     		mov	r5, r0
+ 2340              	.LVL340:
+ 2341              	.LBB217:
   55:./Src/ROS_subscribe.cpp ****   {
- 2335              		.loc 3 55 0
- 2336 0068 644B     		ldr	r3, .L128+24
- 2337 006a 9B69     		ldr	r3, [r3, #24]
- 2338 006c 022B     		cmp	r3, #2
- 2339 006e 01D0     		beq	.L126
- 2340              	.LVL343:
- 2341              	.L109:
- 2342              	.LBE217:
- 108:./Src/ROS_subscribe.cpp **** 
- 2343              		.loc 3 108 0
- 2344 0070 05B0     		add	sp, sp, #20
- 2345              	.LCFI8:
- 2346              		.cfi_remember_state
- 2347              		.cfi_def_cfa_offset 12
- 2348              		@ sp needed
- 2349 0072 30BD     		pop	{r4, r5, pc}
- 2350              	.LVL344:
- 2351              	.L126:
- 2352              	.LCFI9:
- 2353              		.cfi_restore_state
- 2354              	.LBB219:
- 2355              	.LBB218:
+ 2342              		.loc 3 55 0
+ 2343 000a 624B     		ldr	r3, .L132
+ 2344 000c 1B68     		ldr	r3, [r3]
+ 2345 000e C21A     		subs	r2, r0, r3
+ 2346 0010 B2F5FA6F 		cmp	r2, #2000
+ 2347 0014 21D9     		bls	.L114
+ 2348              	.LBB218:
   57:./Src/ROS_subscribe.cpp ****     {
- 2356              		.loc 3 57 0
- 2357 0074 0024     		movs	r4, #0
- 2358 0076 1FE0     		b	.L122
- 2359              	.LVL345:
- 2360              	.L116:
-  74:./Src/ROS_subscribe.cpp ****           }
- 2361              		.loc 3 74 0
- 2362 0078 04EB8401 		add	r1, r4, r4, lsl #2
- 2363 007c C800     		lsls	r0, r1, #3
- 2364 007e 5D49     		ldr	r1, .L128+16
- 2365 0080 0144     		add	r1, r1, r0
- 2366 0082 4868     		ldr	r0, [r1, #4]
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 58
-
-
- 2367 0084 6FF06301 		mvn	r1, #99
- 2368 0088 01FB00F1 		mul	r1, r1, r0
- 2369 008c 5648     		ldr	r0, .L128+4
- 2370 008e 40F82410 		str	r1, [r0, r4, lsl #2]
- 2371              	.L117:
-  77:./Src/ROS_subscribe.cpp ****         }
- 2372              		.loc 3 77 0
- 2373 0092 D2ED007A 		vldr.32	s15, [r2]
- 2374 0096 04EB8402 		add	r2, r4, r4, lsl #2
- 2375 009a D100     		lsls	r1, r2, #3
- 2376 009c 554A     		ldr	r2, .L128+16
- 2377 009e 0A44     		add	r2, r2, r1
- 2378 00a0 5269     		ldr	r2, [r2, #20]
-  76:./Src/ROS_subscribe.cpp **** 		  			long(wheelPositions.position[i]), wheel_posn[i].ticks);
- 2379              		.loc 3 76 0
- 2380 00a2 0192     		str	r2, [sp, #4]
- 2381 00a4 FDEEE77A 		vcvt.s32.f32	s15, s15
- 2382 00a8 CDED007A 		vstr.32	s15, [sp]	@ int
- 2383 00ac 2246     		mov	r2, r4
- 2384 00ae 2946     		mov	r1, r5
- 2385 00b0 5348     		ldr	r0, .L128+28
- 2386 00b2 FFF7FEFF 		bl	printf
- 2387              	.LVL346:
- 2388              	.L118:
+ 2349              		.loc 3 57 0
+ 2350 0016 0024     		movs	r4, #0
+ 2351 0018 06E0     		b	.L117
+ 2352              	.LVL341:
+ 2353              	.L116:
+  63:./Src/ROS_subscribe.cpp **** 	    wheelInputAt = 0; //reset clock;
+ 2354              		.loc 3 63 0 discriminator 2
+ 2355 001a 0023     		movs	r3, #0
+ 2356 001c 5E4A     		ldr	r2, .L132+4
+ 2357 001e 42F82430 		str	r3, [r2, r4, lsl #2]
+  64:./Src/ROS_subscribe.cpp ****     }
+ 2358              		.loc 3 64 0 discriminator 2
+ 2359 0022 5C4A     		ldr	r2, .L132
+ 2360 0024 1360     		str	r3, [r2]
   57:./Src/ROS_subscribe.cpp ****     {
- 2389              		.loc 3 57 0 discriminator 2
- 2390 00b6 0134     		adds	r4, r4, #1
- 2391              	.LVL347:
- 2392              	.L122:
+ 2361              		.loc 3 57 0 discriminator 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 58
+
+
+ 2362 0026 0134     		adds	r4, r4, #1
+ 2363              	.LVL342:
+ 2364              	.L117:
   57:./Src/ROS_subscribe.cpp ****     {
- 2393              		.loc 3 57 0 is_stmt 0 discriminator 1
- 2394 00b8 012C     		cmp	r4, #1
- 2395 00ba D9DC     		bgt	.L109
-  60:./Src/ROS_subscribe.cpp ****       {
- 2396              		.loc 3 60 0 is_stmt 1
- 2397 00bc 4F4B     		ldr	r3, .L128+24
- 2398 00be DA6A     		ldr	r2, [r3, #44]
- 2399 00c0 A300     		lsls	r3, r4, #2
- 2400 00c2 1A44     		add	r2, r2, r3
- 2401 00c4 D2ED007A 		vldr.32	s15, [r2]
- 2402 00c8 F5EE407A 		vcmp.f32	s15, #0
- 2403 00cc F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 2404 00d0 59D0     		beq	.L114
-  62:./Src/ROS_subscribe.cpp ****         {
- 2405              		.loc 3 62 0
- 2406 00d2 464B     		ldr	r3, .L128+8
- 2407 00d4 53F82410 		ldr	r1, [r3, r4, lsl #2]
- 2408 00d8 89BB     		cbnz	r1, .L115
-  65:./Src/ROS_subscribe.cpp ****           if(ticksTarget[i] >= long(wheelPositions.position[i]*wheel_posn[i].direction)  + wheel_po
- 2409              		.loc 3 65 0
- 2410 00da A300     		lsls	r3, r4, #2
- 2411 00dc 2344     		add	r3, r3, r4
- 2412 00de D800     		lsls	r0, r3, #3
- 2413 00e0 4449     		ldr	r1, .L128+16
- 2414 00e2 0144     		add	r1, r1, r0
- 2415 00e4 91ED017A 		vldr.32	s14, [r1, #4]	@ int
- 2416 00e8 B8EEC77A 		vcvt.f32.s32	s14, s14
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 59
+ 2365              		.loc 3 57 0 is_stmt 0 discriminator 1
+ 2366 0028 012C     		cmp	r4, #1
+ 2367 002a 00F3B080 		bgt	.L113
+  59:./Src/ROS_subscribe.cpp ****         printf("%lu:LIMIT reached. set speed to 0 , %lu, %lu for pwms[%d]=%d ticks=%ld\n",
+ 2368              		.loc 3 59 0 is_stmt 1
+ 2369 002e 5A4B     		ldr	r3, .L132+4
+ 2370 0030 53F82430 		ldr	r3, [r3, r4, lsl #2]
+ 2371 0034 002B     		cmp	r3, #0
+ 2372 0036 F0D0     		beq	.L116
+  60:./Src/ROS_subscribe.cpp ****             now, wheelInputAt, (now - wheelInputAt), i, pwms[i], wheel_posn[i].ticks);
+ 2373              		.loc 3 60 0
+ 2374 0038 564A     		ldr	r2, .L132
+ 2375 003a 1268     		ldr	r2, [r2]
+  61:./Src/ROS_subscribe.cpp ****       }
+ 2376              		.loc 3 61 0
+ 2377 003c 04EB8401 		add	r1, r4, r4, lsl #2
+ 2378 0040 C800     		lsls	r0, r1, #3
+ 2379 0042 5649     		ldr	r1, .L132+8
+ 2380 0044 0144     		add	r1, r1, r0
+ 2381 0046 4969     		ldr	r1, [r1, #20]
+  60:./Src/ROS_subscribe.cpp ****             now, wheelInputAt, (now - wheelInputAt), i, pwms[i], wheel_posn[i].ticks);
+ 2382              		.loc 3 60 0
+ 2383 0048 0291     		str	r1, [sp, #8]
+ 2384 004a 0193     		str	r3, [sp, #4]
+ 2385 004c 0094     		str	r4, [sp]
+ 2386 004e AB1A     		subs	r3, r5, r2
+ 2387 0050 2946     		mov	r1, r5
+ 2388 0052 5348     		ldr	r0, .L132+12
+ 2389 0054 FFF7FEFF 		bl	printf
+ 2390              	.LVL343:
+ 2391 0058 DFE7     		b	.L116
+ 2392              	.LVL344:
+ 2393              	.L114:
+ 2394              	.LBE218:
+ 2395              	.LBB219:
+  68:./Src/ROS_subscribe.cpp ****   {
+ 2396              		.loc 3 68 0
+ 2397 005a 002B     		cmp	r3, #0
+ 2398 005c 00F09780 		beq	.L113
+ 2399              	.LBB220:
+  71:./Src/ROS_subscribe.cpp ****     {
+ 2400              		.loc 3 71 0
+ 2401 0060 0024     		movs	r4, #0
+ 2402 0062 14E0     		b	.L125
+ 2403              	.LVL345:
+ 2404              	.L129:
+  78:./Src/ROS_subscribe.cpp ****        
+ 2405              		.loc 3 78 0
+ 2406 0064 4D4A     		ldr	r2, .L132+8
+ 2407 0066 0244     		add	r2, r2, r0
+ 2408 0068 5269     		ldr	r2, [r2, #20]
+  77:./Src/ROS_subscribe.cpp ****               ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
+ 2409              		.loc 3 77 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 59
 
 
- 2417 00ec 67EE277A 		vmul.f32	s15, s14, s15
- 2418 00f0 FDEEE77A 		vcvt.s32.f32	s15, s15
- 2419 00f4 4B69     		ldr	r3, [r1, #20]
- 2420 00f6 17EE900A 		vmov	r0, s15	@ int
- 2421 00fa 1844     		add	r0, r0, r3
- 2422 00fc 0346     		mov	r3, r0
- 2423 00fe 3B48     		ldr	r0, .L128+8
- 2424 0100 40F82430 		str	r3, [r0, r4, lsl #2]
-  66:./Src/ROS_subscribe.cpp ****           {
- 2425              		.loc 3 66 0
- 2426 0104 92ED007A 		vldr.32	s14, [r2]
- 2427 0108 D1ED017A 		vldr.32	s15, [r1, #4]	@ int
- 2428 010c F8EEE77A 		vcvt.f32.s32	s15, s15
- 2429 0110 67EE877A 		vmul.f32	s15, s15, s14
- 2430 0114 FDEEE77A 		vcvt.s32.f32	s15, s15
- 2431 0118 4969     		ldr	r1, [r1, #20]
- 2432 011a 17EE900A 		vmov	r0, s15	@ int
- 2433 011e 0844     		add	r0, r0, r1
- 2434 0120 8342     		cmp	r3, r0
- 2435 0122 A9DB     		blt	.L116
-  69:./Src/ROS_subscribe.cpp ****           }
- 2436              		.loc 3 69 0
- 2437 0124 04EB8401 		add	r1, r4, r4, lsl #2
- 2438 0128 C800     		lsls	r0, r1, #3
- 2439 012a 3249     		ldr	r1, .L128+16
- 2440 012c 0144     		add	r1, r1, r0
- 2441 012e 4868     		ldr	r0, [r1, #4]
- 2442 0130 6421     		movs	r1, #100
- 2443 0132 01FB00F1 		mul	r1, r1, r0
- 2444 0136 2C48     		ldr	r0, .L128+4
- 2445 0138 40F82410 		str	r1, [r0, r4, lsl #2]
- 2446 013c A9E7     		b	.L117
- 2447              	.L115:
-  79:./Src/ROS_subscribe.cpp ****                 (ticksTarget[i]*wheel_posn[i].direction))
- 2448              		.loc 3 79 0
- 2449 013e A200     		lsls	r2, r4, #2
- 2450 0140 2244     		add	r2, r2, r4
- 2451 0142 D000     		lsls	r0, r2, #3
- 2452 0144 2B4B     		ldr	r3, .L128+16
- 2453 0146 0344     		add	r3, r3, r0
- 2454 0148 5869     		ldr	r0, [r3, #20]
- 2455 014a 5A68     		ldr	r2, [r3, #4]
- 2456 014c 02FB00F2 		mul	r2, r2, r0
-  80:./Src/ROS_subscribe.cpp ****         {
- 2457              		.loc 3 80 0
- 2458 0150 5B68     		ldr	r3, [r3, #4]
- 2459 0152 03FB01F3 		mul	r3, r3, r1
-  79:./Src/ROS_subscribe.cpp ****                 (ticksTarget[i]*wheel_posn[i].direction))
- 2460              		.loc 3 79 0
- 2461 0156 9A42     		cmp	r2, r3
- 2462 0158 ADDB     		blt	.L118
-  84:./Src/ROS_subscribe.cpp ****           
- 2463              		.loc 3 84 0
- 2464 015a 04EB8403 		add	r3, r4, r4, lsl #2
- 2465 015e DA00     		lsls	r2, r3, #3
- 2466 0160 244B     		ldr	r3, .L128+16
- 2467 0162 1344     		add	r3, r3, r2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 60
+ 2410 006a 4B4E     		ldr	r6, .L132+4
+ 2411 006c 56F82400 		ldr	r0, [r6, r4, lsl #2]
+ 2412 0070 0190     		str	r0, [sp, #4]
+ 2413 0072 02FB01F1 		mul	r1, r2, r1
+ 2414 0076 0091     		str	r1, [sp]
+ 2415 0078 2246     		mov	r2, r4
+ 2416 007a 2946     		mov	r1, r5
+ 2417 007c 4948     		ldr	r0, .L132+16
+ 2418 007e FFF7FEFF 		bl	printf
+ 2419              	.LVL346:
+  81:./Src/ROS_subscribe.cpp ****         wheelInputAt = 0;
+ 2420              		.loc 3 81 0
+ 2421 0082 0023     		movs	r3, #0
+ 2422 0084 46F82430 		str	r3, [r6, r4, lsl #2]
+  82:./Src/ROS_subscribe.cpp ****       }
+ 2423              		.loc 3 82 0
+ 2424 0088 424A     		ldr	r2, .L132
+ 2425 008a 1360     		str	r3, [r2]
+ 2426              	.L119:
+  71:./Src/ROS_subscribe.cpp ****     {
+ 2427              		.loc 3 71 0 discriminator 3
+ 2428 008c 0134     		adds	r4, r4, #1
+ 2429              	.LVL347:
+ 2430              	.L125:
+  71:./Src/ROS_subscribe.cpp ****     {
+ 2431              		.loc 3 71 0 is_stmt 0 discriminator 1
+ 2432 008e 464B     		ldr	r3, .L132+20
+ 2433 0090 9B69     		ldr	r3, [r3, #24]
+ 2434 0092 2746     		mov	r7, r4
+ 2435 0094 A342     		cmp	r3, r4
+ 2436 0096 7AD9     		bls	.L113
+  71:./Src/ROS_subscribe.cpp ****     {
+ 2437              		.loc 3 71 0 discriminator 2
+ 2438 0098 012C     		cmp	r4, #1
+ 2439 009a 78DC     		bgt	.L113
+  74:./Src/ROS_subscribe.cpp ****       {
+ 2440              		.loc 3 74 0 is_stmt 1
+ 2441 009c 434B     		ldr	r3, .L132+24
+ 2442 009e 53F82460 		ldr	r6, [r3, r4, lsl #2]
+ 2443 00a2 434B     		ldr	r3, .L132+28
+ 2444 00a4 53F82410 		ldr	r1, [r3, r4, lsl #2]
+ 2445 00a8 01FB06F3 		mul	r3, r1, r6
+ 2446 00ac 04EB8402 		add	r2, r4, r4, lsl #2
+ 2447 00b0 D000     		lsls	r0, r2, #3
+ 2448 00b2 3A4A     		ldr	r2, .L132+8
+ 2449 00b4 0244     		add	r2, r2, r0
+ 2450 00b6 5269     		ldr	r2, [r2, #20]
+ 2451 00b8 02FB01F2 		mul	r2, r2, r1
+ 2452 00bc 9342     		cmp	r3, r2
+ 2453 00be D1DD     		ble	.L129
+  84:./Src/ROS_subscribe.cpp ****       {
+ 2454              		.loc 3 84 0
+ 2455 00c0 002E     		cmp	r6, #0
+ 2456 00c2 34D0     		beq	.L120
+  84:./Src/ROS_subscribe.cpp ****       {
+ 2457              		.loc 3 84 0 is_stmt 0 discriminator 1
+ 2458 00c4 344A     		ldr	r2, .L132+4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 60
 
 
- 2468 0164 5B69     		ldr	r3, [r3, #20]
-  83:./Src/ROS_subscribe.cpp ****                 wheel_posn[i].ticks, ticksTarget[i]);
- 2469              		.loc 3 83 0
- 2470 0166 0091     		str	r1, [sp]
- 2471 0168 2246     		mov	r2, r4
- 2472 016a 2946     		mov	r1, r5
- 2473 016c 2548     		ldr	r0, .L128+32
- 2474 016e FFF7FEFF 		bl	printf
- 2475              	.LVL348:
-  86:./Src/ROS_subscribe.cpp ****           pwms[i] = 0;
- 2476              		.loc 3 86 0
- 2477 0172 0023     		movs	r3, #0
- 2478 0174 1D4A     		ldr	r2, .L128+8
- 2479 0176 42F82430 		str	r3, [r2, r4, lsl #2]
-  87:./Src/ROS_subscribe.cpp ****           wheelPositionsAt = 0; //reset clock;
- 2480              		.loc 3 87 0
- 2481 017a 1B4A     		ldr	r2, .L128+4
- 2482 017c 42F82430 		str	r3, [r2, r4, lsl #2]
-  88:./Src/ROS_subscribe.cpp ****         }
- 2483              		.loc 3 88 0
- 2484 0180 184A     		ldr	r2, .L128
- 2485 0182 1360     		str	r3, [r2]
- 2486 0184 97E7     		b	.L118
- 2487              	.L114:
-  93:./Src/ROS_subscribe.cpp ****       {
- 2488              		.loc 3 93 0
- 2489 0186 1D4A     		ldr	r2, .L128+24
- 2490 0188 526C     		ldr	r2, [r2, #68]
- 2491 018a 1344     		add	r3, r3, r2
- 2492 018c D3ED007A 		vldr.32	s15, [r3]
- 2493 0190 F5EE407A 		vcmp.f32	s15, #0
- 2494 0194 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 2495 0198 8DD0     		beq	.L118
-  96:./Src/ROS_subscribe.cpp ****         {
- 2496              		.loc 3 96 0
- 2497 019a F5EEC07A 		vcmpe.f32	s15, #0
- 2498 019e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 2499 01a2 12D4     		bmi	.L127
- 102:./Src/ROS_subscribe.cpp ****         }
- 2500              		.loc 3 102 0
- 2501 01a4 FDEEE77A 		vcvt.s32.f32	s15, s15
- 2502 01a8 17EE903A 		vmov	r3, s15	@ int
- 2503 01ac 642B     		cmp	r3, #100
- 2504 01ae A8BF     		it	ge
- 2505 01b0 6423     		movge	r3, #100
- 2506 01b2 0D4A     		ldr	r2, .L128+4
- 2507 01b4 42F82430 		str	r3, [r2, r4, lsl #2]
- 2508              	.L121:
- 104:./Src/ROS_subscribe.cpp ****       }     
- 2509              		.loc 3 104 0
- 2510 01b8 0B4B     		ldr	r3, .L128+4
- 2511 01ba 53F82430 		ldr	r3, [r3, r4, lsl #2]
- 2512 01be 2246     		mov	r2, r4
- 2513 01c0 2946     		mov	r1, r5
- 2514 01c2 1148     		ldr	r0, .L128+36
- 2515 01c4 FFF7FEFF 		bl	printf
- 2516              	.LVL349:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 61
+ 2459 00c6 52F82420 		ldr	r2, [r2, r4, lsl #2]
+ 2460 00ca 82BB     		cbnz	r2, .L120
+  86:./Src/ROS_subscribe.cpp ****         {
+ 2461              		.loc 3 86 0 is_stmt 1
+ 2462 00cc 0129     		cmp	r1, #1
+ 2463 00ce 17D0     		beq	.L130
+  94:./Src/ROS_subscribe.cpp ****           printf("%lu:Target[%d] set for backward %ld <= %ld, pwms=%d\n",now,i,
+ 2464              		.loc 3 94 0
+ 2465 00d0 A200     		lsls	r2, r4, #2
+ 2466 00d2 2244     		add	r2, r2, r4
+ 2467 00d4 D600     		lsls	r6, r2, #3
+ 2468 00d6 3148     		ldr	r0, .L132+8
+ 2469 00d8 3044     		add	r0, r0, r6
+ 2470 00da 4668     		ldr	r6, [r0, #4]
+ 2471 00dc 6FF03102 		mvn	r2, #49
+ 2472 00e0 02FB06F2 		mul	r2, r2, r6
+ 2473 00e4 2C4E     		ldr	r6, .L132+4
+ 2474 00e6 46F82420 		str	r2, [r6, r4, lsl #2]
+  96:./Src/ROS_subscribe.cpp ****         }
+ 2475              		.loc 3 96 0
+ 2476 00ea 4069     		ldr	r0, [r0, #20]
+  95:./Src/ROS_subscribe.cpp ****               ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
+ 2477              		.loc 3 95 0
+ 2478 00ec 0192     		str	r2, [sp, #4]
+ 2479 00ee 00FB01F1 		mul	r1, r0, r1
+ 2480 00f2 0091     		str	r1, [sp]
+ 2481 00f4 2246     		mov	r2, r4
+ 2482 00f6 2946     		mov	r1, r5
+ 2483 00f8 2E48     		ldr	r0, .L132+32
+ 2484 00fa FFF7FEFF 		bl	printf
+ 2485              	.LVL348:
+ 2486 00fe C5E7     		b	.L119
+ 2487              	.L130:
+  88:./Src/ROS_subscribe.cpp ****           printf("%lu:Target[%d] set for forward %ld <= %ld, pwms=%d\n",now,i,
+ 2488              		.loc 3 88 0
+ 2489 0100 A200     		lsls	r2, r4, #2
+ 2490 0102 2244     		add	r2, r2, r4
+ 2491 0104 D600     		lsls	r6, r2, #3
+ 2492 0106 2548     		ldr	r0, .L132+8
+ 2493 0108 3044     		add	r0, r0, r6
+ 2494 010a 4668     		ldr	r6, [r0, #4]
+ 2495 010c 3222     		movs	r2, #50
+ 2496 010e 02FB06F2 		mul	r2, r2, r6
+ 2497 0112 214E     		ldr	r6, .L132+4
+ 2498 0114 46F82420 		str	r2, [r6, r4, lsl #2]
+  90:./Src/ROS_subscribe.cpp ****         }
+ 2499              		.loc 3 90 0
+ 2500 0118 4069     		ldr	r0, [r0, #20]
+  89:./Src/ROS_subscribe.cpp ****               ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
+ 2501              		.loc 3 89 0
+ 2502 011a 0192     		str	r2, [sp, #4]
+ 2503 011c 00FB01F1 		mul	r1, r0, r1
+ 2504 0120 0091     		str	r1, [sp]
+ 2505 0122 2246     		mov	r2, r4
+ 2506 0124 2946     		mov	r1, r5
+ 2507 0126 2448     		ldr	r0, .L132+36
+ 2508 0128 FFF7FEFF 		bl	printf
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 61
 
 
- 2517 01c8 75E7     		b	.L118
- 2518              	.L127:
-  98:./Src/ROS_subscribe.cpp ****         }
- 2519              		.loc 3 98 0
- 2520 01ca FDEEE77A 		vcvt.s32.f32	s15, s15
- 2521 01ce 17EE903A 		vmov	r3, s15	@ int
- 2522 01d2 6FF06302 		mvn	r2, #99
- 2523 01d6 9342     		cmp	r3, r2
- 2524 01d8 B8BF     		it	lt
- 2525 01da 1346     		movlt	r3, r2
- 2526 01dc 024A     		ldr	r2, .L128+4
- 2527 01de 42F82430 		str	r3, [r2, r4, lsl #2]
- 2528 01e2 E9E7     		b	.L121
- 2529              	.L129:
- 2530              		.align	2
- 2531              	.L128:
- 2532 01e4 00000000 		.word	.LANCHOR1
- 2533 01e8 00000000 		.word	pwms
- 2534 01ec 00000000 		.word	.LANCHOR2
- 2535 01f0 00000000 		.word	.LANCHOR3
- 2536 01f4 00000000 		.word	wheel_posn
- 2537 01f8 00000000 		.word	.LC5
- 2538 01fc 00000000 		.word	.LANCHOR0
- 2539 0200 48000000 		.word	.LC6
- 2540 0204 6C000000 		.word	.LC7
- 2541 0208 90000000 		.word	.LC8
- 2542              	.LBE218:
- 2543              	.LBE219:
- 2544              		.cfi_endproc
- 2545              	.LFE492:
- 2546              		.fnend
- 2548              		.section	.text._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE,
- 2549              		.align	1
- 2550              		.global	_Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
- 2551              		.syntax unified
- 2552              		.thumb
- 2553              		.thumb_func
- 2554              		.fpu fpv4-sp-d16
- 2556              	_Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:
- 2557              		.fnstart
- 2558              	.LFB493:
- 111:./Src/ROS_subscribe.cpp ****     ros::SubscriberType sub ;
- 2559              		.loc 3 111 0
- 2560              		.cfi_startproc
- 2561              		@ args = 0, pretend = 0, frame = 40
- 2562              		@ frame_needed = 0, uses_anonymous_args = 0
- 2563              	.LVL350:
- 2564 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 2565              		.save {r4, r5, r6, r7, lr}
- 2566              	.LCFI10:
- 2567              		.cfi_def_cfa_offset 20
- 2568              		.cfi_offset 4, -20
- 2569              		.cfi_offset 5, -16
- 2570              		.cfi_offset 6, -12
- 2571              		.cfi_offset 7, -8
- 2572              		.cfi_offset 14, -4
- 2573              		.pad #44
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 62
+ 2509              	.LVL349:
+ 2510 012c AEE7     		b	.L119
+ 2511              	.L120:
+ 101:./Src/ROS_subscribe.cpp ****       {
+ 2512              		.loc 3 101 0
+ 2513 012e 1E4B     		ldr	r3, .L132+20
+ 2514 0130 5B6C     		ldr	r3, [r3, #68]
+ 2515 0132 03EB8707 		add	r7, r3, r7, lsl #2
+ 2516 0136 D7ED007A 		vldr.32	s15, [r7]
+ 2517 013a F5EE407A 		vcmp.f32	s15, #0
+ 2518 013e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 2519 0142 A3D0     		beq	.L119
+ 104:./Src/ROS_subscribe.cpp ****         {
+ 2520              		.loc 3 104 0
+ 2521 0144 F5EEC07A 		vcmpe.f32	s15, #0
+ 2522 0148 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 2523 014c 12D4     		bmi	.L131
+ 110:./Src/ROS_subscribe.cpp ****         }
+ 2524              		.loc 3 110 0
+ 2525 014e FDEEE77A 		vcvt.s32.f32	s15, s15
+ 2526 0152 17EE903A 		vmov	r3, s15	@ int
+ 2527 0156 642B     		cmp	r3, #100
+ 2528 0158 A8BF     		it	ge
+ 2529 015a 6423     		movge	r3, #100
+ 2530 015c 0E4A     		ldr	r2, .L132+4
+ 2531 015e 42F82430 		str	r3, [r2, r4, lsl #2]
+ 2532              	.L124:
+ 112:./Src/ROS_subscribe.cpp ****       }     
+ 2533              		.loc 3 112 0
+ 2534 0162 0D4B     		ldr	r3, .L132+4
+ 2535 0164 53F82430 		ldr	r3, [r3, r4, lsl #2]
+ 2536 0168 2246     		mov	r2, r4
+ 2537 016a 2946     		mov	r1, r5
+ 2538 016c 1348     		ldr	r0, .L132+40
+ 2539 016e FFF7FEFF 		bl	printf
+ 2540              	.LVL350:
+ 2541 0172 8BE7     		b	.L119
+ 2542              	.L131:
+ 106:./Src/ROS_subscribe.cpp ****         }
+ 2543              		.loc 3 106 0
+ 2544 0174 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 2545 0178 17EE903A 		vmov	r3, s15	@ int
+ 2546 017c 6FF06302 		mvn	r2, #99
+ 2547 0180 9342     		cmp	r3, r2
+ 2548 0182 B8BF     		it	lt
+ 2549 0184 1346     		movlt	r3, r2
+ 2550 0186 044A     		ldr	r2, .L132+4
+ 2551 0188 42F82430 		str	r3, [r2, r4, lsl #2]
+ 2552 018c E9E7     		b	.L124
+ 2553              	.LVL351:
+ 2554              	.L113:
+ 2555              	.LBE220:
+ 2556              	.LBE219:
+ 2557              	.LBE217:
+ 116:./Src/ROS_subscribe.cpp **** 
+ 2558              		.loc 3 116 0
+ 2559 018e 05B0     		add	sp, sp, #20
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 62
 
 
- 2574 0002 8BB0     		sub	sp, sp, #44
- 2575              	.LCFI11:
- 2576              		.cfi_def_cfa_offset 64
- 2577 0004 0646     		mov	r6, r0
- 114:./Src/ROS_subscribe.cpp **** 	sub.message_type = msg.getType();
- 2578              		.loc 3 114 0
- 2579 0006 1D4B     		ldr	r3, .L136
- 2580 0008 0693     		str	r3, [sp, #24]
- 2581              	.LVL351:
- 115:./Src/ROS_subscribe.cpp **** 	sub.md5sum = msg.getMD5();
- 2582              		.loc 3 115 0
- 2583 000a 1D4B     		ldr	r3, .L136+4
- 2584 000c 0793     		str	r3, [sp, #28]
- 2585              	.LVL352:
- 116:./Src/ROS_subscribe.cpp **** 	sub.callback = wheels_cmd_cb;
- 2586              		.loc 3 116 0
- 2587 000e 1D4B     		ldr	r3, .L136+8
- 2588 0010 0893     		str	r3, [sp, #32]
- 117:./Src/ROS_subscribe.cpp **** 	
- 2589              		.loc 3 117 0
- 2590 0012 1D4F     		ldr	r7, .L136+12
- 2591 0014 0997     		str	r7, [sp, #36]
- 2592              	.LVL353:
- 2593 0016 6C46     		mov	r4, sp
- 2594 0018 05AD     		add	r5, sp, #20
- 2595 001a 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
- 2596              	.LVL354:
- 2597 001c 0FC4     		stmia	r4!, {r0, r1, r2, r3}
- 2598 001e 2760     		str	r7, [r4]
- 2599              	.LVL355:
- 2600              	.LBB232:
- 2601              	.LBB233:
- 2602              		.file 6 "ROSSerial/ros/node_handle.h"
+ 2560              	.LCFI8:
+ 2561              		.cfi_def_cfa_offset 20
+ 2562              		@ sp needed
+ 2563 0190 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 2564              	.LVL352:
+ 2565              	.L133:
+ 2566 0192 00BF     		.align	2
+ 2567              	.L132:
+ 2568 0194 00000000 		.word	.LANCHOR1
+ 2569 0198 00000000 		.word	pwms
+ 2570 019c 00000000 		.word	wheel_posn
+ 2571 01a0 00000000 		.word	.LC5
+ 2572 01a4 48000000 		.word	.LC6
+ 2573 01a8 00000000 		.word	.LANCHOR0
+ 2574 01ac 00000000 		.word	.LANCHOR2
+ 2575 01b0 00000000 		.word	.LANCHOR3
+ 2576 01b4 A4000000 		.word	.LC8
+ 2577 01b8 70000000 		.word	.LC7
+ 2578 01bc DC000000 		.word	.LC9
+ 2579              		.cfi_endproc
+ 2580              	.LFE492:
+ 2581              		.fnend
+ 2583              		.section	.text._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE,
+ 2584              		.align	1
+ 2585              		.global	_Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
+ 2586              		.syntax unified
+ 2587              		.thumb
+ 2588              		.thumb_func
+ 2589              		.fpu fpv4-sp-d16
+ 2591              	_Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:
+ 2592              		.fnstart
+ 2593              	.LFB493:
+ 119:./Src/ROS_subscribe.cpp ****     ros::SubscriberType sub ;
+ 2594              		.loc 3 119 0
+ 2595              		.cfi_startproc
+ 2596              		@ args = 0, pretend = 0, frame = 40
+ 2597              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2598              	.LVL353:
+ 2599 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 2600              		.save {r4, r5, r6, r7, lr}
+ 2601              	.LCFI9:
+ 2602              		.cfi_def_cfa_offset 20
+ 2603              		.cfi_offset 4, -20
+ 2604              		.cfi_offset 5, -16
+ 2605              		.cfi_offset 6, -12
+ 2606              		.cfi_offset 7, -8
+ 2607              		.cfi_offset 14, -4
+ 2608              		.pad #44
+ 2609 0002 8BB0     		sub	sp, sp, #44
+ 2610              	.LCFI10:
+ 2611              		.cfi_def_cfa_offset 64
+ 2612 0004 0646     		mov	r6, r0
+ 122:./Src/ROS_subscribe.cpp **** 	sub.message_type = msg.getType();
+ 2613              		.loc 3 122 0
+ 2614 0006 1D4B     		ldr	r3, .L140
+ 2615 0008 0693     		str	r3, [sp, #24]
+ 2616              	.LVL354:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 63
+
+
+ 123:./Src/ROS_subscribe.cpp **** 	sub.md5sum = msg.getMD5();
+ 2617              		.loc 3 123 0
+ 2618 000a 1D4B     		ldr	r3, .L140+4
+ 2619 000c 0793     		str	r3, [sp, #28]
+ 2620              	.LVL355:
+ 124:./Src/ROS_subscribe.cpp **** 	sub.callback = wheels_cmd_cb;
+ 2621              		.loc 3 124 0
+ 2622 000e 1D4B     		ldr	r3, .L140+8
+ 2623 0010 0893     		str	r3, [sp, #32]
+ 125:./Src/ROS_subscribe.cpp **** 	
+ 2624              		.loc 3 125 0
+ 2625 0012 1D4F     		ldr	r7, .L140+12
+ 2626 0014 0997     		str	r7, [sp, #36]
+ 2627              	.LVL356:
+ 2628 0016 6C46     		mov	r4, sp
+ 2629 0018 05AD     		add	r5, sp, #20
+ 2630 001a 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 2631              	.LVL357:
+ 2632 001c 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 2633 001e 2760     		str	r7, [r4]
+ 2634              	.LVL358:
+ 2635              	.LBB233:
+ 2636              	.LBB234:
+ 2637              		.file 6 "ROSSerial/ros/node_handle.h"
    1:ROSSerial/ros/node_handle.h **** /*
    2:ROSSerial/ros/node_handle.h ****  * Software License Agreement (BSD License)
    3:ROSSerial/ros/node_handle.h ****  *
@@ -3718,9 +3769,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   22:ROSSerial/ros/node_handle.h ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
   23:ROSSerial/ros/node_handle.h ****  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
   24:ROSSerial/ros/node_handle.h ****  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 63
-
-
   25:ROSSerial/ros/node_handle.h ****  * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
   26:ROSSerial/ros/node_handle.h ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
   27:ROSSerial/ros/node_handle.h ****  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
@@ -3730,6 +3778,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   31:ROSSerial/ros/node_handle.h ****  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   32:ROSSerial/ros/node_handle.h ****  * POSSIBILITY OF SUCH DAMAGE.
   33:ROSSerial/ros/node_handle.h ****  */
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 64
+
+
   34:ROSSerial/ros/node_handle.h **** 
   35:ROSSerial/ros/node_handle.h **** #ifndef ROS_NODE_HANDLE_H_
   36:ROSSerial/ros/node_handle.h **** #define ROS_NODE_HANDLE_H_
@@ -3778,9 +3829,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   79:ROSSerial/ros/node_handle.h ****  * detection of mismatched protocol versions (e.g. hydro rosserial_python with groovy
   80:ROSSerial/ros/node_handle.h ****  * rosserial_arduino. It must be changed in both this file and in
   81:ROSSerial/ros/node_handle.h ****  * rosserial_python/src/rosserial_python/SerialClient.py
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 64
-
-
   82:ROSSerial/ros/node_handle.h ****  */
   83:ROSSerial/ros/node_handle.h **** const uint8_t MODE_PROTOCOL_VER   = 1;
   84:ROSSerial/ros/node_handle.h **** const uint8_t PROTOCOL_VER1       = 0xff; // through groovy
@@ -3790,6 +3838,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
   88:ROSSerial/ros/node_handle.h **** const uint8_t MODE_SIZE_H         = 3;
   89:ROSSerial/ros/node_handle.h **** const uint8_t MODE_SIZE_CHECKSUM  = 4;    // checksum for msg size received from size L and H
   90:ROSSerial/ros/node_handle.h **** const uint8_t MODE_TOPIC_L        = 5;    // waiting for topic id
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 65
+
+
   91:ROSSerial/ros/node_handle.h **** const uint8_t MODE_TOPIC_H        = 6;
   92:ROSSerial/ros/node_handle.h **** const uint8_t MODE_MESSAGE        = 7;
   93:ROSSerial/ros/node_handle.h **** const uint8_t MODE_MSG_CHECKSUM   = 8;    // checksum for msg and topic id
@@ -3838,9 +3889,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  136:ROSSerial/ros/node_handle.h ****   uint32_t spin_timeout_;
  137:ROSSerial/ros/node_handle.h **** 
  138:ROSSerial/ros/node_handle.h ****   uint8_t message_in[INPUT_SIZE];
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 65
-
-
  139:ROSSerial/ros/node_handle.h ****   uint8_t message_out[OUTPUT_SIZE];
  140:ROSSerial/ros/node_handle.h **** 
  141:ROSSerial/ros/node_handle.h ****   Publisher * publishers[MAX_PUBLISHERS];
@@ -3850,6 +3898,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  145:ROSSerial/ros/node_handle.h **** 
  146:ROSSerial/ros/node_handle.h ****   /*
  147:ROSSerial/ros/node_handle.h ****    * Setup Functions
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 66
+
+
  148:ROSSerial/ros/node_handle.h ****    */
  149:ROSSerial/ros/node_handle.h **** public:
  150:ROSSerial/ros/node_handle.h ****   NodeHandle_() : configured_(false)
@@ -3898,9 +3949,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  193:ROSSerial/ros/node_handle.h ****   };
  194:ROSSerial/ros/node_handle.h **** 
  195:ROSSerial/ros/node_handle.h ****   /* Start a named port, which may be network server IP, initialize buffers */
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 66
-
-
  196:ROSSerial/ros/node_handle.h ****   void initNode(char *portName)
  197:ROSSerial/ros/node_handle.h ****   {
  198:ROSSerial/ros/node_handle.h ****     hardware_.init(portName);
@@ -3910,6 +3958,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  202:ROSSerial/ros/node_handle.h ****     topic_ = 0;
  203:ROSSerial/ros/node_handle.h ****   };
  204:ROSSerial/ros/node_handle.h **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 67
+
+
  205:ROSSerial/ros/node_handle.h ****   /**
  206:ROSSerial/ros/node_handle.h ****    * @brief Sets the maximum time in millisconds that spinOnce() can work.
  207:ROSSerial/ros/node_handle.h ****    * This will not effect the processing of the buffer, as spinOnce processes
@@ -3958,9 +4009,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  250:ROSSerial/ros/node_handle.h ****     if ((c_time - last_sync_receive_time) > (SYNC_SECONDS * 2200))
  251:ROSSerial/ros/node_handle.h ****     {
  252:ROSSerial/ros/node_handle.h ****       //printf("spinOnce  setting configured_ false %lu, %lu, %ld\n",c_time, 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 67
-
-
  253:ROSSerial/ros/node_handle.h ****       //        last_sync_receive_time, (c_time-last_sync_receive_time));
  254:ROSSerial/ros/node_handle.h ****       configured_ = false;
  255:ROSSerial/ros/node_handle.h ****     }
@@ -3970,6 +4018,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  259:ROSSerial/ros/node_handle.h ****     {
  260:ROSSerial/ros/node_handle.h ****       if (c_time > last_msg_timeout_time)
  261:ROSSerial/ros/node_handle.h ****       {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 68
+
+
  262:ROSSerial/ros/node_handle.h ****         mode_ = MODE_FIRST_FF;
  263:ROSSerial/ros/node_handle.h ****       }
  264:ROSSerial/ros/node_handle.h ****     }
@@ -4018,9 +4069,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  307:ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_PROTOCOL_VER)
  308:ROSSerial/ros/node_handle.h ****       {
  309:ROSSerial/ros/node_handle.h ****         if (data == PROTOCOL_VER)
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 68
-
-
  310:ROSSerial/ros/node_handle.h ****         {
  311:ROSSerial/ros/node_handle.h ****           mode_++;
  312:ROSSerial/ros/node_handle.h ****         }
@@ -4030,6 +4078,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  316:ROSSerial/ros/node_handle.h ****           if (configured_ == false)
  317:ROSSerial/ros/node_handle.h ****             requestSyncTime();  /* send a msg back showing our protocol version */
  318:ROSSerial/ros/node_handle.h ****         }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 69
+
+
  319:ROSSerial/ros/node_handle.h ****       }
  320:ROSSerial/ros/node_handle.h ****       else if (mode_ == MODE_SIZE_L)      /* bottom half of message size */
  321:ROSSerial/ros/node_handle.h ****       {
@@ -4078,9 +4129,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  364:ROSSerial/ros/node_handle.h ****           }
  365:ROSSerial/ros/node_handle.h ****           else if (topic_ == TopicInfo::ID_TIME)
  366:ROSSerial/ros/node_handle.h ****           {
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 69
-
-
  367:ROSSerial/ros/node_handle.h ****             syncTime(message_in);
  368:ROSSerial/ros/node_handle.h ****           }
  369:ROSSerial/ros/node_handle.h ****           else if (topic_ == TopicInfo::ID_PARAMETER_REQUEST)
@@ -4090,6 +4138,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  373:ROSSerial/ros/node_handle.h ****           }
  374:ROSSerial/ros/node_handle.h ****           else if (topic_ == TopicInfo::ID_TX_STOP)
  375:ROSSerial/ros/node_handle.h ****           {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 70
+
+
  376:ROSSerial/ros/node_handle.h ****             configured_ = false;
  377:ROSSerial/ros/node_handle.h ****           }
  378:ROSSerial/ros/node_handle.h ****           else
@@ -4138,9 +4189,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  421:ROSSerial/ros/node_handle.h ****    // printf("requestSyncTime  rt_time=%lu\n",rt_time);
  422:ROSSerial/ros/node_handle.h ****     publish1(TopicInfo::ID_TIME, &t);
  423:ROSSerial/ros/node_handle.h ****     //printf("end requestSyncTime  rt_time=%lu\n",hardware_.time());
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 70
-
-
  424:ROSSerial/ros/node_handle.h ****   }
  425:ROSSerial/ros/node_handle.h **** 
  426:ROSSerial/ros/node_handle.h ****   void syncTime(uint8_t * data)
@@ -4150,6 +4198,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  430:ROSSerial/ros/node_handle.h **** 
  431:ROSSerial/ros/node_handle.h ****     t.deserialize(data);
  432:ROSSerial/ros/node_handle.h ****     t.data.sec += offset / 1000;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 71
+
+
  433:ROSSerial/ros/node_handle.h ****     t.data.nsec += (offset % 1000) * 1000000UL;
  434:ROSSerial/ros/node_handle.h **** 
  435:ROSSerial/ros/node_handle.h ****     this->setNow(t.data);
@@ -4198,9 +4249,6 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  478:ROSSerial/ros/node_handle.h ****     }
  479:ROSSerial/ros/node_handle.h ****     return nullptr;
  480:ROSSerial/ros/node_handle.h ****   }
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 71
-
-
  481:ROSSerial/ros/node_handle.h **** 
  482:ROSSerial/ros/node_handle.h ****   /* Register a new publisher */
  483:ROSSerial/ros/node_handle.h ****   bool advertise(Publisher & p)
@@ -4210,6 +4258,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  487:ROSSerial/ros/node_handle.h ****       if (publishers[i] == 0) // empty slot
  488:ROSSerial/ros/node_handle.h ****       {
  489:ROSSerial/ros/node_handle.h ****         publishers[i] = &p;
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 72
+
+
  490:ROSSerial/ros/node_handle.h ****         p.id_ = i + 100 + MAX_SUBSCRIBERS;
  491:ROSSerial/ros/node_handle.h ****         p.nh_ = this;
  492:ROSSerial/ros/node_handle.h ****         return true;
@@ -4237,374 +4288,390 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 1
  514:ROSSerial/ros/node_handle.h ****   bool addSubscriber(SubscriberType sub)
  515:ROSSerial/ros/node_handle.h ****   {
  516:ROSSerial/ros/node_handle.h ****     for (int i = 0; i < MAX_SUBSCRIBERS; i++)
- 2603              		.loc 6 516 0
- 2604 0020 0024     		movs	r4, #0
- 2605              	.LVL356:
- 2606              	.L133:
- 2607 0022 042C     		cmp	r4, #4
- 2608 0024 26DC     		bgt	.L131
- 2609              	.LBB234:
+ 2638              		.loc 6 516 0
+ 2639 0020 0024     		movs	r4, #0
+ 2640              	.LVL359:
+ 2641              	.L137:
+ 2642 0022 042C     		cmp	r4, #4
+ 2643 0024 26DC     		bgt	.L135
+ 2644              	.LBB235:
  517:ROSSerial/ros/node_handle.h ****     {
  518:ROSSerial/ros/node_handle.h ****       if (subscribers2[i].topic_id == 0) {// empty slot}
- 2610              		.loc 6 518 0
- 2611 0026 04EB8403 		add	r3, r4, r4, lsl #2
- 2612 002a 06EB8303 		add	r3, r6, r3, lsl #2
- 2613 002e B3F8A434 		ldrh	r3, [r3, #1188]
- 2614 0032 0BB1     		cbz	r3, .L135
- 2615              	.LBE234:
+ 2645              		.loc 6 518 0
+ 2646 0026 04EB8403 		add	r3, r4, r4, lsl #2
+ 2647 002a 06EB8303 		add	r3, r6, r3, lsl #2
+ 2648 002e B3F8A434 		ldrh	r3, [r3, #1188]
+ 2649 0032 0BB1     		cbz	r3, .L139
+ 2650              	.LBE235:
  516:ROSSerial/ros/node_handle.h ****     {
- 2616              		.loc 6 516 0
- 2617 0034 0134     		adds	r4, r4, #1
- 2618              	.LVL357:
- 2619 0036 F4E7     		b	.L133
- 2620              	.L135:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 72
-
-
- 2621              	.LBB236:
- 2622              	.LBB235:
+ 2651              		.loc 6 516 0
+ 2652 0034 0134     		adds	r4, r4, #1
+ 2653              	.LVL360:
+ 2654 0036 F4E7     		b	.L137
+ 2655              	.L139:
+ 2656              	.LBB237:
+ 2657              	.LBB236:
  519:ROSSerial/ros/node_handle.h ****         void * ptr = &subscribers2[i];
- 2623              		.loc 6 519 0
- 2624 0038 4FEA840C 		lsl	ip, r4, #2
- 2625 003c 0CEB0405 		add	r5, ip, r4
- 2626 0040 AD00     		lsls	r5, r5, #2
- 2627 0042 05F59465 		add	r5, r5, #1184
- 2628 0046 3544     		add	r5, r5, r6
- 2629              	.LVL358:
+ 2658              		.loc 6 519 0
+ 2659 0038 4FEA840C 		lsl	ip, r4, #2
+ 2660 003c 0CEB0405 		add	r5, ip, r4
+ 2661 0040 AD00     		lsls	r5, r5, #2
+ 2662 0042 05F59465 		add	r5, r5, #1184
+ 2663 0046 3544     		add	r5, r5, r6
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 73
+
+
+ 2664              	.LVL361:
  520:ROSSerial/ros/node_handle.h ****         memcpy(ptr, &sub, sizeof(sub));
- 2630              		.loc 6 520 0
- 2631 0048 6F46     		mov	r7, sp
- 2632 004a 0FCF     		ldmia	r7!, {r0, r1, r2, r3}
- 2633 004c 6860     		str	r0, [r5, #4]	@ unaligned
- 2634 004e A960     		str	r1, [r5, #8]	@ unaligned
- 2635 0050 EA60     		str	r2, [r5, #12]	@ unaligned
- 2636 0052 2B61     		str	r3, [r5, #16]	@ unaligned
- 2637 0054 3868     		ldr	r0, [r7]
- 2638 0056 6861     		str	r0, [r5, #20]	@ unaligned
+ 2665              		.loc 6 520 0
+ 2666 0048 6F46     		mov	r7, sp
+ 2667 004a 0FCF     		ldmia	r7!, {r0, r1, r2, r3}
+ 2668 004c 6860     		str	r0, [r5, #4]	@ unaligned
+ 2669 004e A960     		str	r1, [r5, #8]	@ unaligned
+ 2670 0050 EA60     		str	r2, [r5, #12]	@ unaligned
+ 2671 0052 2B61     		str	r3, [r5, #16]	@ unaligned
+ 2672 0054 3868     		ldr	r0, [r7]
+ 2673 0056 6861     		str	r0, [r5, #20]	@ unaligned
  521:ROSSerial/ros/node_handle.h ****         subscribers2[i].topic_id = i + 100;
- 2639              		.loc 6 521 0
- 2640 0058 04F16402 		add	r2, r4, #100
- 2641 005c 92B2     		uxth	r2, r2
- 2642 005e 0CEB0403 		add	r3, ip, r4
- 2643 0062 06EB8303 		add	r3, r6, r3, lsl #2
- 2644 0066 A3F8A424 		strh	r2, [r3, #1188]	@ movhi
+ 2674              		.loc 6 521 0
+ 2675 0058 04F16402 		add	r2, r4, #100
+ 2676 005c 92B2     		uxth	r2, r2
+ 2677 005e 0CEB0403 		add	r3, ip, r4
+ 2678 0062 06EB8303 		add	r3, r6, r3, lsl #2
+ 2679 0066 A3F8A424 		strh	r2, [r3, #1188]	@ movhi
  522:ROSSerial/ros/node_handle.h ****         printf("Registered %s with id %d\n", \
- 2645              		.loc 6 522 0
- 2646 006a D3F8A814 		ldr	r1, [r3, #1192]
- 2647 006e 0748     		ldr	r0, .L136+16
- 2648 0070 FFF7FEFF 		bl	printf
- 2649              	.LVL359:
- 2650              	.L131:
- 2651              	.LBE235:
- 2652              	.LBE236:
- 2653              	.LBE233:
- 2654              	.LBE232:
- 2655              		.loc 3 122 0
- 2656 0074 0120     		movs	r0, #1
- 2657 0076 0BB0     		add	sp, sp, #44
- 2658              	.LCFI12:
- 2659              		.cfi_def_cfa_offset 20
- 2660              		@ sp needed
- 2661 0078 F0BD     		pop	{r4, r5, r6, r7, pc}
- 2662              	.LVL360:
- 2663              	.L137:
- 2664 007a 00BF     		.align	2
- 2665              	.L136:
- 2666 007c 00000000 		.word	.LC9
- 2667 0080 00000000 		.word	.LC2
- 2668 0084 00000000 		.word	.LC3
- 2669 0088 00000000 		.word	_Z13wheels_cmd_cbPh
- 2670 008c 0C000000 		.word	.LC10
- 2671              		.cfi_endproc
- 2672              	.LFE493:
- 2673              		.fnend
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 73
+ 2680              		.loc 6 522 0
+ 2681 006a D3F8A814 		ldr	r1, [r3, #1192]
+ 2682 006e 0748     		ldr	r0, .L140+16
+ 2683 0070 FFF7FEFF 		bl	printf
+ 2684              	.LVL362:
+ 2685              	.L135:
+ 2686              	.LBE236:
+ 2687              	.LBE237:
+ 2688              	.LBE234:
+ 2689              	.LBE233:
+ 2690              		.loc 3 130 0
+ 2691 0074 0120     		movs	r0, #1
+ 2692 0076 0BB0     		add	sp, sp, #44
+ 2693              	.LCFI11:
+ 2694              		.cfi_def_cfa_offset 20
+ 2695              		@ sp needed
+ 2696 0078 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 2697              	.LVL363:
+ 2698              	.L141:
+ 2699 007a 00BF     		.align	2
+ 2700              	.L140:
+ 2701 007c 00000000 		.word	.LC10
+ 2702 0080 00000000 		.word	.LC2
+ 2703 0084 00000000 		.word	.LC3
+ 2704 0088 00000000 		.word	_Z13wheels_cmd_cbPh
+ 2705 008c 0C000000 		.word	.LC11
+ 2706              		.cfi_endproc
+ 2707              	.LFE493:
+ 2708              		.fnend
+ 2710              		.section	.text._GLOBAL__sub_I_wheelInputAt,"ax",%progbits
+ 2711              		.align	1
+ 2712              		.syntax unified
+ 2713              		.thumb
+ 2714              		.thumb_func
+ 2715              		.fpu fpv4-sp-d16
+ 2717              	_GLOBAL__sub_I_wheelInputAt:
+ 2718              		.fnstart
+ 2719              	.LFB498:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 74
 
 
- 2675              		.section	.text._GLOBAL__sub_I_wheelPositionsAt,"ax",%progbits
- 2676              		.align	1
- 2677              		.syntax unified
- 2678              		.thumb
- 2679              		.thumb_func
- 2680              		.fpu fpv4-sp-d16
- 2682              	_GLOBAL__sub_I_wheelPositionsAt:
- 2683              		.fnstart
- 2684              	.LFB498:
- 2685              		.loc 3 122 0
- 2686              		.cfi_startproc
- 2687              		@ args = 0, pretend = 0, frame = 0
- 2688              		@ frame_needed = 0, uses_anonymous_args = 0
- 2689 0000 08B5     		push	{r3, lr}
- 2690              	.LCFI13:
- 2691              		.cfi_def_cfa_offset 8
- 2692              		.cfi_offset 3, -8
- 2693              		.cfi_offset 14, -4
- 2694              		.loc 3 122 0
- 2695 0002 4FF6FF71 		movw	r1, #65535
- 2696 0006 0120     		movs	r0, #1
- 2697 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
- 2698              	.LVL361:
- 2699 000c 08BD     		pop	{r3, pc}
- 2700              		.cfi_endproc
- 2701              	.LFE498:
- 2702              		.cantunwind
- 2703              		.fnend
- 2705              		.section	.init_array,"aw",%init_array
- 2706              		.align	2
- 2707 0000 00000000 		.word	_GLOBAL__sub_I_wheelPositionsAt(target1)
- 2708              		.weak	_ZTVN8std_msgs6HeaderE
- 2709              		.section	.rodata._ZTVN8std_msgs6HeaderE,"aG",%progbits,_ZTVN8std_msgs6HeaderE,comdat
- 2710              		.align	2
- 2713              	_ZTVN8std_msgs6HeaderE:
- 2714 0000 00000000 		.word	0
- 2715 0004 00000000 		.word	0
- 2716 0008 00000000 		.word	_ZNK8std_msgs6Header9serializeEPh
- 2717 000c 00000000 		.word	_ZN8std_msgs6Header11deserializeEPh
- 2718 0010 00000000 		.word	_ZN8std_msgs6Header7getTypeEv
- 2719 0014 00000000 		.word	_ZN8std_msgs6Header6getMD5Ev
- 2720              		.weak	_ZTVN11sensor_msgs10JointStateE
- 2721              		.section	.rodata._ZTVN11sensor_msgs10JointStateE,"aG",%progbits,_ZTVN11sensor_msgs10JointStateE,co
- 2722              		.align	2
- 2725              	_ZTVN11sensor_msgs10JointStateE:
- 2726 0000 00000000 		.word	0
- 2727 0004 00000000 		.word	0
- 2728 0008 00000000 		.word	_ZNK11sensor_msgs10JointState9serializeEPh
- 2729 000c 00000000 		.word	_ZN11sensor_msgs10JointState11deserializeEPh
- 2730 0010 00000000 		.word	_ZN11sensor_msgs10JointState7getTypeEv
- 2731 0014 00000000 		.word	_ZN11sensor_msgs10JointState6getMD5Ev
- 2732              		.global	rpmTarget
- 2733              		.global	ticksTarget
- 2734              		.global	wheelPositionsAt
- 2735              		.section	.bss._ZL14wheelPositions,"aw",%nobits
- 2736              		.align	2
- 2737              		.set	.LANCHOR0,. + 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 74
-
-
- 2740              	_ZL14wheelPositions:
- 2741 0000 00000000 		.space	72
- 2741      00000000 
- 2741      00000000 
- 2741      00000000 
- 2741      00000000 
- 2742              		.section	.bss.rpmTarget,"aw",%nobits
- 2743              		.align	2
- 2744              		.set	.LANCHOR3,. + 0
- 2747              	rpmTarget:
- 2748 0000 00000000 		.space	8
- 2748      00000000 
- 2749              		.section	.bss.ticksTarget,"aw",%nobits
- 2750              		.align	2
- 2751              		.set	.LANCHOR2,. + 0
- 2754              	ticksTarget:
- 2755 0000 00000000 		.space	8
- 2755      00000000 
- 2756              		.section	.bss.wheelPositionsAt,"aw",%nobits
+ 2720              		.loc 3 130 0
+ 2721              		.cfi_startproc
+ 2722              		@ args = 0, pretend = 0, frame = 0
+ 2723              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2724 0000 08B5     		push	{r3, lr}
+ 2725              	.LCFI12:
+ 2726              		.cfi_def_cfa_offset 8
+ 2727              		.cfi_offset 3, -8
+ 2728              		.cfi_offset 14, -4
+ 2729              		.loc 3 130 0
+ 2730 0002 4FF6FF71 		movw	r1, #65535
+ 2731 0006 0120     		movs	r0, #1
+ 2732 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 2733              	.LVL364:
+ 2734 000c 08BD     		pop	{r3, pc}
+ 2735              		.cfi_endproc
+ 2736              	.LFE498:
+ 2737              		.cantunwind
+ 2738              		.fnend
+ 2740              		.section	.init_array,"aw",%init_array
+ 2741              		.align	2
+ 2742 0000 00000000 		.word	_GLOBAL__sub_I_wheelInputAt(target1)
+ 2743              		.weak	_ZTVN8std_msgs6HeaderE
+ 2744              		.section	.rodata._ZTVN8std_msgs6HeaderE,"aG",%progbits,_ZTVN8std_msgs6HeaderE,comdat
+ 2745              		.align	2
+ 2748              	_ZTVN8std_msgs6HeaderE:
+ 2749 0000 00000000 		.word	0
+ 2750 0004 00000000 		.word	0
+ 2751 0008 00000000 		.word	_ZNK8std_msgs6Header9serializeEPh
+ 2752 000c 00000000 		.word	_ZN8std_msgs6Header11deserializeEPh
+ 2753 0010 00000000 		.word	_ZN8std_msgs6Header7getTypeEv
+ 2754 0014 00000000 		.word	_ZN8std_msgs6Header6getMD5Ev
+ 2755              		.weak	_ZTVN11sensor_msgs10JointStateE
+ 2756              		.section	.rodata._ZTVN11sensor_msgs10JointStateE,"aG",%progbits,_ZTVN11sensor_msgs10JointStateE,co
  2757              		.align	2
- 2758              		.set	.LANCHOR1,. + 0
- 2761              	wheelPositionsAt:
- 2762 0000 00000000 		.space	4
- 2763              		.section	.rodata._Z13wheels_cmd_cbPh.str1.4,"aMS",%progbits,1
- 2764              		.align	2
- 2765              	.LC4:
- 2766 0000 256C753A 		.ascii	"%lu: New wheels_cmd_cb received\012\000"
- 2766      204E6577 
- 2766      20776865 
- 2766      656C735F 
- 2766      636D645F 
- 2767              		.section	.rodata._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE
- 2768              		.align	2
- 2769              	.LC9:
- 2770 0000 77686565 		.ascii	"wheels_cmd\000"
- 2770      6C735F63 
- 2770      6D6400
- 2771 000b 00       		.space	1
- 2772              	.LC10:
- 2773 000c 52656769 		.ascii	"Registered %s with id %d\012\000"
- 2773      73746572 
- 2773      65642025 
- 2773      73207769 
- 2773      74682069 
- 2774              		.section	.rodata._ZN11sensor_msgs10JointState6getMD5Ev.str1.4,"aMS",%progbits,1
- 2775              		.align	2
- 2776              	.LC3:
- 2777 0000 33303636 		.ascii	"3066dcd76a6cfaef579bd0f34173e9fd\000"
- 2777      64636437 
- 2777      36613663 
- 2777      66616566 
- 2777      35373962 
- 2778              		.section	.rodata._ZN11sensor_msgs10JointState7getTypeEv.str1.4,"aMS",%progbits,1
+ 2760              	_ZTVN11sensor_msgs10JointStateE:
+ 2761 0000 00000000 		.word	0
+ 2762 0004 00000000 		.word	0
+ 2763 0008 00000000 		.word	_ZNK11sensor_msgs10JointState9serializeEPh
+ 2764 000c 00000000 		.word	_ZN11sensor_msgs10JointState11deserializeEPh
+ 2765 0010 00000000 		.word	_ZN11sensor_msgs10JointState7getTypeEv
+ 2766 0014 00000000 		.word	_ZN11sensor_msgs10JointState6getMD5Ev
+ 2767              		.global	motionDirection
+ 2768              		.global	rpmTarget
+ 2769              		.global	ticksTarget
+ 2770              		.global	wheelInputAt
+ 2771              		.section	.bss._ZL14wheelPositions,"aw",%nobits
+ 2772              		.align	2
+ 2773              		.set	.LANCHOR0,. + 0
+ 2776              	_ZL14wheelPositions:
+ 2777 0000 00000000 		.space	72
+ 2777      00000000 
+ 2777      00000000 
+ 2777      00000000 
+ 2777      00000000 
+ 2778              		.section	.bss.motionDirection,"aw",%nobits
  2779              		.align	2
- 2780              	.LC2:
- 2781 0000 73656E73 		.ascii	"sensor_msgs/JointState\000"
- 2781      6F725F6D 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 75
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 75
 
 
- 2781      7367732F 
- 2781      4A6F696E 
- 2781      74537461 
- 2782              		.section	.rodata._ZN8std_msgs6Header6getMD5Ev.str1.4,"aMS",%progbits,1
- 2783              		.align	2
- 2784              	.LC1:
- 2785 0000 32313736 		.ascii	"2176decaecbce78abc3b96ef049fabed\000"
- 2785      64656361 
- 2785      65636263 
- 2785      65373861 
- 2785      62633362 
- 2786              		.section	.rodata._ZN8std_msgs6Header7getTypeEv.str1.4,"aMS",%progbits,1
- 2787              		.align	2
- 2788              	.LC0:
- 2789 0000 7374645F 		.ascii	"std_msgs/Header\000"
- 2789      6D736773 
- 2789      2F486561 
- 2789      64657200 
- 2790              		.section	.rodata.wheels_pwm_set.str1.4,"aMS",%progbits,1
- 2791              		.align	2
- 2792              	.LC5:
- 2793 0000 256C753A 		.ascii	"%lu:LIMIT reached. set speed to 0 , %lu, %lu for pw"
- 2793      4C494D49 
- 2793      54207265 
- 2793      61636865 
- 2793      642E2073 
- 2794 0033 6D735B25 		.ascii	"ms[%d]=%d ticks=%ld\012\000"
- 2794      645D3D25 
- 2794      64207469 
- 2794      636B733D 
- 2794      256C640A 
- 2795              	.LC6:
- 2796 0048 256C753A 		.ascii	"%lu:Target set for [%d] %ld=%d+%d\012\000"
- 2796      54617267 
- 2796      65742073 
- 2796      65742066 
- 2796      6F72205B 
- 2797 006b 00       		.space	1
- 2798              	.LC7:
- 2799 006c 256C753A 		.ascii	"%lu:Target met for %d %ld >= %ld\012\000"
- 2799      54617267 
- 2799      6574206D 
- 2799      65742066 
- 2799      6F722025 
- 2800 008e 0000     		.space	2
- 2801              	.LC8:
- 2802 0090 256C753A 		.ascii	"%lu:New PWM set for pwms[%d]=%d\012\000"
- 2802      4E657720 
- 2802      50574D20 
- 2802      73657420 
- 2802      666F7220 
- 2803              		.text
- 2804              	.Letext0:
- 2805              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 2806              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 2807              		.file 9 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
- 2808              		.file 10 "Inc/system_at32f4xx.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 76
+ 2780              		.set	.LANCHOR3,. + 0
+ 2783              	motionDirection:
+ 2784 0000 00000000 		.space	8
+ 2784      00000000 
+ 2785              		.section	.bss.rpmTarget,"aw",%nobits
+ 2786              		.align	2
+ 2789              	rpmTarget:
+ 2790 0000 00000000 		.space	8
+ 2790      00000000 
+ 2791              		.section	.bss.ticksTarget,"aw",%nobits
+ 2792              		.align	2
+ 2793              		.set	.LANCHOR2,. + 0
+ 2796              	ticksTarget:
+ 2797 0000 00000000 		.space	8
+ 2797      00000000 
+ 2798              		.section	.bss.wheelInputAt,"aw",%nobits
+ 2799              		.align	2
+ 2800              		.set	.LANCHOR1,. + 0
+ 2803              	wheelInputAt:
+ 2804 0000 00000000 		.space	4
+ 2805              		.section	.rodata._Z13wheels_cmd_cbPh.str1.4,"aMS",%progbits,1
+ 2806              		.align	2
+ 2807              	.LC4:
+ 2808 0000 256C753A 		.ascii	"%lu: wheels_cmd_cb tickTarget=%ld, dir=%d\012\000"
+ 2808      20776865 
+ 2808      656C735F 
+ 2808      636D645F 
+ 2808      63622074 
+ 2809              		.section	.rodata._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EE
+ 2810              		.align	2
+ 2811              	.LC10:
+ 2812 0000 77686565 		.ascii	"wheels_cmd\000"
+ 2812      6C735F63 
+ 2812      6D6400
+ 2813 000b 00       		.space	1
+ 2814              	.LC11:
+ 2815 000c 52656769 		.ascii	"Registered %s with id %d\012\000"
+ 2815      73746572 
+ 2815      65642025 
+ 2815      73207769 
+ 2815      74682069 
+ 2816              		.section	.rodata._ZN11sensor_msgs10JointState6getMD5Ev.str1.4,"aMS",%progbits,1
+ 2817              		.align	2
+ 2818              	.LC3:
+ 2819 0000 33303636 		.ascii	"3066dcd76a6cfaef579bd0f34173e9fd\000"
+ 2819      64636437 
+ 2819      36613663 
+ 2819      66616566 
+ 2819      35373962 
+ 2820              		.section	.rodata._ZN11sensor_msgs10JointState7getTypeEv.str1.4,"aMS",%progbits,1
+ 2821              		.align	2
+ 2822              	.LC2:
+ 2823 0000 73656E73 		.ascii	"sensor_msgs/JointState\000"
+ 2823      6F725F6D 
+ 2823      7367732F 
+ 2823      4A6F696E 
+ 2823      74537461 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 76
 
 
- 2809              		.file 11 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
- 2810              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.
- 2811              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 2812              		.file 14 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 2813              		.file 15 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 2814              		.file 16 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 2815              		.file 17 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 2816              		.file 18 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
- 2817              		.file 19 "ROSSerial/AT32hardware.h"
- 2818              		.file 20 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstdlib"
- 2819              		.file 21 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cmath"
- 2820              		.file 22 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstring"
- 2821              		.file 23 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/arm-none-ea
- 2822              		.file 24 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
- 2823              		.file 25 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/stdlib.h"
- 2824              		.file 26 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/math.h"
- 2825              		.file 27 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/math.h"
- 2826              		.file 28 "<built-in>"
- 2827              		.file 29 "ROSSerial/ros/duration.h"
- 2828              		.file 30 "ROSSerial/ros.h"
- 2829              		.file 31 "ROSSerial/rosserial_msgs/TopicInfo.h"
- 2830              		.file 32 "ROSSerial/rosserial_msgs/RequestParam.h"
- 2831              		.file 33 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
- 2832              		.file 34 "Inc/defines.h"
- 2833              		.file 35 "ROSSerial/std_msgs/Time.h"
- 2834              		.file 36 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
- 2835              		.file 37 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 77
+ 2824              		.section	.rodata._ZN8std_msgs6Header6getMD5Ev.str1.4,"aMS",%progbits,1
+ 2825              		.align	2
+ 2826              	.LC1:
+ 2827 0000 32313736 		.ascii	"2176decaecbce78abc3b96ef049fabed\000"
+ 2827      64656361 
+ 2827      65636263 
+ 2827      65373861 
+ 2827      62633362 
+ 2828              		.section	.rodata._ZN8std_msgs6Header7getTypeEv.str1.4,"aMS",%progbits,1
+ 2829              		.align	2
+ 2830              	.LC0:
+ 2831 0000 7374645F 		.ascii	"std_msgs/Header\000"
+ 2831      6D736773 
+ 2831      2F486561 
+ 2831      64657200 
+ 2832              		.section	.rodata.wheels_pwm_set.str1.4,"aMS",%progbits,1
+ 2833              		.align	2
+ 2834              	.LC5:
+ 2835 0000 256C753A 		.ascii	"%lu:LIMIT reached. set speed to 0 , %lu, %lu for pw"
+ 2835      4C494D49 
+ 2835      54207265 
+ 2835      61636865 
+ 2835      642E2073 
+ 2836 0033 6D735B25 		.ascii	"ms[%d]=%d ticks=%ld\012\000"
+ 2836      645D3D25 
+ 2836      64207469 
+ 2836      636B733D 
+ 2836      256C640A 
+ 2837              	.LC6:
+ 2838 0048 256C753A 		.ascii	"%lu:Target[%d] met %ld <= %ld pwms=%d\012\000"
+ 2838      54617267 
+ 2838      65745B25 
+ 2838      645D206D 
+ 2838      65742025 
+ 2839 006f 00       		.space	1
+ 2840              	.LC7:
+ 2841 0070 256C753A 		.ascii	"%lu:Target[%d] set for forward %ld <= %ld, pwms=%d\012"
+ 2841      54617267 
+ 2841      65745B25 
+ 2841      645D2073 
+ 2841      65742066 
+ 2842 00a3 00       		.ascii	"\000"
+ 2843              	.LC8:
+ 2844 00a4 256C753A 		.ascii	"%lu:Target[%d] set for backward %ld <= %ld, pwms=%d"
+ 2844      54617267 
+ 2844      65745B25 
+ 2844      645D2073 
+ 2844      65742066 
+ 2845 00d7 0A00     		.ascii	"\012\000"
+ 2846 00d9 000000   		.space	3
+ 2847              	.LC9:
+ 2848 00dc 256C753A 		.ascii	"%lu:New PWM set for pwms[%d]=%d\012\000"
+ 2848      4E657720 
+ 2848      50574D20 
+ 2848      73657420 
+ 2848      666F7220 
+ 2849              		.text
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 77
+
+
+ 2850              	.Letext0:
+ 2851              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 2852              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 2853              		.file 9 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 2854              		.file 10 "Inc/system_at32f4xx.h"
+ 2855              		.file 11 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 2856              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.
+ 2857              		.file 13 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 2858              		.file 14 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 2859              		.file 15 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 2860              		.file 16 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 2861              		.file 17 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 2862              		.file 18 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 2863              		.file 19 "ROSSerial/AT32hardware.h"
+ 2864              		.file 20 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstdlib"
+ 2865              		.file 21 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cmath"
+ 2866              		.file 22 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/cstring"
+ 2867              		.file 23 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/arm-none-ea
+ 2868              		.file 24 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdlib.h"
+ 2869              		.file 25 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/stdlib.h"
+ 2870              		.file 26 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/math.h"
+ 2871              		.file 27 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/c++/7.3.1/math.h"
+ 2872              		.file 28 "<built-in>"
+ 2873              		.file 29 "ROSSerial/ros/duration.h"
+ 2874              		.file 30 "ROSSerial/ros.h"
+ 2875              		.file 31 "ROSSerial/rosserial_msgs/TopicInfo.h"
+ 2876              		.file 32 "ROSSerial/rosserial_msgs/RequestParam.h"
+ 2877              		.file 33 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/string.h"
+ 2878              		.file 34 "Inc/defines.h"
+ 2879              		.file 35 "ROSSerial/std_msgs/Time.h"
+ 2880              		.file 36 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
+ 2881              		.file 37 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 78
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 ROS_subscribe.cpp
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:17     .text._ZN8std_msgs6Header11deserializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:24     .text._ZN8std_msgs6Header11deserializeEPh:0000000000000000 _ZN8std_msgs6Header11deserializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:17     .text._ZN8std_msgs6Header11deserializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:24     .text._ZN8std_msgs6Header11deserializeEPh:0000000000000000 _ZN8std_msgs6Header11deserializeEPh
 .ARM.exidx.text._ZN8std_msgs6Header11deserializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:136    .text._ZN8std_msgs6Header7getTypeEv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:143    .text._ZN8std_msgs6Header7getTypeEv:0000000000000000 _ZN8std_msgs6Header7getTypeEv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:159    .text._ZN8std_msgs6Header7getTypeEv:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:136    .text._ZN8std_msgs6Header7getTypeEv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:143    .text._ZN8std_msgs6Header7getTypeEv:0000000000000000 _ZN8std_msgs6Header7getTypeEv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:159    .text._ZN8std_msgs6Header7getTypeEv:0000000000000004 $d
 .ARM.exidx.text._ZN8std_msgs6Header7getTypeEv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:166    .text._ZN8std_msgs6Header6getMD5Ev:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:173    .text._ZN8std_msgs6Header6getMD5Ev:0000000000000000 _ZN8std_msgs6Header6getMD5Ev
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:189    .text._ZN8std_msgs6Header6getMD5Ev:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:166    .text._ZN8std_msgs6Header6getMD5Ev:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:173    .text._ZN8std_msgs6Header6getMD5Ev:0000000000000000 _ZN8std_msgs6Header6getMD5Ev
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:189    .text._ZN8std_msgs6Header6getMD5Ev:0000000000000004 $d
 .ARM.exidx.text._ZN8std_msgs6Header6getMD5Ev:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:196    .text._ZN11sensor_msgs10JointState7getTypeEv:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:203    .text._ZN11sensor_msgs10JointState7getTypeEv:0000000000000000 _ZN11sensor_msgs10JointState7getTypeEv
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:220    .text._ZN11sensor_msgs10JointState7getTypeEv:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:196    .text._ZN11sensor_msgs10JointState7getTypeEv:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:203    .text._ZN11sensor_msgs10JointState7getTypeEv:0000000000000000 _ZN11sensor_msgs10JointState7getTypeEv
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:220    .text._ZN11sensor_msgs10JointState7getTypeEv:0000000000000004 $d
 .ARM.exidx.text._ZN11sensor_msgs10JointState7getTypeEv:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:227    .text._ZN11sensor_msgs10JointState6getMD5Ev:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:234    .text._ZN11sensor_msgs10JointState6getMD5Ev:0000000000000000 _ZN11sensor_msgs10JointState6getMD5Ev
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:250    .text._ZN11sensor_msgs10JointState6getMD5Ev:0000000000000004 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:227    .text._ZN11sensor_msgs10JointState6getMD5Ev:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:234    .text._ZN11sensor_msgs10JointState6getMD5Ev:0000000000000000 _ZN11sensor_msgs10JointState6getMD5Ev
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:250    .text._ZN11sensor_msgs10JointState6getMD5Ev:0000000000000004 $d
 .ARM.exidx.text._ZN11sensor_msgs10JointState6getMD5Ev:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:257    .text._Z41__static_initialization_and_destruction_0ii:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:263    .text._Z41__static_initialization_and_destruction_0ii:0000000000000000 _Z41__static_initialization_and_destruction_0ii
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:335    .text._Z41__static_initialization_and_destruction_0ii:0000000000000038 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2725   .rodata._ZTVN11sensor_msgs10JointStateE:0000000000000000 _ZTVN11sensor_msgs10JointStateE
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2713   .rodata._ZTVN8std_msgs6HeaderE:0000000000000000 _ZTVN8std_msgs6HeaderE
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:257    .text._Z41__static_initialization_and_destruction_0ii:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:263    .text._Z41__static_initialization_and_destruction_0ii:0000000000000000 _Z41__static_initialization_and_destruction_0ii
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:335    .text._Z41__static_initialization_and_destruction_0ii:0000000000000038 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2760   .rodata._ZTVN11sensor_msgs10JointStateE:0000000000000000 _ZTVN11sensor_msgs10JointStateE
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2748   .rodata._ZTVN8std_msgs6HeaderE:0000000000000000 _ZTVN8std_msgs6HeaderE
 .ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:344    .text._ZNK8std_msgs6Header9serializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:351    .text._ZNK8std_msgs6Header9serializeEPh:0000000000000000 _ZNK8std_msgs6Header9serializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:344    .text._ZNK8std_msgs6Header9serializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:351    .text._ZNK8std_msgs6Header9serializeEPh:0000000000000000 _ZNK8std_msgs6Header9serializeEPh
 .ARM.exidx.text._ZNK8std_msgs6Header9serializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:438    .text._ZNK11sensor_msgs10JointState9serializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:445    .text._ZNK11sensor_msgs10JointState9serializeEPh:0000000000000000 _ZNK11sensor_msgs10JointState9serializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:438    .text._ZNK11sensor_msgs10JointState9serializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:445    .text._ZNK11sensor_msgs10JointState9serializeEPh:0000000000000000 _ZNK11sensor_msgs10JointState9serializeEPh
 .ARM.exidx.text._ZNK11sensor_msgs10JointState9serializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:948    .text._ZN11sensor_msgs10JointState11deserializeEPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:955    .text._ZN11sensor_msgs10JointState11deserializeEPh:0000000000000000 _ZN11sensor_msgs10JointState11deserializeEPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:948    .text._ZN11sensor_msgs10JointState11deserializeEPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:955    .text._ZN11sensor_msgs10JointState11deserializeEPh:0000000000000000 _ZN11sensor_msgs10JointState11deserializeEPh
 .ARM.exidx.text._ZN11sensor_msgs10JointState11deserializeEPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:1571   .text._Z13wheels_cmd_cbPh:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:1578   .text._Z13wheels_cmd_cbPh:0000000000000000 _Z13wheels_cmd_cbPh
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2133   .text._Z13wheels_cmd_cbPh:0000000000000284 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2141   .text._Z13wheels_cmd_cbPh:000000000000028c $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2234   .text._Z13wheels_cmd_cbPh:0000000000000300 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:1571   .text._Z13wheels_cmd_cbPh:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:1578   .text._Z13wheels_cmd_cbPh:0000000000000000 _Z13wheels_cmd_cbPh
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2133   .text._Z13wheels_cmd_cbPh:0000000000000284 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2141   .text._Z13wheels_cmd_cbPh:000000000000028c $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2298   .text._Z13wheels_cmd_cbPh:0000000000000378 $d
 .ARM.exidx.text._Z13wheels_cmd_cbPh:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2241   .text.wheels_pwm_set:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2248   .text.wheels_pwm_set:0000000000000000 wheels_pwm_set
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2532   .text.wheels_pwm_set:00000000000001e4 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2309   .text.wheels_pwm_set:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2316   .text.wheels_pwm_set:0000000000000000 wheels_pwm_set
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2568   .text.wheels_pwm_set:0000000000000194 $d
    .ARM.exidx.text.wheels_pwm_set:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2549   .text._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2556   .text._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 _Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2666   .text._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:000000000000007c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2584   .text._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2591   .text._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 _Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2701   .text._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:000000000000007c $d
 .ARM.exidx.text._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2676   .text._GLOBAL__sub_I_wheelPositionsAt:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2682   .text._GLOBAL__sub_I_wheelPositionsAt:0000000000000000 _GLOBAL__sub_I_wheelPositionsAt
-.ARM.exidx.text._GLOBAL__sub_I_wheelPositionsAt:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2706   .init_array:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2710   .rodata._ZTVN8std_msgs6HeaderE:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2722   .rodata._ZTVN11sensor_msgs10JointStateE:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2747   .bss.rpmTarget:0000000000000000 rpmTarget
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s 			page 78
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2711   .text._GLOBAL__sub_I_wheelInputAt:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2717   .text._GLOBAL__sub_I_wheelInputAt:0000000000000000 _GLOBAL__sub_I_wheelInputAt
+.ARM.exidx.text._GLOBAL__sub_I_wheelInputAt:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2741   .init_array:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2745   .rodata._ZTVN8std_msgs6HeaderE:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2757   .rodata._ZTVN11sensor_msgs10JointStateE:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2783   .bss.motionDirection:0000000000000000 motionDirection
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s 			page 79
 
 
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2754   .bss.ticksTarget:0000000000000000 ticksTarget
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2761   .bss.wheelPositionsAt:0000000000000000 wheelPositionsAt
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2736   .bss._ZL14wheelPositions:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2740   .bss._ZL14wheelPositions:0000000000000000 _ZL14wheelPositions
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2743   .bss.rpmTarget:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2750   .bss.ticksTarget:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2757   .bss.wheelPositionsAt:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2764   .rodata._Z13wheels_cmd_cbPh.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2768   .rodata._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2775   .rodata._ZN11sensor_msgs10JointState6getMD5Ev.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2779   .rodata._ZN11sensor_msgs10JointState7getTypeEv.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2783   .rodata._ZN8std_msgs6Header6getMD5Ev.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2787   .rodata._ZN8std_msgs6Header7getTypeEv.str1.4:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccu2V0J0.s:2791   .rodata.wheels_pwm_set.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2789   .bss.rpmTarget:0000000000000000 rpmTarget
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2796   .bss.ticksTarget:0000000000000000 ticksTarget
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2803   .bss.wheelInputAt:0000000000000000 wheelInputAt
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2772   .bss._ZL14wheelPositions:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2776   .bss._ZL14wheelPositions:0000000000000000 _ZL14wheelPositions
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2779   .bss.motionDirection:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2786   .bss.rpmTarget:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2792   .bss.ticksTarget:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2799   .bss.wheelInputAt:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2806   .rodata._Z13wheels_cmd_cbPh.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2810   .rodata._Z21rosSubscribeWheelsCmdPN3ros11NodeHandle_I13STM32HardwareLi5ELi5ELi512ELi512EEE.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2817   .rodata._ZN11sensor_msgs10JointState6getMD5Ev.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2821   .rodata._ZN11sensor_msgs10JointState7getTypeEv.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2825   .rodata._ZN8std_msgs6Header6getMD5Ev.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2829   .rodata._ZN8std_msgs6Header7getTypeEv.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccbOIJI7.s:2833   .rodata.wheels_pwm_set.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 strlen
@@ -4612,6 +4679,6 @@ memcpy
 realloc
 HAL_GetTick
 printf
+wheel_posn
 __aeabi_unwind_cpp_pr0
 pwms
-wheel_posn
