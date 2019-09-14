@@ -68,6 +68,7 @@
 #define CONTROL_BAUD       115200    // control via usart from eg an Arduino or raspberry
 
 #define PWM_LIMIT 100
+#define FLASH_DEFAULT_HOVERBOARD_ENABLE 1
 
 // ###### CONTROL VIA RC REMOTE ######
 // left sensor board cable. Channel 1: steering, Channel 2: speed.

@@ -23,7 +23,7 @@ build/setup.d: Src/setup.c Inc/stm32f1xx_conf.h Inc/defines.h \
  Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_uart.h Inc/config.h \
- Inc/setup.h
+ Inc/setup.h Inc/flashcontent.h Inc/pid.h Inc/tick/tick.h
 
 Inc/stm32f1xx_conf.h:
 
@@ -84,3 +84,9 @@ Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
 Inc/config.h:
 
 Inc/setup.h:
+
+Inc/flashcontent.h:
+
+Inc/pid.h:
+
+Inc/tick/tick.h:

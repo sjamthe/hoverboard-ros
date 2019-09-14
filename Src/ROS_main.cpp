@@ -19,6 +19,8 @@ extern "C"
     void ros_run(void);
     void publish_hovebot_state(void);
     void wheels_pwm_set(void);
+    void init_PID_control(void);
+
 }
 
 using namespace ros;
@@ -32,7 +34,8 @@ ros::PublisherType *chatter;
 void ros_init()
 {
     nh.initNode();
-    //nh.setSpinTimeout(5); //timeout after 5ms
+    nh.setSpinTimeout(5); //timeout after 5ms
+    init_PID_control();
 
     /* Register Publisher hovebot_state  */
     sensor_msgs::JointState tmpVar;
@@ -89,11 +92,11 @@ void publish_hovebot_state(void)
 void ros_run()
 {
     uint32_t now = HAL_GetTick();
-
-    if(nh.spinOnce1() != 0)
+    int retval = nh.spinOnce1();
+    if(retval != 0)
     {
-        printf("%lu:ERROR: spinOnce1 returned error probably SPIN_TIMEOUT\n",now);
-        return;
+        printf("%lu:ERROR: spinOnce1 returned error probably SPIN_TIMEOUT = %d\n",now,retval);
+        //return;
     }
     //Publish every 100ms (10Hz)
     if ((now - publish_time) > 100) {

@@ -8,6 +8,8 @@
  */
 
 #include "ROS_subscribe.h"
+#include "pid.h"
+#include "flashcontent.h"
 
 #define SAFETY_MS 2000
 const int position_pwms[2] = {50,55};
@@ -21,6 +23,8 @@ static sensor_msgs::JointState wheelPositions;
 uint32_t wheelInputAt; //MS at which we received the input callback
 
 extern int pwms[2];
+extern pid_controller  PositionPid[2];
+extern PID_FLOATS PositionPidFloats[2];
 extern volatile WHEEL_POSN_STRUCT wheel_posn[2];
 
 long ticksTarget[2] = {0,0}; //ticks target set by ROS
@@ -43,6 +47,7 @@ void wheels_cmd_cb(unsigned char* msg)
     {
       motionDirection[i] = -1*wheel_posn[i].direction;
     }
+    pid_reset(&PositionPid[i]); //we need to rest integral error for every new target
     printf("%lu: wheels_cmd_cb tickTarget=%ld, dir=%d\n",wheelInputAt,ticksTarget[i],motionDirection[i] );
   }
 }
@@ -60,7 +65,7 @@ void wheels_pwm_set()
         printf("%lu:LIMIT reached. set speed to 0 , %lu, %lu for pwms[%d]=%d ticks=%ld\n",
             now, wheelInputAt, (now - wheelInputAt), i, pwms[i], wheel_posn[i].ticks);
       }
-      pwms[i] = 0; //stop motor
+      pwms[i] = 0; //emergency stop motor
 	    wheelInputAt = 0; //reset clock;
     }
     return;
@@ -74,27 +79,28 @@ void wheels_pwm_set()
       if(ticksTarget[i]*motionDirection[i] <= wheel_posn[i].ticks*motionDirection[i])
       {
         // We met the target
-        printf("%lu:Target[%d] met %ld <= %ld pwms=%d\n",now,i,
-              ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
+        // printf("%lu:Target[%d] met %ld <= %ld pwms=%d\n",now,i,
+        //       ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
        
         // stop motor
         pwms[i] = 0;
-        wheelInputAt = 0;
       }
-      else if(ticksTarget[i] != 0 && pwms[i] == 0) //new target was set
+      else if(wheelPositions.position[i] != 0)
       {
-        if(motionDirection[i] == 1) // go forward
-        {
-          pwms[i] = position_pwms[i]*wheel_posn[i].direction;
-          printf("%lu:Target[%d] set for forward %ld <= %ld, pwms=%d\n",now,i,
-              ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
+        if (pid_need_compute(&PositionPid[i])) {
+          // Read process feedback
+          PositionPidFloats[i].set = ticksTarget[i];
+          PositionPidFloats[i].in = wheel_posn[i].ticks;
+          // Compute new PID output value
+          pid_compute(&PositionPid[i]);
+          //Change actuator value
+          int pwm = PositionPidFloats[i].out;
+          pwm = CLAMP(pwm, -PWM_LIMIT, PWM_LIMIT);
+          pwms[i] = pwm*wheel_posn[i].direction; 
+
         }
-        else // go back
-        {
-          pwms[i] = -position_pwms[i]*wheel_posn[i].direction;
-          printf("%lu:Target[%d] set for backward %ld <= %ld, pwms=%d\n",now,i,
-              ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
-        }
+        // printf("%lu:Target[%d] set for %ld <= %ld, pwms=%d\n",now,i,
+        //       ticksTarget[i]*motionDirection[i],wheel_posn[i].ticks*motionDirection[i],pwms[i] );
       }
       // For velocity target we need pwm
       //pwm can  be set directly

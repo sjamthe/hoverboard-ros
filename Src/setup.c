@@ -38,7 +38,10 @@ pb10 usart3 dma1 channel2/3
 #include "defines.h"
 #include "config.h"
 #include <stdio.h>
+#include <string.h>
 #include "setup.h"
+#include "flashcontent.h"
+#include "pid.h"
 
 TIM_HandleTypeDef htim_right;
 TIM_HandleTypeDef htim_left;
@@ -637,4 +640,86 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle)
 {
   //__NOP;
 }
-#endif
+#endif //CONTOL_SERIAL_USART2
+
+// setup pid control for left and right speed.
+pid_controller  PositionPid[2];
+// temp floats
+PID_FLOATS PositionPidFloats[2] = {
+  { 0, 0, 0,   0 },
+  { 0, 0, 0,   0 }
+};
+pid_controller  SpeedPid[2];
+// temp floats
+PID_FLOATS SpeedPidFloats[2] = {
+  { 0, 0, 0,   0 },
+  { 0, 0, 0,   0 }
+};
+
+FLASH_CONTENT FlashContent;
+const FLASH_CONTENT FlashDefaults = FLASH_DEFAULTS;
+
+void init_PID_control(){
+  memcpy(&FlashContent, &FlashDefaults, sizeof(FlashContent));
+  memset(&PositionPid, 0, sizeof(PositionPid));
+  memset(&SpeedPid, 0, sizeof(SpeedPid));
+
+  for (int i = 0; i < 2; i++){
+    PositionPidFloats[i].in = 0;
+    PositionPidFloats[i].set = 0; 
+    if(i==0)
+    {
+      pid_create(&PositionPid[i], &PositionPidFloats[i].in, &PositionPidFloats[i].out, &PositionPidFloats[i].set,
+            (float)FlashContent.LeftPositionKpx100/100.0,
+            (float)FlashContent.PositionKix100/100.0,
+            (float)FlashContent.PositionKdx100/100.0);
+    }
+    else
+    {
+      pid_create(&PositionPid[i], &PositionPidFloats[i].in, &PositionPidFloats[i].out, &PositionPidFloats[i].set,
+          (float)FlashContent.RightPositionKpx100/100.0,
+          (float)FlashContent.PositionKix100/100.0,
+          (float)FlashContent.PositionKdx100/100.0);    
+    }
+
+    // maximum pwm outputs for positional control; limits speed
+  	pid_limits(&PositionPid[i], -FlashContent.PositionPWMLimit, FlashContent.PositionPWMLimit);
+  	pid_auto(&PositionPid[i]);
+    SpeedPidFloats[i].in = 0;
+    SpeedPidFloats[i].set = 0;
+    pid_create(&SpeedPid[i], &SpeedPidFloats[i].in, &SpeedPidFloats[i].out, &SpeedPidFloats[i].set,
+      (float)FlashContent.SpeedKpx100/100.0,
+      (float)FlashContent.SpeedKix100/100.0,
+      (float)FlashContent.SpeedKdx100/100.0);
+
+    // maximum increment to pwm outputs for speed control; limits changes in speed (accelleration)
+  	pid_limits(&SpeedPid[i], -FlashContent.SpeedPWMIncrementLimit, FlashContent.SpeedPWMIncrementLimit);
+  	pid_auto(&SpeedPid[i]);
+  }
+}
+
+void change_PID_constants(){
+  for (int i = 0; i < 2; i++){
+    if(i==0)
+    {
+      pid_create(&PositionPid[i], &PositionPidFloats[i].in, &PositionPidFloats[i].out, &PositionPidFloats[i].set,
+            (float)FlashContent.LeftPositionKpx100/100.0,
+            (float)FlashContent.PositionKix100/100.0,
+            (float)FlashContent.PositionKdx100/100.0);
+    }
+    else
+    {
+      pid_create(&PositionPid[i], &PositionPidFloats[i].in, &PositionPidFloats[i].out, &PositionPidFloats[i].set,
+          (float)FlashContent.RightPositionKpx100/100.0,
+          (float)FlashContent.PositionKix100/100.0,
+          (float)FlashContent.PositionKdx100/100.0);    
+    }
+  	pid_limits(&PositionPid[i], -FlashContent.PositionPWMLimit, FlashContent.PositionPWMLimit);
+
+    pid_tune(&SpeedPid[i],
+      (float)FlashContent.SpeedKpx100/100.0,
+      (float)FlashContent.SpeedKix100/100.0,
+      (float)FlashContent.SpeedKdx100/100.0);
+  	pid_limits(&SpeedPid[i], -FlashContent.SpeedPWMIncrementLimit, FlashContent.SpeedPWMIncrementLimit);
+  }
+}
