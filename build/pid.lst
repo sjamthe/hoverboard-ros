@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 1
   30:Src/pid.c     **** 
   31:Src/pid.c     **** 	// Set default sample time to 100 ms
   32:Src/pid.c     **** 	pid->sampletime = 10 * (TICK_SECOND / 1000);
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 2
 
 
   33:Src/pid.c     **** 
@@ -118,14 +118,14 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 1
   66              		@ frame_needed = 0, uses_anonymous_args = 0
   67              	.LVL2:
   50:Src/pid.c     **** 	// Check if control is enabled
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 3
 
 
   51:Src/pid.c     **** 	if (!pid->automode)
   68              		.loc 1 51 0
   69 0000 90F83030 		ldrb	r3, [r0, #48]	@ zero_extendqisi2
   70 0004 002B     		cmp	r3, #0
-  71 0006 6AD0     		beq	.L14
+  71 0006 74D0     		beq	.L14
   49:Src/pid.c     **** 	// Check if control is enabled
   72              		.loc 1 49 0
   73 0008 10B5     		push	{r4, lr}
@@ -138,9 +138,9 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 1
   80              		.cfi_def_cfa_offset 16
   81              		.cfi_offset 80, -16
   82              		.cfi_offset 81, -12
-  83 000e 82B0     		sub	sp, sp, #8
+  83 000e 84B0     		sub	sp, sp, #16
   84              	.LCFI3:
-  85              		.cfi_def_cfa_offset 24
+  85              		.cfi_def_cfa_offset 32
   52:Src/pid.c     **** 		return;
   53:Src/pid.c     **** 	
   54:Src/pid.c     **** 	float in = *(pid->input);
@@ -168,7 +168,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 1
  102 0034 D0ED076A 		vldr.32	s13, [r0, #28]
  103 0038 F4EEE67A 		vcmpe.f32	s15, s13
  104 003c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 105 0040 43DD     		ble	.L12
+ 105 0040 4DDD     		ble	.L12
   60:Src/pid.c     **** 		pid->iterm = pid->omax;
  106              		.loc 1 60 0
  107 0042 C0ED086A 		vstr.32	s13, [r0, #32]
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 1
   62:Src/pid.c     **** 		pid->iterm = pid->omin;
   63:Src/pid.c     **** 	// Compute differential on input
   64:Src/pid.c     **** 	float dinput = in - pid->lastin;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 4
 
 
  110              		.loc 1 64 0
@@ -190,679 +190,689 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 1
  114              		.loc 1 66 0
  115 0050 90ED038A 		vldr.32	s16, [r0, #12]
  116 0054 28EE078A 		vmul.f32	s16, s16, s14
- 117 0058 90ED086A 		vldr.32	s12, [r0, #32]
- 118 005c 38EE068A 		vadd.f32	s16, s16, s12
- 119 0060 D0ED056A 		vldr.32	s13, [r0, #20]
- 120 0064 66EEA76A 		vmul.f32	s13, s13, s15
- 121 0068 38EE668A 		vsub.f32	s16, s16, s13
+ 117 0058 D0ED086A 		vldr.32	s13, [r0, #32]
+ 118 005c 38EE268A 		vadd.f32	s16, s16, s13
+ 119 0060 90ED056A 		vldr.32	s12, [r0, #20]
+ 120 0064 26EE276A 		vmul.f32	s12, s12, s15
+ 121 0068 38EE468A 		vsub.f32	s16, s16, s12
  122              	.LVL6:
-  67:Src/pid.c     **** 	printf("error=%d, iterm=%d, dinput=%d, out=%d\n",(int)error,(int) pid->iterm, (int)dinput,(int)out
+  67:Src/pid.c     **** 	printf("set=%d,in=%d,error=%d, iterm=%d, dinput=%d, out=%d\n",(int)(*(pid->setpoint)),(int)in,
  123              		.loc 1 67 0
- 124 006c FDEEC86A 		vcvt.s32.f32	s13, s16
- 125 0070 CDED006A 		vstr.32	s13, [sp]	@ int
- 126 0074 FDEEE77A 		vcvt.s32.f32	s15, s15
- 127              	.LVL7:
- 128 0078 17EE903A 		vmov	r3, s15	@ int
- 129 007c FDEEC67A 		vcvt.s32.f32	s15, s12
- 130 0080 17EE902A 		vmov	r2, s15	@ int
- 131 0084 FDEEC77A 		vcvt.s32.f32	s15, s14
- 132 0088 17EE901A 		vmov	r1, s15	@ int
- 133 008c 1448     		ldr	r0, .L17
- 134              	.LVL8:
- 135 008e FFF7FEFF 		bl	printf
- 136              	.LVL9:
-  68:Src/pid.c     **** 	// Apply limit to output value
-  69:Src/pid.c     **** 	if (out > pid->omax)
- 137              		.loc 1 69 0
- 138 0092 D4ED077A 		vldr.32	s15, [r4, #28]
- 139 0096 F4EEC87A 		vcmpe.f32	s15, s16
- 140 009a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 141 009e 08D4     		bmi	.L9
-  70:Src/pid.c     **** 		out = pid->omax;
-  71:Src/pid.c     **** 	else if (out < pid->omin)
- 142              		.loc 1 71 0
- 143 00a0 D4ED067A 		vldr.32	s15, [r4, #24]
- 144 00a4 F4EEC87A 		vcmpe.f32	s15, s16
- 145 00a8 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 146 00ac 01DC     		bgt	.L9
-  66:Src/pid.c     **** 	printf("error=%d, iterm=%d, dinput=%d, out=%d\n",(int)error,(int) pid->iterm, (int)dinput,(int)out
- 147              		.loc 1 66 0
- 148 00ae F0EE487A 		vmov.f32	s15, s16
- 149              	.L9:
- 150              	.LVL10:
-  72:Src/pid.c     **** 		out = pid->omin;
-  73:Src/pid.c     **** 	// Output to pointed variable
-  74:Src/pid.c     **** 	(*pid->output) = out;
- 151              		.loc 1 74 0
- 152 00b2 6368     		ldr	r3, [r4, #4]
- 153 00b4 C3ED007A 		vstr.32	s15, [r3]
-  75:Src/pid.c     **** 	// Keep track of some variables for next execution
-  76:Src/pid.c     **** 	pid->lastin = in;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 5
+ 124 006c 93ED006A 		vldr.32	s12, [r3]
+ 125 0070 FDEEC85A 		vcvt.s32.f32	s11, s16
+ 126 0074 CDED025A 		vstr.32	s11, [sp, #8]	@ int
+ 127 0078 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 128              	.LVL7:
+ 129 007c CDED017A 		vstr.32	s15, [sp, #4]	@ int
+ 130 0080 FDEEE66A 		vcvt.s32.f32	s13, s13
+ 131 0084 CDED006A 		vstr.32	s13, [sp]	@ int
+ 132 0088 FDEEC77A 		vcvt.s32.f32	s15, s14
+ 133 008c 17EE903A 		vmov	r3, s15	@ int
+ 134 0090 FDEEE87A 		vcvt.s32.f32	s15, s17
+ 135 0094 17EE902A 		vmov	r2, s15	@ int
+ 136 0098 FDEEC67A 		vcvt.s32.f32	s15, s12
+ 137 009c 17EE901A 		vmov	r1, s15	@ int
+ 138 00a0 1448     		ldr	r0, .L17
+ 139              	.LVL8:
+ 140 00a2 FFF7FEFF 		bl	printf
+ 141              	.LVL9:
+  68:Src/pid.c     **** 						(int)error,(int) pid->iterm, (int)dinput,(int)out);
+  69:Src/pid.c     **** 	// Apply limit to output value
+  70:Src/pid.c     **** 	if (out > pid->omax)
+ 142              		.loc 1 70 0
+ 143 00a6 D4ED077A 		vldr.32	s15, [r4, #28]
+ 144 00aa F4EEC87A 		vcmpe.f32	s15, s16
+ 145 00ae F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 146 00b2 08D4     		bmi	.L9
+  71:Src/pid.c     **** 		out = pid->omax;
+  72:Src/pid.c     **** 	else if (out < pid->omin)
+ 147              		.loc 1 72 0
+ 148 00b4 D4ED067A 		vldr.32	s15, [r4, #24]
+ 149 00b8 F4EEC87A 		vcmpe.f32	s15, s16
+ 150 00bc F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 151 00c0 01DC     		bgt	.L9
+  66:Src/pid.c     **** 	printf("set=%d,in=%d,error=%d, iterm=%d, dinput=%d, out=%d\n",(int)(*(pid->setpoint)),(int)in,
+ 152              		.loc 1 66 0
+ 153 00c2 F0EE487A 		vmov.f32	s15, s16
+ 154              	.L9:
+ 155              	.LVL10:
+  73:Src/pid.c     **** 		out = pid->omin;
+  74:Src/pid.c     **** 	// Output to pointed variable
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 5
 
 
- 154              		.loc 1 76 0
- 155 00b8 C4ED098A 		vstr.32	s17, [r4, #36]
-  77:Src/pid.c     **** 	pid->lasttime = tick_get();;
- 156              		.loc 1 77 0
- 157 00bc FFF7FEFF 		bl	HAL_GetTick
- 158              	.LVL11:
- 159 00c0 A062     		str	r0, [r4, #40]
-  78:Src/pid.c     **** }
- 160              		.loc 1 78 0
- 161 00c2 02B0     		add	sp, sp, #8
- 162              	.LCFI4:
- 163              		.cfi_remember_state
- 164              		.cfi_def_cfa_offset 16
- 165              		@ sp needed
- 166 00c4 BDEC028B 		vldm	sp!, {d8}
- 167              	.LCFI5:
- 168              		.cfi_restore 80
- 169              		.cfi_restore 81
- 170              		.cfi_def_cfa_offset 8
- 171 00c8 10BD     		pop	{r4, pc}
- 172              	.LVL12:
- 173              	.L12:
- 174              	.LCFI6:
- 175              		.cfi_restore_state
+  75:Src/pid.c     **** 	(*pid->output) = out;
+ 156              		.loc 1 75 0
+ 157 00c6 6368     		ldr	r3, [r4, #4]
+ 158 00c8 C3ED007A 		vstr.32	s15, [r3]
+  76:Src/pid.c     **** 	// Keep track of some variables for next execution
+  77:Src/pid.c     **** 	pid->lastin = in;
+ 159              		.loc 1 77 0
+ 160 00cc C4ED098A 		vstr.32	s17, [r4, #36]
+  78:Src/pid.c     **** 	pid->lasttime = tick_get();;
+ 161              		.loc 1 78 0
+ 162 00d0 FFF7FEFF 		bl	HAL_GetTick
+ 163              	.LVL11:
+ 164 00d4 A062     		str	r0, [r4, #40]
+  79:Src/pid.c     **** }
+ 165              		.loc 1 79 0
+ 166 00d6 04B0     		add	sp, sp, #16
+ 167              	.LCFI4:
+ 168              		.cfi_remember_state
+ 169              		.cfi_def_cfa_offset 16
+ 170              		@ sp needed
+ 171 00d8 BDEC028B 		vldm	sp!, {d8}
+ 172              	.LCFI5:
+ 173              		.cfi_restore 80
+ 174              		.cfi_restore 81
+ 175              		.cfi_def_cfa_offset 8
+ 176 00dc 10BD     		pop	{r4, pc}
+ 177              	.LVL12:
+ 178              	.L12:
+ 179              	.LCFI6:
+ 180              		.cfi_restore_state
   61:Src/pid.c     **** 		pid->iterm = pid->omin;
- 176              		.loc 1 61 0
- 177 00ca D0ED066A 		vldr.32	s13, [r0, #24]
- 178 00ce F4EEE67A 		vcmpe.f32	s15, s13
- 179 00d2 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 180 00d6 B6D5     		bpl	.L7
+ 181              		.loc 1 61 0
+ 182 00de D0ED066A 		vldr.32	s13, [r0, #24]
+ 183 00e2 F4EEE67A 		vcmpe.f32	s15, s13
+ 184 00e6 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 185 00ea ACD5     		bpl	.L7
   62:Src/pid.c     **** 	// Compute differential on input
- 181              		.loc 1 62 0
- 182 00d8 C0ED086A 		vstr.32	s13, [r0, #32]
- 183 00dc B3E7     		b	.L7
- 184              	.LVL13:
- 185              	.L14:
- 186              	.LCFI7:
- 187              		.cfi_def_cfa_offset 0
- 188              		.cfi_restore 4
- 189              		.cfi_restore 14
- 190              		.cfi_restore 80
- 191              		.cfi_restore 81
- 192 00de 7047     		bx	lr
- 193              	.L18:
- 194              		.align	2
- 195              	.L17:
- 196 00e0 00000000 		.word	.LC0
- 197              		.cfi_endproc
- 198              	.LFE128:
- 200              		.section	.text.pid_tune,"ax",%progbits
- 201              		.align	1
- 202              		.global	pid_tune
- 203              		.syntax unified
- 204              		.thumb
- 205              		.thumb_func
- 206              		.fpu fpv4-sp-d16
- 208              	pid_tune:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 6
+ 186              		.loc 1 62 0
+ 187 00ec C0ED086A 		vstr.32	s13, [r0, #32]
+ 188 00f0 A9E7     		b	.L7
+ 189              	.LVL13:
+ 190              	.L14:
+ 191              	.LCFI7:
+ 192              		.cfi_def_cfa_offset 0
+ 193              		.cfi_restore 4
+ 194              		.cfi_restore 14
+ 195              		.cfi_restore 80
+ 196              		.cfi_restore 81
+ 197 00f2 7047     		bx	lr
+ 198              	.L18:
+ 199              		.align	2
+ 200              	.L17:
+ 201 00f4 00000000 		.word	.LC0
+ 202              		.cfi_endproc
+ 203              	.LFE128:
+ 205              		.section	.text.pid_tune,"ax",%progbits
+ 206              		.align	1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 6
 
 
- 209              	.LFB129:
-  79:Src/pid.c     **** 
-  80:Src/pid.c     **** void pid_tune(p_pid_controller pid, float kp, float ki, float kd)
-  81:Src/pid.c     **** {
- 210              		.loc 1 81 0
- 211              		.cfi_startproc
- 212              		@ args = 0, pretend = 0, frame = 0
- 213              		@ frame_needed = 0, uses_anonymous_args = 0
- 214              		@ link register save eliminated.
- 215              	.LVL14:
- 216 0000 07EE101A 		vmov	s14, r1
- 217 0004 07EE902A 		vmov	s15, r2
- 218 0008 06EE903A 		vmov	s13, r3
-  82:Src/pid.c     **** 	// Check for validity
-  83:Src/pid.c     **** 	if (kp < 0 || ki < 0 || kd < 0)
- 219              		.loc 1 83 0
- 220 000c B5EEC07A 		vcmpe.f32	s14, #0
- 221 0010 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 222 0014 1ED4     		bmi	.L19
- 223              		.loc 1 83 0 is_stmt 0 discriminator 1
- 224 0016 F5EEC07A 		vcmpe.f32	s15, #0
- 225 001a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 226 001e 19D4     		bmi	.L19
- 227              		.loc 1 83 0 discriminator 2
- 228 0020 F5EEC06A 		vcmpe.f32	s13, #0
- 229 0024 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 230 0028 14D4     		bmi	.L19
-  84:Src/pid.c     **** 		return;
-  85:Src/pid.c     **** 	
-  86:Src/pid.c     **** 	//Compute sample time in seconds
-  87:Src/pid.c     **** 	float ssec = ((float) pid->sampletime) / ((float) TICK_SECOND);
- 231              		.loc 1 87 0 is_stmt 1
- 232 002a 90ED0B6A 		vldr.32	s12, [r0, #44]	@ int
- 233 002e B8EE466A 		vcvt.f32.u32	s12, s12
- 234 0032 9FED105A 		vldr.32	s10, .L22
- 235 0036 C6EE055A 		vdiv.f32	s11, s12, s10
- 236              	.LVL15:
-  88:Src/pid.c     **** 
-  89:Src/pid.c     **** 	pid->Kp = kp;
- 237              		.loc 1 89 0
- 238 003a C160     		str	r1, [r0, #12]	@ float
-  90:Src/pid.c     **** 	pid->Ki = ki * ssec;
- 239              		.loc 1 90 0
- 240 003c 67EEA57A 		vmul.f32	s15, s15, s11
- 241 0040 C0ED047A 		vstr.32	s15, [r0, #16]
-  91:Src/pid.c     **** 	pid->Kd = kd / ssec;
- 242              		.loc 1 91 0
- 243 0044 86EEA56A 		vdiv.f32	s12, s13, s11
- 244 0048 80ED056A 		vstr.32	s12, [r0, #20]
-  92:Src/pid.c     **** 
-  93:Src/pid.c     **** 	if (pid->direction == E_PID_REVERSE) {
- 245              		.loc 1 93 0
- 246 004c 90F83130 		ldrb	r3, [r0, #49]	@ zero_extendqisi2
- 247              	.LVL16:
- 248 0050 012B     		cmp	r3, #1
- 249 0052 00D0     		beq	.L21
- 250              	.LVL17:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 7
+ 207              		.global	pid_tune
+ 208              		.syntax unified
+ 209              		.thumb
+ 210              		.thumb_func
+ 211              		.fpu fpv4-sp-d16
+ 213              	pid_tune:
+ 214              	.LFB129:
+  80:Src/pid.c     **** 
+  81:Src/pid.c     **** void pid_tune(p_pid_controller pid, float kp, float ki, float kd)
+  82:Src/pid.c     **** {
+ 215              		.loc 1 82 0
+ 216              		.cfi_startproc
+ 217              		@ args = 0, pretend = 0, frame = 0
+ 218              		@ frame_needed = 0, uses_anonymous_args = 0
+ 219              		@ link register save eliminated.
+ 220              	.LVL14:
+ 221 0000 07EE101A 		vmov	s14, r1
+ 222 0004 07EE902A 		vmov	s15, r2
+ 223 0008 06EE903A 		vmov	s13, r3
+  83:Src/pid.c     **** 	// Check for validity
+  84:Src/pid.c     **** 	if (kp < 0 || ki < 0 || kd < 0)
+ 224              		.loc 1 84 0
+ 225 000c B5EEC07A 		vcmpe.f32	s14, #0
+ 226 0010 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 227 0014 1ED4     		bmi	.L19
+ 228              		.loc 1 84 0 is_stmt 0 discriminator 1
+ 229 0016 F5EEC07A 		vcmpe.f32	s15, #0
+ 230 001a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 231 001e 19D4     		bmi	.L19
+ 232              		.loc 1 84 0 discriminator 2
+ 233 0020 F5EEC06A 		vcmpe.f32	s13, #0
+ 234 0024 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 235 0028 14D4     		bmi	.L19
+  85:Src/pid.c     **** 		return;
+  86:Src/pid.c     **** 	
+  87:Src/pid.c     **** 	//Compute sample time in seconds
+  88:Src/pid.c     **** 	float ssec = ((float) pid->sampletime) / ((float) TICK_SECOND);
+ 236              		.loc 1 88 0 is_stmt 1
+ 237 002a 90ED0B6A 		vldr.32	s12, [r0, #44]	@ int
+ 238 002e B8EE466A 		vcvt.f32.u32	s12, s12
+ 239 0032 9FED105A 		vldr.32	s10, .L22
+ 240 0036 C6EE055A 		vdiv.f32	s11, s12, s10
+ 241              	.LVL15:
+  89:Src/pid.c     **** 
+  90:Src/pid.c     **** 	pid->Kp = kp;
+ 242              		.loc 1 90 0
+ 243 003a C160     		str	r1, [r0, #12]	@ float
+  91:Src/pid.c     **** 	pid->Ki = ki * ssec;
+ 244              		.loc 1 91 0
+ 245 003c 67EEA57A 		vmul.f32	s15, s15, s11
+ 246 0040 C0ED047A 		vstr.32	s15, [r0, #16]
+  92:Src/pid.c     **** 	pid->Kd = kd / ssec;
+ 247              		.loc 1 92 0
+ 248 0044 86EEA56A 		vdiv.f32	s12, s13, s11
+ 249 0048 80ED056A 		vstr.32	s12, [r0, #20]
+  93:Src/pid.c     **** 
+  94:Src/pid.c     **** 	if (pid->direction == E_PID_REVERSE) {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 7
 
 
- 251              	.L19:
-  94:Src/pid.c     **** 		pid->Kp = 0 - pid->Kp;
-  95:Src/pid.c     **** 		pid->Ki = 0 - pid->Ki;
-  96:Src/pid.c     **** 		pid->Kd = 0 - pid->Kd;
-  97:Src/pid.c     **** 	}
-  98:Src/pid.c     **** }
- 252              		.loc 1 98 0
- 253 0054 7047     		bx	lr
- 254              	.LVL18:
- 255              	.L21:
-  94:Src/pid.c     **** 		pid->Kp = 0 - pid->Kp;
- 256              		.loc 1 94 0
- 257 0056 DFED086A 		vldr.32	s13, .L22+4
- 258              	.LVL19:
- 259 005a 36EEC77A 		vsub.f32	s14, s13, s14
- 260 005e 80ED037A 		vstr.32	s14, [r0, #12]
-  95:Src/pid.c     **** 		pid->Kd = 0 - pid->Kd;
+ 250              		.loc 1 94 0
+ 251 004c 90F83130 		ldrb	r3, [r0, #49]	@ zero_extendqisi2
+ 252              	.LVL16:
+ 253 0050 012B     		cmp	r3, #1
+ 254 0052 00D0     		beq	.L21
+ 255              	.LVL17:
+ 256              	.L19:
+  95:Src/pid.c     **** 		pid->Kp = 0 - pid->Kp;
+  96:Src/pid.c     **** 		pid->Ki = 0 - pid->Ki;
+  97:Src/pid.c     **** 		pid->Kd = 0 - pid->Kd;
+  98:Src/pid.c     **** 	}
+  99:Src/pid.c     **** }
+ 257              		.loc 1 99 0
+ 258 0054 7047     		bx	lr
+ 259              	.LVL18:
+ 260              	.L21:
+  95:Src/pid.c     **** 		pid->Kp = 0 - pid->Kp;
  261              		.loc 1 95 0
- 262 0062 76EEE77A 		vsub.f32	s15, s13, s15
- 263 0066 C0ED047A 		vstr.32	s15, [r0, #16]
-  96:Src/pid.c     **** 	}
- 264              		.loc 1 96 0
- 265 006a 36EEC66A 		vsub.f32	s12, s13, s12
- 266 006e 80ED056A 		vstr.32	s12, [r0, #20]
- 267 0072 EFE7     		b	.L19
- 268              	.L23:
- 269              		.align	2
- 270              	.L22:
- 271 0074 00007A44 		.word	1148846080
- 272 0078 00000000 		.word	0
- 273              		.cfi_endproc
- 274              	.LFE129:
- 276              		.section	.text.pid_sample,"ax",%progbits
- 277              		.align	1
- 278              		.global	pid_sample
- 279              		.syntax unified
- 280              		.thumb
- 281              		.thumb_func
- 282              		.fpu fpv4-sp-d16
- 284              	pid_sample:
- 285              	.LFB130:
-  99:Src/pid.c     **** 
- 100:Src/pid.c     **** void pid_sample(p_pid_controller pid, uint32_t time)
- 101:Src/pid.c     **** {
- 286              		.loc 1 101 0
- 287              		.cfi_startproc
- 288              		@ args = 0, pretend = 0, frame = 0
- 289              		@ frame_needed = 0, uses_anonymous_args = 0
- 290              		@ link register save eliminated.
- 291              	.LVL20:
- 102:Src/pid.c     **** 	if (time > 0) {
- 292              		.loc 1 102 0
- 293 0000 B1B1     		cbz	r1, .L24
- 294              	.LBB2:
- 103:Src/pid.c     **** 		float ratio = (float) (time * (TICK_SECOND / 1000)) / (float) pid->sampletime;
- 295              		.loc 1 103 0
- 296 0002 07EE901A 		vmov	s15, r1	@ int
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 8
+ 262 0056 DFED086A 		vldr.32	s13, .L22+4
+ 263              	.LVL19:
+ 264 005a 36EEC77A 		vsub.f32	s14, s13, s14
+ 265 005e 80ED037A 		vstr.32	s14, [r0, #12]
+  96:Src/pid.c     **** 		pid->Kd = 0 - pid->Kd;
+ 266              		.loc 1 96 0
+ 267 0062 76EEE77A 		vsub.f32	s15, s13, s15
+ 268 0066 C0ED047A 		vstr.32	s15, [r0, #16]
+  97:Src/pid.c     **** 	}
+ 269              		.loc 1 97 0
+ 270 006a 36EEC66A 		vsub.f32	s12, s13, s12
+ 271 006e 80ED056A 		vstr.32	s12, [r0, #20]
+ 272 0072 EFE7     		b	.L19
+ 273              	.L23:
+ 274              		.align	2
+ 275              	.L22:
+ 276 0074 00007A44 		.word	1148846080
+ 277 0078 00000000 		.word	0
+ 278              		.cfi_endproc
+ 279              	.LFE129:
+ 281              		.section	.text.pid_sample,"ax",%progbits
+ 282              		.align	1
+ 283              		.global	pid_sample
+ 284              		.syntax unified
+ 285              		.thumb
+ 286              		.thumb_func
+ 287              		.fpu fpv4-sp-d16
+ 289              	pid_sample:
+ 290              	.LFB130:
+ 100:Src/pid.c     **** 
+ 101:Src/pid.c     **** void pid_sample(p_pid_controller pid, uint32_t time)
+ 102:Src/pid.c     **** {
+ 291              		.loc 1 102 0
+ 292              		.cfi_startproc
+ 293              		@ args = 0, pretend = 0, frame = 0
+ 294              		@ frame_needed = 0, uses_anonymous_args = 0
+ 295              		@ link register save eliminated.
+ 296              	.LVL20:
+ 103:Src/pid.c     **** 	if (time > 0) {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 8
 
 
- 297 0006 F8EE676A 		vcvt.f32.u32	s13, s15
- 298 000a D0ED0B7A 		vldr.32	s15, [r0, #44]	@ int
- 299 000e F8EE677A 		vcvt.f32.u32	s15, s15
- 300 0012 86EEA77A 		vdiv.f32	s14, s13, s15
- 301              	.LVL21:
- 104:Src/pid.c     **** 		pid->Ki *= ratio;
- 302              		.loc 1 104 0
- 303 0016 D0ED047A 		vldr.32	s15, [r0, #16]
- 304 001a 67EE877A 		vmul.f32	s15, s15, s14
- 305 001e C0ED047A 		vstr.32	s15, [r0, #16]
- 105:Src/pid.c     **** 		pid->Kd /= ratio;
- 306              		.loc 1 105 0
- 307 0022 D0ED056A 		vldr.32	s13, [r0, #20]
- 308 0026 C6EE877A 		vdiv.f32	s15, s13, s14
- 309 002a C0ED057A 		vstr.32	s15, [r0, #20]
- 106:Src/pid.c     **** 		pid->sampletime = time * (TICK_SECOND / 1000);
- 310              		.loc 1 106 0
- 311 002e C162     		str	r1, [r0, #44]
- 312              	.LVL22:
- 313              	.L24:
- 314              	.LBE2:
- 107:Src/pid.c     **** 	}
- 108:Src/pid.c     **** }
- 315              		.loc 1 108 0
- 316 0030 7047     		bx	lr
- 317              		.cfi_endproc
- 318              	.LFE130:
- 320              		.section	.text.pid_limits,"ax",%progbits
- 321              		.align	1
- 322              		.global	pid_limits
- 323              		.syntax unified
- 324              		.thumb
- 325              		.thumb_func
- 326              		.fpu fpv4-sp-d16
- 328              	pid_limits:
- 329              	.LFB131:
- 109:Src/pid.c     **** 
- 110:Src/pid.c     **** void pid_limits(p_pid_controller pid, float min, float max)
- 111:Src/pid.c     **** {
- 330              		.loc 1 111 0
- 331              		.cfi_startproc
- 332              		@ args = 0, pretend = 0, frame = 0
- 333              		@ frame_needed = 0, uses_anonymous_args = 0
- 334              		@ link register save eliminated.
- 335              	.LVL23:
- 336 0000 07EE101A 		vmov	s14, r1
- 337 0004 07EE902A 		vmov	s15, r2
- 112:Src/pid.c     **** 	if (min >= max) return;
- 338              		.loc 1 112 0
- 339 0008 B4EEE77A 		vcmpe.f32	s14, s15
- 340 000c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 341 0010 1FDA     		bge	.L26
- 113:Src/pid.c     **** 	pid->omin = min;
- 342              		.loc 1 113 0
- 343 0012 8161     		str	r1, [r0, #24]	@ float
- 114:Src/pid.c     **** 	pid->omax = max;
- 344              		.loc 1 114 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 9
+ 297              		.loc 1 103 0
+ 298 0000 B1B1     		cbz	r1, .L24
+ 299              	.LBB2:
+ 104:Src/pid.c     **** 		float ratio = (float) (time * (TICK_SECOND / 1000)) / (float) pid->sampletime;
+ 300              		.loc 1 104 0
+ 301 0002 07EE901A 		vmov	s15, r1	@ int
+ 302 0006 F8EE676A 		vcvt.f32.u32	s13, s15
+ 303 000a D0ED0B7A 		vldr.32	s15, [r0, #44]	@ int
+ 304 000e F8EE677A 		vcvt.f32.u32	s15, s15
+ 305 0012 86EEA77A 		vdiv.f32	s14, s13, s15
+ 306              	.LVL21:
+ 105:Src/pid.c     **** 		pid->Ki *= ratio;
+ 307              		.loc 1 105 0
+ 308 0016 D0ED047A 		vldr.32	s15, [r0, #16]
+ 309 001a 67EE877A 		vmul.f32	s15, s15, s14
+ 310 001e C0ED047A 		vstr.32	s15, [r0, #16]
+ 106:Src/pid.c     **** 		pid->Kd /= ratio;
+ 311              		.loc 1 106 0
+ 312 0022 D0ED056A 		vldr.32	s13, [r0, #20]
+ 313 0026 C6EE877A 		vdiv.f32	s15, s13, s14
+ 314 002a C0ED057A 		vstr.32	s15, [r0, #20]
+ 107:Src/pid.c     **** 		pid->sampletime = time * (TICK_SECOND / 1000);
+ 315              		.loc 1 107 0
+ 316 002e C162     		str	r1, [r0, #44]
+ 317              	.LVL22:
+ 318              	.L24:
+ 319              	.LBE2:
+ 108:Src/pid.c     **** 	}
+ 109:Src/pid.c     **** }
+ 320              		.loc 1 109 0
+ 321 0030 7047     		bx	lr
+ 322              		.cfi_endproc
+ 323              	.LFE130:
+ 325              		.section	.text.pid_limits,"ax",%progbits
+ 326              		.align	1
+ 327              		.global	pid_limits
+ 328              		.syntax unified
+ 329              		.thumb
+ 330              		.thumb_func
+ 331              		.fpu fpv4-sp-d16
+ 333              	pid_limits:
+ 334              	.LFB131:
+ 110:Src/pid.c     **** 
+ 111:Src/pid.c     **** void pid_limits(p_pid_controller pid, float min, float max)
+ 112:Src/pid.c     **** {
+ 335              		.loc 1 112 0
+ 336              		.cfi_startproc
+ 337              		@ args = 0, pretend = 0, frame = 0
+ 338              		@ frame_needed = 0, uses_anonymous_args = 0
+ 339              		@ link register save eliminated.
+ 340              	.LVL23:
+ 341 0000 07EE101A 		vmov	s14, r1
+ 342 0004 07EE902A 		vmov	s15, r2
+ 113:Src/pid.c     **** 	if (min >= max) return;
+ 343              		.loc 1 113 0
+ 344 0008 B4EEE77A 		vcmpe.f32	s14, s15
+ 345 000c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 9
 
 
- 345 0014 C261     		str	r2, [r0, #28]	@ float
- 115:Src/pid.c     **** 	//Adjust output to new limits
- 116:Src/pid.c     **** 	if (pid->automode) {
- 346              		.loc 1 116 0
- 347 0016 90F83030 		ldrb	r3, [r0, #48]	@ zero_extendqisi2
- 348 001a D3B1     		cbz	r3, .L26
- 117:Src/pid.c     **** 		if (*(pid->output) > pid->omax)
- 349              		.loc 1 117 0
- 350 001c 4368     		ldr	r3, [r0, #4]
- 351 001e D3ED006A 		vldr.32	s13, [r3]
- 352 0022 F4EEE76A 		vcmpe.f32	s13, s15
- 353 0026 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 354 002a 13DD     		ble	.L39
- 118:Src/pid.c     **** 			*(pid->output) = pid->omax;
- 355              		.loc 1 118 0
- 356 002c 1A60     		str	r2, [r3]	@ float
- 357              	.L30:
- 119:Src/pid.c     **** 		else if (*(pid->output) < pid->omin)
- 120:Src/pid.c     **** 			*(pid->output) = pid->omin;
- 121:Src/pid.c     **** 
- 122:Src/pid.c     **** 		if (pid->iterm > pid->omax)
- 358              		.loc 1 122 0
- 359 002e D0ED087A 		vldr.32	s15, [r0, #32]
- 360 0032 90ED077A 		vldr.32	s14, [r0, #28]
- 361 0036 F4EEC77A 		vcmpe.f32	s15, s14
- 362 003a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 363 003e 10DC     		bgt	.L41
- 123:Src/pid.c     **** 			pid->iterm = pid->omax;
- 124:Src/pid.c     **** 		else if (pid->iterm < pid->omin)
- 364              		.loc 1 124 0
- 365 0040 90ED067A 		vldr.32	s14, [r0, #24]
- 366 0044 F4EEC77A 		vcmpe.f32	s15, s14
- 367 0048 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 368 004c 01D5     		bpl	.L26
- 125:Src/pid.c     **** 			pid->iterm = pid->omin;
+ 346 0010 1FDA     		bge	.L26
+ 114:Src/pid.c     **** 	pid->omin = min;
+ 347              		.loc 1 114 0
+ 348 0012 8161     		str	r1, [r0, #24]	@ float
+ 115:Src/pid.c     **** 	pid->omax = max;
+ 349              		.loc 1 115 0
+ 350 0014 C261     		str	r2, [r0, #28]	@ float
+ 116:Src/pid.c     **** 	//Adjust output to new limits
+ 117:Src/pid.c     **** 	if (pid->automode) {
+ 351              		.loc 1 117 0
+ 352 0016 90F83030 		ldrb	r3, [r0, #48]	@ zero_extendqisi2
+ 353 001a D3B1     		cbz	r3, .L26
+ 118:Src/pid.c     **** 		if (*(pid->output) > pid->omax)
+ 354              		.loc 1 118 0
+ 355 001c 4368     		ldr	r3, [r0, #4]
+ 356 001e D3ED006A 		vldr.32	s13, [r3]
+ 357 0022 F4EEE76A 		vcmpe.f32	s13, s15
+ 358 0026 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 359 002a 13DD     		ble	.L39
+ 119:Src/pid.c     **** 			*(pid->output) = pid->omax;
+ 360              		.loc 1 119 0
+ 361 002c 1A60     		str	r2, [r3]	@ float
+ 362              	.L30:
+ 120:Src/pid.c     **** 		else if (*(pid->output) < pid->omin)
+ 121:Src/pid.c     **** 			*(pid->output) = pid->omin;
+ 122:Src/pid.c     **** 
+ 123:Src/pid.c     **** 		if (pid->iterm > pid->omax)
+ 363              		.loc 1 123 0
+ 364 002e D0ED087A 		vldr.32	s15, [r0, #32]
+ 365 0032 90ED077A 		vldr.32	s14, [r0, #28]
+ 366 0036 F4EEC77A 		vcmpe.f32	s15, s14
+ 367 003a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 368 003e 10DC     		bgt	.L41
+ 124:Src/pid.c     **** 			pid->iterm = pid->omax;
+ 125:Src/pid.c     **** 		else if (pid->iterm < pid->omin)
  369              		.loc 1 125 0
- 370 004e 80ED087A 		vstr.32	s14, [r0, #32]
- 371              	.L26:
- 126:Src/pid.c     **** 	}
- 127:Src/pid.c     **** }
- 372              		.loc 1 127 0
- 373 0052 7047     		bx	lr
- 374              	.L39:
- 119:Src/pid.c     **** 			*(pid->output) = pid->omin;
- 375              		.loc 1 119 0
- 376 0054 F4EEC76A 		vcmpe.f32	s13, s14
- 377 0058 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 378 005c E7D5     		bpl	.L30
- 120:Src/pid.c     **** 
- 379              		.loc 1 120 0
- 380 005e 1960     		str	r1, [r3]	@ float
- 381 0060 E5E7     		b	.L30
- 382              	.L41:
- 123:Src/pid.c     **** 		else if (pid->iterm < pid->omin)
- 383              		.loc 1 123 0
- 384 0062 80ED087A 		vstr.32	s14, [r0, #32]
- 385 0066 7047     		bx	lr
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 10
+ 370 0040 90ED067A 		vldr.32	s14, [r0, #24]
+ 371 0044 F4EEC77A 		vcmpe.f32	s15, s14
+ 372 0048 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 373 004c 01D5     		bpl	.L26
+ 126:Src/pid.c     **** 			pid->iterm = pid->omin;
+ 374              		.loc 1 126 0
+ 375 004e 80ED087A 		vstr.32	s14, [r0, #32]
+ 376              	.L26:
+ 127:Src/pid.c     **** 	}
+ 128:Src/pid.c     **** }
+ 377              		.loc 1 128 0
+ 378 0052 7047     		bx	lr
+ 379              	.L39:
+ 120:Src/pid.c     **** 			*(pid->output) = pid->omin;
+ 380              		.loc 1 120 0
+ 381 0054 F4EEC76A 		vcmpe.f32	s13, s14
+ 382 0058 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 383 005c E7D5     		bpl	.L30
+ 121:Src/pid.c     **** 
+ 384              		.loc 1 121 0
+ 385 005e 1960     		str	r1, [r3]	@ float
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 10
 
 
- 386              		.cfi_endproc
- 387              	.LFE131:
- 389              		.section	.text.pid_auto,"ax",%progbits
- 390              		.align	1
- 391              		.global	pid_auto
- 392              		.syntax unified
- 393              		.thumb
- 394              		.thumb_func
- 395              		.fpu fpv4-sp-d16
- 397              	pid_auto:
- 398              	.LFB132:
- 128:Src/pid.c     **** 
- 129:Src/pid.c     **** void pid_auto(p_pid_controller pid)
- 130:Src/pid.c     **** {
- 399              		.loc 1 130 0
- 400              		.cfi_startproc
- 401              		@ args = 0, pretend = 0, frame = 0
- 402              		@ frame_needed = 0, uses_anonymous_args = 0
- 403              		@ link register save eliminated.
- 404              	.LVL24:
- 131:Src/pid.c     **** 	// If going from manual to auto
- 132:Src/pid.c     **** 	if (!pid->automode) {
- 405              		.loc 1 132 0
- 406 0000 90F83030 		ldrb	r3, [r0, #48]	@ zero_extendqisi2
- 407 0004 9BB9     		cbnz	r3, .L42
- 133:Src/pid.c     **** 		pid->iterm = *(pid->output);
- 408              		.loc 1 133 0
- 409 0006 4368     		ldr	r3, [r0, #4]
- 410 0008 D3ED007A 		vldr.32	s15, [r3]
- 411 000c C0ED087A 		vstr.32	s15, [r0, #32]
- 134:Src/pid.c     **** 		pid->lastin = *(pid->input);
- 412              		.loc 1 134 0
- 413 0010 0368     		ldr	r3, [r0]
- 414 0012 1B68     		ldr	r3, [r3]	@ float
- 415 0014 4362     		str	r3, [r0, #36]	@ float
- 135:Src/pid.c     **** 		if (pid->iterm > pid->omax)
- 416              		.loc 1 135 0
- 417 0016 90ED077A 		vldr.32	s14, [r0, #28]
- 418 001a F4EEC77A 		vcmpe.f32	s15, s14
- 419 001e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 420 0022 05DD     		ble	.L50
- 136:Src/pid.c     **** 			pid->iterm = pid->omax;
+ 386 0060 E5E7     		b	.L30
+ 387              	.L41:
+ 124:Src/pid.c     **** 		else if (pid->iterm < pid->omin)
+ 388              		.loc 1 124 0
+ 389 0062 80ED087A 		vstr.32	s14, [r0, #32]
+ 390 0066 7047     		bx	lr
+ 391              		.cfi_endproc
+ 392              	.LFE131:
+ 394              		.section	.text.pid_auto,"ax",%progbits
+ 395              		.align	1
+ 396              		.global	pid_auto
+ 397              		.syntax unified
+ 398              		.thumb
+ 399              		.thumb_func
+ 400              		.fpu fpv4-sp-d16
+ 402              	pid_auto:
+ 403              	.LFB132:
+ 129:Src/pid.c     **** 
+ 130:Src/pid.c     **** void pid_auto(p_pid_controller pid)
+ 131:Src/pid.c     **** {
+ 404              		.loc 1 131 0
+ 405              		.cfi_startproc
+ 406              		@ args = 0, pretend = 0, frame = 0
+ 407              		@ frame_needed = 0, uses_anonymous_args = 0
+ 408              		@ link register save eliminated.
+ 409              	.LVL24:
+ 132:Src/pid.c     **** 	// If going from manual to auto
+ 133:Src/pid.c     **** 	if (!pid->automode) {
+ 410              		.loc 1 133 0
+ 411 0000 90F83030 		ldrb	r3, [r0, #48]	@ zero_extendqisi2
+ 412 0004 9BB9     		cbnz	r3, .L42
+ 134:Src/pid.c     **** 		pid->iterm = *(pid->output);
+ 413              		.loc 1 134 0
+ 414 0006 4368     		ldr	r3, [r0, #4]
+ 415 0008 D3ED007A 		vldr.32	s15, [r3]
+ 416 000c C0ED087A 		vstr.32	s15, [r0, #32]
+ 135:Src/pid.c     **** 		pid->lastin = *(pid->input);
+ 417              		.loc 1 135 0
+ 418 0010 0368     		ldr	r3, [r0]
+ 419 0012 1B68     		ldr	r3, [r3]	@ float
+ 420 0014 4362     		str	r3, [r0, #36]	@ float
+ 136:Src/pid.c     **** 		if (pid->iterm > pid->omax)
  421              		.loc 1 136 0
- 422 0024 80ED087A 		vstr.32	s14, [r0, #32]
- 423              	.L46:
- 137:Src/pid.c     **** 		else if (pid->iterm < pid->omin)
- 138:Src/pid.c     **** 			pid->iterm = pid->omin;
- 139:Src/pid.c     **** 		pid->automode = true;
- 424              		.loc 1 139 0
- 425 0028 0123     		movs	r3, #1
- 426 002a 80F83030 		strb	r3, [r0, #48]
- 427              	.L42:
- 140:Src/pid.c     **** 	}
- 141:Src/pid.c     **** }
- 428              		.loc 1 141 0
- 429 002e 7047     		bx	lr
- 430              	.L50:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 11
+ 422 0016 90ED077A 		vldr.32	s14, [r0, #28]
+ 423 001a F4EEC77A 		vcmpe.f32	s15, s14
+ 424 001e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 425 0022 05DD     		ble	.L50
+ 137:Src/pid.c     **** 			pid->iterm = pid->omax;
+ 426              		.loc 1 137 0
+ 427 0024 80ED087A 		vstr.32	s14, [r0, #32]
+ 428              	.L46:
+ 138:Src/pid.c     **** 		else if (pid->iterm < pid->omin)
+ 139:Src/pid.c     **** 			pid->iterm = pid->omin;
+ 140:Src/pid.c     **** 		pid->automode = true;
+ 429              		.loc 1 140 0
+ 430 0028 0123     		movs	r3, #1
+ 431 002a 80F83030 		strb	r3, [r0, #48]
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 11
 
 
- 137:Src/pid.c     **** 		else if (pid->iterm < pid->omin)
- 431              		.loc 1 137 0
- 432 0030 90ED067A 		vldr.32	s14, [r0, #24]
- 433 0034 F4EEC77A 		vcmpe.f32	s15, s14
- 434 0038 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 435 003c F4D5     		bpl	.L46
- 138:Src/pid.c     **** 		pid->automode = true;
+ 432              	.L42:
+ 141:Src/pid.c     **** 	}
+ 142:Src/pid.c     **** }
+ 433              		.loc 1 142 0
+ 434 002e 7047     		bx	lr
+ 435              	.L50:
+ 138:Src/pid.c     **** 		else if (pid->iterm < pid->omin)
  436              		.loc 1 138 0
- 437 003e 80ED087A 		vstr.32	s14, [r0, #32]
- 438 0042 F1E7     		b	.L46
- 439              		.cfi_endproc
- 440              	.LFE132:
- 442              		.section	.text.pid_manual,"ax",%progbits
- 443              		.align	1
- 444              		.global	pid_manual
- 445              		.syntax unified
- 446              		.thumb
- 447              		.thumb_func
- 448              		.fpu fpv4-sp-d16
- 450              	pid_manual:
- 451              	.LFB133:
- 142:Src/pid.c     **** 
- 143:Src/pid.c     **** void pid_manual(p_pid_controller pid)
- 144:Src/pid.c     **** {
- 452              		.loc 1 144 0
- 453              		.cfi_startproc
- 454              		@ args = 0, pretend = 0, frame = 0
- 455              		@ frame_needed = 0, uses_anonymous_args = 0
- 456              		@ link register save eliminated.
- 457              	.LVL25:
- 145:Src/pid.c     **** 	pid->automode = false;
- 458              		.loc 1 145 0
- 459 0000 0023     		movs	r3, #0
- 460 0002 80F83030 		strb	r3, [r0, #48]
- 146:Src/pid.c     **** }
- 461              		.loc 1 146 0
- 462 0006 7047     		bx	lr
- 463              		.cfi_endproc
- 464              	.LFE133:
- 466              		.section	.text.pid_direction,"ax",%progbits
- 467              		.align	1
- 468              		.global	pid_direction
- 469              		.syntax unified
- 470              		.thumb
- 471              		.thumb_func
- 472              		.fpu fpv4-sp-d16
- 474              	pid_direction:
- 475              	.LFB134:
- 147:Src/pid.c     **** 
- 148:Src/pid.c     **** void pid_direction(p_pid_controller pid, enum pid_control_directions dir)
- 149:Src/pid.c     **** {
- 476              		.loc 1 149 0
- 477              		.cfi_startproc
- 478              		@ args = 0, pretend = 0, frame = 0
- 479              		@ frame_needed = 0, uses_anonymous_args = 0
- 480              		@ link register save eliminated.
- 481              	.LVL26:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 12
+ 437 0030 90ED067A 		vldr.32	s14, [r0, #24]
+ 438 0034 F4EEC77A 		vcmpe.f32	s15, s14
+ 439 0038 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 440 003c F4D5     		bpl	.L46
+ 139:Src/pid.c     **** 		pid->automode = true;
+ 441              		.loc 1 139 0
+ 442 003e 80ED087A 		vstr.32	s14, [r0, #32]
+ 443 0042 F1E7     		b	.L46
+ 444              		.cfi_endproc
+ 445              	.LFE132:
+ 447              		.section	.text.pid_manual,"ax",%progbits
+ 448              		.align	1
+ 449              		.global	pid_manual
+ 450              		.syntax unified
+ 451              		.thumb
+ 452              		.thumb_func
+ 453              		.fpu fpv4-sp-d16
+ 455              	pid_manual:
+ 456              	.LFB133:
+ 143:Src/pid.c     **** 
+ 144:Src/pid.c     **** void pid_manual(p_pid_controller pid)
+ 145:Src/pid.c     **** {
+ 457              		.loc 1 145 0
+ 458              		.cfi_startproc
+ 459              		@ args = 0, pretend = 0, frame = 0
+ 460              		@ frame_needed = 0, uses_anonymous_args = 0
+ 461              		@ link register save eliminated.
+ 462              	.LVL25:
+ 146:Src/pid.c     **** 	pid->automode = false;
+ 463              		.loc 1 146 0
+ 464 0000 0023     		movs	r3, #0
+ 465 0002 80F83030 		strb	r3, [r0, #48]
+ 147:Src/pid.c     **** }
+ 466              		.loc 1 147 0
+ 467 0006 7047     		bx	lr
+ 468              		.cfi_endproc
+ 469              	.LFE133:
+ 471              		.section	.text.pid_direction,"ax",%progbits
+ 472              		.align	1
+ 473              		.global	pid_direction
+ 474              		.syntax unified
+ 475              		.thumb
+ 476              		.thumb_func
+ 477              		.fpu fpv4-sp-d16
+ 479              	pid_direction:
+ 480              	.LFB134:
+ 148:Src/pid.c     **** 
+ 149:Src/pid.c     **** void pid_direction(p_pid_controller pid, enum pid_control_directions dir)
+ 150:Src/pid.c     **** {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 12
 
 
- 150:Src/pid.c     **** 	if (pid->automode && pid->direction != dir) {
- 482              		.loc 1 150 0
- 483 0000 90F83030 		ldrb	r3, [r0, #48]	@ zero_extendqisi2
- 484 0004 BBB1     		cbz	r3, .L53
- 485              		.loc 1 150 0 is_stmt 0 discriminator 1
- 486 0006 90F83130 		ldrb	r3, [r0, #49]	@ zero_extendqisi2
- 487 000a 8B42     		cmp	r3, r1
- 488 000c 13D0     		beq	.L53
- 151:Src/pid.c     **** 		pid->Kp = (0 - pid->Kp);
- 489              		.loc 1 151 0 is_stmt 1
- 490 000e 90ED037A 		vldr.32	s14, [r0, #12]
- 491 0012 DFED0A7A 		vldr.32	s15, .L54
- 492 0016 37EEC77A 		vsub.f32	s14, s15, s14
- 493 001a 80ED037A 		vstr.32	s14, [r0, #12]
- 152:Src/pid.c     **** 		pid->Ki = (0 - pid->Ki);
- 494              		.loc 1 152 0
- 495 001e 90ED047A 		vldr.32	s14, [r0, #16]
- 496 0022 37EEC77A 		vsub.f32	s14, s15, s14
- 497 0026 80ED047A 		vstr.32	s14, [r0, #16]
- 153:Src/pid.c     **** 		pid->Kd = (0 - pid->Kd);
- 498              		.loc 1 153 0
- 499 002a 90ED057A 		vldr.32	s14, [r0, #20]
- 500 002e 77EEC77A 		vsub.f32	s15, s15, s14
- 501 0032 C0ED057A 		vstr.32	s15, [r0, #20]
- 502              	.L53:
- 154:Src/pid.c     **** 	}
- 155:Src/pid.c     **** 	pid->direction = dir;
- 503              		.loc 1 155 0
- 504 0036 80F83110 		strb	r1, [r0, #49]
- 156:Src/pid.c     **** }
- 505              		.loc 1 156 0
- 506 003a 7047     		bx	lr
- 507              	.L55:
- 508              		.align	2
- 509              	.L54:
- 510 003c 00000000 		.word	0
- 511              		.cfi_endproc
- 512              	.LFE134:
- 514              		.section	.text.pid_create,"ax",%progbits
- 515              		.align	1
- 516              		.global	pid_create
- 517              		.syntax unified
- 518              		.thumb
- 519              		.thumb_func
- 520              		.fpu fpv4-sp-d16
- 522              	pid_create:
- 523              	.LFB126:
+ 481              		.loc 1 150 0
+ 482              		.cfi_startproc
+ 483              		@ args = 0, pretend = 0, frame = 0
+ 484              		@ frame_needed = 0, uses_anonymous_args = 0
+ 485              		@ link register save eliminated.
+ 486              	.LVL26:
+ 151:Src/pid.c     **** 	if (pid->automode && pid->direction != dir) {
+ 487              		.loc 1 151 0
+ 488 0000 90F83030 		ldrb	r3, [r0, #48]	@ zero_extendqisi2
+ 489 0004 BBB1     		cbz	r3, .L53
+ 490              		.loc 1 151 0 is_stmt 0 discriminator 1
+ 491 0006 90F83130 		ldrb	r3, [r0, #49]	@ zero_extendqisi2
+ 492 000a 8B42     		cmp	r3, r1
+ 493 000c 13D0     		beq	.L53
+ 152:Src/pid.c     **** 		pid->Kp = (0 - pid->Kp);
+ 494              		.loc 1 152 0 is_stmt 1
+ 495 000e 90ED037A 		vldr.32	s14, [r0, #12]
+ 496 0012 DFED0A7A 		vldr.32	s15, .L54
+ 497 0016 37EEC77A 		vsub.f32	s14, s15, s14
+ 498 001a 80ED037A 		vstr.32	s14, [r0, #12]
+ 153:Src/pid.c     **** 		pid->Ki = (0 - pid->Ki);
+ 499              		.loc 1 153 0
+ 500 001e 90ED047A 		vldr.32	s14, [r0, #16]
+ 501 0022 37EEC77A 		vsub.f32	s14, s15, s14
+ 502 0026 80ED047A 		vstr.32	s14, [r0, #16]
+ 154:Src/pid.c     **** 		pid->Kd = (0 - pid->Kd);
+ 503              		.loc 1 154 0
+ 504 002a 90ED057A 		vldr.32	s14, [r0, #20]
+ 505 002e 77EEC77A 		vsub.f32	s15, s15, s14
+ 506 0032 C0ED057A 		vstr.32	s15, [r0, #20]
+ 507              	.L53:
+ 155:Src/pid.c     **** 	}
+ 156:Src/pid.c     **** 	pid->direction = dir;
+ 508              		.loc 1 156 0
+ 509 0036 80F83110 		strb	r1, [r0, #49]
+ 157:Src/pid.c     **** }
+ 510              		.loc 1 157 0
+ 511 003a 7047     		bx	lr
+ 512              	.L55:
+ 513              		.align	2
+ 514              	.L54:
+ 515 003c 00000000 		.word	0
+ 516              		.cfi_endproc
+ 517              	.LFE134:
+ 519              		.section	.text.pid_create,"ax",%progbits
+ 520              		.align	1
+ 521              		.global	pid_create
+ 522              		.syntax unified
+ 523              		.thumb
+ 524              		.thumb_func
+ 525              		.fpu fpv4-sp-d16
+ 527              	pid_create:
+ 528              	.LFB126:
   23:Src/pid.c     **** 	pid->input = in;
- 524              		.loc 1 23 0
- 525              		.cfi_startproc
- 526              		@ args = 12, pretend = 0, frame = 0
- 527              		@ frame_needed = 0, uses_anonymous_args = 0
- 528              	.LVL27:
- 529 0000 38B5     		push	{r3, r4, r5, lr}
- 530              	.LCFI8:
- 531              		.cfi_def_cfa_offset 16
- 532              		.cfi_offset 3, -16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 13
+ 529              		.loc 1 23 0
+ 530              		.cfi_startproc
+ 531              		@ args = 12, pretend = 0, frame = 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 13
 
 
- 533              		.cfi_offset 4, -12
- 534              		.cfi_offset 5, -8
- 535              		.cfi_offset 14, -4
- 536 0002 0446     		mov	r4, r0
+ 532              		@ frame_needed = 0, uses_anonymous_args = 0
+ 533              	.LVL27:
+ 534 0000 38B5     		push	{r3, r4, r5, lr}
+ 535              	.LCFI8:
+ 536              		.cfi_def_cfa_offset 16
+ 537              		.cfi_offset 3, -16
+ 538              		.cfi_offset 4, -12
+ 539              		.cfi_offset 5, -8
+ 540              		.cfi_offset 14, -4
+ 541 0002 0446     		mov	r4, r0
   24:Src/pid.c     **** 	pid->output = out;
- 537              		.loc 1 24 0
- 538 0004 0160     		str	r1, [r0]
+ 542              		.loc 1 24 0
+ 543 0004 0160     		str	r1, [r0]
   25:Src/pid.c     **** 	pid->setpoint = set;
- 539              		.loc 1 25 0
- 540 0006 4260     		str	r2, [r0, #4]
+ 544              		.loc 1 25 0
+ 545 0006 4260     		str	r2, [r0, #4]
   26:Src/pid.c     **** 	pid->automode = false;
- 541              		.loc 1 26 0
- 542 0008 8360     		str	r3, [r0, #8]
+ 546              		.loc 1 26 0
+ 547 0008 8360     		str	r3, [r0, #8]
   27:Src/pid.c     **** 
- 543              		.loc 1 27 0
- 544 000a 0025     		movs	r5, #0
- 545 000c 80F83050 		strb	r5, [r0, #48]
+ 548              		.loc 1 27 0
+ 549 000a 0025     		movs	r5, #0
+ 550 000c 80F83050 		strb	r5, [r0, #48]
   29:Src/pid.c     **** 
- 546              		.loc 1 29 0
- 547 0010 0B4A     		ldr	r2, .L58
- 548              	.LVL28:
- 549 0012 0021     		movs	r1, #0
- 550              	.LVL29:
- 551 0014 FFF7FEFF 		bl	pid_limits
- 552              	.LVL30:
+ 551              		.loc 1 29 0
+ 552 0010 0B4A     		ldr	r2, .L58
+ 553              	.LVL28:
+ 554 0012 0021     		movs	r1, #0
+ 555              	.LVL29:
+ 556 0014 FFF7FEFF 		bl	pid_limits
+ 557              	.LVL30:
   32:Src/pid.c     **** 
- 553              		.loc 1 32 0
- 554 0018 0A23     		movs	r3, #10
- 555 001a E362     		str	r3, [r4, #44]
+ 558              		.loc 1 32 0
+ 559 0018 0A23     		movs	r3, #10
+ 560 001a E362     		str	r3, [r4, #44]
   34:Src/pid.c     **** 	pid_tune(pid, kp, ki, kd);
- 556              		.loc 1 34 0
- 557 001c 2946     		mov	r1, r5
- 558 001e 2046     		mov	r0, r4
- 559 0020 FFF7FEFF 		bl	pid_direction
- 560              	.LVL31:
+ 561              		.loc 1 34 0
+ 562 001c 2946     		mov	r1, r5
+ 563 001e 2046     		mov	r0, r4
+ 564 0020 FFF7FEFF 		bl	pid_direction
+ 565              	.LVL31:
   35:Src/pid.c     **** 
- 561              		.loc 1 35 0
- 562 0024 069B     		ldr	r3, [sp, #24]	@ float
- 563 0026 059A     		ldr	r2, [sp, #20]	@ float
- 564 0028 0499     		ldr	r1, [sp, #16]	@ float
- 565 002a 2046     		mov	r0, r4
- 566 002c FFF7FEFF 		bl	pid_tune
- 567              	.LVL32:
+ 566              		.loc 1 35 0
+ 567 0024 069B     		ldr	r3, [sp, #24]	@ float
+ 568 0026 059A     		ldr	r2, [sp, #20]	@ float
+ 569 0028 0499     		ldr	r1, [sp, #16]	@ float
+ 570 002a 2046     		mov	r0, r4
+ 571 002c FFF7FEFF 		bl	pid_tune
+ 572              	.LVL32:
   37:Src/pid.c     **** 
- 568              		.loc 1 37 0
- 569 0030 FFF7FEFF 		bl	HAL_GetTick
- 570              	.LVL33:
- 571 0034 E36A     		ldr	r3, [r4, #44]
- 572 0036 C01A     		subs	r0, r0, r3
- 573 0038 A062     		str	r0, [r4, #40]
+ 573              		.loc 1 37 0
+ 574 0030 FFF7FEFF 		bl	HAL_GetTick
+ 575              	.LVL33:
+ 576 0034 E36A     		ldr	r3, [r4, #44]
+ 577 0036 C01A     		subs	r0, r0, r3
+ 578 0038 A062     		str	r0, [r4, #40]
   40:Src/pid.c     **** 
- 574              		.loc 1 40 0
- 575 003a 2046     		mov	r0, r4
- 576 003c 38BD     		pop	{r3, r4, r5, pc}
- 577              	.LVL34:
- 578              	.L59:
- 579 003e 00BF     		.align	2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 14
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 14
 
 
- 580              	.L58:
- 581 0040 00007F43 		.word	1132396544
- 582              		.cfi_endproc
- 583              	.LFE126:
- 585              		.section	.text.pid_reset,"ax",%progbits
- 586              		.align	1
- 587              		.global	pid_reset
- 588              		.syntax unified
- 589              		.thumb
- 590              		.thumb_func
- 591              		.fpu fpv4-sp-d16
- 593              	pid_reset:
- 594              	.LFB135:
- 157:Src/pid.c     **** 
- 158:Src/pid.c     **** void pid_reset(p_pid_controller pid)
- 159:Src/pid.c     **** {
- 595              		.loc 1 159 0
- 596              		.cfi_startproc
- 597              		@ args = 0, pretend = 0, frame = 0
- 598              		@ frame_needed = 0, uses_anonymous_args = 0
- 599              		@ link register save eliminated.
- 600              	.LVL35:
- 160:Src/pid.c     **** 	pid->iterm = 0;
- 601              		.loc 1 160 0
- 602 0000 0023     		movs	r3, #0
- 603 0002 0362     		str	r3, [r0, #32]	@ float
- 161:Src/pid.c     **** }...
- 604              		.loc 1 161 0
- 605 0004 7047     		bx	lr
- 606              		.cfi_endproc
- 607              	.LFE135:
- 609              		.section	.rodata.pid_compute.str1.4,"aMS",%progbits,1
- 610              		.align	2
- 611              	.LC0:
- 612 0000 6572726F 		.ascii	"error=%d, iterm=%d, dinput=%d, out=%d\012\000"
- 612      723D2564 
- 612      2C206974 
- 612      65726D3D 
- 612      25642C20 
- 613              		.text
- 614              	.Letext0:
- 615              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 616              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 617              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
- 618              		.file 5 "Inc/system_at32f4xx.h"
- 619              		.file 6 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
- 620              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 621              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
- 622              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 623              		.file 10 "Inc/pid.h"
- 624              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
- 625              		.file 12 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s 			page 15
+ 579              		.loc 1 40 0
+ 580 003a 2046     		mov	r0, r4
+ 581 003c 38BD     		pop	{r3, r4, r5, pc}
+ 582              	.LVL34:
+ 583              	.L59:
+ 584 003e 00BF     		.align	2
+ 585              	.L58:
+ 586 0040 00007F43 		.word	1132396544
+ 587              		.cfi_endproc
+ 588              	.LFE126:
+ 590              		.section	.text.pid_reset,"ax",%progbits
+ 591              		.align	1
+ 592              		.global	pid_reset
+ 593              		.syntax unified
+ 594              		.thumb
+ 595              		.thumb_func
+ 596              		.fpu fpv4-sp-d16
+ 598              	pid_reset:
+ 599              	.LFB135:
+ 158:Src/pid.c     **** 
+ 159:Src/pid.c     **** void pid_reset(p_pid_controller pid)
+ 160:Src/pid.c     **** {
+ 600              		.loc 1 160 0
+ 601              		.cfi_startproc
+ 602              		@ args = 0, pretend = 0, frame = 0
+ 603              		@ frame_needed = 0, uses_anonymous_args = 0
+ 604              		@ link register save eliminated.
+ 605              	.LVL35:
+ 161:Src/pid.c     **** 	pid->iterm = 0;
+ 606              		.loc 1 161 0
+ 607 0000 0023     		movs	r3, #0
+ 608 0002 0362     		str	r3, [r0, #32]	@ float
+ 162:Src/pid.c     **** }...
+ 609              		.loc 1 162 0
+ 610 0004 7047     		bx	lr
+ 611              		.cfi_endproc
+ 612              	.LFE135:
+ 614              		.section	.rodata.pid_compute.str1.4,"aMS",%progbits,1
+ 615              		.align	2
+ 616              	.LC0:
+ 617 0000 7365743D 		.ascii	"set=%d,in=%d,error=%d, iterm=%d, dinput=%d, out=%d\012"
+ 617      25642C69 
+ 617      6E3D2564 
+ 617      2C657272 
+ 617      6F723D25 
+ 618 0033 00       		.ascii	"\000"
+ 619              		.text
+ 620              	.Letext0:
+ 621              		.file 2 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 622              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 623              		.file 4 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 624              		.file 5 "Inc/system_at32f4xx.h"
+ 625              		.file 6 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 626              		.file 7 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 627              		.file 8 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h
+ 628              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 629              		.file 10 "Inc/pid.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 15
+
+
+ 630              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/stdio.h"
+ 631              		.file 12 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 pid.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:17     .text.pid_need_compute:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:24     .text.pid_need_compute:0000000000000000 pid_need_compute
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:54     .text.pid_compute:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:61     .text.pid_compute:0000000000000000 pid_compute
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:196    .text.pid_compute:00000000000000e0 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:201    .text.pid_tune:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:208    .text.pid_tune:0000000000000000 pid_tune
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:271    .text.pid_tune:0000000000000074 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:277    .text.pid_sample:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:284    .text.pid_sample:0000000000000000 pid_sample
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:321    .text.pid_limits:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:328    .text.pid_limits:0000000000000000 pid_limits
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:390    .text.pid_auto:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:397    .text.pid_auto:0000000000000000 pid_auto
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:443    .text.pid_manual:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:450    .text.pid_manual:0000000000000000 pid_manual
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:467    .text.pid_direction:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:474    .text.pid_direction:0000000000000000 pid_direction
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:510    .text.pid_direction:000000000000003c $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:515    .text.pid_create:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:522    .text.pid_create:0000000000000000 pid_create
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:581    .text.pid_create:0000000000000040 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:586    .text.pid_reset:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:593    .text.pid_reset:0000000000000000 pid_reset
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccHujFOT.s:610    .rodata.pid_compute.str1.4:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:17     .text.pid_need_compute:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:24     .text.pid_need_compute:0000000000000000 pid_need_compute
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:54     .text.pid_compute:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:61     .text.pid_compute:0000000000000000 pid_compute
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:201    .text.pid_compute:00000000000000f4 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:206    .text.pid_tune:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:213    .text.pid_tune:0000000000000000 pid_tune
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:276    .text.pid_tune:0000000000000074 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:282    .text.pid_sample:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:289    .text.pid_sample:0000000000000000 pid_sample
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:326    .text.pid_limits:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:333    .text.pid_limits:0000000000000000 pid_limits
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:395    .text.pid_auto:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:402    .text.pid_auto:0000000000000000 pid_auto
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:448    .text.pid_manual:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:455    .text.pid_manual:0000000000000000 pid_manual
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:472    .text.pid_direction:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:479    .text.pid_direction:0000000000000000 pid_direction
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:515    .text.pid_direction:000000000000003c $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:520    .text.pid_create:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:527    .text.pid_create:0000000000000000 pid_create
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:586    .text.pid_create:0000000000000040 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:591    .text.pid_reset:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:598    .text.pid_reset:0000000000000000 pid_reset
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccs4iXaX.s:615    .rodata.pid_compute.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GetTick

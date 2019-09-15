@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 1
   30:Src/motorcontrol.c **** 
   31:Src/motorcontrol.c **** int hall_pin_order[7];
   32:Src/motorcontrol.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 2
 
 
   33:Src/motorcontrol.c **** //static const uint16_t pwm_res       = 64000000 / 2 / PWM_FREQ; // = 2000
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 1
   51 0014 E361     		str	r3, [r4, #28]
   63:Src/motorcontrol.c ****   wheel_posn[motor].millis_at_prev_tick = 0; //time at previous to last tick
   52              		.loc 1 63 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 3
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 3
 
 
   53 0016 2362     		str	r3, [r4, #32]
@@ -139,68 +139,72 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 1
   66 0020 00000000 		.word	wheel_posn
   67              		.cfi_endproc
   68              	.LFE126:
-  70              		.global	__aeabi_ui2d
+  70              		.global	__aeabi_i2d
   71              		.global	__aeabi_ddiv
-  72              		.global	__aeabi_d2f
-  73              		.section	.text.motor_counter_increment,"ax",%progbits
-  74              		.align	1
-  75              		.global	motor_counter_increment
-  76              		.syntax unified
-  77              		.thumb
-  78              		.thumb_func
-  79              		.fpu fpv4-sp-d16
-  81              	motor_counter_increment:
-  82              	.LFB127:
+  72              		.global	__aeabi_ui2d
+  73              		.global	__aeabi_dmul
+  74              		.global	__aeabi_d2f
+  75              		.section	.text.motor_counter_increment,"ax",%progbits
+  76              		.align	1
+  77              		.global	motor_counter_increment
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  81              		.fpu fpv4-sp-d16
+  83              	motor_counter_increment:
+  84              	.LFB127:
   66:Src/motorcontrol.c **** 
   67:Src/motorcontrol.c **** void motor_counter_increment(uint8_t motor)
   68:Src/motorcontrol.c **** {
-  83              		.loc 1 68 0
-  84              		.cfi_startproc
-  85              		@ args = 0, pretend = 0, frame = 0
-  86              		@ frame_needed = 0, uses_anonymous_args = 0
-  87              	.LVL1:
-  88 0000 38B5     		push	{r3, r4, r5, lr}
-  89              	.LCFI2:
-  90              		.cfi_def_cfa_offset 16
-  91              		.cfi_offset 3, -16
-  92              		.cfi_offset 4, -12
-  93              		.cfi_offset 5, -8
-  94              		.cfi_offset 14, -4
-  95 0002 0446     		mov	r4, r0
+  85              		.loc 1 68 0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89              	.LVL1:
+  90 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  91              	.LCFI2:
+  92              		.cfi_def_cfa_offset 24
+  93              		.cfi_offset 3, -24
+  94              		.cfi_offset 4, -20
+  95              		.cfi_offset 5, -16
+  96              		.cfi_offset 6, -12
+  97              		.cfi_offset 7, -8
+  98              		.cfi_offset 14, -4
+  99 0002 0446     		mov	r4, r0
   69:Src/motorcontrol.c ****   wheel_posn[motor].millis_at_prev_tick = wheel_posn[motor].millis_at_tick;
-  96              		.loc 1 69 0
-  97 0004 8300     		lsls	r3, r0, #2
-  98 0006 0344     		add	r3, r3, r0
-  99 0008 DA00     		lsls	r2, r3, #3
- 100 000a 454D     		ldr	r5, .L18+8
- 101 000c 1544     		add	r5, r5, r2
- 102 000e EB69     		ldr	r3, [r5, #28]
- 103 0010 2B62     		str	r3, [r5, #32]
+ 100              		.loc 1 69 0
+ 101 0004 8300     		lsls	r3, r0, #2
+ 102 0006 0344     		add	r3, r3, r0
+ 103 0008 DA00     		lsls	r2, r3, #3
+ 104 000a 494D     		ldr	r5, .L17
+ 105 000c 1544     		add	r5, r5, r2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 4
+
+
+ 106 000e EB69     		ldr	r3, [r5, #28]
+ 107 0010 2B62     		str	r3, [r5, #32]
   70:Src/motorcontrol.c ****   wheel_posn[motor].millis_at_tick = HAL_GetTick();
- 104              		.loc 1 70 0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 4
-
-
- 105 0012 FFF7FEFF 		bl	HAL_GetTick
- 106              	.LVL2:
- 107 0016 E861     		str	r0, [r5, #28]
+ 108              		.loc 1 70 0
+ 109 0012 FFF7FEFF 		bl	HAL_GetTick
+ 110              	.LVL2:
+ 111 0016 E861     		str	r0, [r5, #28]
   71:Src/motorcontrol.c ****   //Find out the direction of motion and #o ticks moved since prev reading
   72:Src/motorcontrol.c ****   int posn = hall_pin_order[wheel_posn[motor].hall];
- 108              		.loc 1 72 0
- 109 0018 AA68     		ldr	r2, [r5, #8]
- 110 001a 424B     		ldr	r3, .L18+12
- 111 001c 53F82220 		ldr	r2, [r3, r2, lsl #2]
- 112              	.LVL3:
+ 112              		.loc 1 72 0
+ 113 0018 AA68     		ldr	r2, [r5, #8]
+ 114 001a 464B     		ldr	r3, .L17+4
+ 115 001c 53F82220 		ldr	r2, [r3, r2, lsl #2]
+ 116              	.LVL3:
   73:Src/motorcontrol.c ****   int prev_posn = hall_pin_order[wheel_posn[motor].prev_hall];
- 113              		.loc 1 73 0
- 114 0020 E968     		ldr	r1, [r5, #12]
- 115 0022 53F82130 		ldr	r3, [r3, r1, lsl #2]
- 116              	.LVL4:
+ 117              		.loc 1 73 0
+ 118 0020 E968     		ldr	r1, [r5, #12]
+ 119 0022 53F82130 		ldr	r3, [r3, r1, lsl #2]
+ 120              	.LVL4:
   74:Src/motorcontrol.c ****   //Initialize first tick
   75:Src/motorcontrol.c ****   if(prev_posn < 0)
- 117              		.loc 1 75 0
- 118 0026 002B     		cmp	r3, #0
- 119 0028 11DB     		blt	.L14
+ 121              		.loc 1 75 0
+ 122 0026 002B     		cmp	r3, #0
+ 123 0028 11DB     		blt	.L14
   76:Src/motorcontrol.c ****   {
   77:Src/motorcontrol.c ****     wheel_posn[motor].ticks = 0;
   78:Src/motorcontrol.c ****   }
@@ -208,61 +212,61 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 1
   80:Src/motorcontrol.c ****   {
   81:Src/motorcontrol.c ****     //We assume we won't skip more than 1 tick so we can device direction based on ticks
   82:Src/motorcontrol.c ****     if(posn-prev_posn > 0 && posn-prev_posn <= 2)
- 120              		.loc 1 82 0
- 121 002a D11A     		subs	r1, r2, r3
- 122 002c 481E     		subs	r0, r1, #1
- 123 002e 0128     		cmp	r0, #1
- 124 0030 10D9     		bls	.L15
+ 124              		.loc 1 82 0
+ 125 002a D11A     		subs	r1, r2, r3
+ 126 002c 481E     		subs	r0, r1, #1
+ 127 002e 0128     		cmp	r0, #1
+ 128 0030 10D9     		bls	.L15
   83:Src/motorcontrol.c ****     {
   84:Src/motorcontrol.c ****       wheel_posn[motor].ticks += posn-prev_posn; //because we may move more than 1 tick.
   85:Src/motorcontrol.c ****     }
   86:Src/motorcontrol.c ****     else if(posn-prev_posn < -2)
- 125              		.loc 1 86 0
- 126 0032 11F1020F 		cmn	r1, #2
- 127 0036 51DA     		bge	.L10
+ 129              		.loc 1 86 0
+ 130 0032 11F1020F 		cmn	r1, #2
+ 131 0036 65DA     		bge	.L10
   87:Src/motorcontrol.c ****     {
   88:Src/motorcontrol.c ****       wheel_posn[motor].ticks += 6 + posn-prev_posn;
- 128              		.loc 1 88 0
- 129 0038 A000     		lsls	r0, r4, #2
- 130 003a 2044     		add	r0, r0, r4
- 131 003c C500     		lsls	r5, r0, #3
- 132 003e 3849     		ldr	r1, .L18+8
- 133 0040 2944     		add	r1, r1, r5
- 134 0042 4869     		ldr	r0, [r1, #20]
- 135 0044 0632     		adds	r2, r2, #6
- 136              	.LVL5:
- 137 0046 D31A     		subs	r3, r2, r3
- 138              	.LVL6:
- 139 0048 0344     		add	r3, r3, r0
- 140 004a 4B61     		str	r3, [r1, #20]
- 141 004c 0AE0     		b	.L9
- 142              	.LVL7:
- 143              	.L14:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 5
+ 132              		.loc 1 88 0
+ 133 0038 A000     		lsls	r0, r4, #2
+ 134 003a 2044     		add	r0, r0, r4
+ 135 003c C500     		lsls	r5, r0, #3
+ 136 003e 3C49     		ldr	r1, .L17
+ 137 0040 2944     		add	r1, r1, r5
+ 138 0042 4869     		ldr	r0, [r1, #20]
+ 139 0044 0632     		adds	r2, r2, #6
+ 140              	.LVL5:
+ 141 0046 D31A     		subs	r3, r2, r3
+ 142              	.LVL6:
+ 143 0048 0344     		add	r3, r3, r0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 5
 
 
+ 144 004a 4B61     		str	r3, [r1, #20]
+ 145 004c 0AE0     		b	.L9
+ 146              	.LVL7:
+ 147              	.L14:
   77:Src/motorcontrol.c ****   }
- 144              		.loc 1 77 0
- 145 004e 0022     		movs	r2, #0
- 146              	.LVL8:
- 147 0050 6A61     		str	r2, [r5, #20]
- 148 0052 39E0     		b	.L7
- 149              	.LVL9:
- 150              	.L15:
+ 148              		.loc 1 77 0
+ 149 004e 0022     		movs	r2, #0
+ 150              	.LVL8:
+ 151 0050 6A61     		str	r2, [r5, #20]
+ 152 0052 4DE0     		b	.L7
+ 153              	.LVL9:
+ 154              	.L15:
   84:Src/motorcontrol.c ****     }
- 151              		.loc 1 84 0
- 152 0054 A200     		lsls	r2, r4, #2
- 153              	.LVL10:
- 154 0056 2244     		add	r2, r2, r4
- 155 0058 D000     		lsls	r0, r2, #3
- 156 005a 314B     		ldr	r3, .L18+8
- 157              	.LVL11:
- 158 005c 0344     		add	r3, r3, r0
- 159 005e 5A69     		ldr	r2, [r3, #20]
- 160 0060 1144     		add	r1, r1, r2
- 161 0062 5961     		str	r1, [r3, #20]
- 162              	.L9:
- 163              	.LBB2:
+ 155              		.loc 1 84 0
+ 156 0054 A200     		lsls	r2, r4, #2
+ 157              	.LVL10:
+ 158 0056 2244     		add	r2, r2, r4
+ 159 0058 D000     		lsls	r0, r2, #3
+ 160 005a 354B     		ldr	r3, .L17
+ 161              	.LVL11:
+ 162 005c 0344     		add	r3, r3, r0
+ 163 005e 5A69     		ldr	r2, [r3, #20]
+ 164 0060 1144     		add	r1, r1, r2
+ 165 0062 5961     		str	r1, [r3, #20]
+ 166              	.L9:
+ 167              	.LBB2:
   89:Src/motorcontrol.c ****     }
   90:Src/motorcontrol.c ****     else if(posn-prev_posn < 0 && posn-prev_posn >= -2)
   91:Src/motorcontrol.c ****     {
@@ -272,96 +276,119 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 1
   95:Src/motorcontrol.c ****     {
   96:Src/motorcontrol.c ****       wheel_posn[motor].ticks += posn-prev_posn - 6;
   97:Src/motorcontrol.c ****     }
-  98:Src/motorcontrol.c ****     //See if we finished a rotation 
-  99:Src/motorcontrol.c ****     if(abs(wheel_posn[motor].ticks -  wheel_posn[motor].ticks_at_prev_rotation) >= 90)
- 164              		.loc 1 99 0
- 165 0064 A300     		lsls	r3, r4, #2
- 166 0066 2344     		add	r3, r3, r4
- 167 0068 D900     		lsls	r1, r3, #3
- 168 006a 2D4A     		ldr	r2, .L18+8
- 169 006c 0A44     		add	r2, r2, r1
- 170 006e 5369     		ldr	r3, [r2, #20]
- 171 0070 9269     		ldr	r2, [r2, #24]
- 172 0072 9B1A     		subs	r3, r3, r2
- 173 0074 002B     		cmp	r3, #0
- 174 0076 B8BF     		it	lt
- 175 0078 5B42     		rsblt	r3, r3, #0
- 176 007a 592B     		cmp	r3, #89
- 177 007c 24DD     		ble	.L7
+  98:Src/motorcontrol.c ****     //See if we finished a 1/10th rotation 
+  99:Src/motorcontrol.c ****     if(abs(wheel_posn[motor].ticks -  wheel_posn[motor].ticks_at_prev_rotation) >= 4)
+ 168              		.loc 1 99 0
+ 169 0064 A300     		lsls	r3, r4, #2
+ 170 0066 2344     		add	r3, r3, r4
+ 171 0068 D900     		lsls	r1, r3, #3
+ 172 006a 314A     		ldr	r2, .L17
+ 173 006c 0A44     		add	r2, r2, r1
+ 174 006e 5369     		ldr	r3, [r2, #20]
+ 175 0070 9269     		ldr	r2, [r2, #24]
+ 176 0072 9B1A     		subs	r3, r3, r2
+ 177 0074 002B     		cmp	r3, #0
+ 178 0076 B8BF     		it	lt
+ 179 0078 5B42     		rsblt	r3, r3, #0
+ 180 007a 032B     		cmp	r3, #3
+ 181 007c 38DD     		ble	.L7
  100:Src/motorcontrol.c ****     {
- 101:Src/motorcontrol.c ****       wheel_posn[motor].rpm = 1000.0*90.0/
- 102:Src/motorcontrol.c ****         (abs(wheel_posn[motor].ticks - wheel_posn[motor].ticks_at_prev_rotation )*
- 178              		.loc 1 102 0
- 179 007e 284D     		ldr	r5, .L18+8
- 180 0080 0D44     		add	r5, r5, r1
- 181 0082 6B69     		ldr	r3, [r5, #20]
- 182 0084 A869     		ldr	r0, [r5, #24]
- 183 0086 1B1A     		subs	r3, r3, r0
- 184 0088 002B     		cmp	r3, #0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 6
+ 101:Src/motorcontrol.c ****       wheel_posn[motor].rpm = 
+ 102:Src/motorcontrol.c ****         (abs(wheel_posn[motor].ticks - wheel_posn[motor].ticks_at_prev_rotation )/90.0/
+ 182              		.loc 1 102 0
+ 183 007e 2C4D     		ldr	r5, .L17
+ 184 0080 0D44     		add	r5, r5, r1
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 6
 
 
- 185 008a B8BF     		it	lt
- 186 008c 5B42     		rsblt	r3, r3, #0
- 103:Src/motorcontrol.c ****         (wheel_posn[motor].millis_at_tick - wheel_posn[motor].millis_at_prev_rotation));
- 187              		.loc 1 103 0
- 188 008e E869     		ldr	r0, [r5, #28]
- 189 0090 6A6A     		ldr	r2, [r5, #36]
- 190 0092 801A     		subs	r0, r0, r2
- 101:Src/motorcontrol.c ****         (abs(wheel_posn[motor].ticks - wheel_posn[motor].ticks_at_prev_rotation )*
- 191              		.loc 1 101 0
- 192 0094 00FB03F0 		mul	r0, r0, r3
- 193 0098 FFF7FEFF 		bl	__aeabi_ui2d
- 194              	.LVL12:
- 195 009c 0246     		mov	r2, r0
- 196 009e 0B46     		mov	r3, r1
- 197 00a0 1DA1     		adr	r1, .L18
- 198 00a2 D1E90001 		ldrd	r0, [r1]
- 199 00a6 FFF7FEFF 		bl	__aeabi_ddiv
- 200              	.LVL13:
- 201 00aa FFF7FEFF 		bl	__aeabi_d2f
- 202              	.LVL14:
- 203 00ae 2861     		str	r0, [r5, #16]	@ float
- 104:Src/motorcontrol.c ****       if(wheel_posn[motor].ticks < 0)
- 204              		.loc 1 104 0
- 205 00b0 6B69     		ldr	r3, [r5, #20]
- 206 00b2 002B     		cmp	r3, #0
- 207 00b4 28DB     		blt	.L16
- 208              	.L12:
+ 185 0082 6869     		ldr	r0, [r5, #20]
+ 186 0084 AB69     		ldr	r3, [r5, #24]
+ 187 0086 C01A     		subs	r0, r0, r3
+ 188 0088 0028     		cmp	r0, #0
+ 189 008a B8BF     		it	lt
+ 190 008c 4042     		rsblt	r0, r0, #0
+ 191 008e FFF7FEFF 		bl	__aeabi_i2d
+ 192              	.LVL12:
+ 193 0092 0022     		movs	r2, #0
+ 194 0094 284B     		ldr	r3, .L17+8
+ 195 0096 FFF7FEFF 		bl	__aeabi_ddiv
+ 196              	.LVL13:
+ 197 009a 0646     		mov	r6, r0
+ 198 009c 0F46     		mov	r7, r1
+ 103:Src/motorcontrol.c ****         (wheel_posn[motor].millis_at_tick - wheel_posn[motor].millis_at_prev_rotation)*60*1000);
+ 199              		.loc 1 103 0
+ 200 009e E869     		ldr	r0, [r5, #28]
+ 201 00a0 6B6A     		ldr	r3, [r5, #36]
+ 102:Src/motorcontrol.c ****         (wheel_posn[motor].millis_at_tick - wheel_posn[motor].millis_at_prev_rotation)*60*1000);
+ 202              		.loc 1 102 0
+ 203 00a2 C01A     		subs	r0, r0, r3
+ 204 00a4 FFF7FEFF 		bl	__aeabi_ui2d
+ 205              	.LVL14:
+ 206 00a8 0246     		mov	r2, r0
+ 207 00aa 0B46     		mov	r3, r1
+ 208 00ac 3046     		mov	r0, r6
+ 209 00ae 3946     		mov	r1, r7
+ 210 00b0 FFF7FEFF 		bl	__aeabi_ddiv
+ 211              	.LVL15:
+ 212              		.loc 1 103 0
+ 213 00b4 0022     		movs	r2, #0
+ 214 00b6 214B     		ldr	r3, .L17+12
+ 215 00b8 FFF7FEFF 		bl	__aeabi_dmul
+ 216              	.LVL16:
+ 217 00bc 0022     		movs	r2, #0
+ 218 00be 204B     		ldr	r3, .L17+16
+ 219 00c0 FFF7FEFF 		bl	__aeabi_dmul
+ 220              	.LVL17:
+ 221 00c4 FFF7FEFF 		bl	__aeabi_d2f
+ 222              	.LVL18:
+ 101:Src/motorcontrol.c ****         (abs(wheel_posn[motor].ticks - wheel_posn[motor].ticks_at_prev_rotation )/90.0/
+ 223              		.loc 1 101 0
+ 224 00c8 2861     		str	r0, [r5, #16]	@ float
+ 104:Src/motorcontrol.c ****       if(wheel_posn[motor].ticks <  wheel_posn[motor].ticks_at_prev_rotation)
+ 225              		.loc 1 104 0
+ 226 00ca 6A69     		ldr	r2, [r5, #20]
+ 227 00cc AB69     		ldr	r3, [r5, #24]
+ 228 00ce 9A42     		cmp	r2, r3
+ 229 00d0 05DA     		bge	.L12
  105:Src/motorcontrol.c ****       {
  106:Src/motorcontrol.c ****         wheel_posn[motor].rpm *= -1; //reverse direction
+ 230              		.loc 1 106 0
+ 231 00d2 D5ED047A 		vldr.32	s15, [r5, #16]
+ 232 00d6 F1EE677A 		vneg.f32	s15, s15
+ 233 00da C5ED047A 		vstr.32	s15, [r5, #16]
+ 234              	.L12:
  107:Src/motorcontrol.c ****       }
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 7
+
+
  108:Src/motorcontrol.c ****       wheel_posn[motor].ticks_at_prev_rotation = wheel_posn[motor].ticks;
- 209              		.loc 1 108 0
- 210 00b6 A200     		lsls	r2, r4, #2
- 211 00b8 2244     		add	r2, r2, r4
- 212 00ba D100     		lsls	r1, r2, #3
- 213 00bc 184B     		ldr	r3, .L18+8
- 214 00be 0B44     		add	r3, r3, r1
- 215 00c0 5A69     		ldr	r2, [r3, #20]
- 216 00c2 9A61     		str	r2, [r3, #24]
+ 235              		.loc 1 108 0
+ 236 00de A200     		lsls	r2, r4, #2
+ 237 00e0 2244     		add	r2, r2, r4
+ 238 00e2 D100     		lsls	r1, r2, #3
+ 239 00e4 124B     		ldr	r3, .L17
+ 240 00e6 0B44     		add	r3, r3, r1
+ 241 00e8 5A69     		ldr	r2, [r3, #20]
+ 242 00ea 9A61     		str	r2, [r3, #24]
  109:Src/motorcontrol.c ****       wheel_posn[motor].millis_at_prev_rotation = wheel_posn[motor].millis_at_tick;
- 217              		.loc 1 109 0
- 218 00c4 DA69     		ldr	r2, [r3, #28]
- 219 00c6 5A62     		str	r2, [r3, #36]
- 220              	.L7:
- 221              	.LBE2:
+ 243              		.loc 1 109 0
+ 244 00ec DA69     		ldr	r2, [r3, #28]
+ 245 00ee 5A62     		str	r2, [r3, #36]
+ 246              	.L7:
+ 247              	.LBE2:
  110:Src/motorcontrol.c ****     }
  111:Src/motorcontrol.c ****   }
  112:Src/motorcontrol.c ****   wheel_posn[motor].prev_hall = wheel_posn[motor].hall;
- 222              		.loc 1 112 0
- 223 00c8 154A     		ldr	r2, .L18+8
- 224 00ca A300     		lsls	r3, r4, #2
- 225 00cc 1819     		adds	r0, r3, r4
- 226 00ce C100     		lsls	r1, r0, #3
- 227 00d0 0846     		mov	r0, r1
- 228 00d2 1144     		add	r1, r1, r2
- 229 00d4 8968     		ldr	r1, [r1, #8]
- 230 00d6 0244     		add	r2, r2, r0
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 7
-
-
- 231 00d8 D160     		str	r1, [r2, #12]
+ 248              		.loc 1 112 0
+ 249 00f0 0F4A     		ldr	r2, .L17
+ 250 00f2 A300     		lsls	r3, r4, #2
+ 251 00f4 1819     		adds	r0, r3, r4
+ 252 00f6 C100     		lsls	r1, r0, #3
+ 253 00f8 0846     		mov	r0, r1
+ 254 00fa 1144     		add	r1, r1, r2
+ 255 00fc 8968     		ldr	r1, [r1, #8]
+ 256 00fe 0244     		add	r2, r2, r0
+ 257 0100 D160     		str	r1, [r2, #12]
  113:Src/motorcontrol.c **** 
  114:Src/motorcontrol.c ****   //DEBUG code only
  115:Src/motorcontrol.c **** #ifdef DEBUG
@@ -371,858 +398,880 @@ ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 1
  119:Src/motorcontrol.c ****           wheel_posn[motor].ticks_at_prev_rotation);
  120:Src/motorcontrol.c **** #endif
  121:Src/motorcontrol.c **** }
- 232              		.loc 1 121 0
- 233 00da 38BD     		pop	{r3, r4, r5, pc}
- 234              	.LVL15:
- 235              	.L10:
+ 258              		.loc 1 121 0
+ 259 0102 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 260              	.LVL19:
+ 261              	.L10:
   90:Src/motorcontrol.c ****     {
- 236              		.loc 1 90 0
- 237 00dc 11F1020F 		cmn	r1, #2
- 238 00e0 09D2     		bcs	.L17
+ 262              		.loc 1 90 0
+ 263 0104 11F1020F 		cmn	r1, #2
+ 264 0108 09D2     		bcs	.L16
   96:Src/motorcontrol.c ****     }
- 239              		.loc 1 96 0
- 240 00e2 A200     		lsls	r2, r4, #2
- 241              	.LVL16:
- 242 00e4 2244     		add	r2, r2, r4
- 243 00e6 D000     		lsls	r0, r2, #3
- 244 00e8 0D4B     		ldr	r3, .L18+8
- 245              	.LVL17:
- 246 00ea 0344     		add	r3, r3, r0
- 247 00ec 5A69     		ldr	r2, [r3, #20]
- 248 00ee 0639     		subs	r1, r1, #6
- 249 00f0 1144     		add	r1, r1, r2
- 250 00f2 5961     		str	r1, [r3, #20]
- 251 00f4 B6E7     		b	.L9
- 252              	.LVL18:
- 253              	.L17:
+ 265              		.loc 1 96 0
+ 266 010a A200     		lsls	r2, r4, #2
+ 267              	.LVL20:
+ 268 010c 2244     		add	r2, r2, r4
+ 269 010e D000     		lsls	r0, r2, #3
+ 270 0110 074B     		ldr	r3, .L17
+ 271              	.LVL21:
+ 272 0112 0344     		add	r3, r3, r0
+ 273 0114 5A69     		ldr	r2, [r3, #20]
+ 274 0116 0639     		subs	r1, r1, #6
+ 275 0118 1144     		add	r1, r1, r2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 8
+
+
+ 276 011a 5961     		str	r1, [r3, #20]
+ 277 011c A2E7     		b	.L9
+ 278              	.LVL22:
+ 279              	.L16:
   92:Src/motorcontrol.c ****     }
- 254              		.loc 1 92 0
- 255 00f6 A200     		lsls	r2, r4, #2
- 256              	.LVL19:
- 257 00f8 2244     		add	r2, r2, r4
- 258 00fa D000     		lsls	r0, r2, #3
- 259 00fc 084B     		ldr	r3, .L18+8
- 260              	.LVL20:
- 261 00fe 0344     		add	r3, r3, r0
- 262 0100 5A69     		ldr	r2, [r3, #20]
- 263 0102 1144     		add	r1, r1, r2
- 264 0104 5961     		str	r1, [r3, #20]
- 265 0106 ADE7     		b	.L9
- 266              	.L16:
- 267              	.LBB3:
- 106:Src/motorcontrol.c ****       }
- 268              		.loc 1 106 0
- 269 0108 D5ED047A 		vldr.32	s15, [r5, #16]
- 270 010c F1EE677A 		vneg.f32	s15, s15
- 271 0110 C5ED047A 		vstr.32	s15, [r5, #16]
- 272 0114 CFE7     		b	.L12
- 273              	.L19:
- 274 0116 00BF     		.align	3
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 8
-
-
- 275              	.L18:
- 276 0118 00000000 		.word	0
- 277 011c 00F9F540 		.word	1089861888
- 278 0120 00000000 		.word	wheel_posn
- 279 0124 00000000 		.word	hall_pin_order
- 280              	.LBE3:
- 281              		.cfi_endproc
- 282              	.LFE127:
- 284              		.section	.text.motor_init,"ax",%progbits
- 285              		.align	1
- 286              		.global	motor_init
- 287              		.syntax unified
- 288              		.thumb
- 289              		.thumb_func
- 290              		.fpu fpv4-sp-d16
- 292              	motor_init:
- 293              	.LFB128:
+ 280              		.loc 1 92 0
+ 281 011e A200     		lsls	r2, r4, #2
+ 282              	.LVL23:
+ 283 0120 2244     		add	r2, r2, r4
+ 284 0122 D000     		lsls	r0, r2, #3
+ 285 0124 024B     		ldr	r3, .L17
+ 286              	.LVL24:
+ 287 0126 0344     		add	r3, r3, r0
+ 288 0128 5A69     		ldr	r2, [r3, #20]
+ 289 012a 1144     		add	r1, r1, r2
+ 290 012c 5961     		str	r1, [r3, #20]
+ 291 012e 99E7     		b	.L9
+ 292              	.L18:
+ 293              		.align	2
+ 294              	.L17:
+ 295 0130 00000000 		.word	wheel_posn
+ 296 0134 00000000 		.word	hall_pin_order
+ 297 0138 00805640 		.word	1079410688
+ 298 013c 00004E40 		.word	1078853632
+ 299 0140 00408F40 		.word	1083129856
+ 300              		.cfi_endproc
+ 301              	.LFE127:
+ 303              		.section	.text.motor_init,"ax",%progbits
+ 304              		.align	1
+ 305              		.global	motor_init
+ 306              		.syntax unified
+ 307              		.thumb
+ 308              		.thumb_func
+ 309              		.fpu fpv4-sp-d16
+ 311              	motor_init:
+ 312              	.LFB128:
  122:Src/motorcontrol.c **** 
  123:Src/motorcontrol.c **** void motor_init()
  124:Src/motorcontrol.c **** {
- 294              		.loc 1 124 0
- 295              		.cfi_startproc
- 296              		@ args = 0, pretend = 0, frame = 0
- 297              		@ frame_needed = 0, uses_anonymous_args = 0
- 298 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 299              	.LCFI3:
- 300              		.cfi_def_cfa_offset 24
- 301              		.cfi_offset 3, -24
- 302              		.cfi_offset 4, -20
- 303              		.cfi_offset 5, -16
- 304              		.cfi_offset 6, -12
- 305              		.cfi_offset 7, -8
- 306              		.cfi_offset 14, -4
+ 313              		.loc 1 124 0
+ 314              		.cfi_startproc
+ 315              		@ args = 0, pretend = 0, frame = 0
+ 316              		@ frame_needed = 0, uses_anonymous_args = 0
+ 317 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 318              	.LCFI3:
+ 319              		.cfi_def_cfa_offset 24
+ 320              		.cfi_offset 3, -24
+ 321              		.cfi_offset 4, -20
+ 322              		.cfi_offset 5, -16
+ 323              		.cfi_offset 6, -12
+ 324              		.cfi_offset 7, -8
+ 325              		.cfi_offset 14, -4
  125:Src/motorcontrol.c ****   pwm_res = SystemCoreClock / 2 / PWM_FREQ; // = 2250
- 307              		.loc 1 125 0
- 308 0002 1F4B     		ldr	r3, .L22
- 309 0004 1B68     		ldr	r3, [r3]
- 310 0006 1F4A     		ldr	r2, .L22+4
- 311 0008 A2FB0323 		umull	r2, r3, r2, r3
- 312 000c DB0A     		lsrs	r3, r3, #11
- 313 000e 1E4A     		ldr	r2, .L22+8
- 314 0010 1380     		strh	r3, [r2]	@ movhi
+ 326              		.loc 1 125 0
+ 327 0002 1F4B     		ldr	r3, .L21
+ 328 0004 1B68     		ldr	r3, [r3]
+ 329 0006 1F4A     		ldr	r2, .L21+4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 9
+
+
+ 330 0008 A2FB0323 		umull	r2, r3, r2, r3
+ 331 000c DB0A     		lsrs	r3, r3, #11
+ 332 000e 1E4A     		ldr	r2, .L21+8
+ 333 0010 1380     		strh	r3, [r2]	@ movhi
  126:Src/motorcontrol.c ****   /* Set BLDC controller parameters */  
  127:Src/motorcontrol.c ****   rtP.z_ctrlTypSel        = CTRL_TYP_SEL;
- 315              		.loc 1 127 0
- 316 0012 1E4B     		ldr	r3, .L22+12
- 317 0014 0327     		movs	r7, #3
- 318 0016 83F86070 		strb	r7, [r3, #96]
+ 334              		.loc 1 127 0
+ 335 0012 1E4B     		ldr	r3, .L21+12
+ 336 0014 0327     		movs	r7, #3
+ 337 0016 83F86070 		strb	r7, [r3, #96]
  128:Src/motorcontrol.c ****   rtP.b_phaAdvEna         = PHASE_ADV_ENA;  
- 319              		.loc 1 128 0
- 320 001a 0125     		movs	r5, #1
- 321 001c 83F86150 		strb	r5, [r3, #97]
+ 338              		.loc 1 128 0
+ 339 001a 0125     		movs	r5, #1
+ 340 001c 83F86150 		strb	r5, [r3, #97]
  129:Src/motorcontrol.c ****   
  130:Src/motorcontrol.c ****   /* Pack LEFT motor data into RTM */
  131:Src/motorcontrol.c ****   rtM_Left->defaultParam  = &rtP;
- 322              		.loc 1 131 0
- 323 0020 1B48     		ldr	r0, .L22+16
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 9
-
-
- 324 0022 0360     		str	r3, [r0]
+ 341              		.loc 1 131 0
+ 342 0020 1B48     		ldr	r0, .L21+16
+ 343 0022 0360     		str	r3, [r0]
  132:Src/motorcontrol.c ****   rtM_Left->dwork         = &rtDW_Left;
- 325              		.loc 1 132 0
- 326 0024 1B4A     		ldr	r2, .L22+20
- 327 0026 C260     		str	r2, [r0, #12]
+ 344              		.loc 1 132 0
+ 345 0024 1B4A     		ldr	r2, .L21+20
+ 346 0026 C260     		str	r2, [r0, #12]
  133:Src/motorcontrol.c ****   rtM_Left->inputs        = &rtU_Left;
- 328              		.loc 1 133 0
- 329 0028 1B4A     		ldr	r2, .L22+24
- 330 002a 4260     		str	r2, [r0, #4]
+ 347              		.loc 1 133 0
+ 348 0028 1B4A     		ldr	r2, .L21+24
+ 349 002a 4260     		str	r2, [r0, #4]
  134:Src/motorcontrol.c ****   rtM_Left->outputs       = &rtY_Left;
- 331              		.loc 1 134 0
- 332 002c 1B4A     		ldr	r2, .L22+28
- 333 002e 8260     		str	r2, [r0, #8]
+ 350              		.loc 1 134 0
+ 351 002c 1B4A     		ldr	r2, .L21+28
+ 352 002e 8260     		str	r2, [r0, #8]
  135:Src/motorcontrol.c **** 
  136:Src/motorcontrol.c ****   /* Pack RIGHT motor data into RTM */
  137:Src/motorcontrol.c ****   rtM_Right->defaultParam = &rtP;
- 334              		.loc 1 137 0
- 335 0030 1B4C     		ldr	r4, .L22+32
- 336 0032 2360     		str	r3, [r4]
+ 353              		.loc 1 137 0
+ 354 0030 1B4C     		ldr	r4, .L21+32
+ 355 0032 2360     		str	r3, [r4]
  138:Src/motorcontrol.c ****   rtM_Right->dwork        = &rtDW_Right;
- 337              		.loc 1 138 0
- 338 0034 1B4B     		ldr	r3, .L22+36
- 339 0036 E360     		str	r3, [r4, #12]
+ 356              		.loc 1 138 0
+ 357 0034 1B4B     		ldr	r3, .L21+36
+ 358 0036 E360     		str	r3, [r4, #12]
  139:Src/motorcontrol.c ****   rtM_Right->inputs       = &rtU_Right;
- 340              		.loc 1 139 0
- 341 0038 1B4B     		ldr	r3, .L22+40
- 342 003a 6360     		str	r3, [r4, #4]
+ 359              		.loc 1 139 0
+ 360 0038 1B4B     		ldr	r3, .L21+40
+ 361 003a 6360     		str	r3, [r4, #4]
  140:Src/motorcontrol.c ****   rtM_Right->outputs      = &rtY_Right;
- 343              		.loc 1 140 0
- 344 003c 1B4B     		ldr	r3, .L22+44
- 345 003e A360     		str	r3, [r4, #8]
+ 362              		.loc 1 140 0
+ 363 003c 1B4B     		ldr	r3, .L21+44
+ 364 003e A360     		str	r3, [r4, #8]
  141:Src/motorcontrol.c **** 
  142:Src/motorcontrol.c ****   /* Initialize BLDC controllers */
  143:Src/motorcontrol.c ****   BLDC_controller_initialize(rtM_Left);
- 346              		.loc 1 143 0
- 347 0040 FFF7FEFF 		bl	BLDC_controller_initialize
- 348              	.LVL21:
+ 365              		.loc 1 143 0
+ 366 0040 FFF7FEFF 		bl	BLDC_controller_initialize
+ 367              	.LVL25:
  144:Src/motorcontrol.c ****   BLDC_controller_initialize(rtM_Right);
- 349              		.loc 1 144 0
- 350 0044 2046     		mov	r0, r4
- 351 0046 FFF7FEFF 		bl	BLDC_controller_initialize
- 352              	.LVL22:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 10
+
+
+ 368              		.loc 1 144 0
+ 369 0044 2046     		mov	r0, r4
+ 370 0046 FFF7FEFF 		bl	BLDC_controller_initialize
+ 371              	.LVL26:
  145:Src/motorcontrol.c **** 
  146:Src/motorcontrol.c ****   /* Initialize hall_sensor_positions {1,5,4,6,2,3} to find ticks */
  147:Src/motorcontrol.c ****   hall_pin_order[1]=0;
- 353              		.loc 1 147 0
- 354 004a 194B     		ldr	r3, .L22+48
- 355 004c 0026     		movs	r6, #0
- 356 004e 5E60     		str	r6, [r3, #4]
+ 372              		.loc 1 147 0
+ 373 004a 194B     		ldr	r3, .L21+48
+ 374 004c 0026     		movs	r6, #0
+ 375 004e 5E60     		str	r6, [r3, #4]
  148:Src/motorcontrol.c ****   hall_pin_order[5]=1;
- 357              		.loc 1 148 0
- 358 0050 5D61     		str	r5, [r3, #20]
+ 376              		.loc 1 148 0
+ 377 0050 5D61     		str	r5, [r3, #20]
  149:Src/motorcontrol.c ****   hall_pin_order[4]=2;
- 359              		.loc 1 149 0
- 360 0052 0222     		movs	r2, #2
- 361 0054 1A61     		str	r2, [r3, #16]
+ 378              		.loc 1 149 0
+ 379 0052 0222     		movs	r2, #2
+ 380 0054 1A61     		str	r2, [r3, #16]
  150:Src/motorcontrol.c ****   hall_pin_order[6]=3;
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 10
-
-
- 362              		.loc 1 150 0
- 363 0056 9F61     		str	r7, [r3, #24]
+ 381              		.loc 1 150 0
+ 382 0056 9F61     		str	r7, [r3, #24]
  151:Src/motorcontrol.c ****   hall_pin_order[2]=4;
- 364              		.loc 1 151 0
- 365 0058 0422     		movs	r2, #4
- 366 005a 9A60     		str	r2, [r3, #8]
+ 383              		.loc 1 151 0
+ 384 0058 0422     		movs	r2, #4
+ 385 005a 9A60     		str	r2, [r3, #8]
  152:Src/motorcontrol.c ****   hall_pin_order[3]=5;
- 367              		.loc 1 152 0
- 368 005c 0522     		movs	r2, #5
- 369 005e DA60     		str	r2, [r3, #12]
+ 386              		.loc 1 152 0
+ 387 005c 0522     		movs	r2, #5
+ 388 005e DA60     		str	r2, [r3, #12]
  153:Src/motorcontrol.c ****   hall_pin_order[0]=-1; //0 should never come and indicated uninitialized state
- 370              		.loc 1 153 0
- 371 0060 4FF0FF37 		mov	r7, #-1
- 372 0064 1F60     		str	r7, [r3]
+ 389              		.loc 1 153 0
+ 390 0060 4FF0FF37 		mov	r7, #-1
+ 391 0064 1F60     		str	r7, [r3]
  154:Src/motorcontrol.c **** 
  155:Src/motorcontrol.c ****   motor_counter_reset(LEFT);
- 373              		.loc 1 155 0
- 374 0066 3046     		mov	r0, r6
- 375 0068 FFF7FEFF 		bl	motor_counter_reset
- 376              	.LVL23:
+ 392              		.loc 1 155 0
+ 393 0066 3046     		mov	r0, r6
+ 394 0068 FFF7FEFF 		bl	motor_counter_reset
+ 395              	.LVL27:
  156:Src/motorcontrol.c ****   wheel_posn[LEFT].hall = 0;
- 377              		.loc 1 156 0
- 378 006c 114C     		ldr	r4, .L22+52
- 379 006e A660     		str	r6, [r4, #8]
+ 396              		.loc 1 156 0
+ 397 006c 114C     		ldr	r4, .L21+52
+ 398 006e A660     		str	r6, [r4, #8]
  157:Src/motorcontrol.c ****   motor_counter_reset(RIGHT);
- 380              		.loc 1 157 0
- 381 0070 2846     		mov	r0, r5
- 382 0072 FFF7FEFF 		bl	motor_counter_reset
- 383              	.LVL24:
+ 399              		.loc 1 157 0
+ 400 0070 2846     		mov	r0, r5
+ 401 0072 FFF7FEFF 		bl	motor_counter_reset
+ 402              	.LVL28:
  158:Src/motorcontrol.c ****   wheel_posn[RIGHT].hall = 0;
- 384              		.loc 1 158 0
- 385 0076 2663     		str	r6, [r4, #48]
+ 403              		.loc 1 158 0
+ 404 0076 2663     		str	r6, [r4, #48]
  159:Src/motorcontrol.c **** 
  160:Src/motorcontrol.c ****   #ifndef INVERT_L_DIRECTION
  161:Src/motorcontrol.c ****   wheel_posn[LEFT].direction = 1;
- 386              		.loc 1 161 0
- 387 0078 6560     		str	r5, [r4, #4]
+ 405              		.loc 1 161 0
+ 406 0078 6560     		str	r5, [r4, #4]
  162:Src/motorcontrol.c ****   #else
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 11
+
+
  163:Src/motorcontrol.c ****   wheel_posn[LEFT].direction = -1;
  164:Src/motorcontrol.c ****   #endif
  165:Src/motorcontrol.c ****   #ifndef INVERT_R_DIRECTION
  166:Src/motorcontrol.c ****   wheel_posn[RIGHT].direction = 1;
  167:Src/motorcontrol.c ****   #else
  168:Src/motorcontrol.c ****   wheel_posn[RIGHT].direction = -1;
- 388              		.loc 1 168 0
- 389 007a E762     		str	r7, [r4, #44]
+ 407              		.loc 1 168 0
+ 408 007a E762     		str	r7, [r4, #44]
  169:Src/motorcontrol.c ****   #endif
  170:Src/motorcontrol.c **** 
  171:Src/motorcontrol.c **** }
- 390              		.loc 1 171 0
- 391 007c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 392              	.L23:
- 393 007e 00BF     		.align	2
- 394              	.L22:
- 395 0080 00000000 		.word	SystemCoreClock
- 396 0084 D34D6210 		.word	274877907
- 397 0088 00000000 		.word	pwm_res
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 11
-
-
- 398 008c 00000000 		.word	rtP
- 399 0090 00000000 		.word	rtM_Left_
- 400 0094 00000000 		.word	rtDW_Left
- 401 0098 00000000 		.word	rtU_Left
- 402 009c 00000000 		.word	rtY_Left
- 403 00a0 00000000 		.word	rtM_Right_
- 404 00a4 00000000 		.word	rtDW_Right
- 405 00a8 00000000 		.word	rtU_Right
- 406 00ac 00000000 		.word	rtY_Right
- 407 00b0 00000000 		.word	hall_pin_order
- 408 00b4 00000000 		.word	wheel_posn
- 409              		.cfi_endproc
- 410              	.LFE128:
- 412              		.section	.text.motor_run,"ax",%progbits
- 413              		.align	1
- 414              		.global	motor_run
- 415              		.syntax unified
- 416              		.thumb
- 417              		.thumb_func
- 418              		.fpu fpv4-sp-d16
- 420              	motor_run:
- 421              	.LFB129:
+ 409              		.loc 1 171 0
+ 410 007c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 411              	.L22:
+ 412 007e 00BF     		.align	2
+ 413              	.L21:
+ 414 0080 00000000 		.word	SystemCoreClock
+ 415 0084 D34D6210 		.word	274877907
+ 416 0088 00000000 		.word	pwm_res
+ 417 008c 00000000 		.word	rtP
+ 418 0090 00000000 		.word	rtM_Left_
+ 419 0094 00000000 		.word	rtDW_Left
+ 420 0098 00000000 		.word	rtU_Left
+ 421 009c 00000000 		.word	rtY_Left
+ 422 00a0 00000000 		.word	rtM_Right_
+ 423 00a4 00000000 		.word	rtDW_Right
+ 424 00a8 00000000 		.word	rtU_Right
+ 425 00ac 00000000 		.word	rtY_Right
+ 426 00b0 00000000 		.word	hall_pin_order
+ 427 00b4 00000000 		.word	wheel_posn
+ 428              		.cfi_endproc
+ 429              	.LFE128:
+ 431              		.section	.text.motor_run,"ax",%progbits
+ 432              		.align	1
+ 433              		.global	motor_run
+ 434              		.syntax unified
+ 435              		.thumb
+ 436              		.thumb_func
+ 437              		.fpu fpv4-sp-d16
+ 439              	motor_run:
+ 440              	.LFB129:
  172:Src/motorcontrol.c **** 
  173:Src/motorcontrol.c **** void motor_run()
  174:Src/motorcontrol.c **** {
- 422              		.loc 1 174 0
- 423              		.cfi_startproc
- 424              		@ args = 0, pretend = 0, frame = 0
- 425              		@ frame_needed = 0, uses_anonymous_args = 0
- 426 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 427              	.LCFI4:
- 428              		.cfi_def_cfa_offset 24
- 429              		.cfi_offset 3, -24
- 430              		.cfi_offset 4, -20
- 431              		.cfi_offset 5, -16
- 432              		.cfi_offset 6, -12
- 433              		.cfi_offset 7, -8
- 434              		.cfi_offset 14, -4
+ 441              		.loc 1 174 0
+ 442              		.cfi_startproc
+ 443              		@ args = 0, pretend = 0, frame = 0
+ 444              		@ frame_needed = 0, uses_anonymous_args = 0
+ 445 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 446              	.LCFI4:
+ 447              		.cfi_def_cfa_offset 24
+ 448              		.cfi_offset 4, -24
+ 449              		.cfi_offset 5, -20
+ 450              		.cfi_offset 6, -16
+ 451              		.cfi_offset 7, -12
+ 452              		.cfi_offset 8, -8
+ 453              		.cfi_offset 14, -4
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 12
+
+
  175:Src/motorcontrol.c ****   // ############################### MOTOR CONTROL ###############################
  176:Src/motorcontrol.c ****  
  177:Src/motorcontrol.c ****   int ul, vl, wl;
  178:Src/motorcontrol.c ****   int ur, vr, wr;
- 179:Src/motorcontrol.c ****   // ========================= LEFT MOTOR ============================ 
- 180:Src/motorcontrol.c ****     // Get hall sensors values
- 181:Src/motorcontrol.c ****     uint8_t hall_ul = !(LEFT_HALL_U_PORT->IDR & hall_cfg_left[hall_idx_left][0]);
- 435              		.loc 1 181 0
- 436 0002 674B     		ldr	r3, .L51
- 437 0004 9A68     		ldr	r2, [r3, #8]
- 438 0006 12F0200F 		tst	r2, #32
- 439 000a 0CBF     		ite	eq
- 440 000c 0127     		moveq	r7, #1
- 441 000e 0027     		movne	r7, #0
- 442              	.LVL25:
- 182:Src/motorcontrol.c ****     uint8_t hall_vl = !(LEFT_HALL_V_PORT->IDR & hall_cfg_left[hall_idx_left][1]);
- 443              		.loc 1 182 0
- 444 0010 9A68     		ldr	r2, [r3, #8]
- 445 0012 12F0800F 		tst	r2, #128
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 12
+ 179:Src/motorcontrol.c ****   uint32_t now = HAL_GetTick();
+ 454              		.loc 1 179 0
+ 455 0004 FFF7FEFF 		bl	HAL_GetTick
+ 456              	.LVL29:
+ 457 0008 0546     		mov	r5, r0
+ 458              	.LVL30:
+ 180:Src/motorcontrol.c ****   // ========================= LEFT MOTOR ============================ 
+ 181:Src/motorcontrol.c ****     // Get hall sensors values
+ 182:Src/motorcontrol.c ****     uint8_t hall_ul = !(LEFT_HALL_U_PORT->IDR & hall_cfg_left[hall_idx_left][0]);
+ 459              		.loc 1 182 0
+ 460 000a 704B     		ldr	r3, .L52
+ 461 000c 9A68     		ldr	r2, [r3, #8]
+ 462 000e 12F0200F 		tst	r2, #32
+ 463 0012 0CBF     		ite	eq
+ 464 0014 4FF00108 		moveq	r8, #1
+ 465 0018 4FF00008 		movne	r8, #0
+ 466              	.LVL31:
+ 183:Src/motorcontrol.c ****     uint8_t hall_vl = !(LEFT_HALL_V_PORT->IDR & hall_cfg_left[hall_idx_left][1]);
+ 467              		.loc 1 183 0
+ 468 001c 9A68     		ldr	r2, [r3, #8]
+ 469 001e 12F0800F 		tst	r2, #128
+ 470 0022 0CBF     		ite	eq
+ 471 0024 0127     		moveq	r7, #1
+ 472 0026 0027     		movne	r7, #0
+ 473              	.LVL32:
+ 184:Src/motorcontrol.c ****     uint8_t hall_wl = !(LEFT_HALL_W_PORT->IDR & hall_cfg_left[hall_idx_left][2]);
+ 474              		.loc 1 184 0
+ 475 0028 9A68     		ldr	r2, [r3, #8]
+ 476 002a 12F0400F 		tst	r2, #64
+ 477 002e 0CBF     		ite	eq
+ 478 0030 0126     		moveq	r6, #1
+ 479 0032 0026     		movne	r6, #0
+ 480              	.LVL33:
+ 185:Src/motorcontrol.c **** 
+ 186:Src/motorcontrol.c ****     // ----- start tick measurement ---- //
+ 187:Src/motorcontrol.c ****     wheel_posn[LEFT].hall = (~(LEFT_HALL_U_PORT->IDR & (LEFT_HALL_U_PIN | LEFT_HALL_V_PIN | LEFT_HA
+ 481              		.loc 1 187 0
+ 482 0034 9B68     		ldr	r3, [r3, #8]
+ 483 0036 03F0E003 		and	r3, r3, #224
+ 484 003a DB43     		mvns	r3, r3
+ 485 003c C3F34213 		ubfx	r3, r3, #5, #3
+ 486 0040 634A     		ldr	r2, .L52+4
+ 487 0042 9360     		str	r3, [r2, #8]
+ 188:Src/motorcontrol.c ****     wheel_posn[RIGHT].hall = (~(RIGHT_HALL_U_PORT->IDR & (RIGHT_HALL_U_PIN | RIGHT_HALL_V_PIN | RIG
+ 488              		.loc 1 188 0
+ 489 0044 634B     		ldr	r3, .L52+8
+ 490 0046 9B68     		ldr	r3, [r3, #8]
+ 491 0048 03F4E053 		and	r3, r3, #7168
+ 492 004c DB43     		mvns	r3, r3
+ 493 004e C3F38223 		ubfx	r3, r3, #10, #3
+ 494 0052 1363     		str	r3, [r2, #48]
+ 495              	.LVL34:
+ 496              	.LBB3:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 13
 
 
- 446 0016 0CBF     		ite	eq
- 447 0018 0126     		moveq	r6, #1
- 448 001a 0026     		movne	r6, #0
- 449              	.LVL26:
- 183:Src/motorcontrol.c ****     uint8_t hall_wl = !(LEFT_HALL_W_PORT->IDR & hall_cfg_left[hall_idx_left][2]);
- 450              		.loc 1 183 0
- 451 001c 9A68     		ldr	r2, [r3, #8]
- 452 001e 12F0400F 		tst	r2, #64
- 453 0022 0CBF     		ite	eq
- 454 0024 0125     		moveq	r5, #1
- 455 0026 0025     		movne	r5, #0
- 456              	.LVL27:
- 184:Src/motorcontrol.c **** 
- 185:Src/motorcontrol.c ****     // ----- start tick measurement ---- //
- 186:Src/motorcontrol.c ****     wheel_posn[LEFT].hall = (~(LEFT_HALL_U_PORT->IDR & (LEFT_HALL_U_PIN | LEFT_HALL_V_PIN | LEFT_HA
- 457              		.loc 1 186 0
- 458 0028 9B68     		ldr	r3, [r3, #8]
- 459 002a 03F0E003 		and	r3, r3, #224
- 460 002e DB43     		mvns	r3, r3
- 461 0030 C3F34213 		ubfx	r3, r3, #5, #3
- 462 0034 5B4A     		ldr	r2, .L51+4
- 463 0036 9360     		str	r3, [r2, #8]
- 187:Src/motorcontrol.c ****     wheel_posn[RIGHT].hall = (~(RIGHT_HALL_U_PORT->IDR & (RIGHT_HALL_U_PIN | RIGHT_HALL_V_PIN | RIG
- 464              		.loc 1 187 0
- 465 0038 5B4B     		ldr	r3, .L51+8
- 466 003a 9B68     		ldr	r3, [r3, #8]
- 467 003c 03F4E053 		and	r3, r3, #7168
- 468 0040 DB43     		mvns	r3, r3
- 469 0042 C3F38223 		ubfx	r3, r3, #10, #3
- 470 0046 1363     		str	r3, [r2, #48]
- 471              	.LVL28:
- 472              	.LBB4:
- 188:Src/motorcontrol.c **** 
- 189:Src/motorcontrol.c ****     for (int i=0;i<2; i++)
- 473              		.loc 1 189 0
- 474 0048 0024     		movs	r4, #0
- 475 004a 04E0     		b	.L25
- 476              	.LVL29:
- 477              	.L49:
+ 189:Src/motorcontrol.c **** 
+ 190:Src/motorcontrol.c ****     for (int i=0;i<2; i++)
+ 497              		.loc 1 190 0
+ 498 0054 0024     		movs	r4, #0
+ 499 0056 07E0     		b	.L24
+ 500              	.LVL35:
+ 501              	.L49:
+ 191:Src/motorcontrol.c ****     {
+ 192:Src/motorcontrol.c ****       if(wheel_posn[i].reset_counter) {
+ 193:Src/motorcontrol.c ****         motor_counter_reset(i);
+ 502              		.loc 1 193 0
+ 503 0058 E0B2     		uxtb	r0, r4
+ 504 005a FFF7FEFF 		bl	motor_counter_reset
+ 505              	.LVL36:
+ 506 005e 0CE0     		b	.L25
+ 507              	.L50:
+ 194:Src/motorcontrol.c ****       }
+ 195:Src/motorcontrol.c ****       if(wheel_posn[i].hall != wheel_posn[i].prev_hall) 
+ 196:Src/motorcontrol.c ****       {
+ 197:Src/motorcontrol.c ****         motor_counter_increment(i);
+ 508              		.loc 1 197 0
+ 509 0060 E0B2     		uxtb	r0, r4
+ 510 0062 FFF7FEFF 		bl	motor_counter_increment
+ 511              	.LVL37:
+ 512              	.L27:
  190:Src/motorcontrol.c ****     {
- 191:Src/motorcontrol.c ****       if(wheel_posn[i].reset_counter) {
+ 513              		.loc 1 190 0 discriminator 2
+ 514 0066 0134     		adds	r4, r4, #1
+ 515              	.LVL38:
+ 516              	.L24:
+ 190:Src/motorcontrol.c ****     {
+ 517              		.loc 1 190 0 is_stmt 0 discriminator 1
+ 518 0068 012C     		cmp	r4, #1
+ 519 006a 1EDC     		bgt	.L48
  192:Src/motorcontrol.c ****         motor_counter_reset(i);
- 478              		.loc 1 192 0
- 479 004c E0B2     		uxtb	r0, r4
- 480 004e FFF7FEFF 		bl	motor_counter_reset
- 481              	.LVL30:
- 482 0052 09E0     		b	.L26
- 483              	.L27:
- 189:Src/motorcontrol.c ****     {
- 484              		.loc 1 189 0 discriminator 2
- 485 0054 0134     		adds	r4, r4, #1
- 486              	.LVL31:
- 487              	.L25:
- 189:Src/motorcontrol.c ****     {
- 488              		.loc 1 189 0 is_stmt 0 discriminator 1
- 489 0056 012C     		cmp	r4, #1
- 490 0058 13DC     		bgt	.L48
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 13
-
-
- 191:Src/motorcontrol.c ****         motor_counter_reset(i);
- 491              		.loc 1 191 0 is_stmt 1
- 492 005a 04EB8402 		add	r2, r4, r4, lsl #2
- 493 005e D300     		lsls	r3, r2, #3
- 494 0060 504A     		ldr	r2, .L51+4
- 495 0062 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
- 496 0064 002B     		cmp	r3, #0
- 497 0066 F1D1     		bne	.L49
- 498              	.L26:
- 193:Src/motorcontrol.c ****       }
- 194:Src/motorcontrol.c ****       if(wheel_posn[i].hall != wheel_posn[i].prev_hall) 
- 499              		.loc 1 194 0
- 500 0068 A200     		lsls	r2, r4, #2
- 501 006a 2244     		add	r2, r2, r4
- 502 006c D100     		lsls	r1, r2, #3
- 503 006e 4D4B     		ldr	r3, .L51+4
- 504 0070 0B44     		add	r3, r3, r1
- 505 0072 9A68     		ldr	r2, [r3, #8]
- 506 0074 DB68     		ldr	r3, [r3, #12]
- 507 0076 9A42     		cmp	r2, r3
- 508 0078 ECD0     		beq	.L27
+ 520              		.loc 1 192 0 is_stmt 1
+ 521 006c 04EB8402 		add	r2, r4, r4, lsl #2
+ 522 0070 D300     		lsls	r3, r2, #3
+ 523 0072 574A     		ldr	r2, .L52+4
+ 524 0074 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 525 0076 002B     		cmp	r3, #0
+ 526 0078 EED1     		bne	.L49
+ 527              	.L25:
  195:Src/motorcontrol.c ****       {
- 196:Src/motorcontrol.c ****         motor_counter_increment(i);
- 509              		.loc 1 196 0
- 510 007a E0B2     		uxtb	r0, r4
- 511 007c FFF7FEFF 		bl	motor_counter_increment
- 512              	.LVL32:
- 513 0080 E8E7     		b	.L27
- 514              	.L48:
- 515              	.LBE4:
- 197:Src/motorcontrol.c ****       }
- 198:Src/motorcontrol.c ****     }
- 199:Src/motorcontrol.c ****     // ----- end tick measurement ---- //
- 200:Src/motorcontrol.c ****     /* Set motor inputs here */
- 201:Src/motorcontrol.c ****     rtU_Left.b_hallA   = hall_ul;
- 516              		.loc 1 201 0
- 517 0082 4A4B     		ldr	r3, .L51+12
- 518 0084 1F70     		strb	r7, [r3]
- 202:Src/motorcontrol.c ****     rtU_Left.b_hallB   = hall_vl;
- 519              		.loc 1 202 0
- 520 0086 5E70     		strb	r6, [r3, #1]
- 203:Src/motorcontrol.c ****     rtU_Left.b_hallC   = hall_wl;
- 521              		.loc 1 203 0
- 522 0088 9D70     		strb	r5, [r3, #2]
- 204:Src/motorcontrol.c ****     rtU_Left.r_DC      = pwms[LEFT];
- 523              		.loc 1 204 0
- 524 008a 494A     		ldr	r2, .L51+16
- 525 008c 1268     		ldr	r2, [r2]
- 526 008e 5A60     		str	r2, [r3, #4]
- 205:Src/motorcontrol.c ****     
- 206:Src/motorcontrol.c ****     /* Step the controller */
- 207:Src/motorcontrol.c ****     BLDC_controller_step(rtM_Left);
- 527              		.loc 1 207 0
- 528 0090 4848     		ldr	r0, .L51+20
- 529 0092 FFF7FEFF 		bl	BLDC_controller_step
- 530              	.LVL33:
- 208:Src/motorcontrol.c **** 
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 14
+ 528              		.loc 1 195 0
+ 529 007a A200     		lsls	r2, r4, #2
+ 530 007c 2244     		add	r2, r2, r4
+ 531 007e D100     		lsls	r1, r2, #3
+ 532 0080 534B     		ldr	r3, .L52+4
+ 533 0082 0B44     		add	r3, r3, r1
+ 534 0084 9A68     		ldr	r2, [r3, #8]
+ 535 0086 DB68     		ldr	r3, [r3, #12]
+ 536 0088 9A42     		cmp	r2, r3
+ 537 008a E9D1     		bne	.L50
+ 198:Src/motorcontrol.c ****       }
+ 199:Src/motorcontrol.c ****       else
+ 200:Src/motorcontrol.c ****       {
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 14
 
 
- 209:Src/motorcontrol.c ****     /* Get motor outputs here */
- 210:Src/motorcontrol.c ****     ul            = rtY_Left.DC_phaA;
- 531              		.loc 1 210 0
- 532 0096 484B     		ldr	r3, .L51+24
- 533 0098 1968     		ldr	r1, [r3]
- 534              	.LVL34:
- 211:Src/motorcontrol.c ****     vl            = rtY_Left.DC_phaB;
- 535              		.loc 1 211 0
- 536 009a 5A68     		ldr	r2, [r3, #4]
- 537              	.LVL35:
- 212:Src/motorcontrol.c ****     wl            = rtY_Left.DC_phaC;
- 538              		.loc 1 212 0
- 539 009c 9D68     		ldr	r5, [r3, #8]
- 540              	.LVL36:
- 213:Src/motorcontrol.c ****   // motSpeedLeft = rtY_Left.n_mot;
- 214:Src/motorcontrol.c ****   // motAngleLeft = rtY_Left.a_elecAngle;
- 215:Src/motorcontrol.c **** 
- 216:Src/motorcontrol.c ****     /* Apply commands */
- 217:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_U    = (uint16_t)CLAMP(ul + pwm_res / 2, 10, pwm_res-10);
- 541              		.loc 1 217 0
- 542 009e 474B     		ldr	r3, .L51+28
- 543 00a0 1B88     		ldrh	r3, [r3]
- 544 00a2 5808     		lsrs	r0, r3, #1
- 545 00a4 4618     		adds	r6, r0, r1
- 546              	.LVL37:
- 547 00a6 A3F10A04 		sub	r4, r3, #10
- 548              	.LVL38:
- 549 00aa A642     		cmp	r6, r4
- 550 00ac 4DDD     		ble	.L29
- 551              		.loc 1 217 0 is_stmt 0 discriminator 1
- 552 00ae A1B2     		uxth	r1, r4
- 553              	.LVL39:
- 554              	.L30:
- 555              		.loc 1 217 0 discriminator 8
- 556 00b0 434E     		ldr	r6, .L51+32
- 557 00b2 7163     		str	r1, [r6, #52]
- 558              	.LVL40:
- 218:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_V    = (uint16_t)CLAMP(vl + pwm_res / 2, 10, pwm_res-10);
- 559              		.loc 1 218 0 is_stmt 1 discriminator 8
- 560 00b4 8118     		adds	r1, r0, r2
- 561 00b6 8C42     		cmp	r4, r1
- 562 00b8 4EDA     		bge	.L31
- 563              		.loc 1 218 0 is_stmt 0 discriminator 1
- 564 00ba A3F10A02 		sub	r2, r3, #10
- 565              	.LVL41:
- 566 00be 92B2     		uxth	r2, r2
- 567              	.L32:
- 568              		.loc 1 218 0 discriminator 8
- 569 00c0 3F49     		ldr	r1, .L51+32
- 570 00c2 8A63     		str	r2, [r1, #56]
- 219:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_W    = (uint16_t)CLAMP(wl + pwm_res / 2, 10, pwm_res-10);
- 571              		.loc 1 219 0 is_stmt 1 discriminator 8
- 572 00c4 4219     		adds	r2, r0, r5
- 573 00c6 9442     		cmp	r4, r2
- 574 00c8 4DDA     		bge	.L33
- 575              		.loc 1 219 0 is_stmt 0 discriminator 1
- 576 00ca 0A3B     		subs	r3, r3, #10
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 15
+ 201:Src/motorcontrol.c ****         //Reset the rpm counter if its is old
+ 202:Src/motorcontrol.c ****         if(now - wheel_posn[i].millis_at_tick > 500)
+ 538              		.loc 1 202 0
+ 539 008c 04EB8403 		add	r3, r4, r4, lsl #2
+ 540 0090 DA00     		lsls	r2, r3, #3
+ 541 0092 4F4B     		ldr	r3, .L52+4
+ 542 0094 1344     		add	r3, r3, r2
+ 543 0096 DB69     		ldr	r3, [r3, #28]
+ 544 0098 EB1A     		subs	r3, r5, r3
+ 545 009a B3F5FA7F 		cmp	r3, #500
+ 546 009e E2D9     		bls	.L27
+ 203:Src/motorcontrol.c ****         {
+ 204:Src/motorcontrol.c ****           wheel_posn[i].rpm = 0;
+ 547              		.loc 1 204 0
+ 548 00a0 4B4B     		ldr	r3, .L52+4
+ 549 00a2 1344     		add	r3, r3, r2
+ 550 00a4 0022     		movs	r2, #0
+ 551 00a6 1A61     		str	r2, [r3, #16]	@ float
+ 552 00a8 DDE7     		b	.L27
+ 553              	.L48:
+ 554              	.LBE3:
+ 205:Src/motorcontrol.c ****         }
+ 206:Src/motorcontrol.c ****       }
+ 207:Src/motorcontrol.c ****     }
+ 208:Src/motorcontrol.c ****     // ----- end tick measurement ---- //
+ 209:Src/motorcontrol.c ****     /* Set motor inputs here */
+ 210:Src/motorcontrol.c ****     rtU_Left.b_hallA   = hall_ul;
+ 555              		.loc 1 210 0
+ 556 00aa 4B4B     		ldr	r3, .L52+12
+ 557 00ac 83F80080 		strb	r8, [r3]
+ 211:Src/motorcontrol.c ****     rtU_Left.b_hallB   = hall_vl;
+ 558              		.loc 1 211 0
+ 559 00b0 5F70     		strb	r7, [r3, #1]
+ 212:Src/motorcontrol.c ****     rtU_Left.b_hallC   = hall_wl;
+ 560              		.loc 1 212 0
+ 561 00b2 9E70     		strb	r6, [r3, #2]
+ 213:Src/motorcontrol.c ****     rtU_Left.r_DC      = pwms[LEFT];
+ 562              		.loc 1 213 0
+ 563 00b4 494A     		ldr	r2, .L52+16
+ 564 00b6 1268     		ldr	r2, [r2]
+ 565 00b8 5A60     		str	r2, [r3, #4]
+ 214:Src/motorcontrol.c ****     
+ 215:Src/motorcontrol.c ****     /* Step the controller */
+ 216:Src/motorcontrol.c ****     BLDC_controller_step(rtM_Left);
+ 566              		.loc 1 216 0
+ 567 00ba 4948     		ldr	r0, .L52+20
+ 568 00bc FFF7FEFF 		bl	BLDC_controller_step
+ 569              	.LVL39:
+ 217:Src/motorcontrol.c **** 
+ 218:Src/motorcontrol.c ****     /* Get motor outputs here */
+ 219:Src/motorcontrol.c ****     ul            = rtY_Left.DC_phaA;
+ 570              		.loc 1 219 0
+ 571 00c0 484B     		ldr	r3, .L52+24
+ 572 00c2 1968     		ldr	r1, [r3]
+ 573              	.LVL40:
+ 220:Src/motorcontrol.c ****     vl            = rtY_Left.DC_phaB;
+ 574              		.loc 1 220 0
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 15
 
 
- 577 00cc 9BB2     		uxth	r3, r3
- 578              	.L34:
- 579              		.loc 1 219 0 discriminator 8
- 580 00ce 3C4A     		ldr	r2, .L51+32
- 581 00d0 D363     		str	r3, [r2, #60]
- 220:Src/motorcontrol.c ****   // =================================================================
- 221:Src/motorcontrol.c ****   
- 222:Src/motorcontrol.c **** 
- 223:Src/motorcontrol.c ****   // ========================= RIGHT MOTOR ===========================  
- 224:Src/motorcontrol.c ****     // Get hall sensors values
- 225:Src/motorcontrol.c ****     uint8_t hall_ur = !(RIGHT_HALL_U_PORT->IDR & hall_cfg_right[hall_idx_right][0]);
- 582              		.loc 1 225 0 is_stmt 1 discriminator 8
- 583 00d2 354B     		ldr	r3, .L51+8
- 584 00d4 9A68     		ldr	r2, [r3, #8]
- 585 00d6 12F4805F 		tst	r2, #4096
- 586 00da 0CBF     		ite	eq
- 587 00dc 0120     		moveq	r0, #1
- 588 00de 0020     		movne	r0, #0
- 589              	.LVL42:
- 226:Src/motorcontrol.c ****     uint8_t hall_vr = !(RIGHT_HALL_V_PORT->IDR & hall_cfg_right[hall_idx_right][1]);
- 590              		.loc 1 226 0 discriminator 8
- 591 00e0 9A68     		ldr	r2, [r3, #8]
- 592 00e2 12F4806F 		tst	r2, #1024
- 593 00e6 0CBF     		ite	eq
- 594 00e8 0121     		moveq	r1, #1
- 595 00ea 0021     		movne	r1, #0
- 596              	.LVL43:
- 227:Src/motorcontrol.c ****     uint8_t hall_wr = !(RIGHT_HALL_W_PORT->IDR & hall_cfg_right[hall_idx_right][2]);
- 597              		.loc 1 227 0 discriminator 8
- 598 00ec 9B68     		ldr	r3, [r3, #8]
- 599 00ee 13F4006F 		tst	r3, #2048
- 600 00f2 0CBF     		ite	eq
- 601 00f4 0122     		moveq	r2, #1
- 602 00f6 0022     		movne	r2, #0
- 603              	.LVL44:
- 228:Src/motorcontrol.c **** 
- 229:Src/motorcontrol.c ****     /* Set motor inputs here */
- 230:Src/motorcontrol.c ****     rtU_Right.b_hallA  = hall_ur;
- 604              		.loc 1 230 0 discriminator 8
- 605 00f8 324B     		ldr	r3, .L51+36
- 606 00fa 1870     		strb	r0, [r3]
- 231:Src/motorcontrol.c ****     rtU_Right.b_hallB  = hall_vr;
- 607              		.loc 1 231 0 discriminator 8
- 608 00fc 5970     		strb	r1, [r3, #1]
- 232:Src/motorcontrol.c ****     rtU_Right.b_hallC  = hall_wr;
- 609              		.loc 1 232 0 discriminator 8
- 610 00fe 9A70     		strb	r2, [r3, #2]
- 233:Src/motorcontrol.c ****     rtU_Right.r_DC     = pwms[RIGHT];
- 611              		.loc 1 233 0 discriminator 8
- 612 0100 2B4A     		ldr	r2, .L51+16
- 613              	.LVL45:
- 614 0102 5268     		ldr	r2, [r2, #4]
- 615 0104 5A60     		str	r2, [r3, #4]
- 234:Src/motorcontrol.c **** 
- 235:Src/motorcontrol.c ****     /* Step the controller */
- 236:Src/motorcontrol.c ****     BLDC_controller_step(rtM_Right);
- 616              		.loc 1 236 0 discriminator 8
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 16
+ 575 00c4 5A68     		ldr	r2, [r3, #4]
+ 576              	.LVL41:
+ 221:Src/motorcontrol.c ****     wl            = rtY_Left.DC_phaC;
+ 577              		.loc 1 221 0
+ 578 00c6 9D68     		ldr	r5, [r3, #8]
+ 579              	.LVL42:
+ 222:Src/motorcontrol.c ****   // motSpeedLeft = rtY_Left.n_mot;
+ 223:Src/motorcontrol.c ****   // motAngleLeft = rtY_Left.a_elecAngle;
+ 224:Src/motorcontrol.c **** 
+ 225:Src/motorcontrol.c ****     /* Apply commands */
+ 226:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_U    = (uint16_t)CLAMP(ul + pwm_res / 2, 10, pwm_res-10);
+ 580              		.loc 1 226 0
+ 581 00c8 474B     		ldr	r3, .L52+28
+ 582 00ca 1B88     		ldrh	r3, [r3]
+ 583 00cc 5808     		lsrs	r0, r3, #1
+ 584 00ce 4618     		adds	r6, r0, r1
+ 585              	.LVL43:
+ 586 00d0 A3F10A04 		sub	r4, r3, #10
+ 587              	.LVL44:
+ 588 00d4 A642     		cmp	r6, r4
+ 589 00d6 4DDD     		ble	.L29
+ 590              		.loc 1 226 0 is_stmt 0 discriminator 1
+ 591 00d8 A1B2     		uxth	r1, r4
+ 592              	.LVL45:
+ 593              	.L30:
+ 594              		.loc 1 226 0 discriminator 8
+ 595 00da 444E     		ldr	r6, .L52+32
+ 596 00dc 7163     		str	r1, [r6, #52]
+ 597              	.LVL46:
+ 227:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_V    = (uint16_t)CLAMP(vl + pwm_res / 2, 10, pwm_res-10);
+ 598              		.loc 1 227 0 is_stmt 1 discriminator 8
+ 599 00de 8118     		adds	r1, r0, r2
+ 600 00e0 8C42     		cmp	r4, r1
+ 601 00e2 4EDA     		bge	.L31
+ 602              		.loc 1 227 0 is_stmt 0 discriminator 1
+ 603 00e4 A3F10A02 		sub	r2, r3, #10
+ 604              	.LVL47:
+ 605 00e8 92B2     		uxth	r2, r2
+ 606              	.L32:
+ 607              		.loc 1 227 0 discriminator 8
+ 608 00ea 4049     		ldr	r1, .L52+32
+ 609 00ec 8A63     		str	r2, [r1, #56]
+ 228:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_W    = (uint16_t)CLAMP(wl + pwm_res / 2, 10, pwm_res-10);
+ 610              		.loc 1 228 0 is_stmt 1 discriminator 8
+ 611 00ee 4219     		adds	r2, r0, r5
+ 612 00f0 9442     		cmp	r4, r2
+ 613 00f2 4DDA     		bge	.L33
+ 614              		.loc 1 228 0 is_stmt 0 discriminator 1
+ 615 00f4 0A3B     		subs	r3, r3, #10
+ 616 00f6 9BB2     		uxth	r3, r3
+ 617              	.L34:
+ 618              		.loc 1 228 0 discriminator 8
+ 619 00f8 3C4A     		ldr	r2, .L52+32
+ 620 00fa D363     		str	r3, [r2, #60]
+ 229:Src/motorcontrol.c ****   // =================================================================
+ 230:Src/motorcontrol.c ****   
+ 231:Src/motorcontrol.c **** 
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 16
 
 
- 617 0106 3048     		ldr	r0, .L51+40
- 618              	.LVL46:
- 619 0108 FFF7FEFF 		bl	BLDC_controller_step
- 620              	.LVL47:
+ 232:Src/motorcontrol.c ****   // ========================= RIGHT MOTOR ===========================  
+ 233:Src/motorcontrol.c ****     // Get hall sensors values
+ 234:Src/motorcontrol.c ****     uint8_t hall_ur = !(RIGHT_HALL_U_PORT->IDR & hall_cfg_right[hall_idx_right][0]);
+ 621              		.loc 1 234 0 is_stmt 1 discriminator 8
+ 622 00fc 354B     		ldr	r3, .L52+8
+ 623 00fe 9A68     		ldr	r2, [r3, #8]
+ 624 0100 12F4805F 		tst	r2, #4096
+ 625 0104 0CBF     		ite	eq
+ 626 0106 0120     		moveq	r0, #1
+ 627 0108 0020     		movne	r0, #0
+ 628              	.LVL48:
+ 235:Src/motorcontrol.c ****     uint8_t hall_vr = !(RIGHT_HALL_V_PORT->IDR & hall_cfg_right[hall_idx_right][1]);
+ 629              		.loc 1 235 0 discriminator 8
+ 630 010a 9A68     		ldr	r2, [r3, #8]
+ 631 010c 12F4806F 		tst	r2, #1024
+ 632 0110 0CBF     		ite	eq
+ 633 0112 0121     		moveq	r1, #1
+ 634 0114 0021     		movne	r1, #0
+ 635              	.LVL49:
+ 236:Src/motorcontrol.c ****     uint8_t hall_wr = !(RIGHT_HALL_W_PORT->IDR & hall_cfg_right[hall_idx_right][2]);
+ 636              		.loc 1 236 0 discriminator 8
+ 637 0116 9B68     		ldr	r3, [r3, #8]
+ 638 0118 13F4006F 		tst	r3, #2048
+ 639 011c 0CBF     		ite	eq
+ 640 011e 0122     		moveq	r2, #1
+ 641 0120 0022     		movne	r2, #0
+ 642              	.LVL50:
  237:Src/motorcontrol.c **** 
- 238:Src/motorcontrol.c ****     /* Get motor outputs here */
- 239:Src/motorcontrol.c ****     ur            = rtY_Right.DC_phaA;
- 621              		.loc 1 239 0 discriminator 8
- 622 010c 2F4B     		ldr	r3, .L51+44
- 623 010e 1968     		ldr	r1, [r3]
- 624              	.LVL48:
- 240:Src/motorcontrol.c ****     vr            = rtY_Right.DC_phaB;
- 625              		.loc 1 240 0 discriminator 8
- 626 0110 5A68     		ldr	r2, [r3, #4]
- 627              	.LVL49:
- 241:Src/motorcontrol.c ****     wr            = rtY_Right.DC_phaC;
- 628              		.loc 1 241 0 discriminator 8
- 629 0112 9D68     		ldr	r5, [r3, #8]
- 630              	.LVL50:
- 242:Src/motorcontrol.c ****  // motSpeedRight = rtY_Right.n_mot;
- 243:Src/motorcontrol.c ****  // motAngleRight = rtY_Right.a_elecAngle;
- 244:Src/motorcontrol.c **** 
- 245:Src/motorcontrol.c ****     /* Apply commands */
- 246:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_U  = (uint16_t)CLAMP(ur + pwm_res / 2, 10, pwm_res-10);
- 631              		.loc 1 246 0 discriminator 8
- 632 0114 294B     		ldr	r3, .L51+28
- 633 0116 1B88     		ldrh	r3, [r3]
- 634 0118 5808     		lsrs	r0, r3, #1
- 635 011a 4618     		adds	r6, r0, r1
- 636 011c A3F10A04 		sub	r4, r3, #10
- 637 0120 A642     		cmp	r6, r4
- 638 0122 27DD     		ble	.L35
- 639              		.loc 1 246 0 is_stmt 0 discriminator 1
- 640 0124 A1B2     		uxth	r1, r4
- 641              	.LVL51:
- 642              	.L36:
- 643              		.loc 1 246 0 discriminator 8
- 644 0126 2A4E     		ldr	r6, .L51+48
- 645 0128 7163     		str	r1, [r6, #52]
- 646              	.LVL52:
- 247:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_V  = (uint16_t)CLAMP(vr + pwm_res / 2, 10, pwm_res-10);
- 647              		.loc 1 247 0 is_stmt 1 discriminator 8
- 648 012a 8118     		adds	r1, r0, r2
- 649 012c 8C42     		cmp	r4, r1
- 650 012e 28DA     		bge	.L37
- 651              		.loc 1 247 0 is_stmt 0 discriminator 1
- 652 0130 A3F10A02 		sub	r2, r3, #10
- 653              	.LVL53:
- 654 0134 92B2     		uxth	r2, r2
- 655              	.L38:
- 656              		.loc 1 247 0 discriminator 8
- 657 0136 2649     		ldr	r1, .L51+48
- 658 0138 8A63     		str	r2, [r1, #56]
- 248:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_W  = (uint16_t)CLAMP(wr + pwm_res / 2, 10, pwm_res-10);
- 659              		.loc 1 248 0 is_stmt 1 discriminator 8
- 660 013a 4219     		adds	r2, r0, r5
- 661 013c 9442     		cmp	r4, r2
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 17
+ 238:Src/motorcontrol.c ****     /* Set motor inputs here */
+ 239:Src/motorcontrol.c ****     rtU_Right.b_hallA  = hall_ur;
+ 643              		.loc 1 239 0 discriminator 8
+ 644 0122 334B     		ldr	r3, .L52+36
+ 645 0124 1870     		strb	r0, [r3]
+ 240:Src/motorcontrol.c ****     rtU_Right.b_hallB  = hall_vr;
+ 646              		.loc 1 240 0 discriminator 8
+ 647 0126 5970     		strb	r1, [r3, #1]
+ 241:Src/motorcontrol.c ****     rtU_Right.b_hallC  = hall_wr;
+ 648              		.loc 1 241 0 discriminator 8
+ 649 0128 9A70     		strb	r2, [r3, #2]
+ 242:Src/motorcontrol.c ****     rtU_Right.r_DC     = pwms[RIGHT];
+ 650              		.loc 1 242 0 discriminator 8
+ 651 012a 2C4A     		ldr	r2, .L52+16
+ 652              	.LVL51:
+ 653 012c 5268     		ldr	r2, [r2, #4]
+ 654 012e 5A60     		str	r2, [r3, #4]
+ 243:Src/motorcontrol.c **** 
+ 244:Src/motorcontrol.c ****     /* Step the controller */
+ 245:Src/motorcontrol.c ****     BLDC_controller_step(rtM_Right);
+ 655              		.loc 1 245 0 discriminator 8
+ 656 0130 3048     		ldr	r0, .L52+40
+ 657              	.LVL52:
+ 658 0132 FFF7FEFF 		bl	BLDC_controller_step
+ 659              	.LVL53:
+ 246:Src/motorcontrol.c **** 
+ 247:Src/motorcontrol.c ****     /* Get motor outputs here */
+ 248:Src/motorcontrol.c ****     ur            = rtY_Right.DC_phaA;
+ 660              		.loc 1 248 0 discriminator 8
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 17
 
 
- 662 013e 27DB     		blt	.L50
- 663              		.loc 1 248 0 is_stmt 0 discriminator 2
- 664 0140 092A     		cmp	r2, #9
- 665 0142 2ADD     		ble	.L46
- 666              		.loc 1 248 0 discriminator 4
- 667 0144 4319     		adds	r3, r0, r5
- 668 0146 9BB2     		uxth	r3, r3
- 669 0148 24E0     		b	.L40
- 670              	.LVL54:
- 671              	.L29:
- 217:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_V    = (uint16_t)CLAMP(vl + pwm_res / 2, 10, pwm_res-10);
- 672              		.loc 1 217 0 is_stmt 1 discriminator 2
- 673 014a 092E     		cmp	r6, #9
- 674 014c 02DD     		ble	.L41
- 217:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_V    = (uint16_t)CLAMP(vl + pwm_res / 2, 10, pwm_res-10);
- 675              		.loc 1 217 0 is_stmt 0 discriminator 4
- 676 014e 0144     		add	r1, r1, r0
- 677              	.LVL55:
- 678 0150 89B2     		uxth	r1, r1
- 679 0152 ADE7     		b	.L30
- 680              	.LVL56:
- 681              	.L41:
- 217:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_V    = (uint16_t)CLAMP(vl + pwm_res / 2, 10, pwm_res-10);
- 682              		.loc 1 217 0
- 683 0154 0A21     		movs	r1, #10
- 684              	.LVL57:
- 685 0156 ABE7     		b	.L30
- 686              	.LVL58:
- 687              	.L31:
- 218:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_W    = (uint16_t)CLAMP(wl + pwm_res / 2, 10, pwm_res-10);
- 688              		.loc 1 218 0 is_stmt 1 discriminator 2
- 689 0158 0929     		cmp	r1, #9
- 690 015a 02DD     		ble	.L42
- 218:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_W    = (uint16_t)CLAMP(wl + pwm_res / 2, 10, pwm_res-10);
- 691              		.loc 1 218 0 is_stmt 0 discriminator 4
- 692 015c 0244     		add	r2, r2, r0
- 693              	.LVL59:
- 694 015e 92B2     		uxth	r2, r2
- 695 0160 AEE7     		b	.L32
- 696              	.LVL60:
- 697              	.L42:
- 218:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_W    = (uint16_t)CLAMP(wl + pwm_res / 2, 10, pwm_res-10);
- 698              		.loc 1 218 0
- 699 0162 0A22     		movs	r2, #10
- 700              	.LVL61:
- 701 0164 ACE7     		b	.L32
- 702              	.L33:
- 219:Src/motorcontrol.c ****   // =================================================================
- 703              		.loc 1 219 0 is_stmt 1 discriminator 2
- 704 0166 092A     		cmp	r2, #9
- 705 0168 02DD     		ble	.L43
- 219:Src/motorcontrol.c ****   // =================================================================
- 706              		.loc 1 219 0 is_stmt 0 discriminator 4
- 707 016a 4319     		adds	r3, r0, r5
- 708 016c 9BB2     		uxth	r3, r3
- 709 016e AEE7     		b	.L34
- 710              	.L43:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 18
+ 661 0136 304B     		ldr	r3, .L52+44
+ 662 0138 1968     		ldr	r1, [r3]
+ 663              	.LVL54:
+ 249:Src/motorcontrol.c ****     vr            = rtY_Right.DC_phaB;
+ 664              		.loc 1 249 0 discriminator 8
+ 665 013a 5A68     		ldr	r2, [r3, #4]
+ 666              	.LVL55:
+ 250:Src/motorcontrol.c ****     wr            = rtY_Right.DC_phaC;
+ 667              		.loc 1 250 0 discriminator 8
+ 668 013c 9D68     		ldr	r5, [r3, #8]
+ 669              	.LVL56:
+ 251:Src/motorcontrol.c ****  // motSpeedRight = rtY_Right.n_mot;
+ 252:Src/motorcontrol.c ****  // motAngleRight = rtY_Right.a_elecAngle;
+ 253:Src/motorcontrol.c **** 
+ 254:Src/motorcontrol.c ****     /* Apply commands */
+ 255:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_U  = (uint16_t)CLAMP(ur + pwm_res / 2, 10, pwm_res-10);
+ 670              		.loc 1 255 0 discriminator 8
+ 671 013e 2A4B     		ldr	r3, .L52+28
+ 672 0140 1B88     		ldrh	r3, [r3]
+ 673 0142 5808     		lsrs	r0, r3, #1
+ 674 0144 4618     		adds	r6, r0, r1
+ 675 0146 A3F10A04 		sub	r4, r3, #10
+ 676 014a A642     		cmp	r6, r4
+ 677 014c 27DD     		ble	.L35
+ 678              		.loc 1 255 0 is_stmt 0 discriminator 1
+ 679 014e A1B2     		uxth	r1, r4
+ 680              	.LVL57:
+ 681              	.L36:
+ 682              		.loc 1 255 0 discriminator 8
+ 683 0150 2A4E     		ldr	r6, .L52+48
+ 684 0152 7163     		str	r1, [r6, #52]
+ 685              	.LVL58:
+ 256:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_V  = (uint16_t)CLAMP(vr + pwm_res / 2, 10, pwm_res-10);
+ 686              		.loc 1 256 0 is_stmt 1 discriminator 8
+ 687 0154 8118     		adds	r1, r0, r2
+ 688 0156 8C42     		cmp	r4, r1
+ 689 0158 28DA     		bge	.L37
+ 690              		.loc 1 256 0 is_stmt 0 discriminator 1
+ 691 015a A3F10A02 		sub	r2, r3, #10
+ 692              	.LVL59:
+ 693 015e 92B2     		uxth	r2, r2
+ 694              	.L38:
+ 695              		.loc 1 256 0 discriminator 8
+ 696 0160 2649     		ldr	r1, .L52+48
+ 697 0162 8A63     		str	r2, [r1, #56]
+ 257:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_W  = (uint16_t)CLAMP(wr + pwm_res / 2, 10, pwm_res-10);
+ 698              		.loc 1 257 0 is_stmt 1 discriminator 8
+ 699 0164 4219     		adds	r2, r0, r5
+ 700 0166 9442     		cmp	r4, r2
+ 701 0168 27DB     		blt	.L51
+ 702              		.loc 1 257 0 is_stmt 0 discriminator 2
+ 703 016a 092A     		cmp	r2, #9
+ 704 016c 2BDD     		ble	.L46
+ 705              		.loc 1 257 0 discriminator 4
+ 706 016e 4319     		adds	r3, r0, r5
+ 707 0170 9BB2     		uxth	r3, r3
+ 708 0172 24E0     		b	.L40
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 18
 
 
- 219:Src/motorcontrol.c ****   // =================================================================
- 711              		.loc 1 219 0
- 712 0170 0A23     		movs	r3, #10
- 713 0172 ACE7     		b	.L34
- 714              	.LVL62:
- 715              	.L35:
- 246:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_V  = (uint16_t)CLAMP(vr + pwm_res / 2, 10, pwm_res-10);
- 716              		.loc 1 246 0 is_stmt 1 discriminator 2
- 717 0174 092E     		cmp	r6, #9
- 718 0176 02DD     		ble	.L44
- 246:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_V  = (uint16_t)CLAMP(vr + pwm_res / 2, 10, pwm_res-10);
- 719              		.loc 1 246 0 is_stmt 0 discriminator 4
- 720 0178 0144     		add	r1, r1, r0
- 721              	.LVL63:
- 722 017a 89B2     		uxth	r1, r1
- 723 017c D3E7     		b	.L36
- 724              	.LVL64:
- 725              	.L44:
- 246:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_V  = (uint16_t)CLAMP(vr + pwm_res / 2, 10, pwm_res-10);
- 726              		.loc 1 246 0
- 727 017e 0A21     		movs	r1, #10
- 728              	.LVL65:
- 729 0180 D1E7     		b	.L36
- 730              	.LVL66:
- 731              	.L37:
- 247:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_W  = (uint16_t)CLAMP(wr + pwm_res / 2, 10, pwm_res-10);
- 732              		.loc 1 247 0 is_stmt 1 discriminator 2
- 733 0182 0929     		cmp	r1, #9
- 734 0184 02DD     		ble	.L45
- 247:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_W  = (uint16_t)CLAMP(wr + pwm_res / 2, 10, pwm_res-10);
- 735              		.loc 1 247 0 is_stmt 0 discriminator 4
- 736 0186 0244     		add	r2, r2, r0
- 737              	.LVL67:
- 738 0188 92B2     		uxth	r2, r2
- 739 018a D4E7     		b	.L38
- 740              	.LVL68:
- 741              	.L45:
- 247:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_W  = (uint16_t)CLAMP(wr + pwm_res / 2, 10, pwm_res-10);
- 742              		.loc 1 247 0
- 743 018c 0A22     		movs	r2, #10
- 744              	.LVL69:
- 745 018e D2E7     		b	.L38
- 746              	.L50:
- 747              		.loc 1 248 0 is_stmt 1 discriminator 1
- 748 0190 0A3B     		subs	r3, r3, #10
- 749 0192 9BB2     		uxth	r3, r3
- 750              	.L40:
- 751              		.loc 1 248 0 is_stmt 0 discriminator 8
- 752 0194 0E4A     		ldr	r2, .L51+48
- 753 0196 D363     		str	r3, [r2, #60]
- 249:Src/motorcontrol.c ****   // =================================================================
- 250:Src/motorcontrol.c ****  
- 251:Src/motorcontrol.c ****  // ###############################################################################
- 252:Src/motorcontrol.c **** }
- 754              		.loc 1 252 0 is_stmt 1 discriminator 8
- 755 0198 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 756              	.LVL70:
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 19
+ 709              	.LVL60:
+ 710              	.L29:
+ 226:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_V    = (uint16_t)CLAMP(vl + pwm_res / 2, 10, pwm_res-10);
+ 711              		.loc 1 226 0 is_stmt 1 discriminator 2
+ 712 0174 092E     		cmp	r6, #9
+ 713 0176 02DD     		ble	.L41
+ 226:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_V    = (uint16_t)CLAMP(vl + pwm_res / 2, 10, pwm_res-10);
+ 714              		.loc 1 226 0 is_stmt 0 discriminator 4
+ 715 0178 0144     		add	r1, r1, r0
+ 716              	.LVL61:
+ 717 017a 89B2     		uxth	r1, r1
+ 718 017c ADE7     		b	.L30
+ 719              	.LVL62:
+ 720              	.L41:
+ 226:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_V    = (uint16_t)CLAMP(vl + pwm_res / 2, 10, pwm_res-10);
+ 721              		.loc 1 226 0
+ 722 017e 0A21     		movs	r1, #10
+ 723              	.LVL63:
+ 724 0180 ABE7     		b	.L30
+ 725              	.LVL64:
+ 726              	.L31:
+ 227:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_W    = (uint16_t)CLAMP(wl + pwm_res / 2, 10, pwm_res-10);
+ 727              		.loc 1 227 0 is_stmt 1 discriminator 2
+ 728 0182 0929     		cmp	r1, #9
+ 729 0184 02DD     		ble	.L42
+ 227:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_W    = (uint16_t)CLAMP(wl + pwm_res / 2, 10, pwm_res-10);
+ 730              		.loc 1 227 0 is_stmt 0 discriminator 4
+ 731 0186 0244     		add	r2, r2, r0
+ 732              	.LVL65:
+ 733 0188 92B2     		uxth	r2, r2
+ 734 018a AEE7     		b	.L32
+ 735              	.LVL66:
+ 736              	.L42:
+ 227:Src/motorcontrol.c ****     LEFT_TIM->LEFT_TIM_W    = (uint16_t)CLAMP(wl + pwm_res / 2, 10, pwm_res-10);
+ 737              		.loc 1 227 0
+ 738 018c 0A22     		movs	r2, #10
+ 739              	.LVL67:
+ 740 018e ACE7     		b	.L32
+ 741              	.L33:
+ 228:Src/motorcontrol.c ****   // =================================================================
+ 742              		.loc 1 228 0 is_stmt 1 discriminator 2
+ 743 0190 092A     		cmp	r2, #9
+ 744 0192 02DD     		ble	.L43
+ 228:Src/motorcontrol.c ****   // =================================================================
+ 745              		.loc 1 228 0 is_stmt 0 discriminator 4
+ 746 0194 4319     		adds	r3, r0, r5
+ 747 0196 9BB2     		uxth	r3, r3
+ 748 0198 AEE7     		b	.L34
+ 749              	.L43:
+ 228:Src/motorcontrol.c ****   // =================================================================
+ 750              		.loc 1 228 0
+ 751 019a 0A23     		movs	r3, #10
+ 752 019c ACE7     		b	.L34
+ 753              	.LVL68:
+ 754              	.L35:
+ 255:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_V  = (uint16_t)CLAMP(vr + pwm_res / 2, 10, pwm_res-10);
+ 755              		.loc 1 255 0 is_stmt 1 discriminator 2
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 19
 
 
- 757              	.L46:
- 248:Src/motorcontrol.c ****   // =================================================================
- 758              		.loc 1 248 0
- 759 019a 0A23     		movs	r3, #10
- 760 019c FAE7     		b	.L40
- 761              	.L52:
- 762 019e 00BF     		.align	2
- 763              	.L51:
- 764 01a0 000C0140 		.word	1073810432
- 765 01a4 00000000 		.word	wheel_posn
- 766 01a8 00100140 		.word	1073811456
- 767 01ac 00000000 		.word	rtU_Left
- 768 01b0 00000000 		.word	.LANCHOR0
- 769 01b4 00000000 		.word	rtM_Left_
- 770 01b8 00000000 		.word	rtY_Left
- 771 01bc 00000000 		.word	pwm_res
- 772 01c0 00340140 		.word	1073820672
- 773 01c4 00000000 		.word	rtU_Right
- 774 01c8 00000000 		.word	rtM_Right_
- 775 01cc 00000000 		.word	rtY_Right
- 776 01d0 002C0140 		.word	1073818624
- 777              		.cfi_endproc
- 778              	.LFE129:
- 780              		.global	hall_cfg_right
- 781              		.global	hall_cfg_left
- 782              		.comm	pwm_res,2,2
- 783              		.comm	hall_pin_order,28,4
- 784              		.comm	wheel_posn,80,4
- 785              		.global	pwms
- 786              		.global	hall_idx_right
- 787              		.global	hall_idx_left
- 788              		.comm	rtY_Right,20,4
- 789              		.comm	rtU_Right,8,4
- 790              		.comm	rtDW_Right,36,4
- 791              		.comm	rtY_Left,20,4
- 792              		.comm	rtU_Left,8,4
- 793              		.comm	rtDW_Left,36,4
- 794              		.comm	rtP,100,4
- 795              		.global	rtM_Right
- 796              		.global	rtM_Left
- 797              		.comm	rtM_Right_,16,4
- 798              		.comm	rtM_Left_,16,4
- 799              		.section	.bss.pwms,"aw",%nobits
- 800              		.align	2
- 801              		.set	.LANCHOR0,. + 0
- 804              	pwms:
- 805 0000 00000000 		.space	8
- 805      00000000 
- 806              		.section	.rodata.hall_cfg_left,"a",%progbits
- 807              		.align	2
- 810              	hall_cfg_left:
- 811 0000 2000     		.short	32
- 812 0002 4000     		.short	64
- 813 0004 8000     		.short	128
- 814 0006 2000     		.short	32
- 815 0008 8000     		.short	128
- 816 000a 4000     		.short	64
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 20
+ 756 019e 092E     		cmp	r6, #9
+ 757 01a0 02DD     		ble	.L44
+ 255:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_V  = (uint16_t)CLAMP(vr + pwm_res / 2, 10, pwm_res-10);
+ 758              		.loc 1 255 0 is_stmt 0 discriminator 4
+ 759 01a2 0144     		add	r1, r1, r0
+ 760              	.LVL69:
+ 761 01a4 89B2     		uxth	r1, r1
+ 762 01a6 D3E7     		b	.L36
+ 763              	.LVL70:
+ 764              	.L44:
+ 255:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_V  = (uint16_t)CLAMP(vr + pwm_res / 2, 10, pwm_res-10);
+ 765              		.loc 1 255 0
+ 766 01a8 0A21     		movs	r1, #10
+ 767              	.LVL71:
+ 768 01aa D1E7     		b	.L36
+ 769              	.LVL72:
+ 770              	.L37:
+ 256:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_W  = (uint16_t)CLAMP(wr + pwm_res / 2, 10, pwm_res-10);
+ 771              		.loc 1 256 0 is_stmt 1 discriminator 2
+ 772 01ac 0929     		cmp	r1, #9
+ 773 01ae 02DD     		ble	.L45
+ 256:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_W  = (uint16_t)CLAMP(wr + pwm_res / 2, 10, pwm_res-10);
+ 774              		.loc 1 256 0 is_stmt 0 discriminator 4
+ 775 01b0 0244     		add	r2, r2, r0
+ 776              	.LVL73:
+ 777 01b2 92B2     		uxth	r2, r2
+ 778 01b4 D4E7     		b	.L38
+ 779              	.LVL74:
+ 780              	.L45:
+ 256:Src/motorcontrol.c ****     RIGHT_TIM->RIGHT_TIM_W  = (uint16_t)CLAMP(wr + pwm_res / 2, 10, pwm_res-10);
+ 781              		.loc 1 256 0
+ 782 01b6 0A22     		movs	r2, #10
+ 783              	.LVL75:
+ 784 01b8 D2E7     		b	.L38
+ 785              	.L51:
+ 786              		.loc 1 257 0 is_stmt 1 discriminator 1
+ 787 01ba 0A3B     		subs	r3, r3, #10
+ 788 01bc 9BB2     		uxth	r3, r3
+ 789              	.L40:
+ 790              		.loc 1 257 0 is_stmt 0 discriminator 8
+ 791 01be 0F4A     		ldr	r2, .L52+48
+ 792 01c0 D363     		str	r3, [r2, #60]
+ 258:Src/motorcontrol.c ****   // =================================================================
+ 259:Src/motorcontrol.c ****  
+ 260:Src/motorcontrol.c ****  // ###############################################################################
+ 261:Src/motorcontrol.c **** }
+ 793              		.loc 1 261 0 is_stmt 1 discriminator 8
+ 794 01c2 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 795              	.LVL76:
+ 796              	.L46:
+ 257:Src/motorcontrol.c ****   // =================================================================
+ 797              		.loc 1 257 0
+ 798 01c6 0A23     		movs	r3, #10
+ 799 01c8 F9E7     		b	.L40
+ 800              	.L53:
+ 801 01ca 00BF     		.align	2
+ 802              	.L52:
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 20
 
 
- 817 000c 4000     		.short	64
- 818 000e 2000     		.short	32
- 819 0010 8000     		.short	128
- 820 0012 4000     		.short	64
- 821 0014 8000     		.short	128
- 822 0016 2000     		.short	32
- 823 0018 8000     		.short	128
- 824 001a 2000     		.short	32
- 825 001c 4000     		.short	64
- 826 001e 8000     		.short	128
- 827 0020 4000     		.short	64
- 828 0022 2000     		.short	32
- 829              		.section	.rodata.hall_cfg_right,"a",%progbits
- 830              		.align	2
- 833              	hall_cfg_right:
- 834 0000 0004     		.short	1024
- 835 0002 0008     		.short	2048
- 836 0004 0010     		.short	4096
- 837 0006 0004     		.short	1024
- 838 0008 0010     		.short	4096
- 839 000a 0008     		.short	2048
- 840 000c 0008     		.short	2048
- 841 000e 0004     		.short	1024
- 842 0010 0010     		.short	4096
- 843 0012 0008     		.short	2048
- 844 0014 0010     		.short	4096
- 845 0016 0004     		.short	1024
- 846 0018 0010     		.short	4096
- 847 001a 0004     		.short	1024
- 848 001c 0008     		.short	2048
- 849 001e 0010     		.short	4096
- 850 0020 0008     		.short	2048
- 851 0022 0004     		.short	1024
- 852              		.section	.rodata.hall_idx_left,"a",%progbits
- 855              	hall_idx_left:
- 856 0000 01       		.byte	1
- 857              		.section	.rodata.hall_idx_right,"a",%progbits
- 860              	hall_idx_right:
- 861 0000 04       		.byte	4
- 862              		.section	.rodata.rtM_Left,"a",%progbits
- 863              		.align	2
- 866              	rtM_Left:
- 867 0000 00000000 		.word	rtM_Left_
- 868              		.section	.rodata.rtM_Right,"a",%progbits
+ 803 01cc 000C0140 		.word	1073810432
+ 804 01d0 00000000 		.word	wheel_posn
+ 805 01d4 00100140 		.word	1073811456
+ 806 01d8 00000000 		.word	rtU_Left
+ 807 01dc 00000000 		.word	.LANCHOR0
+ 808 01e0 00000000 		.word	rtM_Left_
+ 809 01e4 00000000 		.word	rtY_Left
+ 810 01e8 00000000 		.word	pwm_res
+ 811 01ec 00340140 		.word	1073820672
+ 812 01f0 00000000 		.word	rtU_Right
+ 813 01f4 00000000 		.word	rtM_Right_
+ 814 01f8 00000000 		.word	rtY_Right
+ 815 01fc 002C0140 		.word	1073818624
+ 816              		.cfi_endproc
+ 817              	.LFE129:
+ 819              		.global	hall_cfg_right
+ 820              		.global	hall_cfg_left
+ 821              		.comm	pwm_res,2,2
+ 822              		.comm	hall_pin_order,28,4
+ 823              		.comm	wheel_posn,80,4
+ 824              		.global	pwms
+ 825              		.global	hall_idx_right
+ 826              		.global	hall_idx_left
+ 827              		.comm	rtY_Right,20,4
+ 828              		.comm	rtU_Right,8,4
+ 829              		.comm	rtDW_Right,36,4
+ 830              		.comm	rtY_Left,20,4
+ 831              		.comm	rtU_Left,8,4
+ 832              		.comm	rtDW_Left,36,4
+ 833              		.comm	rtP,100,4
+ 834              		.global	rtM_Right
+ 835              		.global	rtM_Left
+ 836              		.comm	rtM_Right_,16,4
+ 837              		.comm	rtM_Left_,16,4
+ 838              		.section	.bss.pwms,"aw",%nobits
+ 839              		.align	2
+ 840              		.set	.LANCHOR0,. + 0
+ 843              	pwms:
+ 844 0000 00000000 		.space	8
+ 844      00000000 
+ 845              		.section	.rodata.hall_cfg_left,"a",%progbits
+ 846              		.align	2
+ 849              	hall_cfg_left:
+ 850 0000 2000     		.short	32
+ 851 0002 4000     		.short	64
+ 852 0004 8000     		.short	128
+ 853 0006 2000     		.short	32
+ 854 0008 8000     		.short	128
+ 855 000a 4000     		.short	64
+ 856 000c 4000     		.short	64
+ 857 000e 2000     		.short	32
+ 858 0010 8000     		.short	128
+ 859 0012 4000     		.short	64
+ 860 0014 8000     		.short	128
+ 861 0016 2000     		.short	32
+ 862 0018 8000     		.short	128
+ 863 001a 2000     		.short	32
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 21
+
+
+ 864 001c 4000     		.short	64
+ 865 001e 8000     		.short	128
+ 866 0020 4000     		.short	64
+ 867 0022 2000     		.short	32
+ 868              		.section	.rodata.hall_cfg_right,"a",%progbits
  869              		.align	2
- 872              	rtM_Right:
- 873 0000 00000000 		.word	rtM_Right_
- 874              		.text
- 875              	.Letext0:
- 876              		.file 2 "Inc/rtwtypes.h"
- 877              		.file 3 "Inc/BLDC_controller.h"
- 878              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
- 879              		.file 5 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
- 880              		.file 6 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
- 881              		.file 7 "Inc/system_at32f4xx.h"
- 882              		.file 8 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
- 883              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 21
-
-
- 884              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
- 885              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.
- 886              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
- 887              		.file 13 "Inc/defines.h"
- 888              		.file 14 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
- 889              		.file 15 "<built-in>"
-ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s 			page 22
+ 872              	hall_cfg_right:
+ 873 0000 0004     		.short	1024
+ 874 0002 0008     		.short	2048
+ 875 0004 0010     		.short	4096
+ 876 0006 0004     		.short	1024
+ 877 0008 0010     		.short	4096
+ 878 000a 0008     		.short	2048
+ 879 000c 0008     		.short	2048
+ 880 000e 0004     		.short	1024
+ 881 0010 0010     		.short	4096
+ 882 0012 0008     		.short	2048
+ 883 0014 0010     		.short	4096
+ 884 0016 0004     		.short	1024
+ 885 0018 0010     		.short	4096
+ 886 001a 0004     		.short	1024
+ 887 001c 0008     		.short	2048
+ 888 001e 0010     		.short	4096
+ 889 0020 0008     		.short	2048
+ 890 0022 0004     		.short	1024
+ 891              		.section	.rodata.hall_idx_left,"a",%progbits
+ 894              	hall_idx_left:
+ 895 0000 01       		.byte	1
+ 896              		.section	.rodata.hall_idx_right,"a",%progbits
+ 899              	hall_idx_right:
+ 900 0000 04       		.byte	4
+ 901              		.section	.rodata.rtM_Left,"a",%progbits
+ 902              		.align	2
+ 905              	rtM_Left:
+ 906 0000 00000000 		.word	rtM_Left_
+ 907              		.section	.rodata.rtM_Right,"a",%progbits
+ 908              		.align	2
+ 911              	rtM_Right:
+ 912 0000 00000000 		.word	rtM_Right_
+ 913              		.text
+ 914              	.Letext0:
+ 915              		.file 2 "Inc/rtwtypes.h"
+ 916              		.file 3 "Inc/BLDC_controller.h"
+ 917              		.file 4 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/machine/_default_types
+ 918              		.file 5 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_stdint.h"
+ 919              		.file 6 "Drivers/CMSIS/CM4/CoreSupport/core_cm4.h"
+ 920              		.file 7 "Inc/system_at32f4xx.h"
+ 921              		.file 8 "Drivers/CMSIS/CM4/DeviceSupport/at32f4xx.h"
+ 922              		.file 9 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/lock.h"
+ 923              		.file 10 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/_types.h"
+ 924              		.file 11 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/lib/gcc/arm-none-eabi/7.3.1/include/stddef.
+ 925              		.file 12 "/usr/local/Cellar/gcc-arm-none-eabi/20180627/arm-none-eabi/include/sys/reent.h"
+ 926              		.file 13 "Inc/defines.h"
+ 927              		.file 14 "Drivers/Modified_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 928              		.file 15 "<built-in>"
+ARM GAS  /var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 motorcontrol.c
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:17     .text.motor_counter_reset:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:24     .text.motor_counter_reset:0000000000000000 motor_counter_reset
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:66     .text.motor_counter_reset:0000000000000020 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:17     .text.motor_counter_reset:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:24     .text.motor_counter_reset:0000000000000000 motor_counter_reset
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:66     .text.motor_counter_reset:0000000000000020 $d
                             *COM*:0000000000000050 wheel_posn
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:74     .text.motor_counter_increment:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:81     .text.motor_counter_increment:0000000000000000 motor_counter_increment
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:276    .text.motor_counter_increment:0000000000000118 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:76     .text.motor_counter_increment:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:83     .text.motor_counter_increment:0000000000000000 motor_counter_increment
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:295    .text.motor_counter_increment:0000000000000130 $d
                             *COM*:000000000000001c hall_pin_order
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:285    .text.motor_init:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:292    .text.motor_init:0000000000000000 motor_init
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:395    .text.motor_init:0000000000000080 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:304    .text.motor_init:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:311    .text.motor_init:0000000000000000 motor_init
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:414    .text.motor_init:0000000000000080 $d
                             *COM*:0000000000000002 pwm_res
                             *COM*:0000000000000064 rtP
                             *COM*:0000000000000010 rtM_Left_
@@ -1233,25 +1282,27 @@ DEFINED SYMBOLS
                             *COM*:0000000000000024 rtDW_Right
                             *COM*:0000000000000008 rtU_Right
                             *COM*:0000000000000014 rtY_Right
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:413    .text.motor_run:0000000000000000 $t
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:420    .text.motor_run:0000000000000000 motor_run
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:764    .text.motor_run:00000000000001a0 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:833    .rodata.hall_cfg_right:0000000000000000 hall_cfg_right
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:810    .rodata.hall_cfg_left:0000000000000000 hall_cfg_left
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:804    .bss.pwms:0000000000000000 pwms
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:860    .rodata.hall_idx_right:0000000000000000 hall_idx_right
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:855    .rodata.hall_idx_left:0000000000000000 hall_idx_left
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:872    .rodata.rtM_Right:0000000000000000 rtM_Right
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:866    .rodata.rtM_Left:0000000000000000 rtM_Left
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:800    .bss.pwms:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:807    .rodata.hall_cfg_left:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:830    .rodata.hall_cfg_right:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:863    .rodata.rtM_Left:0000000000000000 $d
-/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//cc8w3WdQ.s:869    .rodata.rtM_Right:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:432    .text.motor_run:0000000000000000 $t
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:439    .text.motor_run:0000000000000000 motor_run
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:803    .text.motor_run:00000000000001cc $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:872    .rodata.hall_cfg_right:0000000000000000 hall_cfg_right
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:849    .rodata.hall_cfg_left:0000000000000000 hall_cfg_left
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:843    .bss.pwms:0000000000000000 pwms
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:899    .rodata.hall_idx_right:0000000000000000 hall_idx_right
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:894    .rodata.hall_idx_left:0000000000000000 hall_idx_left
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:911    .rodata.rtM_Right:0000000000000000 rtM_Right
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:905    .rodata.rtM_Left:0000000000000000 rtM_Left
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:839    .bss.pwms:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:846    .rodata.hall_cfg_left:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:869    .rodata.hall_cfg_right:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:902    .rodata.rtM_Left:0000000000000000 $d
+/var/folders/l3/4y5292px21b4835bsnjwqc7w009kq1/T//ccsWxav8.s:908    .rodata.rtM_Right:0000000000000000 $d
 
 UNDEFINED SYMBOLS
-__aeabi_ui2d
+__aeabi_i2d
 __aeabi_ddiv
+__aeabi_ui2d
+__aeabi_dmul
 __aeabi_d2f
 HAL_GetTick
 BLDC_controller_initialize

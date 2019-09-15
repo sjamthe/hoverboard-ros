@@ -95,13 +95,13 @@ void motor_counter_increment(uint8_t motor)
     {
       wheel_posn[motor].ticks += posn-prev_posn - 6;
     }
-    //See if we finished a rotation 
-    if(abs(wheel_posn[motor].ticks -  wheel_posn[motor].ticks_at_prev_rotation) >= 90)
+    //See if we finished a 1/10th rotation 
+    if(abs(wheel_posn[motor].ticks -  wheel_posn[motor].ticks_at_prev_rotation) >= 4)
     {
-      wheel_posn[motor].rpm = 1000.0*90.0/
-        (abs(wheel_posn[motor].ticks - wheel_posn[motor].ticks_at_prev_rotation )*
-        (wheel_posn[motor].millis_at_tick - wheel_posn[motor].millis_at_prev_rotation));
-      if(wheel_posn[motor].ticks < 0)
+      wheel_posn[motor].rpm = 
+        (abs(wheel_posn[motor].ticks - wheel_posn[motor].ticks_at_prev_rotation )/90.0/
+        (wheel_posn[motor].millis_at_tick - wheel_posn[motor].millis_at_prev_rotation)*60*1000);
+      if(wheel_posn[motor].ticks <  wheel_posn[motor].ticks_at_prev_rotation)
       {
         wheel_posn[motor].rpm *= -1; //reverse direction
       }
@@ -176,6 +176,7 @@ void motor_run()
  
   int ul, vl, wl;
   int ur, vr, wr;
+  uint32_t now = HAL_GetTick();
   // ========================= LEFT MOTOR ============================ 
     // Get hall sensors values
     uint8_t hall_ul = !(LEFT_HALL_U_PORT->IDR & hall_cfg_left[hall_idx_left][0]);
@@ -194,6 +195,14 @@ void motor_run()
       if(wheel_posn[i].hall != wheel_posn[i].prev_hall) 
       {
         motor_counter_increment(i);
+      }
+      else
+      {
+        //Reset the rpm counter if its is old
+        if(now - wheel_posn[i].millis_at_tick > 500)
+        {
+          wheel_posn[i].rpm = 0;
+        }
       }
     }
     // ----- end tick measurement ---- //

@@ -64,7 +64,8 @@ void pid_compute(p_pid_controller pid)
 	float dinput = in - pid->lastin;
 	// Compute PID output
 	float out = pid->Kp * error + pid->iterm - pid->Kd * dinput;
-	printf("error=%d, iterm=%d, dinput=%d, out=%d\n",(int)error,(int) pid->iterm, (int)dinput,(int)out);
+	printf("set=%d,in=%d,error=%d, iterm=%d, dinput=%d, out=%d\n",(int)(*(pid->setpoint)),(int)in,
+						(int)error,(int) pid->iterm, (int)dinput,(int)out);
 	// Apply limit to output value
 	if (out > pid->omax)
 		out = pid->omax;
